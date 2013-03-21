@@ -1,0 +1,34 @@
+{% load i18n thumbnail %}
+
+<h6>{% trans "Agenda" %}</h6>
+    {% for o in occ %}            
+        <div class="plugin_coop_agenda">
+            <div class="bloc_title">
+                <ul class="date">
+                    <li>
+                        <span class="date">
+                            <span class="day">{{ o.start_time|date:"j" }}</span>
+                            <span class="month">{{ o.start_time|date:"M"|lower }}</span>
+                        </span>
+                        {% if  o.start_time.date != o.end_time.date %}
+                            <span class="date">
+                                <span class="day">{{ o.end_time|date:"j" }}</span>
+                                <span class="month">{{ o.end_time|date:"M"|lower }}</span>
+                            </span>
+                        {% endif %}
+                    </li>
+                </ul>
+                
+                <h5 class="coop_agenda_title"><a href="{{ agenda_url }}p/{{ o.event.pk }}">{{ o.event.title }}</a></h5>
+            </div>
+
+            <p class="desc">
+            {{ o.event.description|truncatechars:100 }}
+            </p>
+
+        </div>
+    {% endfor %}
+
+    <div class="plugin_coop_agenda_footer">
+        <h5 class="coop_agenda_title"><a href="{{ agenda_url }}">{% trans "See all events..." %}</a></h5>
+    </div>

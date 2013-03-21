@@ -1,0 +1,70 @@
+{% load i18n thumbnail %}
+
+
+    <div class="coop_agenda">
+        <div class="bloc_title">
+            {% if e.occurrence_set.count %}
+            <ul class="date">
+                {% for o in e.occurrence_set.all %}
+                <li>
+                    <span class="date">
+                        <span class="day">{{ o.start_time|date:"j" }}</span>
+                        <span class="month">{{ o.start_time|date:"M"|lower }} {{ o.start_time|date:"Y"|lower }}</span>
+                    </span>
+                    {% if  o.start_time.date != o.end_time.date %}
+                        <span class="date">
+                            <span class="day">{{ o.end_time|date:"j" }}</span>
+                            <span class="month">{{ o.end_time|date:"M"|lower }} {{ o.end_time|date:"Y"|lower }}</span>
+                        </span>
+                    {% endif %}
+
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            {% endif %}
+
+            <a href="{{ base_url }}{{ e.pk }}"><h3 class="coop_agenda_title">{{ e.title }}</h3></a>
+        </div>
+
+        <span class='label'>{% trans "Description" %}:</span> {{ e.description }}
+        <br/>
+        <span class='label'>{% trans "Organization" %}:</span> {% if e.organization == None %} {% else %}{{ e.organization }} {% endif %}
+        <br/>
+        <span class='label'>{% trans "Place" %}:</span> {% if e.location == None %} {% else %}{{ e.location }} {% endif %}
+        <br/>
+        <span class='label'>{% trans "Type event" %}:</span> {% for cat in e.category.all %} {{ cat }} {% endfor %}
+        <br/>
+
+        {% if e.linked_articles %}
+
+            {% with e.linked_articles.0 as article %}
+            {% thumbnail article.logo "120x120" as im %}
+            <a class="title" href="{{ article.get_absolute_url }}">
+                <img class="event-article-icon" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+            </a>
+            {% endthumbnail %}
+
+            {% endwith %}
+
+        {% else %}
+        {% endif %}
+
+
+        <h4 class="coop_agenda">{% trans "Dates" %}</h4>
+        {% if e.occurrence_set.count %}
+        <ul>
+            {% for o in e.occurrence_set.all %}
+            <li>
+                    {{ o.start_time|date:"j"|lower }} {{ o.start_time|date:"M" }} {{ o.start_time|date:"Y"|lower }}, {{ o.start_time|date:"H" }}:{{ o.start_time|date:"i" }}
+                    &ndash; 
+                    {{ o.end_time|date:"j"|lower }} {{ o.end_time|date:"M" }} {{ o.end_time|date:"Y"|lower }}, {{ o.end_time|date:"H" }}:{{ o.end_time|date:"i" }}
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        {% endif %}
+    </div>
+
+
+

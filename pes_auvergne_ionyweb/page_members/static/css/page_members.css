@@ -1,0 +1,44 @@
+.member,
+.member_detail {
+    border: 1px solid #eee;
+    margin-bottom: 5px;
+    padding: 5px;
+    clear: both;
+}
+
+.member_title {
+    color: #0D4877;
+    margin-left: 100px;
+    margin-top: 0px;
+    font-size: 20px;
+}
+
+.member_detail .member_title {
+    margin-top: 0.8em;
+}
+
+.member_subtitle {
+    color: #666;
+}
+
+.member .member_logo {
+    float: left;
+    margin-right: 20px;
+    height: 100px;
+    padding-top: 10px;
+}
+
+.member .member_logo img {
+    width: 80px;
+}
+
+.member .member_desc,
+.member .member_link,
+.member .member_address,
+.member .member_email {
+    margin-left: 100px;
+}
+
+.member .member_acronym {
+    color: #ccc;
+}

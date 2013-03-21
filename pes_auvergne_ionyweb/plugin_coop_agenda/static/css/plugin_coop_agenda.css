@@ -1,0 +1,55 @@
+.plugin_coop_agenda {
+    clear: left;
+}
+
+.plugin_coop_agenda .coop_agenda_title {
+    float: left;
+    font-size: 1.3em !important;
+}
+
+.plugin_coop_agenda .desc {
+    float: left;
+    font-size: 0.8em;
+}
+
+.plugin_coop_agenda ul.date {
+    list-style: none;
+    margin: 0;
+}
+
+.plugin_coop_agenda span.date {
+    background-color: #FEFFF3;
+    border: 1px solid #5D5D5D;
+    box-shadow: 1px 1px 3px #999999;
+    display: inline-block;
+    float: left;
+    height: 42px;
+    left: 0;
+    margin-right: 8px;
+    position: relative;
+    width: 40px;
+}
+
+.plugin_coop_agenda span.day {
+    display: block;
+    font: bold 20px/18px Dosis,Lucida,Verdana,sans-serif;
+    height: 20px;
+    padding-top: 4px;
+    text-align: center;
+    text-shadow: 1px 1px 2px #B3B3B3;
+    width: 40px;
+}
+
+.plugin_coop_agenda span.month {
+    background-color: #F86437;
+    color: #FFFFFF;
+    display: block;
+    font-size: 12px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+}
+
+.plugin_coop_agenda_footer {
+    clear: left;
+}

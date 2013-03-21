@@ -1,0 +1,36 @@
+{% load i18n thumbnail %}
+
+
+{% for event_category, occs in events_by_categories.items %}
+    <h3 class="coop_agenda">{% trans "Agenda" %} {{ event_category }}</h3>
+        {% for o in occs %}            
+            <div class="coop_agenda">
+                <div class="bloc_title">
+
+                    <ul class="date">
+                        <li>
+                            <span class="date">
+                                <span class="day">{{ o.start_time|date:"j" }}</span>
+                                <span class="month">{{ o.start_time|date:"M"|lower }} {{ o.start_time|date:"Y"|lower }}</span>
+                            </span>
+                            {% if  o.start_time.date != o.end_time.date %}
+                                <span class="date_to">{% trans "to" %}</span>
+                                <span class="date">
+                                    <span class="day">{{ o.end_time|date:"j" }}</span>
+                                    <span class="month">{{ o.end_time|date:"M"|lower }} {{ o.end_time|date:"Y"|lower }}</span>
+                                </span>
+                            {% endif %}
+                        </li>
+                    </ul>
+
+                    <a href="{{ base_url }}{{ o.event.pk }}"><h3 class="coop_agenda_title">{{ o.event.title }}</h3></a>
+                </div>
+
+                {{ o.event.description|truncatewords_html:15|safe }}
+                {% if o.event.location == None %} {% else %} <span class="location">{% trans "in" %} {{ o.event.location }}</span> {% endif %}
+
+            </div>
+        {% endfor %}
+{% endfor %}
+
+

@@ -1,0 +1,101 @@
+=====================================
+
+
+============
+Installation
+============
+# Basée sur https://github.com/credis/django-coop/wiki/Installation
+
+sudo apt-get install python-virtualenv git mercurial libpq-dev \
+                     libmysqlclient-dev python-dev geoip-bin
+
+cd ~/projects/allianceprovence
+virtualenv --no-site-packages .
+export DJANGO_COOP_IONYWEB_PROJECT=`pwd`
+source $DJANGO_COOP_IONYWEB_PROJECT/bin/activate
+
+pip install django==1.4.5
+pip install -e git+git://github.com/makinacorpus/django-coop@django-coop-ionyweb#egg=django-coop
+
+pip uninstall ionyweb
+pip install -e git+git://github.com/makinacorpus/ionyweb#egg=ionyweb
+
+
+cd $DJANGO_COOP_IONYWEB_PROJECT/
+git clone gitorious-git@gitorious.makina-corpus.net:mes/allianceprovence.git
+cp allianceprovence/coop_local/db_settings.py.sample allianceprovence/coop_local/db_settings.py
+cp allianceprovence/coop_local/local_settings.py.sample allianceprovence/coop_local/local_settings.py
+
+# Plugins ionyweb/djangocoop
+# --------------------------
+cd $DJANGO_COOP_IONYWEB_PROJECT/allianceprovence/allianceprovence_ionyweb/
+git clone git@github.com:makinacorpus/django-coop-ionyweb-addons.git addons
+mv addons/* .
+rm -r addons
+mkdir logs
+
+
+cd $DJANGO_COOP_IONYWEB_PROJECT
+pip install -U distribute
+pip install -r allianceprovence/requirements.txt
+
+# Créer la base de données
+# Editer le fichier coop_local/local_settings.py
+# Editer le fichier coop_local/db_settings.py
+
+cd $DJANGO_COOP_IONYWEB_PROJECT/src/django-coop
+git checkout origin/django-coop-ionyweb
+
+cd $DJANGO_COOP_IONYWEB_PROJECT/allianceprovence
+sudo chmod -R g+rw media
+chmod +x manage.py 
+./manage.py collectstatic
+
+
+python manage.py syncdb --all
+python manage.py migrate --fake
+python manage.py convert_to_south coop_local
+./manage.py loaddata coop_local/fixtures/*
+
+
+
+
+# For ionyweb 
+pip uninstall django-tinymce
+pip install django-tinymce==1.5.1b2
+
+pip install urlobject
+pip install django-filebrowser
+
+python manage.py syncdb
+python manage.py migrate
+
+
+# Dans la table django_site, mettre à jour le nom de domaine
+# Dans multisite_alias également
+
+# Export/Import de données (allianceprovence) :
+# Note: il faut utiliser l'option --natural de dumpdata pour éviter
+# l'incohérence des contenttypes et ajuster le chemin des medias
+cd ~/projects/allianceprovence/allianceprovence
+./manage.py loaddata ~/tmp/promess84_ionyweb.json
+
+# Export/import des media:
+# copier le répertoire media de ionyweb dans celui de django_coop
+
+
+# Dans ~/projects/promess84/local/lib/python2.7/site-packages/ionyweb/plugin_app/plugin_slideshow/views.py
+# Modifier ionyweb.slideshow.js en ionyweb_slideshow.js (bug ionyweb plugin sideshow)
+
+
+
+=====================================
+
+Lancement :
+-----------
+cd ~/projects/allianceprovence
+export DJANGO_COOP_IONYWEB_PROJECT=`pwd`
+source $DJANGO_COOP_IONYWEB_PROJECT/bin/activate
+cd allianceprovence
+./manage.py runserver
+

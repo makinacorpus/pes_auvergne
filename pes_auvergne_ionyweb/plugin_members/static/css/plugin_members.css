@@ -1,0 +1,31 @@
+.member {
+    border: 1px solid #eee;
+    margin-bottom: 5px;
+    padding: 5px;
+    clear: both;
+}
+
+.member_title {
+    color: #0D4877;
+    margin-left: 100px;
+}
+
+.member_subtitle {
+    color: #ccc;
+}
+
+.member .member_logo {
+    float: left;
+    margin-right: 20px;
+    height: 100px;
+    padding-top: 10px;
+}
+
+.member .member_logo img {
+    width: 80px;
+}
+
+.member .member_desc,
+.member .member_link {
+    margin-left: 100px;
+}

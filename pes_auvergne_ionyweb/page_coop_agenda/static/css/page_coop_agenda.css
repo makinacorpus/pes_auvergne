@@ -1,0 +1,99 @@
+.coop_agenda {
+    border: 1px solid #eee;
+    margin-bottom: 5px;
+    padding: 5px;
+    clear: both;
+    border-radius: 4px 4px 4px 4px;
+}
+
+h3.coop_agenda {
+/*     background-color: #1265a8;     */
+    background: #1265a8 url(../img/bg_category.png) no-repeat left top;
+    color: #fff !important;
+}
+
+h4.coop_agenda {
+    background-color: #6ab3ef;    
+    color: #fff;
+}
+
+
+.coop_agenda .bloc_title {
+/*     margin-left: 35px; */
+}
+
+.coop_agenda .coop_agenda_title {
+    color: #0D4877;
+    font-size: 20px;
+    margin-left: 100px;
+    margin-top: 0;
+}
+
+.coop_agenda_event_icon {
+    background: url(../img/calendar.png) no-repeat left top;
+    width: 75px;
+    height: 75px;
+    float: left;
+}
+
+.coop_agenda_subtitle {
+    color: #ccc;
+}
+
+.coop_agenda .label {
+    background-color: #EEEEEE;
+    color: #444;
+    font-weight: normal;
+    text-align: right;
+    text-shadow: none;
+    width: 100px;
+}
+
+.coop_agenda ul.date {
+    list-style: none;
+    margin: 0;
+}
+
+.coop_agenda .location {
+    color: #222;
+    font-weight: bold;
+}
+
+span.date {
+    background-color: #FEFFF3;
+    border: 1px solid #5D5D5D;
+    box-shadow: 1px 1px 3px #999999;
+    display: inline-block;
+    float: left;
+    height: 52px;
+    left: 0;
+    margin-right: 8px;
+    position: relative;
+    width: 50px;
+}
+
+span.day {
+    display: block;
+    font: bold 28px/24px Dosis,Lucida,Verdana,sans-serif;
+    height: 30px;
+    padding-top: 4px;
+    text-align: center;
+    text-shadow: 1px 1px 2px #B3B3B3;
+    width: 50px;
+}
+
+span.month {
+    background-color: #F86437;
+    color: #FFFFFF;
+    display: block;
+    font-size: 12px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+}
+
+span.date_to {
+    float: left;
+    line-height: 52px;
+    margin-right: 7px;
+}

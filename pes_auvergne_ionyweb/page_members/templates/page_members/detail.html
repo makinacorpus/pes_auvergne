@@ -1,0 +1,27 @@
+{% load i18n %}
+
+    <div class="member member_detail">
+        <div class="member_logo">
+            <img src="{{ media_path}}{{ member.logo }}" alt="">
+        </div>
+        <h3 class="member_title">{{ member.title }} <span class="member_acronym">({{ member.acronym }})</span></h3>
+        <span class="member_subtitle">{{ member.subtitle }}</span>
+
+        <div class="member_desc">
+            <p>{{ member.description|safe }}</p>
+        </div>
+
+        <div class="member_address">
+            {{ member.pref_address|safe }}
+        </div>
+
+        <div class="member_email">
+            Email: {{ member.pref_email|safe }}
+        </div>
+
+        <div class="member_link">
+            <a href="{{ member.web|safe }}" />{{ member.web|safe }}</a>
+        </div>
+    </div>
+
+

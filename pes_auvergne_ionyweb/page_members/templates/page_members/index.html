@@ -1,0 +1,16 @@
+{% load i18n %}
+
+{% for m in members %}
+    <div class="member">
+        <div class="member_logo">
+            <img src="{{ media_path}}{{ m.logo }}" alt="">
+        </div>
+        {% if direct_link %}
+            <a href="{{ m.web|safe }}"><h3 class="member_title">{{ m.title }}</h3></a>
+        {% else %}
+            <a href="{{ base_url }}{{ m.pk }}"><h3 class="member_title">{{ m.title }}</h3></a>
+        {% endif %}
+        <span class="member_subtitle">{{ m.subtitle }}</span>
+    </div>
+
+{% endfor %}

@@ -1,0 +1,20 @@
+{% load i18n %}
+
+{% for m in members %}
+    <div class="member">
+        <div class="member_logo">
+            <img src="{{ media_path}}{{ m.logo }}" alt="">
+        </div>
+        <h3 class="member_title">{{ m.title }}</h3>
+        <span class="member_subtitle">{{ m.subtitle }}</span>
+
+        <div class="member_desc">
+            <p>{{ m.description|safe }}</p>
+        </div>
+
+        <div class="member_link">
+            <a href="{{ m.web|safe }}" />{{ m.web|safe }}</a>
+        </div>
+    </div>
+
+{% endfor %}

@@ -1,0 +1,9 @@
+{% load i18n %}
+
+<h6>{% trans "Member" %}</h6>
+{% for m in members %}
+    <div class="member_logo">
+        <a href="{{ m.web|safe }}"><img src="{{ media_path}}{{ m.logo }}" alt="{{ m.title }}"></a>
+    </div>
+
+{% endfor %}

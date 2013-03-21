@@ -1,0 +1,21 @@
+{% extends "layout/base.html" %}
+{% load placeholder_tags %}
+
+
+{% block layout %}
+
+<div style="float: left; width: 100%; min-height: 1px;">
+    {% render_placeholder "1" %}
+</div>
+
+<div style="float: left; width: 100%; min-height: 1px;">
+  {% render_placeholder "2" %}
+</div>
+
+<div style="float: left; width: 100%; min-height: 1px;">
+  {% render_placeholder "3" %}
+</div>
+
+<div style="clear: both;"></div>
+
+{% endblock layout %}
