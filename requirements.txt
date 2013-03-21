@@ -104,5 +104,5 @@ django-multisite
 
 
 #ionyweb
-git+git://github.com/ionyse/ionyweb.git
+#git+git://github.com/ionyse/ionyweb.git
 

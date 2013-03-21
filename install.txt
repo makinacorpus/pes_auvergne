@@ -9,35 +9,36 @@ Installation
 sudo apt-get install python-virtualenv git mercurial libpq-dev \
                      libmysqlclient-dev python-dev geoip-bin
 
-cd ~/projects/allianceprovence
+cd ~/projects/pes_auvergne
 virtualenv --no-site-packages .
 export DJANGO_COOP_IONYWEB_PROJECT=`pwd`
 source $DJANGO_COOP_IONYWEB_PROJECT/bin/activate
 
 pip install django==1.4.5
-pip install -e git+git://github.com/makinacorpus/django-coop@django-coop-ionyweb#egg=django-coop
-
-pip uninstall ionyweb
+pip install django-selectable install -e git+git://github.com/makinacorpus/django-coop@django-coop-ionyweb#egg=django-coop
+pip install -U distribute
 pip install -e git+git://github.com/makinacorpus/ionyweb#egg=ionyweb
+pip install django-selectable
+pip install simplejson
+
+pip install -e git+git://github.com/makinacorpus/coop-geo@master#egg=coop-geo
 
 
 cd $DJANGO_COOP_IONYWEB_PROJECT/
-git clone gitorious-git@gitorious.makina-corpus.net:mes/allianceprovence.git
-cp allianceprovence/coop_local/db_settings.py.sample allianceprovence/coop_local/db_settings.py
-cp allianceprovence/coop_local/local_settings.py.sample allianceprovence/coop_local/local_settings.py
+git clone gitorious-git@gitorious.makina-corpus.net:mes/pes_auvergne.git
+cp pes_auvergne/coop_local/db_settings.py.sample pes_auvergne/coop_local/db_settings.py
+cp pes_auvergne/coop_local/local_settings.py.sample pes_auvergne/coop_local/local_settings.py
 
 # Plugins ionyweb/djangocoop
 # --------------------------
-cd $DJANGO_COOP_IONYWEB_PROJECT/allianceprovence/allianceprovence_ionyweb/
+cd $DJANGO_COOP_IONYWEB_PROJECT/pes_auvergne/pes_auvergne_ionyweb/
 git clone git@github.com:makinacorpus/django-coop-ionyweb-addons.git addons
 mv addons/* .
 rm -r addons
 mkdir logs
 
-
 cd $DJANGO_COOP_IONYWEB_PROJECT
-pip install -U distribute
-pip install -r allianceprovence/requirements.txt
+pip install -r pes_auvergne/requirements.txt
 
 # Créer la base de données
 # Editer le fichier coop_local/local_settings.py
@@ -46,7 +47,7 @@ pip install -r allianceprovence/requirements.txt
 cd $DJANGO_COOP_IONYWEB_PROJECT/src/django-coop
 git checkout origin/django-coop-ionyweb
 
-cd $DJANGO_COOP_IONYWEB_PROJECT/allianceprovence
+cd $DJANGO_COOP_IONYWEB_PROJECT/pes_auvergne
 sudo chmod -R g+rw media
 chmod +x manage.py 
 ./manage.py collectstatic
@@ -74,10 +75,10 @@ python manage.py migrate
 # Dans la table django_site, mettre à jour le nom de domaine
 # Dans multisite_alias également
 
-# Export/Import de données (allianceprovence) :
+# Export/Import de données (pes_auvergne) :
 # Note: il faut utiliser l'option --natural de dumpdata pour éviter
 # l'incohérence des contenttypes et ajuster le chemin des medias
-cd ~/projects/allianceprovence/allianceprovence
+cd ~/projects/pes_auvergne/pes_auvergne
 ./manage.py loaddata ~/tmp/promess84_ionyweb.json
 
 # Export/import des media:
@@ -93,9 +94,9 @@ cd ~/projects/allianceprovence/allianceprovence
 
 Lancement :
 -----------
-cd ~/projects/allianceprovence
+cd ~/projects/pes_auvergne
 export DJANGO_COOP_IONYWEB_PROJECT=`pwd`
 source $DJANGO_COOP_IONYWEB_PROJECT/bin/activate
-cd allianceprovence
+cd pes_auvergne
 ./manage.py runserver
 
