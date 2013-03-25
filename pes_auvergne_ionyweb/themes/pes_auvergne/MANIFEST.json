@@ -1,8 +1,13 @@
-{"title": "Promess84",
- "description": "Theme for Promess84",
+{"title": "PES Auvergne",
+ "description": "Theme for PES Auvergne",
  "author": "Makina Corpus",
  "website": "http://www.makina-corpus.com",
- "date": "05/02/2013",
+ "date": "22/03/2013",
  "preview": "preview.png",
- "editable": false
+ "editable": false,
+"templates": [
+     {"title": "Standard", "file": "index.html", "preview": "index.png"},
+     {"title": "Home page", "file": "home.html", "preview": "home.png"}
+    ]
 }
+

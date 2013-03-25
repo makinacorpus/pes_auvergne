@@ -1,7 +1,7 @@
 {% load mptt_tags %}
 <ul>
     {% recursetree menu %}
-	<li class="{% if page.lft >= node.lft and page.rght <= node.rght and page.tree_id == node.tree_id %}active {% endif %}{% if node.draft %}draft{% endif %}">
+	<li class="{% if page.lft >= node.lft and page.rght <= node.rght and page.tree_id == node.tree_id %}active {% endif %}{% if node.draft %}draft{% endif %} {{ node.slug }}">
       <a href="{{ node.get_absolute_url }}">{% firstof node.menu_title node.title %}</a>
 	  {% if children %}
       <ul class="submenu">

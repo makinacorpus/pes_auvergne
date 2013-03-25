@@ -14,11 +14,12 @@
   <body id="index" class="home">
 {% endblock %}
 
+    
+
 {% block header %}
   <div class="gradient-header"></div>
-  <header id="banner" class="body">
-	{% render_layout "header2" %}
-    <div class="site_logo"></div>
+  <header id="banner" class="">
+	{% render_layout "header" %}
     <nav>
 	  {% render_navigation %}
 	</nav>
@@ -31,8 +32,7 @@
 
   <div id="main-content">
     <section id="content" class="body">
-        <div id="column1">{% block page %}{% render_page %}{% endblock %}</div>
-        <div id="column2">{% render_layout 'widgets' %}</div>
+      {% block page %}{% render_page %}{% endblock %}
     </section>
  </div>
   
@@ -44,4 +44,3 @@
       <div id="footer-column1">{% render_layout "footer" %}</div>
   </footer>
 {% endblock %}
-
