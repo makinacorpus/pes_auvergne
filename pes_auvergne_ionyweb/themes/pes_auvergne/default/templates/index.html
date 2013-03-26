@@ -16,10 +16,13 @@
 
 {% block header %}
   <div class="gradient-header"></div>
+  <div id="menu-top">
+    {% render_layout "menu-top" %}
+  </div>
   <header id="banner" class="body">
 	{% render_layout "header2" %}
-    <div class="site_logo"></div>
-    <nav>
+    <a href="/"><div class="site_logo"></div></a>
+    <nav class="index">
 	  {% render_navigation %}
 	</nav>
   </header><!-- /#banner -->
@@ -29,10 +32,24 @@
 
 {% block content %}
 
-  <div id="main-content">
+  <div id="main-content" class="content-index">
     <section id="content" class="body">
         <div id="column1">{% block page %}{% render_page %}{% endblock %}</div>
-        <div id="column2">{% render_layout 'widgets' %}</div>
+
+        <div id="column2">
+            <div class="column-widget" id="annonces">
+                {% render_layout 'annonces' %}
+            </div>
+            <div class="column-widget" id="participer">
+                {% render_layout 'participer' %}
+            </div>
+            <div class="column-widget" id="decouvrez">
+                {% render_layout 'decouvrez' %}
+            </div>
+            <div class="column-widget" id="ma_pes">
+                {% render_layout 'ma_pes' %}
+            </div>
+        </div>
     </section>
  </div>
   
