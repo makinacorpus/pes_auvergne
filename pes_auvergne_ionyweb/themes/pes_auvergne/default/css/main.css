@@ -15,7 +15,7 @@
 /***** Global *****/
 /* Body */
 body {
-    background: #fff;
+    background: #fff url(../images/bg_body.png) repeat left top;
     color: #767676;
     font-size: 11pt;
     font-family: 'Aller Bold', 'Allert Light - Regular', 'Helvetica Neue', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -283,7 +283,7 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 	Body
 *****************/
 #main-content.content-index {
-    background: #f5f5f5;
+
 }
 
 #content {
