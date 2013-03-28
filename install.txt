@@ -34,6 +34,7 @@ cp pes_auvergne/coop_local/local_settings.py.sample pes_auvergne/coop_local/loca
 cd $DJANGO_COOP_IONYWEB_PROJECT/pes_auvergne/pes_auvergne_ionyweb/
 git clone git@github.com:makinacorpus/django-coop-ionyweb-addons.git addons
 mv addons/* .
+mv addons/.git .
 rm -r addons
 mkdir logs
 
@@ -59,6 +60,8 @@ python manage.py convert_to_south coop_local
 ./manage.py loaddata coop_local/fixtures/*
 
 
+pip uninstall pil
+pip install pillow
 
 
 # For ionyweb 
@@ -88,7 +91,7 @@ cd ~/projects/pes_auvergne/pes_auvergne
 # Dans ~/projects/promess84/local/lib/python2.7/site-packages/ionyweb/plugin_app/plugin_slideshow/views.py
 # Modifier ionyweb.slideshow.js en ionyweb_slideshow.js (bug ionyweb plugin sideshow)
 
-
+# Corriger également tinymce
 
 =====================================
 

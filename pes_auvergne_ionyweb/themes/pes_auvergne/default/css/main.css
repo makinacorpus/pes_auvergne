@@ -141,6 +141,7 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     width: 940px;
     margin: 0 auto;
     position: relative;
+    z-index: 999;
 }
 
 #menu-top #layout-menu-top {
@@ -168,6 +169,7 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 #banner {
 	margin: 0 auto;
     height: 143px;
+    position: relative;
 }
 
 /* Banner */
@@ -202,9 +204,8 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 
 #banner nav.index {
     position: absolute;
-    top: 70px;
+    top: 60px;
     margin-left: 200px;
-    margin-top: 45px;
 }
 
 #banner nav ul {list-style: none; margin: 0 auto; width: 800px;}
@@ -221,7 +222,7 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 #banner nav a:hover, #banner nav a:active,
 #banner nav .active a:link, #banner nav .active a:visited {
     background: none;
-    color: #e36913;
+    color: #f8b133;
     text-shadow: none !important;
 }
 
@@ -688,3 +689,31 @@ li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
     width: 100%;
 }
 
+/* plugins / apps */
+
+#coop_agenda,
+#members {
+    background: #fff;
+    border: 1px solid #fad722;
+    border-top: 5px solid #fad722;
+    margin-top: 5px;
+    box-shadow: 2px 2px 2px #aaa;
+    padding: 7px;
+    
+}
+
+h3.coop_agenda {
+    background: url("../images/coop_agenda_bg_category.png") no-repeat scroll left top #fad722 !important;
+}
+
+.coop_agenda .coop_agenda_title {
+    color: #757575 !important;
+}
+
+h4.coop_agenda {
+    background-color: #fad722 !important;
+}
+
+.member_title {
+    color: #757575 !important;
+}
