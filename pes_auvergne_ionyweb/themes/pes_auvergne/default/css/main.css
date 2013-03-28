@@ -192,7 +192,6 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 
 /* Main Nav */
 #banner nav {
-    background: none repeat scroll 0 0 #fff;
     font-size: 1.143em;
     height: 40px;
     line-height: 30px;
