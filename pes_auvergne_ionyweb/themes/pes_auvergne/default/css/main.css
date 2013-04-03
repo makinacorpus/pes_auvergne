@@ -27,8 +27,8 @@ body {
 
 /* Headings */
 h1 {font-size: 2em }
-h2 {font-size: 1.571em}	/* 22px */
-h3 {font-size: 1.429em}	/* 20px */
+h2 {font-size: 1.4em}	/* 22px */
+h3 {font-size: 1.3em}	/* 20px */
 h4 {font-size: 1.286em}	/* 18px */
 h5 {font-size: 1.143em}	/* 16px */
 h6 {font-size: 1em}		/* 14px */
@@ -42,6 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 h3, h4, h5, h6 { margin-top: .8em; }
 	
 hr { border: 2px solid #EEEEEE; }
+
 
 /* Anchors */
 a {outline: 0;}
@@ -328,8 +329,19 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     background : url(../images/icons/widget-list-icon.png) no-repeat center left;
     list-style-type: none;
     padding-left: 15px;    
+    border-bottom: 1px solid #EEEEEE;
+    font-weight: bold;
+    line-height: 35px;
 }
 
+#column2 .column-widget ul li a {
+    color: #999;
+}
+
+#column2 .column-widget ul li a:hover,
+#column2 .column-widget ul li a:active {
+    color:#f8b133;
+}
 
 #footer-column1 {
     margin: 0 auto;
