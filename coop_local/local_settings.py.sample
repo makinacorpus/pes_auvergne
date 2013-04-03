@@ -55,9 +55,10 @@ INSTALLED_APPS = settings.INSTALLED_APPS + [
 
     'pes_auvergne_ionyweb.page_members',
     'pes_auvergne_ionyweb.page_coop_agenda',    
+    'pes_auvergne_ionyweb.page_coop_exchange',    
     'pes_auvergne_ionyweb.plugin_members',
     'pes_auvergne_ionyweb.plugin_coop_agenda',
-    'pes_auvergne_ionyweb.plugin_coop_members_icons',    
+    'pes_auvergne_ionyweb.plugin_coop_members_icons',
 
 ]
 
