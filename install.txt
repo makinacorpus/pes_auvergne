@@ -15,11 +15,12 @@ export DJANGO_COOP_IONYWEB_PROJECT=`pwd`
 source $DJANGO_COOP_IONYWEB_PROJECT/bin/activate
 
 pip install django==1.4.5
-pip install django-selectable install -e git+git://github.com/makinacorpus/django-coop@django-coop-ionyweb#egg=django-coop
+pip install django-selectable 
+pip install -e git+git://github.com/makinacorpus/django-coop@django-coop-ionyweb#egg=django-coop
 pip install -U distribute
 pip install -e git+git://github.com/makinacorpus/ionyweb#egg=ionyweb
-pip install django-selectable
 pip install simplejson
+pip install django-multisite
 
 pip install -e git+git://github.com/makinacorpus/coop-geo@master#egg=coop-geo
 
