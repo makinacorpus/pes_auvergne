@@ -1,0 +1,29 @@
+{% extends "themes/pes_auvergne/default/index.html" %}
+
+{% load ionyweb_tags %}
+
+
+{% block content %}
+
+  <div id="main-content" class="content-index content-coop_agenda">
+    <section id="content" class="body">
+        <div id="column1">{% block page %}{% render_page %}{% endblock %}</div>
+
+        <div id="column2">
+            <div class="" id="agenda_text">
+                {% render_layout 'member_text' %}
+            </div>
+            <div class="column-widget" id="agenda_links">
+                {% render_layout 'agenda_icons' %}
+            </div>
+            <div class="column-widget" id="agenda_participate">
+                {% render_layout 'participate' %}
+            </div>
+            <div class="column-widget" id="agenda_discover">
+                {% render_layout 'discover' %}
+            </div>
+        </div>
+    </section>
+ </div>
+  
+{% endblock %}
