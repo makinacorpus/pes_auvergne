@@ -4,7 +4,7 @@
 {% block theme-design-css %}
         <link rel="stylesheet" href="{{ STATIC_URL }}themes/pes_auvergne/default/css/main.css" type="text/css" />
         <!--[if lte IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href="{{ STATIC_URL }}themes/{{ theme_path }}/default/css/ie.css"/>
+                <link rel="stylesheet" type="text/css" media="all" href="{{ STATIC_URL }}themes/{{ theme_path }}/default/css/ie.css"/><![endif]-->
 
         <!--[if lt IE 7]>
                 <link rel="stylesheet" type="text/css" media="all" href="{{ STATIC_URL }}themes/{{ theme_path }}/default/css/ie6.css"/><![endif]-->
@@ -32,22 +32,22 @@
 
 {% block content %}
 
-  <div id="main-content" class="content-index">
+ <div id="main-content" class="content-index">
     <section id="content" class="body">
         <div id="column1">{% block page %}{% render_page %}{% endblock %}</div>
 
         <div id="column2">
-            <div class="column-widget" id="annonces">
-                {% render_layout 'annonces' %}
+            <div class="column-widget" id="block_text">
+                {% render_layout 'block_text' %}
             </div>
-            <div class="column-widget" id="participer">
-                {% render_layout 'participer' %}
+            <div class="column-widget" id="block_icons">
+                {% render_layout 'block_icons' %}
             </div>
-            <div class="column-widget" id="decouvrez">
-                {% render_layout 'decouvrez' %}
+            <div class="column-widget" id="participate">
+                {% render_layout 'participate' %}
             </div>
-            <div class="column-widget" id="ma_pes">
-                {% render_layout 'ma_pes' %}
+            <div class="column-widget" id="discover">
+                {% render_layout 'discover' %}
             </div>
         </div>
     </section>

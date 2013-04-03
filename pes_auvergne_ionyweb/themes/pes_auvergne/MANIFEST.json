@@ -8,6 +8,7 @@
 "templates": [
      {"title": "Standard", "file": "index.html", "preview": "index.png"},
      {"title": "Home page", "file": "home.html", "preview": "home.png"}
+     {"title": "Exchange", "file": "index_exchange.html", "preview": "index.png"}
     ]
 }
 
