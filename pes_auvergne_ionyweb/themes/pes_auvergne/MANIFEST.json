@@ -7,8 +7,10 @@
  "editable": false,
 "templates": [
      {"title": "Standard", "file": "index.html", "preview": "index.png"},
-     {"title": "Home page", "file": "home.html", "preview": "home.png"}
-     {"title": "Exchange", "file": "index_exchange.html", "preview": "index.png"}
+     {"title": "Home page", "file": "home.html", "preview": "home.png"},
+     {"title": "Exchange", "file": "index_exchange.html", "preview": "index.png"},
+     {"title": "Member", "file": "index_member.html", "preview": "index.png"},
+     {"title": "Agenda", "file": "index_agenda.html", "preview": "index.png"}
     ]
 }
 
