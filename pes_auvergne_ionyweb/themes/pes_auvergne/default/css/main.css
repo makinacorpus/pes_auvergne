@@ -132,6 +132,15 @@ aside, nav, article, figure {
 	display: block;
 }
 
+
+#main-content input[type='text'] {
+    border: 1px solid #eee;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    height: 20px;
+}
+
 /***** Layout *****/
 .body {clear: both; margin: 0 auto; width: 960px;}
 img.right figure.right {float: right; margin: 0 0 2em 2em;}
@@ -143,10 +152,11 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     margin: 0 auto;
     position: relative;
     z-index: 999;
+    font-weight: bold;
 }
 
 #menu-top #layout-menu-top {
-    left: 230px;
+    left: 260px;
     position: absolute;
 }
 
@@ -161,6 +171,11 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 
 #menu-top ul li a {
     text-decoration: none;
+    color: #767676;
+}
+
+#menu-top ul li a:hover {
+    color: #f8b133;
 }
 
 
@@ -291,6 +306,44 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 #banner nav li.projets {
     background: url(../images/icons/projets.png) no-repeat center top;
 }
+
+#banner nav li.annuaire:hover,
+#banner nav li.annuaire_active,
+#banner nav li.annuaire_home {
+    background: url(../images/icons/annuaire_over.png) no-repeat center top;
+}
+#banner nav li.annonces:hover,
+#banner nav li.annonces_active,
+#banner nav li.annonces_home {
+    background: url(../images/icons/annonces_over.png) no-repeat center top;
+}
+#banner nav li.agenda:hover,
+#banner nav li.agenda_active,
+#banner nav li.agenda_home {
+    background: url(../images/icons/agenda_over.png) no-repeat center top;
+}
+#banner nav li.actualite:hover,
+#banner nav li.actualite_active,
+#banner nav li.actualite_home {
+    background: url(../images/icons/actualite_over.png) no-repeat center top;
+}
+#banner nav li.thematiques:hover,
+#banner nav li.thematiques_active,
+#banner nav li.thematiques_home {
+    background: url(../images/icons/thematiques_over.png) no-repeat center top;
+}
+#banner nav li.territoire:hover,
+#banner nav li.territoire_active,
+#banner nav li.territoire_home {
+    background: url(../images/icons/territoire_over.png) no-repeat center top;
+}
+#banner nav li.projets:hover,
+#banner nav li.projets_active,
+#banner nav li.projets_home {
+    background: url(../images/icons/projets_over.png) no-repeat center top;
+}
+
+
 
 
 /*
