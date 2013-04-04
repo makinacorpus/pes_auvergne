@@ -167,6 +167,44 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 /*
 	Header
 *****************/
+
+.home_header .iw-plugin-image img
+{
+  position: relative;
+}
+.home_header .iw-plugin-image img:before, .home_header .iw-plugin-image img:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #777;
+  -webkit-box-shadow: 0 15px 10px #777;
+  -moz-box-shadow: 0 15px 10px #777;
+  box-shadow: 0 15px 10px #777;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+.home_header .iw-plugin-image img:after
+{
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+  right: 10px;
+  left: auto;
+}
+
+
+
 #banner {
 	margin: 0 auto;
     height: 143px;
@@ -205,7 +243,7 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 #banner nav.index {
     position: absolute;
     top: 60px;
-    margin-left: 200px;
+    margin-left: 280px;
 }
 
 #banner nav ul {list-style: none; margin: 0 auto; width: 800px;}
@@ -216,7 +254,7 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     color: #767676;
     display: inline-block;
     height: 30px;
-    padding: 5px 1.2em;
+    padding: 5px;
     text-decoration: none;
 }
 #banner nav a:hover, #banner nav a:active,
@@ -228,6 +266,8 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 
 #banner nav li {
     padding-top: 25px;
+    width: 100px;
+    font-size: 14px;
 }
 
 #banner nav li.annuaire {
@@ -247,6 +287,9 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 }
 #banner nav li.territoire {
     background: url(../images/icons/territoire.png) no-repeat center top;
+}
+#banner nav li.projets {
+    background: url(../images/icons/projets.png) no-repeat center top;
 }
 
 
@@ -744,6 +787,7 @@ h4.coop_agenda {
 
 
 .content-coop_exchange #search_form ,
+.content-coop_member #search_form ,
 .content-coop_exchange #result_exchanges {
     border-width: 0;
     float: left;
