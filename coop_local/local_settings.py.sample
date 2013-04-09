@@ -89,3 +89,7 @@ THEMES_DIRS = (
 
 SITE_NAME = "pes_auvergne"
 
+
+COOP_MEMBER_SEARCH_FORM = True
+
+COOP_MAP_DEFAULT_CENTER = {'x':'45.777341','y':'3.094883'}

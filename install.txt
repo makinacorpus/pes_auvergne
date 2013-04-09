@@ -25,6 +25,18 @@ pip install django-multisite
 pip install -e git+git://github.com/makinacorpus/coop-geo@master#egg=coop-geo
 
 
+# Modif en cours -------
+pip uninstall django-admintools-bootstrap
+pip install -e git+git://github.com/makinacorpus/django-admintools-bootstrap#egg=django-admintools-bootstrap
+
+pip uninstall django-selectable
+pip install -e git+git://github.com/makinacorpus/django-selectable.git@master#egg=django-selectable
+
+pip uninstall django-chosen
+pip install -e git+git://github.com/makinacorpus/django-chosen#egg=django-chosen
+# ----------------------
+
+
 cd $DJANGO_COOP_IONYWEB_PROJECT/
 git clone gitorious-git@gitorious.makina-corpus.net:mes/pes_auvergne.git
 cp pes_auvergne/coop_local/db_settings.py.sample pes_auvergne/coop_local/db_settings.py
