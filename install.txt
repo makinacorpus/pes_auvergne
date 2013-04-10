@@ -45,10 +45,6 @@ cp pes_auvergne/coop_local/local_settings.py.sample pes_auvergne/coop_local/loca
 # Plugins ionyweb/djangocoop
 # --------------------------
 cd $DJANGO_COOP_IONYWEB_PROJECT/pes_auvergne/pes_auvergne_ionyweb/
-git clone git@github.com:makinacorpus/django-coop-ionyweb-addons.git addons
-mv addons/* .
-mv addons/.git .
-rm -r addons
 mkdir logs
 
 cd $DJANGO_COOP_IONYWEB_PROJECT

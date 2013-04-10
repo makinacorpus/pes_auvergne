@@ -399,6 +399,7 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     float: left;
     width: 240px;
     padding: 5px;
+    margin-top: 290px;
 }
 
 #column2 .column-widget {
@@ -845,21 +846,31 @@ h4.coop_agenda {
     border-width: 0;
     float: left;
     margin-top: 0;
-    width: 700px;
+    height: 280px;
+    width: 950px;    
 }
 
 .content-coop_exchange #result_exchanges {
     width: 686px;
+    height: auto;
 }
 
-.content-coop_exchange #exchanges_top {
+.content-coop_exchange #exchanges_top,
+.content-coop_exchange #exchanges_top_search,
+.content-coop_member #members_top_search {
     height: 6px;
     float: left;
     width: 700px;
 }
 
+.content-coop_exchange #exchanges_top_search,
+.content-coop_member #members_top_search {
+    width: 950px;
+}
+
 .blue_gradient,
-.content-coop_exchange #exchanges_top {
+.content-coop_exchange #exchanges_top,
+.content-coop_exchange #exchanges_top_search {
     /* Anciens navigateurs */
     background: #035d67 url("gradient-bg.png") repeat-y left;
     -o-background-size: 100% 100%;
@@ -901,7 +912,8 @@ h4.coop_agenda {
 
 
 .violet_gradient,
-.content-coop_member #members_top {
+.content-coop_member #members_top,
+.content-coop_member #members_top_search {
     /* Anciens navigateurs */
     background: #9f3224 url("gradient-bg.png") repeat-y left;
     -o-background-size: 100% 100%;
@@ -938,5 +950,159 @@ h4.coop_agenda {
         left,
         #cc6756,
         #9f3224
+    );
+}
+
+
+#search_form,
+#result_exchanges {
+    background: #fff;
+    border: 1px solid #fad722;
+    border-top: 5px solid #fad722;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 2px #aaa;
+    padding: 7px;
+    float: left;
+}
+
+#search_form {
+    margin-top: 5px;
+    padding: 0;
+}
+
+#search_form .search_block{
+    float: left;
+    padding: 3px;
+    width: 220px;
+}
+
+
+#search_form .search_title {
+    font-weight: bold;
+    display: block;
+}
+
+#search_form .label {
+    width: 85px;
+    float: left;
+    line-height: 25px;
+}
+
+
+#search_form .search_column {
+    width: 230px;
+    height: 170px;
+    float: left;
+}
+
+#search_form #search_column1 {
+    width: 270px;
+}
+
+#search_form #search_column1 .search_block,
+#search_form #search_column1 .search_block_bottom {
+    width: 260px;
+}
+
+#search_form #search_column1 #looking_for {
+    width: 115px;
+}
+#search_form #search_column1 #type {
+    width: 140px;
+}
+
+
+#search_form #search_column2,
+#search_form #search_column3 {
+    width: 210px;
+}
+#search_form #search_column2 .search_block,
+#search_form #search_column2 .search_block_bottom,
+#search_form #search_column3 .search_block,
+#search_form #search_column3 .search_block_bottom {
+    width: 200px;
+}
+
+
+#search_form #search_submit .nb_results {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#search_form #search_submit #results_block {
+    float: left;
+    line-height: 30px;
+    padding-left: 10px;    
+}
+
+#search_form ul {
+    list-style: none;
+    margin: 0;
+}
+
+#search_form #mode ul li,
+#search_form #skills ul li {
+    float: left;
+    width: 100px;
+}
+
+
+#search_submit input[type='submit'] {
+    float: left;
+}
+
+
+#search_form #leaflet_map {
+    margin: 5px;
+    width: 250px;
+    height: 270px;
+}
+
+#search_submit input[type='submit'] {
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 2px solid #f8b133;
+    padding: 5px;
+    max-width: 120px;
+    text-align: center;
+    text-shadow: 2px 2px 2px #aaa;
+    color: #fff;
+    
+    /* Old browser */
+    background: #f9b43b url("gradient-bg.png") repeat-x top;
+    -o-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    /* Internet Explorer */
+    *background: #f9b43b;
+    background: #f9b43b\0/;
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr=#FFfac972, endColorstr=#FFf9b43b);
+    /* Navigateurs récents */
+    background-image: -webkit-gradient(
+        linear,
+        left top, left bottom,
+        from(#fac972),
+        to(#f9b43b)
+    );
+    background-image: -webkit-linear-gradient(
+        top,
+        #fac972,
+        #f9b43b
+    );
+    background-image: -moz-linear-gradient(
+        top,
+        #fac972,
+        #f9b43b
+    );
+    background-image: -o-linear-gradient(
+        top,
+        #fac972,
+        #f9b43b
+    );
+    background-image: linear-gradient(
+        top,
+        #fac972,
+        #f9b43b
     );
 }
