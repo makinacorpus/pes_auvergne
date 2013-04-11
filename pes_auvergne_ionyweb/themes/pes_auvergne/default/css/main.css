@@ -40,7 +40,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h3, h4, h5, h6 { margin-top: .8em; }
-	
+
+h6 {
+    color: #f8b53d;
+    font-weight: bold;
+}
+
 hr { border: 2px solid #EEEEEE; }
 
 
@@ -790,7 +795,7 @@ li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
 .home_title {
     background: url(../images/icons/last.png) no-repeat left top;
     font-size: 24px;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid #ccc;
     padding-left: 40px;
     padding-bottom: 10px;
     display: block;
@@ -1105,4 +1110,15 @@ h4.coop_agenda {
         #fac972,
         #f9b43b
     );
+}
+
+
+.bloc_title {
+    border-bottom: 1px solid #CCCCCC;
+    border-top: 1px solid #CCCCCC;
+    float: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    width: 100%;
 }
