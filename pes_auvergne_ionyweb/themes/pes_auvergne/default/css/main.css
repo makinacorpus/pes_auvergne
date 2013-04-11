@@ -404,7 +404,10 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     float: left;
     width: 240px;
     padding: 5px;
-    margin-top: 290px;
+}
+
+.search_form_enabled #column2 {
+    margin-top: 290px;    
 }
 
 #column2 .column-widget {
