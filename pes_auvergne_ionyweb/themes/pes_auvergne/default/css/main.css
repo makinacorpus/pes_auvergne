@@ -423,6 +423,7 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     text-transform: uppercase;
 }
 
+
 #column2 .column-widget ul {
     margin-left: 0px;
 }
@@ -698,6 +699,10 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     );
 }
 
+.footer_logo_sep {
+    background: url(../images/bg-bottom-title.png) repeat-x top left;
+    margin-bottom: 10px;
+}
 
 /***** Sections *****/
 /* Blog */
@@ -1122,3 +1127,6 @@ h4.coop_agenda {
     margin-bottom: 5px;
     width: 100%;
 }
+
+
+
