@@ -138,7 +138,9 @@ aside, nav, article, figure {
 }
 
 
-#main-content input[type='text'] {
+#main-content input[type='text'],
+#main-content input[type='date'],
+#main-content input[type='number'] {
     border: 1px solid #eee;
     border-radius: 2px;
     -moz-border-radius: 2px;
@@ -815,16 +817,12 @@ li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
 #coop_agenda,
 #members {
     background: #fff;
-    border: 1px solid #fad722;
-    border-top: 5px solid #fad722;
-    margin-top: 5px;
     box-shadow: 2px 2px 2px #aaa;
     padding: 7px;
-    
 }
 
 h3.coop_agenda {
-    background: url("../images/coop_agenda_bg_category.png") no-repeat scroll left top #fad722 !important;
+    display: none;
 }
 
 .coop_agenda .coop_agenda_title {
@@ -839,22 +837,23 @@ h4.coop_agenda {
     color: #757575 !important;
 }
 
-.content-coop_member #members {
+.content-coop_member #members,
+.content-coop_agenda #coop_agenda {
     border-width: 0;
     float: left;
     margin-top: 0;
-    width: 690px;
+    width: 686px;
 }
 
-.content-coop_member #members_top {
+.content-coop_member #members_top,
+.content-coop_agenda #agenda_top {
     height: 6px;
     float: left;
-    width: 705px;
+    width: 700px;
 }
 
 
-.content-coop_exchange #search_form ,
-.content-coop_member #search_form ,
+.content-coop-app #search_form ,
 .content-coop_exchange #result_exchanges {
     border-width: 0;
     float: left;
@@ -870,14 +869,16 @@ h4.coop_agenda {
 
 .content-coop_exchange #exchanges_top,
 .content-coop_exchange #exchanges_top_search,
-.content-coop_member #members_top_search {
+.content-coop_member #members_top_search,
+.content-coop_agenda #agenda_top_search {
     height: 6px;
     float: left;
     width: 700px;
 }
 
 .content-coop_exchange #exchanges_top_search,
-.content-coop_member #members_top_search {
+.content-coop_member #members_top_search,
+.content-coop_agenda #agenda_top_search {
     width: 950px;
 }
 
@@ -920,6 +921,49 @@ h4.coop_agenda {
         left,
         #669ca2,
         #035d67
+    );
+}
+
+
+.green_gradient,
+.content-coop_agenda #agenda_top,
+.content-coop_agenda #agenda_top_search {
+    /* Anciens navigateurs */
+    background: #5c973c url("gradient-bg.png") repeat-y left;
+    -o-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    /* Internet Explorer */
+    *background: #5c973c;
+    background: #5c973c\0/;
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr=#FF74bf4c, endColorstr=#FF5c973c);
+    /* Navigateurs récents */
+    background-image: -webkit-gradient(
+        linear,
+        left top, right top,
+        from(#74bf4c),
+        to(#5c973c)
+    );
+    background-image: -webkit-linear-gradient(
+        left,
+        #74bf4c,
+        #5c973c
+    );
+    background-image: -moz-linear-gradient(
+        left,
+        #74bf4c,
+        #5c973c
+    );
+    background-image: -o-linear-gradient(
+        left,
+        #74bf4c,
+        #5c973c
+    );
+    background-image: linear-gradient(
+        left,
+        #74bf4c,
+        #5c973c
     );
 }
 
@@ -968,13 +1012,13 @@ h4.coop_agenda {
 
 
 #search_form,
-#result_exchanges {
+#result_exchanges,
+#coop_agenda {
     background: #fff;
-    border: 1px solid #fad722;
-    border-top: 5px solid #fad722;
+/*     border: 1px solid #fad722; */
+/*     border-top: 5px solid #fad722; */
     margin-bottom: 10px;
     box-shadow: 2px 2px 2px #aaa;
-    padding: 7px;
     float: left;
 }
 
@@ -1132,4 +1176,10 @@ h4.coop_agenda {
 }
 
 
+/* Jquery widgets */
 
+.ui-datepicker {
+    background: #fff;
+    border: 1px solid #ccc;
+    z-index: 999 !important;
+}
