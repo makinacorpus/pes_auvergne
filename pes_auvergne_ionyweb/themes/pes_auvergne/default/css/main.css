@@ -1179,9 +1179,15 @@ h4.coop_agenda {
 
 
 a.agenda_link {
-    color: #abdb91 ;
+    color: #abdb91;
     font-weight: bold;
 }
+
+a.member_link {
+    color: #a03223;
+    font-weight: bold;
+}
+
 
 span.date_from {
     float: left;
@@ -1214,8 +1220,27 @@ span.date_to {
 .bloc_title .logo {
     width: 150px;
     height: 150px;
-    float: left;
+    float: left;    
+}
+
+.bloc_title .logo img {
+    width: 140px;
+}
+
+.coop_agenda .bloc_title .logo {
     background: url(../images/logo_pes_auvergne_green.png) center center no-repeat;
+}
+
+.member .bloc_title .logo {
+/*     background: url(../images/logo_pes_auvergne_violet.png) center center no-repeat; */
+}
+
+.member, .member_detail {
+    border: none !important;
+}
+
+.member_title {
+    margin-left: 0px !important;
 }
 
 .bloc_title .header {

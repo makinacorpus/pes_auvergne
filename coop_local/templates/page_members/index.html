@@ -1,0 +1,119 @@
+{% load i18n %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.css" />
+{% endblock %}
+
+{% if search_form %}
+
+<script type="text/javascript">
+    // We need to set a new class to content element, in order do properly display the form and the other elements
+    $('#main-content').addClass("search_form_enabled");
+</script>
+
+<div id="members_top_search"></div>
+<div id="search_form">
+    <form action="{{ base_url }}" method="post">{% csrf_token %}
+        <div class="search_column" id="search_column1">
+            <div class="search_block" id="looking_for">
+                <span class="search_title">{% trans "Activity" %}</span>
+                {{ form.activity }}
+            </div>
+            <div class="search_block" id="free_search">
+                <span class="search_title">{% trans "Free search" %}</span>
+                {{ form.free_search }}
+            </div>
+        </div>
+        <div class="search_column" id="search_column2">
+            <div class="search_block_bottom" id="thematic">
+                <span class="search_title">{% trans "Thematic" %}</span>
+                {{ form.thematic }}
+            </div>
+        </div>
+        <div class="search_column" id="search_column3">
+            <div class="search_block" id="location">
+                <span class="search_title">{% trans "Location" %}</span>
+                {{ form.location }}
+            </div>
+            <div class="search_block" id="location">
+                <span class="search_title">{% trans "Location buffer" %}</span>
+                {{ form.location_buffer }}
+            </div>
+        </div>
+        <div class="search_column" id="search_column4">
+<!--             <input type="hidden" name="search_coords"> -->
+            <div id="leaflet_map"></div>
+                <script src="http://leaflet.cloudmade.com/dist/leaflet.js"></script>
+                <script type="text/javascript">
+
+                    var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png',
+                        cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
+                        cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttribution});
+
+                    var map = new L.Map('leaflet_map');
+                    var x,y;
+                    if($('input[name=location]').val() != "") {
+                        coords = $('input[name=location]').val().split(",");
+                        x = coords[0];
+                        y = coords[1];
+                    }
+                    else {
+                        x = {{ center.x }};
+                        y = {{ center.y }};
+                    }
+                    var centre = new L.LatLng(y, x);
+                    var marker = L.marker([centre.lat, centre.lng], {draggable: true}).addTo(map);
+                    marker.on('dragend', function (e) {
+                                var coords = e.target.getLatLng(); 
+                                $('input[name=location]').val(coords.lng + "," + coords.lat);
+                            }
+                        );
+
+                    map.setView(centre, 8).addLayer(cloudmade);
+
+                </script>
+        </div>
+
+        <div id="search_bottom">
+            <div class="search_block" id="search_submit">
+                <input type="submit" value="{% trans "Search" %}" />
+                <div id="results_block"><span class="nb_results">{{ members.count }}</span> <span class="label_results">{% trans "Results" %}</span></div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endif %}
+
+<div id="members_top"></div>
+<div id="members">
+{% for m in members %}
+    <div class="member">
+        <div class="bloc_title">
+            <div class="logo"><img src="{{ media_path}}{{ m.logo }}" alt=""></div>
+            <div class="resume">
+
+                {% if direct_link %}
+                    <a href="{{ m.web|safe }}"><h3 class="member_title">{{ m.title }}</h3></a>
+                {% else %}
+                    <a href="{{ base_url }}p/{{ m.pk }}"><h3 class="member_title">{{ m.title }}</h3></a>
+                {% endif %}
+
+                {% if m.location == None %} {% else %} 
+                    <span class="location">
+                    {% for l in m.located.all %}
+                        {{ l.location.label|safe }}
+                    {% endfor %}
+                    </span> 
+                {% endif %}
+
+
+                <span class="member_subtitle">{{ m.description|truncatewords_html:15|safe }}</span>
+
+                <span class="readmore"><a class="member_link" href="{{ base_url }}p/{{ m.pk }}">{% trans "Read more" %}</a></span>
+            </div>
+        </div>
+    </div>
+
+{% endfor %}
+
+</div>
