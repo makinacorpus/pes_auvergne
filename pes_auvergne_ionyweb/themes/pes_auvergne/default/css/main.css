@@ -77,7 +77,8 @@ em, i {font-style: italic;}
 
 /* Lists */
 ul {
-	list-style: outside disc;
+/* 	list-style: outside disc; */
+	list-style: none;
 	margin: 1em 0 1.5em 1.5em;
 }
 
@@ -140,7 +141,8 @@ aside, nav, article, figure {
 
 #main-content input[type='text'],
 #main-content input[type='date'],
-#main-content input[type='number'] {
+#main-content input[type='number'],
+#main-content input[type='password'],{
     border: 1px solid #eee;
     border-radius: 2px;
     -moz-border-radius: 2px;
@@ -815,6 +817,8 @@ li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
 /* plugins / apps */
 
 #coop_agenda,
+#coop_account,
+#coop_exchange,
 #members {
     background: #fff;
     box-shadow: 2px 2px 2px #aaa;
@@ -825,8 +829,19 @@ h3.coop_agenda {
     display: none;
 }
 
+
+.coop_agenda {
+    border: none !important;
+}
+
 .coop_agenda .coop_agenda_title {
     color: #757575 !important;
+    font-style: italic;
+    margin-left: 0px !important;
+}
+
+ul.coop_agenda_date {
+    margin: 0;
 }
 
 h4.coop_agenda {
@@ -1015,8 +1030,6 @@ h4.coop_agenda {
 #result_exchanges,
 #coop_agenda {
     background: #fff;
-/*     border: 1px solid #fad722; */
-/*     border-top: 5px solid #fad722; */
     margin-bottom: 10px;
     box-shadow: 2px 2px 2px #aaa;
     float: left;
@@ -1165,16 +1178,149 @@ h4.coop_agenda {
 }
 
 
+a.agenda_link {
+    color: #abdb91 ;
+    font-weight: bold;
+}
+
+span.date_from {
+    float: left;
+    font-weight: bold;    
+}
+
+span.date_to {
+    float: left;
+    line-height: 20px !important;
+    margin-right: 7px;
+    margin-left: 7px;
+}
+
+.location {
+    color: #abdb91 !important;
+    font-weight: bold;
+    float: right;
+}
+
 .bloc_title {
-    border-bottom: 1px solid #CCCCCC;
-    border-top: 1px solid #CCCCCC;
     float: left;
     padding-top: 5px;
     padding-bottom: 5px;
     margin-bottom: 5px;
     width: 100%;
+    border-bottom: 1px solid #eee;
 }
 
+
+.bloc_title .logo {
+    width: 150px;
+    height: 150px;
+    float: left;
+    background: url(../images/logo_pes_auvergne_green.png) center center no-repeat;
+}
+
+.bloc_title .header {
+    float: left;
+    width: 330px;
+}
+
+.bloc_title .resume {
+    float: left;
+    width: 520px;
+}
+
+.bloc_title .map {
+    float: left; 
+    width: 200px;
+}
+
+
+
+.bloc_title .map #leaflet_map {
+    margin: 5px;
+    width: 200px;
+    height: 250px;
+}
+
+.bloc_title .header #links a.facebook,
+.bloc_title .header #links a.twitter,
+.bloc_title .header #links a.google_plus,
+.bloc_title .header #links a.mail,
+.bloc_title .header #links a.plus,
+.bloc_title .header #links a.links,
+.bloc_title .header #links a.print {
+    width: 29px;
+    height: 29px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+    background: url(../images/icons/agenda_facebook.png) left top no-repeat;
+}
+
+.bloc_title .header #links a.twitter {
+    background: url(../images/icons/agenda_twitter.png) left top no-repeat;
+}
+.bloc_title .header #links a.google_plus {
+    background: url(../images/icons/agenda_google_plus.png) left top no-repeat;
+}
+
+.bloc_title .header #links a.mail {
+    background: url(../images/icons/agenda_mail.png) left top no-repeat;
+}
+
+.bloc_title .header #links a.plus {
+    background: url(../images/icons/agenda_plus.png) left top no-repeat;
+}
+
+.bloc_title .header #links a.links {
+    background: url(../images/icons/agenda_links.png) left top no-repeat;
+}
+
+.bloc_title .header #links a.print {
+    background: url(../images/icons/agenda_print.png) left top no-repeat;
+}
+
+
+.bloc_content {
+    border-bottom: 1px solid #a4da86;
+    float: left;
+}
+
+.bloc_content .event_image {
+    float: left;
+    width: 200px;
+    border: 1px solid #eee;
+    height: 300px;
+}
+
+.bloc_content .event_content {
+    float: left;
+    width: 470px;
+    padding: 5px;
+}
+
+.bloc_content .event_content .description,
+.bloc_content .event_content .readmore,
+.bloc_complement {
+    float: left;
+}
+
+.bloc_content .event_content .description {
+    min-height: 300px;
+}
+
+.bloc_content .event_content .readmore {
+    text-align: right;
+    width: 100%;
+}
+
+.coop_agenda .label {
+    background: none !important;
+}
+
+.form_label {
+   float: left;
+   width: 100%;    
+}
 
 /* Jquery widgets */
 

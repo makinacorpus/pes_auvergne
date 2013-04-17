@@ -1,0 +1,98 @@
+{% load i18n thumbnail %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.css" />
+{% endblock %}
+
+<div id="agenda_top"></div>
+<div id="coop_agenda" class="coop_agenda">
+    <div class="bloc_title">
+        <div class="logo"></div>
+        <div class="header">
+            <a href="{{ base_url }}{{ e.pk }}"><h3 class="coop_agenda_title">{{ e.title }}</h3></a>
+            {% if e.occurrence_set.count %}
+            <ul class="coop_agenda_date">
+                {% for o in e.occurrence_set.all %}
+                <li>
+                        {{ o.start_time|date:"j"|lower }} {{ o.start_time|date:"M" }} {{ o.start_time|date:"Y"|lower }}, {{ o.start_time|date:"H" }}:{{ o.start_time|date:"i" }}
+                        &ndash; 
+                        {{ o.end_time|date:"j"|lower }} {{ o.end_time|date:"M" }} {{ o.end_time|date:"Y"|lower }}, {{ o.end_time|date:"H" }}:{{ o.end_time|date:"i" }}
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            {% endif %}
+            <span class='label'>{% trans "Place" %}:</span> {% if e.location == None %} {% else %}{{ e.location }} {% endif %}
+            <br/>
+            <span class='label'>{% trans "Organization" %}:</span> {% if e.organization == None %} {% else %}{{ e.organization }} {% endif %}
+            <br/>
+            <div id="links">
+                <a class="facebook" href=""></a>
+                <a class="twitter" href=""></a>
+                <a class="google_plus" href=""></a>
+                <a class="mail" href=""></a>
+                <a class="plus" href=""></a>
+                <a class="links" href=""></a>
+                <a class="print" href=""></a>
+            </div>
+        </div>
+        <div class="map">
+            <div id="leaflet_map"></div>
+                <script src="http://leaflet.cloudmade.com/dist/leaflet.js"></script>
+                <script type="text/javascript">
+
+                    var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png',
+                        cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
+                        cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttribution});
+
+                    var map = new L.Map('leaflet_map');
+
+                    var centre = new L.LatLng({{ e.location.point.y|safe }}, {{ e.location.point.x|safe }});
+                    L.marker([{{ e.location.point.y|safe }}, {{ e.location.point.x|safe }}]).addTo(map)
+                            .bindPopup('{{ e.location.label|safe }}')
+                            .openPopup();
+
+                    
+                    map.setView(centre, 8).addLayer(cloudmade);
+
+                </script>
+            </div>            
+
+        </div>
+
+
+    <div class="bloc_content">
+        <div class="event_image"></div>
+        <div class="event_content">
+            
+            <a class="agenda_link" href="">{% trans "Register for the event" %}</a>
+
+            <h3 class="coop_agenda_subtitle">{% trans "Event's description" %}</h3>
+            <div class="description">
+                {{ e.description }}
+            </div>
+            <div class="readmore"><a class="agenda_link" href="">{% trans "Read more" %}</a></div>
+
+        </div>
+    </div>
+    <div class="bloc_complement">
+        <span class='label'>{% trans "Type event" %}:</span> {% for cat in e.category.all %} {{ cat }} {% endfor %}
+
+        {% if e.linked_articles %}
+
+            {% with e.linked_articles.0 as article %}
+            {% thumbnail article.logo "120x120" as im %}
+            <a class="title" href="{{ article.get_absolute_url }}">
+                <img class="event-article-icon" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+            </a>
+            {% endthumbnail %}
+
+            {% endwith %}
+
+        {% else %}
+        {% endif %}
+    </div>
+
+</div>
+
+
