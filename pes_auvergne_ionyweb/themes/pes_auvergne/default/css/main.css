@@ -1212,7 +1212,7 @@ a.agenda_link {
 }
 
 a.member_link {
-    color: #a03223;
+    color: #a03225;
     font-weight: bold;
 }
 
@@ -1347,10 +1347,43 @@ span.date_to {
     background: url(../images/icons/agenda_print.png) left top no-repeat;
 }
 
+#members .bloc_title .header #links a.facebook {
+    background: url(../images/icons/member_facebook.png) left top no-repeat;
+}
+
+#members .bloc_title .header #links a.twitter {
+    background: url(../images/icons/member_twitter.png) left top no-repeat;
+}
+#members .bloc_title .header #links a.google_plus {
+    background: url(../images/icons/member_google_plus.png) left top no-repeat;
+}
+
+#members .bloc_title .header #links a.mail {
+    background: url(../images/icons/member_mail.png) left top no-repeat;
+}
+
+#members .bloc_title .header #links a.plus {
+    background: url(../images/icons/member_plus.png) left top no-repeat;
+}
+
+#members .bloc_title .header #links a.links {
+    background: url(../images/icons/member_links.png) left top no-repeat;
+}
+
+#members .bloc_title .header #links a.print {
+    background: url(../images/icons/member_print.png) left top no-repeat;
+}
+
 
 .bloc_content {
     border-bottom: 1px solid #a4da86;
     float: left;
+}
+
+#members .bloc_content {
+    border-bottom: 1px solid #a03225;
+    float: left;
+    width: 100%;
 }
 
 .bloc_content .event_image {
@@ -1368,8 +1401,12 @@ span.date_to {
 
 .bloc_content .event_content .description,
 .bloc_content .event_content .readmore,
-.bloc_complement {
+.member_complement {
     float: left;
+}
+
+.member_complement {
+    width: 100%;
 }
 
 .bloc_content .event_content .description {
@@ -1380,6 +1417,22 @@ span.date_to {
     text-align: right;
     width: 100%;
 }
+
+.bloc_content .member_content_infos {
+    border-bottom: 1px solid #eee;
+    float: left;
+}
+
+.bloc_content .member_content_infos .column1 {
+    float: left;
+    width: 490px;
+}
+
+.bloc_content .member_content_infos .column2 {
+    float: left;
+    width: 180px;
+}
+
 
 .coop_agenda .label {
     background: none !important;

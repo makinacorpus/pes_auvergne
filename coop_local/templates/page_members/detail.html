@@ -1,0 +1,104 @@
+{% load i18n %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.css" />
+{% endblock %}
+
+<div id="members_top"></div>
+<div id="members">
+
+    <div class="bloc_title">
+        <div class="logo"><img src="{{ media_path}}{{ member.logo }}" alt=""></div>
+        <div class="header">
+            <h3 class="member_title">{{ member.title }}</h3>
+            <span class="member_acronym">({{ member.acronym }})</span></h3>
+            <span class="member_subtitle">{{ member.subtitle }}</span>
+
+
+            <div id="links">
+                <a class="facebook" href=""></a>
+                <a class="twitter" href=""></a>
+                <a class="google_plus" href=""></a>
+                <a class="mail" href=""></a>
+                <a class="plus" href=""></a>
+                <a class="links" href=""></a>
+                <a class="print" href=""></a>
+            </div>
+        </div>
+        <div class="map">
+            <div id="leaflet_map"></div>
+                <script src="http://leaflet.cloudmade.com/dist/leaflet.js"></script>
+                <script type="text/javascript">
+
+                    var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png',
+                        cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
+                        cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttribution});
+
+                    var map = new L.Map('leaflet_map');
+
+
+                    {% for l in member.located.all %}
+                        var centre = new L.LatLng({{ l.location.point.y|safe }}, {{ l.location.point.x|safe }});
+                        L.marker([{{ l.location.point.y|safe }}, {{ l.location.point.x|safe }}]).addTo(map)
+                                .bindPopup('{{ l.location.label|safe }}')
+                                .openPopup();
+                    {% endfor %}
+                    
+                    map.setView(centre, 8).addLayer(cloudmade);
+
+                </script>
+            </div>            
+
+        </div>
+
+
+    <div class="bloc_content">
+        <div class="member_content_infos">
+            <div class="column1">
+                <h3>{% trans "Products, services and activities list" %}</h3>
+            </div>
+            <div class="column2">
+                {% for l in member.located.all %}
+                    {{ l.location.label|safe }}<br/>
+                    {{ l.location.adr1|safe }}<br/>
+                    {{ l.location.adr2l|safe }}<br/>
+                    {{ l.location.zipcodel|safe }}<br/>
+                    {{ l.location.city|safe }}<br/>
+                {% endfor %}
+
+                <div class="member_address">
+                    {{ member.pref_address|safe }}
+                </div>
+                <div class="member_email">
+                    Email: {{ member.pref_email|safe }}
+                </div>
+                <div class="member_link">
+                    <a href="{{ member.web|safe }}" />{{ member.web|safe }}</a>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="member_complement">
+                <h3>{% trans "Presentation" %}</h3>
+                <div class="member_desc">
+                    <p>{{ member.description|safe }}</p>
+                    <div class="readmore"><a class="member_link" href="">{% trans "Read more" %}</a></div>
+                </div>
+        </div>
+    </div>
+    
+    <div class="bloc_content">
+        <h3>{% trans "Galery" %}</h3>
+    </div>
+    
+
+    <div class="bloc_content">
+        <h3>{% trans "Activity" %}</h3>
+        <h3>{% trans "Thematic" %}</h3>
+    </div>
+
+
+</div>
+
+
