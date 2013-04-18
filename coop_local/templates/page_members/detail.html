@@ -85,7 +85,7 @@
                     <a href="{{ member.web|safe }}" />{{ member.web|safe }}</a>
                 </div>
 
-                <a href="" class="member_link">Downloadable docs</a>
+                <a href="" class="member_link">{% trans "Downloadable docs" %}</a>
 
             </div>
 
@@ -101,16 +101,28 @@
     
     <div class="bloc_content">
         <h3>{% trans "Galery" %}</h3>
+        <div class="fake_img"></div>
+        <div class="fake_img"></div>
+        <div class="fake_img"></div>
     </div>
     
 
     <div class="bloc_content">
-        <h3>{% trans "Activity" %}</h3>
-        {{ member.activity }}
-        <h3>{% trans "Thematic" %}</h3>
-        {% for t in member.transverse_themes.all %}
-            {{ t }} <br/>
-        {% endfor %}
+        <div class="member_content_activity">
+            <h3>{% trans "Activity" %}</h3>
+            {{ member.activity }}
+        </div>
+            
+        <div class="member_content_thematic">
+            <h3>{% trans "Thematic" %}</h3>
+            {% for t in member.transverse_themes.all %}
+                {{ t }} <br/>
+            {% endfor %}
+        </div>
+
+        <div class="member_content_keywords">
+            <h3 class="member_link">{% trans "Keywords" %}</h3>
+        </div>
     </div>
 
 
