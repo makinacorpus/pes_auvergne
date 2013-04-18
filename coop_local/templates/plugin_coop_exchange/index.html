@@ -1,0 +1,16 @@
+{% load i18n thumbnail %}
+
+<h6 class="">{% trans "Exchanges" %}</h6>
+    <div class="plugin_coop_exchange">
+    {% for e in exchanges %}            
+        <div class="bloc_title bloc_title_home">
+            <h5 class="coop_exchange_title"><a href="{{ exchange_url }}p/{{ e.pk }}">{{ e.title }}</a></h5>
+           
+        </div>
+        <div class="exchange_desc">{{ e.description|safe }}</div>
+    {% endfor %}
+    </div>
+
+<!--    <div class="plugin_coop_exchange_footer">
+        <h5 class="coop_exchange_title"><a href="{{ exchange_url }}">{% trans "See all exchanges..." %}</a></h5>
+    </div>-->

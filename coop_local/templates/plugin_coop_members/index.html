@@ -1,0 +1,16 @@
+{% load i18n thumbnail %}
+
+<h6 class="">{% trans "Members" %}</h6>
+    <div class="plugin_coop_members">
+    {% for e in members %}            
+        <div class="bloc_title bloc_title_home">
+            <h5 class="coop_members_title"><a href="{{ members_url }}p/{{ e.pk }}">{{ e.title }}</a></h5>
+           
+        </div>
+        <div class="member_desc">{{ e.subtitle|safe }}</div>
+    {% endfor %}
+    </div>
+
+<!--    <div class="plugin_coop_members_footer">
+        <h5 class="coop_members_title"><a href="{{ members_url }}">{% trans "See all members..." %}</a></h5>
+    </div>-->
