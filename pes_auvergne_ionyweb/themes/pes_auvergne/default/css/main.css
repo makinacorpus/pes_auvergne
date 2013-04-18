@@ -266,7 +266,7 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 
 #banner nav.index {
     position: absolute;
-    top: 60px;
+    top: 50px;
     margin-left: 280px;
 }
 
@@ -280,6 +280,8 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     height: 30px;
     padding: 5px;
     text-decoration: none;
+    line-height: 20px;
+    margin-top: 5px;
 }
 #banner nav a:hover, #banner nav a:active,
 #banner nav .active a:link, #banner nav .active a:visited {
@@ -294,6 +296,9 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     font-size: 14px;
 }
 
+#banner nav li.produits-services {
+    background: url(../images/icons/service.png) no-repeat center top;
+}
 #banner nav li.annuaire {
     background: url(../images/icons/annuaire.png) no-repeat center top;
 }
@@ -316,6 +321,12 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     background: url(../images/icons/projets.png) no-repeat center top;
 }
 
+
+#banner nav li.produits-services:hover,
+#banner nav li.produits-services_active,
+#banner nav li.produits-services_home {
+    background: url(../images/icons/services_over.png) no-repeat center top;
+}
 #banner nav li.annuaire:hover,
 #banner nav li.annuaire_active,
 #banner nav li.annuaire_home {
