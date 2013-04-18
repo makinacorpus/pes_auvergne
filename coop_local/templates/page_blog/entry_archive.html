@@ -28,17 +28,18 @@
 {% if latest %}
     {% for entry in latest %}
     <div class="entry">
+        <div class="block_img">
+        </div>
+
         <h3><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h3>
+        <span class="location">{{ entry.author }}</span>
         <p class="entry-meta">
-            {{ entry.publication_date|date:"d/m/Y @ H:i" }} -
-			{% with entry as object %}
-			{% include 'page_blog/display_category.html' %}
-			{% endwith %}
+            {{ entry.publication_date|date:"d/m/Y @ H:i" }}
         </p>
         <div class="entry-body">
             {{ entry.body|truncatewords_html:50|safe }}
         </div>
-        <h4><a href="{{ entry.get_absolute_url }}">{% trans "Read more" %}</a></h4>
+        <span class="readmore"><a class="articles_link" href="{{ entry.get_absolute_url }}">{% trans "Read more" %}</a></span>
     </div>
     {% endfor %}
 {% else %}

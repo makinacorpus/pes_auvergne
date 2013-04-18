@@ -859,6 +859,12 @@ li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
     padding: 7px;
 }
 
+#articles .entry {
+    position: relative;
+}
+
+
+
 h3.coop_agenda {
     display: none;
 }
@@ -1256,22 +1262,24 @@ h4.coop_agenda {
     );
 }
 
-
+a.agenda_link,
+a.member_link,
+a.exchange_link,
+a.articles_link {
+    font-weight: bold;
+}
 a.agenda_link {
     color: #abdb91;
-    font-weight: bold;
 }
-
 a.member_link {
     color: #a03225;
-    font-weight: bold;
 }
-
 a.exchange_link {
     color: #468b92;
-    font-weight: bold;
 }
-
+a.articles_link {
+    color: #53c97f;
+}
 
 
 span.date_from {
@@ -1292,7 +1300,14 @@ span.date_to {
     float: right;
 }
 
-.bloc_title {
+
+#articles .location {
+    color: #53c97f !important;
+}
+
+
+.bloc_title,
+#articles .entry {
     float: left;
 /*     padding-top: 5px; */
 /*     padding-bottom: 5px; */
@@ -1317,7 +1332,8 @@ span.date_to {
     color: #666;
 }
 
-.bloc_title .logo {
+.bloc_title .logo,
+.entry .block_img {
     width: 150px;
     height: 150px;
     float: left;    
@@ -1339,6 +1355,11 @@ span.date_to {
 .coop_exchange .block_img {
     background: url(../images/logo_pes_auvergne_blue.png) no-repeat center center !important;
 }
+
+.content-articles .entry .block_img {
+    background: url(../images/logo_pes_auvergne_green.png) no-repeat center center !important;
+}
+
 
 .coop_exchange .block_desc {
     min-height: 120px;
