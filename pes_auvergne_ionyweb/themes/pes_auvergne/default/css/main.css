@@ -157,7 +157,7 @@ aside, nav, article, figure {
 #main-content input[type='text'],
 #main-content input[type='date'],
 #main-content input[type='number'],
-#main-content input[type='password'],{
+#main-content input[type='password'] {
     border: 1px solid #eee;
     border-radius: 2px;
     -moz-border-radius: 2px;
