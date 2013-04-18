@@ -33,7 +33,7 @@ body {
     background: #fff url(../images/bg_body.png) repeat left top;
     color: #767676;
     font-size: 11pt;
-    font-family: 'Aller Bold', 'Aller Light - Regular', 'Helvetica Neue', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Aller Bold', 'Aller Light', 'Aller Regular', 'Helvetica Neue', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     line-height: 1.429;
     margin: 0;
     padding: 0;
@@ -51,7 +51,7 @@ h6 {font-size: 1em}		/* 14px */
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 400;
 	line-height: 1.1;
-	margin-bottom: .8em;
+	margin-bottom: .1em;
 }
 
 h3, h4, h5, h6 { margin-top: .8em; }
@@ -162,12 +162,15 @@ aside, nav, article, figure {
 #main-content input[type='text'],
 #main-content input[type='date'],
 #main-content input[type='number'],
-#main-content input[type='password'] {
+#main-content input[type='password'],
+#main-content select {
     border: 1px solid #eee;
     border-radius: 2px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     height: 20px;
+    max-width: 200px;
+    background: none;
 }
 
 /***** Layout *****/
@@ -444,6 +447,11 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 .search_form_enabled #column2 {
     margin-top: 290px;    
 }
+
+.search_form_enabled_member #column2 {
+    margin-top: 220px;    
+}
+
 
 #column2 .column-widget {
     background: #fff;
@@ -891,6 +899,11 @@ h4.coop_agenda {
 .member_title {
     color: #757575 !important;
 }
+.member_subtitle {
+    font-weight:  bold;
+    color: #959595 !important;
+}
+
 
 .content-coop_member #members,
 .content-coop_agenda #coop_agenda,
@@ -917,6 +930,10 @@ h4.coop_agenda {
     margin-top: 0;
     height: 280px;
     width: 950px;    
+}
+
+.content-coop_member #search_form {
+    height: 210px;
 }
 
 .content-coop_exchange #result_exchanges {
@@ -1213,6 +1230,12 @@ h4.coop_agenda {
     height: 270px;
 }
 
+.content-coop_member #search_form #leaflet_map {
+    height: 200px;
+}
+
+
+
 #search_submit input[type='submit'] {
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -1296,13 +1319,20 @@ span.date_to {
 
 .location {
     color: #abdb91 !important;
-    font-weight: bold;
     float: right;
+    padding-left: 15px;
+    margin-top: -25px;
 }
 
 
 #articles .location {
     color: #53c97f !important;
+}
+
+#members .location {
+    color: #a03225 !important;
+    background: url(../images/icons/member_location.png) no-repeat left center;
+
 }
 
 
@@ -1499,6 +1529,10 @@ span.date_to {
     width: 100%;
 }
 
+.member_desc {
+    position: relative;
+}
+
 .bloc_content .event_content .description {
     min-height: 300px;
 }
@@ -1515,12 +1549,12 @@ span.date_to {
 
 .bloc_content .member_content_infos .column1 {
     float: left;
-    width: 490px;
+    width: 450px;
 }
 
 .bloc_content .member_content_infos .column2 {
     float: left;
-    width: 180px;
+    width: 220px;
 }
 
 

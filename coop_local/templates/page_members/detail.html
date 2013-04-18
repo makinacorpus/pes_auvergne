@@ -11,7 +11,7 @@
         <div class="logo"><img src="{{ media_path}}{{ member.logo }}" alt=""></div>
         <div class="header">
             <h3 class="member_title">{{ member.title }}</h3>
-            <span class="member_acronym">({{ member.acronym }})</span></h3>
+            <span class="member_acronym">{{ member.acronym }}</span><br/>
             <span class="member_subtitle">{{ member.subtitle }}</span>
 
 
@@ -56,25 +56,36 @@
         <div class="member_content_infos">
             <div class="column1">
                 <h3>{% trans "Products, services and activities list" %}</h3>
+                <h3>{% trans "Zone" %}</h3>
+                {% for f in member.framed.all %}
+                    {{ f }}<br/>
+                {% endfor %}
+
+                <h3>{% trans "Hours" %}</h3>
             </div>
             <div class="column2">
                 {% for l in member.located.all %}
-                    {{ l.location.label|safe }}<br/>
-                    {{ l.location.adr1|safe }}<br/>
-                    {{ l.location.adr2l|safe }}<br/>
-                    {{ l.location.zipcodel|safe }}<br/>
+                    {% if l.location.adr1 != '' %}
+                        {{ l.location.adr1|safe }}<br/>
+                    {% endif %}
+                    {% if l.location.adr2 != '' %}
+                        {{ l.location.adr2l|safe }}<br/>
+                    {% endif %}
+                    {% if l.location.zipcode != '' %}
+                        {{ l.location.zipcode|safe }}<br/>
+                    {% endif %}
                     {{ l.location.city|safe }}<br/>
                 {% endfor %}
 
-                <div class="member_address">
-                    {{ member.pref_address|safe }}
-                </div>
-                <div class="member_email">
-                    Email: {{ member.pref_email|safe }}
-                </div>
+                {% for c in member.contacts.all %}                
+                    {{ c }}<br/>
+                {% endfor %}
+
                 <div class="member_link">
                     <a href="{{ member.web|safe }}" />{{ member.web|safe }}</a>
                 </div>
+
+                <a href="" class="member_link">Downloadable docs</a>
 
             </div>
 
@@ -83,7 +94,7 @@
                 <h3>{% trans "Presentation" %}</h3>
                 <div class="member_desc">
                     <p>{{ member.description|safe }}</p>
-                    <div class="readmore"><a class="member_link" href="">{% trans "Read more" %}</a></div>
+                    <span class="readmore"><a class="member_link" href="{{ member.web|safe }}">{% trans "Read more" %}</a></span>
                 </div>
         </div>
     </div>
@@ -95,7 +106,11 @@
 
     <div class="bloc_content">
         <h3>{% trans "Activity" %}</h3>
+        {{ member.activity }}
         <h3>{% trans "Thematic" %}</h3>
+        {% for t in member.transverse_themes.all %}
+            {{ t }} <br/>
+        {% endfor %}
     </div>
 
 
