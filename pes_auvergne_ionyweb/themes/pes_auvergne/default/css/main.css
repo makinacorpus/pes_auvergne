@@ -12,13 +12,28 @@
 @import url("typogrify.css");
 @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&subset=latin);
 
+
+@font-face {
+    font-family: 'Aller Bold';
+    src: URL('../fonts/Aller_Bd.ttf') format ('ttf');
+}
+@font-face {
+    font-family: 'Aller Light';
+    src: URL('../fonts/Aller_It.ttf') format ('ttf');
+}
+@font-face {
+    font-family: 'Aller Regular';
+    src: URL('../fonts/Aller_Rg.ttf') format ('ttf');
+}
+
+
 /***** Global *****/
 /* Body */
 body {
     background: #fff url(../images/bg_body.png) repeat left top;
     color: #767676;
     font-size: 11pt;
-    font-family: 'Aller Bold', 'Allert Light - Regular', 'Helvetica Neue', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Aller Bold', 'Aller Light - Regular', 'Helvetica Neue', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     line-height: 1.429;
     margin: 0;
     padding: 0;
@@ -656,6 +671,8 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 #contentinfo {
     text-align: center;
     height: 70px;
+    font-size: 0.9em;
+    font-weight: bold;    
 }
 
 #contentinfo a {
