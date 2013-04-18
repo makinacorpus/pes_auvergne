@@ -1,0 +1,99 @@
+{% load i18n %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.css" />
+{% endblock %}
+
+
+<script type="text/javascript">
+    // We need to set a new class to content element, in order do properly display the form and the other elements
+    $('#main-content').addClass("search_form_enabled");
+</script>
+
+<div id="exchanges_top_search"></div>
+<div id="search_form">
+    <form action="{{ base_url }}" method="post">{% csrf_token %}
+        <div class="search_column" id="search_column1">
+            <div class="search_block checkbox_custom" id="looking_for">
+                <span class="search_title">{% trans "I'm looking for" %}</span>
+                {{ form.type_exchange }}
+            </div>
+            <div class="search_block checkbox_custom" id="type">
+                <span class="search_title">{% trans "Type" %}</span>
+                {{ form.type }}
+            </div>
+            <div class="search_block" id="free_search">
+                <span class="search_title">{% trans "Free search" %}</span>
+                {{ form.free_search }}
+            </div>
+            <div class="search_block" id="search_submit">
+                <input type="submit" value="{% trans "Search" %}" />                
+                <div id="results_block"><span class="nb_results">{{ exchanges.count }}</span> <span class="label_results">{% trans "Results" %}</span></div>
+                
+            </div>
+        </div>
+        <div class="search_column" id="search_column2">
+            <div class="search_block" id="activity">
+                <span class="search_title">{% trans "Activity" %}</span>
+                {% trans "Experience" %} : {{ form.activity }}
+            </div>
+            <div class="search_block" id="thematic">
+                <span class="search_title">{% trans "Thematic" %}</span>
+                {{ form.thematic }}
+            </div>
+        </div>
+        <div class="search_column" id="search_column3">
+            <div class="search_block" id="location">
+                <span class="search_title">{% trans "Location" %}</span>
+                {{ form.location }}
+            </div>
+            <div class="search_block checkbox_custom" id="mode">
+                <span class="search_title">{% trans "Exchange mode" %}</span>
+                {{ form.mode }}
+            </div>
+            <div class="search_block checkbox_custom" id="skills">
+                <span class="search_title">{% trans "If skills" %}</span>
+                {{ form.skills }}
+            </div>
+        </div>
+        <div class="search_column" id="search_column4">
+            <div id="leaflet_map"></div>
+            <script src="http://leaflet.cloudmade.com/dist/leaflet.js"></script>
+            <script type="text/javascript">
+
+                var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png',
+                    cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
+                    cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttribution});
+
+                var centre = new L.LatLng({{ center.y }}, {{ center.x }});
+                var map = new L.Map('leaflet_map');
+                map.setView(centre, 8).addLayer(cloudmade);
+
+            </script>
+
+        </div>
+    </form>
+</div>
+
+
+<div id="exchanges_top"></div>
+<div id="result_exchanges">
+
+<!-- <div class="exchanges_pagination">Pagination</div> -->
+{% for e in exchanges %}
+    <div class="coop_exchange">
+        <div class="block_img">
+        </div>
+        <div class="block_desc">
+            <div class="exchange_type">{% trans "Type" %} : {{ e.get_eway_display }}</div>
+            {% if e.location == None %} {% else %} <span class="location">{{ e.location }}</span> {% endif %}
+            <div class="exchange_title">{{ e.title }}</div>
+            <div class="exchange_desc">{{ e.description|safe }}</div>
+            <span class="readmore"><a class="exchange_link" href="{{ base_url }}p/{{ e.pk }}">{% trans "Read more" %}</a></span>
+        </div>
+    </div>
+{% endfor %}
+
+<!-- <div class="exchanges_pagination">Pagination</div> -->
+</div>
+
