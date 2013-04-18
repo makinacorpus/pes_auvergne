@@ -1,0 +1,47 @@
+{% load i18n %}
+
+
+<script type="text/javascript">
+    // We need to set a new class to content element, in order do properly display the form and the other elements
+    $('#main-content').addClass("search_form_enabled");
+</script>
+
+<div id="articles_top_search"></div>
+<div id="search_form">
+    <form action="{{ base_url }}" method="post">{% csrf_token %}
+        <div class="search_column" id="search_column1">
+            <div class="search_block checkbox_custom" id="looking_for">
+                <span class="search_title">{% trans "I'm looking for" %}</span>
+                {{ form.type_exchange }}
+            </div>
+            <div class="search_block" id="search_submit">
+                <input type="submit" value="{% trans "Search" %}" />                
+                <div id="results_block"><span class="nb_results">{{ exchanges.count }}</span> <span class="label_results">{% trans "Results" %}</span></div>
+                
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="articles_top"></div>
+<div id="articles">
+{% if latest %}
+    {% for entry in latest %}
+    <div class="entry">
+        <h3><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h3>
+        <p class="entry-meta">
+            {{ entry.publication_date|date:"d/m/Y @ H:i" }} -
+			{% with entry as object %}
+			{% include 'page_blog/display_category.html' %}
+			{% endwith %}
+        </p>
+        <div class="entry-body">
+            {{ entry.body|truncatewords_html:50|safe }}
+        </div>
+        <h4><a href="{{ entry.get_absolute_url }}">{% trans "Read more" %}</a></h4>
+    </div>
+    {% endfor %}
+{% else %}
+    <p><strong>{% trans "No entry yet" %}.</strong></p>
+{% endif %}
+</div>
