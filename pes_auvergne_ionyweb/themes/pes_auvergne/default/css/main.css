@@ -1632,7 +1632,7 @@ span.date_to {
     background: none !important;
     bottom: 30px !important;
     height: 120px !important;
-    opacity: 0.5 !important;
+    opacity: 1 !important;
     left: 485px !important;
     width: 370px !important;
 }
