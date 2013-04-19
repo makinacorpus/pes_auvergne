@@ -1629,8 +1629,23 @@ span.date_to {
 }
 
 .plugin-slideshow-link {
-   display: none;
+    background: none !important;
+    bottom: 30px !important;
+    height: 120px !important;
+    opacity: 0.5 !important;
+    left: 485px !important;
+    width: 370px !important;
 }
+
+
+.plugin-slideshow-link a {
+    color: #FFFFFF;
+    font-weight: normal !important;
+    font-size: 5em;
+    text-shadow: 2px 2px 2px #aaa;
+    border-bottom: 1px solid #fff;
+}
+
 
 /* Jquery widgets */
 
