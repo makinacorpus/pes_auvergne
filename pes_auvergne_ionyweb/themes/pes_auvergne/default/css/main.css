@@ -321,7 +321,6 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 #banner nav a:hover, #banner nav a:active,
 #banner nav .active a:link, #banner nav .active a:visited {
     background: none;
-    color: #f8b133;
     text-shadow: none !important;
 }
 
@@ -358,47 +357,83 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 
 
 #banner nav li.produits-services:hover,
-#banner nav li.produits-services_active,
-#banner nav li.produits-services_home {
+#banner nav li.produits-services_active {
+/* #banner nav li.produits-services_home { */
     background: url(../images/icons/services_over.png) no-repeat center top;
 }
 #banner nav li.annuaire:hover,
-#banner nav li.annuaire_active,
-#banner nav li.annuaire_home {
+#banner nav li.annuaire_active {
+/* #banner nav li.annuaire_home { */
     background: url(../images/icons/annuaire_over.png) no-repeat center top;
 }
 #banner nav li.annonces:hover,
-#banner nav li.annonces_active,
-#banner nav li.annonces_home {
+#banner nav li.annonces_active {
+/* #banner nav li.annonces_home { */
     background: url(../images/icons/annonces_over.png) no-repeat center top;
 }
 #banner nav li.agenda:hover,
-#banner nav li.agenda_active,
-#banner nav li.agenda_home {
+#banner nav li.agenda_active {
+/* #banner nav li.agenda_home { */
     background: url(../images/icons/agenda_over.png) no-repeat center top;
 }
 #banner nav li.actualite:hover,
-#banner nav li.actualite_active,
-#banner nav li.actualite_home {
+#banner nav li.actualite_active {
+/* #banner nav li.actualite_home { */
     background: url(../images/icons/actualite_over.png) no-repeat center top;
 }
 #banner nav li.thematiques:hover,
-#banner nav li.thematiques_active,
-#banner nav li.thematiques_home {
+#banner nav li.thematiques_active {
+/* #banner nav li.thematiques_home { */
     background: url(../images/icons/thematiques_over.png) no-repeat center top;
 }
 #banner nav li.territoire:hover,
-#banner nav li.territoire_active,
-#banner nav li.territoire_home {
+#banner nav li.territoire_active {
+/* #banner nav li.territoire_home { */
     background: url(../images/icons/territoire_over.png) no-repeat center top;
 }
 #banner nav li.projets:hover,
-#banner nav li.projets_active,
-#banner nav li.projets_home {
+#banner nav li.projets_active {
+/* #banner nav li.projets_home { */
     background: url(../images/icons/projets_over.png) no-repeat center top;
 }
 
 
+
+#banner nav li.produits-services:hover a:hover,
+#banner nav li.produits-services_active a,
+#banner nav li.produits-services_home a:hover {
+    color: #8661a9;
+}
+#banner nav li.annuaire:hover a:hover,
+#banner nav li.annuaire_active a,
+#banner nav li.annuaire_home a:hover {
+    color: #7e1919;    
+}
+#banner nav li.annonces:hover a:hover,
+#banner nav li.annonces_active a,
+#banner nav li.annonces_home a:hover {
+    color: #00a99d;    
+}
+#banner nav li.agenda:hover a:hover,
+#banner nav li.agenda_active a,
+#banner nav li.agenda_home a:hover {
+    color: #74bf4c;
+}
+#banner nav li.actualite:hover a:hover,
+#banner nav li.actualite_active a,
+#banner nav li.actualite_home a:hover {
+    color: #41b26e;
+}
+#banner nav li.thematiques:hover a:hover,
+#banner nav li.thematiques_active a,
+#banner nav li.thematiques_home  a:hover {
+    color: #52a1fd;
+}
+#banner nav li.projets:hover a:hover,
+#banner nav li.projets_active a,
+#banner nav li.projets_home  a:hover {
+    color: #7b6856;
+}
 
 
 /*
