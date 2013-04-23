@@ -133,6 +133,7 @@
                 <div class="bloc_title">
                     <div class="logo"></div>
                     <div class="resume">
+                        {% if o.event.location == None %} {% else %} <span class="location">{{ o.event.location|truncatechars:20 }}</span> {% endif %}
                         <ul class="date">
                             <li>
                                 <span class="date_from">{{ o.start_time|date:"j" }} {{ o.start_time|date:"M"|lower }} {{ o.start_time|date:"Y"|lower }}</span>
@@ -143,9 +144,8 @@
                             </li>
                         </ul>
 
-                        {% if o.event.location == None %} {% else %} <span class="location">{{ o.event.location }}</span> {% endif %}
+                        <a href="{{ base_url }}p/{{ o.event.pk }}"><h3 class="coop_agenda_title resume_title">{{ o.event.title }}</h3></a>
 
-                        <a href="{{ base_url }}p/{{ o.event.pk }}"><h3 class="coop_agenda_title">{{ o.event.title }}</h3></a>
 
                         <div class="description">
                             {{ o.event.description|truncatewords_html:15|safe }}

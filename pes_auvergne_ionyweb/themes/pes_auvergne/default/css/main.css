@@ -543,7 +543,7 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     list-style-type: none;
     padding-left: 15px;    
     border-bottom: 1px solid #EEEEEE;
-    font-weight: bold;
+/*     font-weight: bold; */
     line-height: 35px;
 }
 
@@ -948,7 +948,6 @@ h3.coop_agenda {
 
 .coop_agenda .coop_agenda_title {
     color: #757575 !important;
-    font-style: italic;
     margin-left: 0px !important;
 }
 
@@ -1383,11 +1382,13 @@ span.date_to {
     margin-left: 7px;
 }
 
+/* Location indication in lists */
 .location {
     color: #abdb91 !important;
     float: right;
     padding-left: 15px;
-    margin-top: -25px;
+/*     margin-top: -25px; */
+    font-weight: normal !important;
 }
 
 
@@ -1398,15 +1399,24 @@ span.date_to {
 #members .location {
     color: #a03225 !important;
     background: url(../images/icons/member_location.png) no-repeat left center;
+}
 
+.coop_exchange .location {
+    color: #468b92 !important;
+    background: url(../images/icons/exchange_location.png) no-repeat left center;
+
+}
+
+.coop_agenda .location {
+    color: #abdb91 !important;
+    background: url(../images/icons/agenda_location.png) no-repeat left center;
+    
 }
 
 
 .bloc_title,
 #articles .entry {
     float: left;
-/*     padding-top: 5px; */
-/*     padding-bottom: 5px; */
     margin-bottom: 5px;
     width: 100%;
     border-bottom: 1px solid #eee;
@@ -1461,12 +1471,21 @@ span.date_to {
     position: relative;
 }
 
+
+.coop_exchange {
+    border-bottom: none !important;
+}
+
 .member, .member_detail {
     border: none !important;
 }
 
 .member_title {
     margin-left: 0px !important;
+}
+
+.resume_title {
+    margin-left: 0px;
 }
 
 .bloc_title .header {
