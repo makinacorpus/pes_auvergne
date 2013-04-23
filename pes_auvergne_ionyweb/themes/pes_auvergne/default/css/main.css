@@ -26,6 +26,18 @@
     src: URL('../fonts/Aller_Rg.ttf') format ('ttf');
 }
 
+
+@font-face
+{
+    font-family: Aller;
+    src: url(../fonts/Aller_Rg.ttf);
+}
+
+div
+{
+font-family:Aller;
+}
+
 /*@font-face {
     font-family: 'Helvetica Neue';
     src: URL('../fonts/HelveticaNeue.dfont') format ('dfont');
