@@ -1,0 +1,118 @@
+{% load i18n %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.css" />
+{% endblock %}
+
+
+<div id="exchanges_top"></div>
+<div id="coop_exchange" class="coop_exchange">
+    <div class="bloc_title">
+        <div class="logo"></div>
+        <div class="header">
+            <h3 class="exchange_title">{{ e.title }}</h3>
+            <span class="exchange_date">{{ e.created }}</span><br/>
+            <span class="exchange_dateexp">{{ e.expiration }}</span>
+            {{ e.remote_organization_label }}
+
+            <div id="links">
+                <a class="facebook" href=""></a>
+                <a class="twitter" href=""></a>
+                <a class="google_plus" href=""></a>
+                <a class="mail" href=""></a>
+                <a class="plus" href=""></a>
+                <a class="links" href=""></a>
+                <a class="print" href=""></a>
+            </div>
+        </div>
+
+        <div class="map">
+            <div id="leaflet_map"></div>
+                <script src="http://leaflet.cloudmade.com/dist/leaflet.js"></script>
+                <script type="text/javascript">
+
+                    var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png',
+                        cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
+                        cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttribution});
+
+                    var map = new L.Map('leaflet_map');
+
+
+                    var centre = new L.LatLng({{ e.location.point.y|safe }}, {{ e.location.point.x|safe }});
+                    L.marker([{{ e.location.point.y|safe }}, {{ e.location.point.x|safe }}]).addTo(map)
+                            .bindPopup('{{ l.label|safe }}')
+                            .openPopup();
+                    
+                    map.setView(centre, 8).addLayer(cloudmade);
+
+                </script>
+            </div>            
+
+        </div>
+
+
+    <div class="bloc_content">
+        <div class="exchange_content_infos">
+            <div class="column1">
+                <h3>{{ e.get_eway_display }}</h3>
+                <h3>{% trans "Type" %}: {{ e.type }}</h3>
+                <h3>{% trans "Modalities" %}:</h3>
+                
+                <h3><a href="" class="exchange_link">{% trans "Answer exchange" %}</a></h3>
+            </div>
+            <div class="column2">
+                <h3>{% trans "Contact" %}</h3>
+
+                {% for c in e.contacts.all %}                
+                    {{ c }}<br/>
+                {% endfor %}
+
+                <a href="" class="exchange_link">{% trans "Downloadable docs" %}</a>
+
+            </div>
+
+        </div>
+        <div class="exchange_complement">
+                <h3>{% trans "Presentation" %}</h3>
+                <div class="exchange_desc">
+                    <p>{{ e.description|safe }}</p>
+                    <span class="readmore"><a class="exchange_link" href="{{ e.web|safe }}">{% trans "Read more" %}</a></span>
+                </div>
+        </div>
+    </div>
+    
+    <div class="bloc_content">
+        <h3>{% trans "Galery" %}</h3>
+        <div class="fake_img"></div>
+        <div class="fake_img"></div>
+        <div class="fake_img"></div>
+    </div>
+    
+
+    <div class="bloc_content">
+        <div class="exchange_content_activity">
+            <h3>{% trans "Activity" %}</h3>
+            {{ e.activity }}
+        </div>
+            
+        <div class="exchange_content_thematic">
+            <h3>{% trans "Thematic" %}</h3>
+            {% for t in e.transverse_themes.all %}
+                {{ t }} <br/>
+            {% endfor %}
+        </div>
+
+        <div class="exchange_content_keywords">
+            <h3 class="exchange_link">{% trans "Keywords" %}</h3>
+        </div>
+
+
+        <div class="exchange_content_solidarity">
+            <h3 class="exchange_link">{% trans "Solidarity" %}</h3>
+        </div>
+    </div>
+
+
+</div>
+
+
