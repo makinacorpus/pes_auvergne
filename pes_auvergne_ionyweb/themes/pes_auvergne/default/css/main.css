@@ -13,25 +13,24 @@
 @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&subset=latin);
 
 
-@font-face {
-    font-family: 'Aller Bold';
-    src: URL('../fonts/Aller_Bd.ttf') format ('ttf');
-}
-@font-face {
-    font-family: 'Aller Light';
-    src: URL('../fonts/Aller_It.ttf') format ('ttf');
-}
-@font-face {
-    font-family: 'Aller';
-    src: URL('../fonts/Aller_Rg.ttf') format ('ttf');
-}
-
-
 @font-face
 {
     font-family: Aller;
     src: url(../fonts/Aller_Rg.ttf);
 }
+
+@font-face
+{
+    font-family: Aller Light;
+    src: url(../fonts/Aller_It.ttf);
+}
+
+@font-face
+{
+    font-family: Aller Bold;
+    src: url(../fonts/Aller_Bd.ttf);
+}
+
 
 div
 {
