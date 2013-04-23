@@ -75,7 +75,39 @@
 
         </div>
     </div>
-    <div class="bloc_complement">
+
+
+
+    <div class="bloc_content">
+        <h3>{% trans "Galery" %}</h3>
+        <div class="fake_img"></div>
+        <div class="fake_img"></div>
+        <div class="fake_img"></div>
+    </div>
+    
+
+    <div class="bloc_content">
+        <div class="coop_agendae_content_activity">
+            <h3>{% trans "Activity" %}</h3>
+            {{ e.activity }}
+        </div>
+            
+        <div class="coop_agenda_content_thematic">
+            <h3>{% trans "Thematic" %}</h3>
+            {% for t in e.transverse_themes.all %}
+                {{ t }} <br/>
+            {% endfor %}
+        </div>
+
+        <div class="coop_agenda_content_keywords">
+            <h3 class="coop_agenda_link">{% trans "Keywords" %}</h3>
+        </div>
+
+
+    </div>
+
+
+    <div class="bloc_content">
         <span class='label'>{% trans "Type event" %}:</span> {% for cat in e.category.all %} {{ cat }} {% endfor %}
 
         {% if e.linked_articles %}
@@ -92,7 +124,6 @@
         {% else %}
         {% endif %}
     </div>
-
 </div>
 
 

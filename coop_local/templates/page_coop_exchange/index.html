@@ -35,22 +35,28 @@
         <div class="search_column" id="search_column2">
             <div class="search_block" id="activity">
                 <span class="search_title">{% trans "Activity" %}</span>
-                {% trans "Experience" %} : {{ form.activity }}
+                {{ form.activity }}
             </div>
             <div class="search_block" id="thematic">
                 <span class="search_title">{% trans "Thematic" %}</span>
                 {{ form.thematic }}
             </div>
+            <div class="search_block checkbox_custom" id="mode">
+                <span class="search_title">{% trans "Exchange mode" %}</span>
+                {{ form.mode }}
+            </div>
+
         </div>
         <div class="search_column" id="search_column3">
             <div class="search_block" id="location">
                 <span class="search_title">{% trans "Location" %}</span>
                 {{ form.location }}
             </div>
-            <div class="search_block checkbox_custom" id="mode">
-                <span class="search_title">{% trans "Exchange mode" %}</span>
-                {{ form.mode }}
+            <div class="search_block" id="location_buffer">
+                <span class="search_title">{% trans "Location buffer" %}</span>
+                {{ form.location_buffer }}
             </div>
+
             <div class="search_block checkbox_custom" id="skills">
                 <span class="search_title">{% trans "If skills" %}</span>
                 {{ form.skills }}
@@ -65,10 +71,26 @@
                     cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
                     cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttribution});
 
-                var centre = new L.LatLng({{ center.y }}, {{ center.x }});
                 var map = new L.Map('leaflet_map');
-                map.setView(centre, 8).addLayer(cloudmade);
+                var x,y;
+                if($('input[name=location]').val() != "") {
+                    coords = $('input[name=location]').val().split(",");
+                    x = coords[0];
+                    y = coords[1];
+                }
+                else {
+                    x = {{ center.x }};
+                    y = {{ center.y }};
+                }
+                var centre = new L.LatLng(y, x);
+                var marker = L.marker([centre.lat, centre.lng], {draggable: true}).addTo(map);
+                marker.on('dragend', function (e) {
+                            var coords = e.target.getLatLng(); 
+                            $('input[name=location]').val(coords.lng + "," + coords.lat);
+                        }
+                    );
 
+                map.setView(centre, 8).addLayer(cloudmade);
             </script>
 
         </div>

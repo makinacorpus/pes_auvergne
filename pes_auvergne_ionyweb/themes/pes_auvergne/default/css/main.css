@@ -33,7 +33,8 @@ body {
     background: #fff url(../images/bg_body.png) repeat left top;
     color: #767676;
     font-size: 11pt;
-    font-family: 'Aller Bold', 'Aller Light', 'Aller Regular', 'Helvetica Neue', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+/*     font-family: 'Aller Bold', 'Aller Light', 'Aller Regular', 'Helvetica Neue', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    font-family: 'Aller', 'Helvetica Neue', Trebuchet, Arial, sans-serif;
     line-height: 1.429;
     margin: 0;
     padding: 0;
@@ -954,6 +955,7 @@ h4.coop_agenda {
 
 .content-coop_member #members,
 .content-coop_agenda #coop_agenda,
+.content-coop_exchange #coop_exchange,
 .content-articles #articles {
     border-width: 0;
     float: left;
@@ -1177,7 +1179,8 @@ h4.coop_agenda {
 
 #search_form,
 #result_exchanges,
-#coop_agenda {
+#coop_agenda,
+#coop_exchange {
     background: #fff;
     margin-bottom: 10px;
     box-shadow: 2px 2px 2px #aaa;
@@ -1424,10 +1427,9 @@ span.date_to {
     background: url(../images/logo_pes_auvergne_green.png) center center no-repeat;
 }
 
-.member .bloc_title .logo {
-/*     background: url(../images/logo_pes_auvergne_violet.png) center center no-repeat; */
+.coop_exchange .bloc_title .logo {
+    background: url(../images/logo_pes_auvergne_blue.png) center center no-repeat;
 }
-
 
 .coop_exchange .block_img {
     background: url(../images/logo_pes_auvergne_blue.png) no-repeat center center !important;
@@ -1542,16 +1544,55 @@ span.date_to {
 }
 
 
+
+#coop_exchange .bloc_title .header #links a.facebook {
+    background: url(../images/icons/exchange_facebook.png) left top no-repeat;
+}
+
+#coop_exchange .bloc_title .header #links a.twitter {
+    background: url(../images/icons/exchange_twitter.png) left top no-repeat;
+}
+#coop_exchange .bloc_title .header #links a.google_plus {
+    background: url(../images/icons/exchange_google_plus.png) left top no-repeat;
+}
+
+#coop_exchange .bloc_title .header #links a.mail {
+    background: url(../images/icons/exchange_mail.png) left top no-repeat;
+}
+
+#coop_exchange .bloc_title .header #links a.plus {
+    background: url(../images/icons/exchange_plus.png) left top no-repeat;
+}
+
+#coop_exchange .bloc_title .header #links a.links {
+    background: url(../images/icons/exchange_links.png) left top no-repeat;
+}
+
+#coop_exchange .bloc_title .header #links a.print {
+    background: url(../images/icons/exchange_print.png) left top no-repeat;
+}
+
+
 .bloc_content {
     border-bottom: 1px solid #a4da86;
     float: left;
+    width: 100%;
+}
+
+
+#members .bloc_content,
+#coop_exchange .bloc_content {
+    float: left;
+    
+    padding-bottom: 10px;
 }
 
 #members .bloc_content {
     border-bottom: 1px solid #a03225;
-    float: left;
-    width: 100%;
-    padding-bottom: 10px;
+}
+
+#coop_exchange .bloc_content {
+    border-bottom: 1px solid #468B92;
 }
 
 .bloc_content .event_image {
@@ -1593,19 +1634,22 @@ span.date_to {
 .bloc_content .member_content_infos,
 .bloc_content .member_content_activity,
 .bloc_content .member_content_thematic,
-.bloc_content .member_content_keywords {
+.bloc_content .member_content_keywords,
+.bloc_content .exchange_content_infos {
     border-bottom: 1px solid #eee;
     float: left;
     width: 100%;
     padding-bottom: 10px;
 }
 
-.bloc_content .member_content_infos .column1 {
+.bloc_content .member_content_infos .column1,
+.bloc_content .exchange_content_infos .column1 {
     float: left;
     width: 450px;
 }
 
-.bloc_content .member_content_infos .column2 {
+.bloc_content .member_content_infos .column2,
+.bloc_content .exchange_content_infos .column2 {
     float: left;
     width: 220px;
 }
