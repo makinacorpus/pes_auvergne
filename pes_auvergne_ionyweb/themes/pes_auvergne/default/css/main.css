@@ -1299,7 +1299,9 @@ h4.coop_agenda {
     height: 200px;
 }
 
-
+#search_form label {
+    font-size: 10px;
+}
 
 #search_submit input[type='submit'] {
     -moz-border-radius: 5px;
@@ -1749,4 +1751,14 @@ span.date_to {
     background: #fff;
     border: 1px solid #ccc;
     z-index: 999 !important;
+}
+
+.add_form label {
+    width: 150px;
+    float: left;
+    text-align: right;
+}
+
+.fieldWrapper {
+    margin: 10px;
 }

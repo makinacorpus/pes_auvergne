@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-18 23:06+0200\n"
+"POT-Creation-Date: 2013-04-24 09:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,7 +44,8 @@ msgstr "Résultats"
 #: templates/page_blog/entry_archive.html:42
 #: templates/page_coop_agenda/detail.html:74
 #: templates/page_coop_agenda/index.html:153
-#: templates/page_coop_exchange/index.html:92
+#: templates/page_coop_exchange/detail.html:79
+#: templates/page_coop_exchange/index.html:116
 #: templates/page_members/detail.html:97 templates/page_members/index.html:112
 msgid "Read more"
 msgstr "En savoir plus"
@@ -70,15 +71,36 @@ msgstr "S'incrire à l'évènement"
 msgid "Event's description"
 msgstr "Description de l'évènement"
 
-#: templates/page_coop_agenda/detail.html:79
-msgid "Type event"
-msgstr "Type d'évènement"
+#: templates/page_coop_agenda/detail.html:82
+#: templates/page_coop_exchange/detail.html:85
+#: templates/page_members/detail.html:103
+msgid "Galery"
+msgstr "Galerie"
 
+#: templates/page_coop_agenda/detail.html:91
 #: templates/page_coop_agenda/index.html:19
+#: templates/page_coop_exchange/detail.html:94
 #: templates/page_coop_exchange/index.html:37
 #: templates/page_members/detail.html:112 templates/page_members/index.html:19
 msgid "Activity"
 msgstr "Secteur d'activité"
+
+#: templates/page_coop_agenda/detail.html:96
+#: templates/page_coop_exchange/detail.html:99
+#: templates/page_coop_exchange/index.html:41
+#: templates/page_members/detail.html:117 templates/page_members/index.html:29
+msgid "Thematic"
+msgstr "Thématiques"
+
+#: templates/page_coop_agenda/detail.html:103
+#: templates/page_coop_exchange/detail.html:106
+#: templates/page_members/detail.html:124
+msgid "Keywords"
+msgstr "Mots-clés +"
+
+#: templates/page_coop_agenda/detail.html:111
+msgid "Type event"
+msgstr "Type d'évènement"
 
 #: templates/page_coop_agenda/index.html:27
 #: templates/page_coop_exchange/index.html:26
@@ -87,8 +109,9 @@ msgid "Free search"
 msgstr "Recherche libre"
 
 #: templates/page_coop_agenda/index.html:33
+#: templates/page_coop_exchange/detail.html:58
 #: templates/page_coop_exchange/index.html:22
-#: templates/page_coop_exchange/index.html:88
+#: templates/page_coop_exchange/index.html:113
 msgid "Type"
 msgstr ""
 
@@ -101,12 +124,13 @@ msgid "End date"
 msgstr "Date fin"
 
 #: templates/page_coop_agenda/index.html:47
-#: templates/page_coop_exchange/index.html:47
+#: templates/page_coop_exchange/index.html:52
 #: templates/page_members/index.html:35
 msgid "Location"
 msgstr "Lieu"
 
 #: templates/page_coop_agenda/index.html:51
+#: templates/page_coop_exchange/index.html:56
 #: templates/page_members/index.html:39
 msgid "Location buffer"
 msgstr "Périmètre de recherche"
@@ -116,25 +140,42 @@ msgstr "Périmètre de recherche"
 msgid "Agenda"
 msgstr ""
 
-#: templates/page_coop_agenda/index.html:140
+#: templates/page_coop_agenda/index.html:141
 #: templates/plugin_coop_agenda/index.html:11
 msgid "to"
 msgstr "à"
 
-#: templates/page_coop_exchange/index.html:38
-msgid "Experience"
-msgstr "Expérience"
+#: templates/page_coop_exchange/detail.html:59
+msgid "Modalities"
+msgstr "Modalités"
 
-#: templates/page_coop_exchange/index.html:41
-#: templates/page_members/detail.html:117 templates/page_members/index.html:29
-msgid "Thematic"
-msgstr "Thématiques"
+#: templates/page_coop_exchange/detail.html:61
+msgid "Answer exchange"
+msgstr "Réponde à l'annonce"
 
-#: templates/page_coop_exchange/index.html:51
+#: templates/page_coop_exchange/detail.html:64
+msgid "Contact"
+msgstr ""
+
+#: templates/page_coop_exchange/detail.html:70
+#: templates/page_members/detail.html:88
+msgid "Downloadable docs"
+msgstr "Documents téléchargeables"
+
+#: templates/page_coop_exchange/detail.html:76
+#: templates/page_members/detail.html:94
+msgid "Presentation"
+msgstr "Présentation"
+
+#: templates/page_coop_exchange/detail.html:111
+msgid "Solidarity"
+msgstr "Solidarité"
+
+#: templates/page_coop_exchange/index.html:45
 msgid "Exchange mode"
 msgstr "Mode d'échange"
 
-#: templates/page_coop_exchange/index.html:55
+#: templates/page_coop_exchange/index.html:61
 msgid "If skills"
 msgstr "Si compétences"
 
@@ -149,22 +190,6 @@ msgstr "Zone d'intervention"
 #: templates/page_members/detail.html:64
 msgid "Hours"
 msgstr "Horaires"
-
-#: templates/page_members/detail.html:88
-msgid "Downloadable docs"
-msgstr "Documents téléchargeables"
-
-#: templates/page_members/detail.html:94
-msgid "Presentation"
-msgstr "Présentation"
-
-#: templates/page_members/detail.html:103
-msgid "Galery"
-msgstr "Galerie"
-
-#: templates/page_members/detail.html:124
-msgid "Keywords"
-msgstr "Mots-clés +"
 
 #: templates/plugin_coop_agenda/index.html:29
 msgid "See all events..."
@@ -185,3 +210,6 @@ msgstr "Membres"
 #: templates/plugin_coop_members/index.html:15
 msgid "See all members..."
 msgstr "Voir tous les membres"
+
+#~ msgid "Experience"
+#~ msgstr "Expérience"
