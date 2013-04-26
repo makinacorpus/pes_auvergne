@@ -87,30 +87,28 @@
 <div id="members_top"></div>
 <div id="members">
 {% for m in members %}
-    <div class="member">
-        <div class="bloc_title">
-            <div class="logo"><img src="{{ media_path}}{{ m.logo }}" alt=""></div>
-            <div class="resume">
-                {% if m.located == None %}{% else %} 
-                    <span class="location">
-                    {% for l in m.located.all %}
-                        {{ l.location.label|truncatechars:20|safe }}
-                    {% endfor %}
-                    </span> 
-                {% endif %}
+    <div class="bloc_title">
+        <div class="logo"><img src="{{ media_path}}{{ m.logo }}" alt=""></div>
+        <div class="resume">
+            {% if m.located == None %}{% else %} 
+                <span class="location">
+                {% for l in m.located.all %}
+                    {{ l.location.label|truncatechars:20|safe }}
+                {% endfor %}
+                </span> 
+            {% endif %}
 
-                {% if direct_link %}
-                    <a href="{{ m.web|safe }}"><h3 class="member_title resume_title">{{ m.title }}</h3></a>
-                {% else %}
-                    <a href="{{ base_url }}p/{{ m.pk }}"><h3 class="member_title resume_title">{{ m.title }}</h3></a>
-                {% endif %}
+            {% if direct_link %}
+                <a href="{{ m.web|safe }}"><h3 class="member_title resume_title">{{ m.title }}</h3></a>
+            {% else %}
+                <a href="{{ base_url }}p/{{ m.pk }}"><h3 class="member_title resume_title">{{ m.title }}</h3></a>
+            {% endif %}
 
-                <span class="member_subtitle">{{ m.activity }}</span>
+            <span class="member_subtitle">{{ m.activity }}</span>
 
-                <span class="">{{ m.description|truncatewords_html:15|safe }}</span>
+            <span class="">{{ m.description|truncatewords_html:15|safe }}</span>
 
-                <span class="readmore"><a class="member_link" href="{{ base_url }}p/{{ m.pk }}">{% trans "Read more" %}</a></span>
-            </div>
+            <span class="readmore"><a class="member_link" href="{{ base_url }}p/{{ m.pk }}">{% trans "Read more" %}</a></span>
         </div>
     </div>
 

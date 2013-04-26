@@ -12,6 +12,18 @@
 @import url("typogrify.css");
 @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&subset=latin);
 
+/* Colors */
+/*
+ * body      : #767676
+ * services  : #8e3879
+ * members   : #a5261f
+ * exchanges : #075663
+ * agenda    : #70be46
+ * news      : #2ea85f
+ * thematic  : #50a1fa
+ * projects  : #7f6856
+ * 
+ */
 
 @font-face
 {
@@ -32,25 +44,13 @@
 }
 
 
-div
-{
-font-family:Aller;
-}
-
-/*@font-face {
-    font-family: 'Helvetica Neue';
-    src: URL('../fonts/HelveticaNeue.dfont') format ('dfont');
-}*/
-
-
 /***** Global *****/
 /* Body */
 body {
     background: #fff url(../images/bg_body.png) repeat left top;
     color: #767676;
     font-size: 11pt;
-/*     font-family: 'Aller Bold', 'Aller Light', 'Aller Regular', 'Helvetica Neue', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
-    font-family: 'Aller', 'Helvetica Neue', Trebuchet, Arial, sans-serif;
+    font-family: 'Helvetica', Trebuchet, Arial, sans-serif;
     line-height: 1.429;
     margin: 0;
     padding: 0;
@@ -154,20 +154,20 @@ q {}
 /* Tables */
 table {margin: .5em auto 1.5em auto; width: 98%;}
 	
-	/* Thead */
-	thead th {padding: .5em .4em; text-align: left;}
-	thead td {}
+/* Thead */
+thead th {padding: .5em .4em; text-align: left;}
+thead td {}
 
-	/* Tbody */
-	tbody td {padding: .5em .4em;}
-	tbody th {}
-	
-	tbody .alt td {}
-	tbody .alt th {}
-	
-	/* Tfoot */
-	tfoot th {}
-	tfoot td {}
+/* Tbody */
+tbody td {padding: .5em .4em;}
+tbody th {}
+
+tbody .alt td {}
+tbody .alt th {}
+
+/* Tfoot */
+tfoot th {}
+tfoot td {}
 	
 /* HTML5 tags */
 header, section, footer,
@@ -314,6 +314,7 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     padding: 0;
     text-align: center;
     width: 700px;
+    font-family: Aller;
 }
 
 #banner nav.index {
@@ -375,42 +376,34 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 
 #banner nav li.produits-services:hover,
 #banner nav li.produits-services_active {
-/* #banner nav li.produits-services_home { */
     background: url(../images/icons/services_over.png) no-repeat center top;
 }
 #banner nav li.annuaire:hover,
 #banner nav li.annuaire_active {
-/* #banner nav li.annuaire_home { */
     background: url(../images/icons/annuaire_over.png) no-repeat center top;
 }
 #banner nav li.annonces:hover,
 #banner nav li.annonces_active {
-/* #banner nav li.annonces_home { */
     background: url(../images/icons/annonces_over.png) no-repeat center top;
 }
 #banner nav li.agenda:hover,
 #banner nav li.agenda_active {
-/* #banner nav li.agenda_home { */
     background: url(../images/icons/agenda_over.png) no-repeat center top;
 }
 #banner nav li.actualite:hover,
 #banner nav li.actualite_active {
-/* #banner nav li.actualite_home { */
     background: url(../images/icons/actualite_over.png) no-repeat center top;
 }
 #banner nav li.thematiques:hover,
 #banner nav li.thematiques_active {
-/* #banner nav li.thematiques_home { */
     background: url(../images/icons/thematiques_over.png) no-repeat center top;
 }
 #banner nav li.territoire:hover,
 #banner nav li.territoire_active {
-/* #banner nav li.territoire_home { */
     background: url(../images/icons/territoire_over.png) no-repeat center top;
 }
 #banner nav li.projets:hover,
 #banner nav li.projets_active {
-/* #banner nav li.projets_home { */
     background: url(../images/icons/projets_over.png) no-repeat center top;
 }
 
@@ -419,37 +412,37 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 #banner nav li.produits-services:hover a:hover,
 #banner nav li.produits-services_active a,
 #banner nav li.produits-services_home a:hover {
-    color: #8661a9;
+    color: #8e3879;
 }
 #banner nav li.annuaire:hover a:hover,
 #banner nav li.annuaire_active a,
 #banner nav li.annuaire_home a:hover {
-    color: #7e1919;    
+    color: #a5261f;    
 }
 #banner nav li.annonces:hover a:hover,
 #banner nav li.annonces_active a,
 #banner nav li.annonces_home a:hover {
-    color: #00a99d;    
+    color: #075663;    
 }
 #banner nav li.agenda:hover a:hover,
 #banner nav li.agenda_active a,
 #banner nav li.agenda_home a:hover {
-    color: #74bf4c;
+    color: #70be46;
 }
 #banner nav li.actualite:hover a:hover,
 #banner nav li.actualite_active a,
 #banner nav li.actualite_home a:hover {
-    color: #41b26e;
+    color: #2ea85f;
 }
 #banner nav li.thematiques:hover a:hover,
 #banner nav li.thematiques_active a,
 #banner nav li.thematiques_home  a:hover {
-    color: #52a1fd;
+    color: #50a1fa;
 }
 #banner nav li.projets:hover a:hover,
 #banner nav li.projets_active a,
 #banner nav li.projets_home  a:hover {
-    color: #7b6856;
+    color: #7f6856;
 }
 
 
@@ -490,10 +483,7 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 }
 
 #content {
-/* 	background: #fff; */
-/* 	margin-bottom: 2em; */
 	overflow: hidden;
-	/*padding: 20px 20px;*/
 	width: 960px;
 }
 
@@ -502,11 +492,19 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     width: 710px;
 }
 
+#column1.standard {
+    width: 695px;
+}
+
+
+
 #column2 {
     float: left;
     width: 240px;
     padding: 5px;
 }
+
+
 
 .search_form_enabled #column2 {
     margin-top: 290px;    
@@ -583,6 +581,7 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     height: 6px;
 }
 
+#column1_top.standard,
 .gradient-header {
     /* Anciens navigateurs */
     background: #e56409 url("gradient-bg.png") repeat-y left;
@@ -920,7 +919,7 @@ li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
 }
 
 /* plugins / apps */
-
+#column1.standard,
 #coop_agenda,
 #coop_account,
 #coop_exchange,
@@ -978,6 +977,7 @@ h4.coop_agenda {
     width: 686px;
 }
 
+#column1_top.standard,
 .content-coop_member #members_top,
 .content-coop_agenda #agenda_top,
 .content-articles #articles_top {
@@ -986,6 +986,9 @@ h4.coop_agenda {
     width: 700px;
 }
 
+#column1_top.standard {
+    width: 710px;
+}
 
 .content-coop-app #search_form ,
 .content-coop_exchange #result_exchanges {
@@ -1620,7 +1623,6 @@ span.date_to {
 #members .bloc_content,
 #coop_exchange .bloc_content {
     float: left;
-    
     padding-bottom: 10px;
 }
 
