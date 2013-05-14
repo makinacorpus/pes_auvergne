@@ -2,44 +2,30 @@
 from django import forms
 from django.contrib import admin
 from django.core.exceptions import ImproperlyConfigured
+from coop_local.models import Organization
 
 try:
     from coop.base_admin import *
 except ImportError, exp:
     raise ImproperlyConfigured("Unable to find coop/base_admin.py file")
 
-
-# subclass existing ModelAdmins and add your own model's ModelAdmins here
-
-"""
-# ---- overriding main models when needed : example -----------------------
-
-# first unregister previous ModelAdmin
-admin.site.unregister(Person)
-
-# define anothe admin
-class MyPersonAdmin(PersonAdmin):
-    Add custom fields you defined in coop_local.models
+admin.site.unregister(Organization)
+class MyOrganizationAdmin(OrganizationAdmin):
+    list_display = ('logo_list_display', 'label', 'id', 'active', 'has_description', 'has_location')
     fieldsets = (
-        ('Identification', {
-            'fields': (('first_name', 'last_name'),
-                        ('location', 'location_display'),  # Using coop-geo
-                        'email',
-                        'category'
-                        ),
+        ('Identité', {
+            'fields': ('logo', 'title', ('acronym', 'pref_label'), 'subtitle', ('birth', 'active',),
+                        'web')
             }),
-        ('Notes', {
-            'fields': ('structure', 'notes',)
+        ('Description', {
+            'fields': ('description', 'category', 'tags', ('statut', 'secteur_fse'), ('siret', 'naf'))
+            }),
+
+        ('Préférences', {
+            #'classes': ('collapse',),
+            'fields': ('pref_email', 'pref_phone', 'pref_address', 'notes',)
         })
     )
-    Using coop-geo
-    related_search_fields = {'location': ('label', 'adr1', 'adr2', 'zipcode', 'city'), }
-admin.site.register(Person, MyPersonAdmin)
 
-# ----- admin for classifications : ultra-simple -----------------------------
+admin.site.register(Organization, MyOrganizationAdmin)
 
-admin.site.register(Statut, CoopTagTreeAdmin)
-
-
-
-"""
