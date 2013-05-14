@@ -15,7 +15,7 @@
 /* Colors */
 /*
  * body      : #767676
- * services  : #8e3879
+ * services  : #815b9d
  * members   : #a5261f
  * exchanges : #00a99d
  * agenda    : #70be46
@@ -424,7 +424,7 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 #banner nav  a:hover li.produits-services:hover,
 #banner nav  a li.produits-services_active,
 #banner nav a:hover li.produits-services_home  {
-    color: #8e3879;
+    color: #815b9d;
 }
 #banner nav a:hover li.annuaire:hover,
 #banner nav a li.annuaire_active,
