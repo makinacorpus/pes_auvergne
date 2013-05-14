@@ -190,6 +190,14 @@ aside, nav, article, figure {
     background: none;
 }
 
+/*#main-content .add_form input[type='text'],
+#main-content .add_form input[type='date'],
+#main-content .add_form input[type='number'],
+#main-content .add_form input[type='password'],
+#main-content .add_form select {
+    padding: 10px;
+}*/
+
 /***** Layout *****/
 .body {clear: both; margin: 0 auto; width: 960px;}
 img.right figure.right {float: right; margin: 0 0 2em 2em;}
@@ -524,7 +532,8 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     padding: 7px;
 }
 
-#column2 .column-widget h2 {
+#column2 .column-widget h2,
+.maj_title {
     text-align: center;
     background: url(../images/bg-bottom-title.png) repeat-x bottom left;
     line-height: 40px;
@@ -1763,4 +1772,71 @@ span.date_to {
 
 .fieldWrapper {
     margin: 10px;
+}
+
+
+.add_form .maj_title {
+    text-align: left;
+}
+
+.bg_form {
+    background: #fafafa;
+    border: 1px solid #ccc;
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 40px;
+}   
+
+
+#new_submit {
+    margin: 20px auto;
+    width: 95px;
+}
+
+.new_block input[type='submit'] {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    height: 34px;
+    width: 95px;
+}
+
+.gradient_grey,
+.new_block input[type='submit'] {
+    /* Anciens navigateurs */
+    background: #f8f8f8 url("gradient_grey-bg.png") repeat-x top;
+    -o-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    /* Internet Explorer */
+    *background: #f8f8f8;
+    background: #f8f8f8\0/;
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr=#FFffffff, endColorstr=#FFf8f8f8);
+    /* Navigateurs récents */
+    background-image: -webkit-gradient(
+        linear,
+        left top, left bottom,
+        from(#ffffff),
+        to(#f8f8f8)
+    );
+    background-image: -webkit-linear-gradient(
+        top,
+        #ffffff,
+        #f8f8f8
+    );
+    background-image: -moz-linear-gradient(
+        top,
+        #ffffff,
+        #f8f8f8
+    );
+    background-image: -o-linear-gradient(
+        top,
+        #ffffff,
+        #f8f8f8
+    );
+    background-image: linear-gradient(
+        top,
+        #ffffff,
+        #f8f8f8
+    );
 }
