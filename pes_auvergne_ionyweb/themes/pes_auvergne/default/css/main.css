@@ -76,7 +76,11 @@ h3, h4, h5, h6 { margin-top: .8em; }
 h6 {
     color: #f8b53d;
     font-weight: bold;
+    margin-top: 0em;
+    margin-bottom: .8em;
 }
+
+
 
 hr { border: 2px solid #EEEEEE; }
 

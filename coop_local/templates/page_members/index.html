@@ -1,8 +1,5 @@
 {% load i18n %}
 
-{% block extra_head %}
-    <link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.css" />
-{% endblock %}
 
 {% if search_form %}
 
@@ -25,9 +22,9 @@
             </div>
         </div>
         <div class="search_column" id="search_column2">
-            <div class="search_block" id="thematic">
-                <span class="search_title">{% trans "Thematic" %}</span>
-                {{ form.thematic }}
+            <div class="search_block" id="statut">
+                <span class="search_title">{% trans "Statut" %}</span>
+                {{ form.statut }}
             </div>
         </div>
         <div class="search_column" id="search_column3">
@@ -41,37 +38,10 @@
             </div>
         </div>
         <div class="search_column" id="search_column4">
-<!--             <input type="hidden" name="search_coords"> -->
-            <div id="leaflet_map"></div>
-                <script src="http://leaflet.cloudmade.com/dist/leaflet.js"></script>
-                <script type="text/javascript">
-
-                    var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png',
-                        cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
-                        cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttribution});
-
-                    var map = new L.Map('leaflet_map');
-                    var x,y;
-                    if($('input[name=location]').val() != "") {
-                        coords = $('input[name=location]').val().split(",");
-                        x = coords[0];
-                        y = coords[1];
-                    }
-                    else {
-                        x = {{ center.x }};
-                        y = {{ center.y }};
-                    }
-                    var centre = new L.LatLng(y, x);
-                    var marker = L.marker([centre.lat, centre.lng], {draggable: true}).addTo(map);
-                    marker.on('dragend', function (e) {
-                                var coords = e.target.getLatLng(); 
-                                $('input[name=location]').val(coords.lng + "," + coords.lat);
-                            }
-                        );
-
-                    map.setView(centre, 8).addLayer(cloudmade);
-
-                </script>
+            <div class="search_block" id="thematic">
+                <span class="search_title">{% trans "Thematic" %}</span>
+                {{ form.thematic }}
+            </div>
         </div>
 
         <div id="search_bottom">

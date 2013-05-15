@@ -18,7 +18,7 @@ class MyOrganizationAdmin(OrganizationAdmin):
                         'web')
             }),
         ('Description', {
-            'fields': ('description', 'category', 'tags', ('statut', 'secteur_fse'), ('siret', 'naf'))
+            'fields': ('description', 'category', 'tags', ('statut', 'secteur_fse'), ('siret', 'naf'), 'transverse_themes')
             }),
 
         ('Préférences', {
