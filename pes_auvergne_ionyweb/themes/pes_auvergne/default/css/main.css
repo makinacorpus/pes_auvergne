@@ -498,7 +498,8 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 
 }
 
-#content {
+#content,
+#before-footer {
 	overflow: hidden;
 	width: 960px;
 }

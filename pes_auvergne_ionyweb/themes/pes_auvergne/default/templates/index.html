@@ -57,6 +57,9 @@
 {% endblock %}
   
 {% block footer %}
+    <div class="body" id="before-footer">
+        {% render_layout 'logos' %}
+    </div>
   <div class="gradient-footer"></div>
   <footer id="contentinfo" class="gradient-bg-footer">
       <div id="footer-column1">{% render_layout "footer" %}</div>
