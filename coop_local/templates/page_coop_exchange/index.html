@@ -1,9 +1,5 @@
 {% load i18n %}
 
-{% block extra_head %}
-    <link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.css" />
-{% endblock %}
-
 
 <script type="text/javascript">
     // We need to set a new class to content element, in order do properly display the form and the other elements
@@ -22,11 +18,11 @@
                 <span class="search_title">{% trans "Type" %}</span>
                 {{ form.type }}
             </div>
-            <div class="search_block" id="free_search">
-                <span class="search_title">{% trans "Free search" %}</span>
-                {{ form.free_search }}
-            </div>
             <div class="search_block" id="search_submit">
+                <div id="criteria_option">
+                    <a href="javascript:more_criteria();" id="more_criteria" class="exchange_link">{% trans "Display more criteria" %}</a>
+                    <a href="javascript:less_criteria();" id="less_criteria" class="exchange_link">{% trans "Display less criteria" %}</a>
+                </div>
                 <input type="submit" value="{% trans "Search" %}" />                
                 <div id="results_block"><span class="nb_results">{{ exchanges.count }}</span> <span class="label_results">{% trans "Results" %}</span></div>
                 
@@ -41,11 +37,14 @@
                 <span class="search_title">{% trans "Thematic" %}</span>
                 {{ form.thematic }}
             </div>
-            <div class="search_block checkbox_custom" id="mode">
-                <span class="search_title">{% trans "Exchange mode" %}</span>
-                {{ form.mode }}
+            <div class="search_block" id="free_search1">
+                <span class="search_title">{% trans "Free search" %}</span>
+                {{ form.free_search }}
             </div>
-
+            <div class="search_block" id="free_search2">
+                <span class="search_title">{% trans "Free search" %}</span>
+                {{ form.free_search }}
+            </div>
         </div>
         <div class="search_column" id="search_column3">
             <div class="search_block" id="location">
@@ -57,41 +56,17 @@
                 {{ form.location_buffer }}
             </div>
 
+        </div>
+        <div class="search_column" id="search_column4">
+            <div class="search_block checkbox_custom" id="mode">
+                <span class="search_title">{% trans "Exchange mode" %}</span>
+                {{ form.mode }}
+            </div>
+
             <div class="search_block checkbox_custom" id="skills">
                 <span class="search_title">{% trans "If skills" %}</span>
                 {{ form.skills }}
             </div>
-        </div>
-        <div class="search_column" id="search_column4">
-            <div id="leaflet_map"></div>
-            <script src="http://leaflet.cloudmade.com/dist/leaflet.js"></script>
-            <script type="text/javascript">
-
-                var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png',
-                    cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
-                    cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttribution});
-
-                var map = new L.Map('leaflet_map');
-                var x,y;
-                if($('input[name=location]').val() != "") {
-                    coords = $('input[name=location]').val().split(",");
-                    x = coords[0];
-                    y = coords[1];
-                }
-                else {
-                    x = {{ center.x }};
-                    y = {{ center.y }};
-                }
-                var centre = new L.LatLng(y, x);
-                var marker = L.marker([centre.lat, centre.lng], {draggable: true}).addTo(map);
-                marker.on('dragend', function (e) {
-                            var coords = e.target.getLatLng(); 
-                            $('input[name=location]').val(coords.lng + "," + coords.lat);
-                        }
-                    );
-
-                map.setView(centre, 8).addLayer(cloudmade);
-            </script>
 
         </div>
     </form>
@@ -125,6 +100,34 @@
 
 
 
+<script type="text/javascript">
+    $(document).ready(function() {
+        {% if mode_criteria == False %}
+            less_criteria();
+        {% endif %}
+    });
+
+    function more_criteria() {
+            $('#free_search1').removeClass("search_form_hide");
+            $('#thematic').removeClass("search_form_hide");
+            $('#mode').removeClass("search_form_hide");
+            $('#skills').removeClass("search_form_hide");
+            $('#less_criteria').removeClass("search_form_hide");
+
+            $('#free_search2').addClass("search_form_hide");
+            $('#more_criteria').addClass("search_form_hide");
+    }
+    function less_criteria() {
+            $('#free_search1').addClass("search_form_hide");
+            $('#thematic').addClass("search_form_hide");
+            $('#mode').addClass("search_form_hide");
+            $('#skills').addClass("search_form_hide");
+            $('#less_criteria').addClass("search_form_hide");
+
+            $('#free_search2').removeClass("search_form_hide");
+            $('#more_criteria').removeClass("search_form_hide");
+    }
+</script>
 
 
 
