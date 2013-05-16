@@ -40,7 +40,7 @@
 
                     var centre = new L.LatLng({{ e.location.point.y|safe }}, {{ e.location.point.x|safe }});
                     L.marker([{{ e.location.point.y|safe }}, {{ e.location.point.x|safe }}]).addTo(map)
-                            .bindPopup('{{ l.label|safe }}')
+                            .bindPopup('{{ e.title|safe }}')
                             .openPopup();
                     
                     map.setView(centre, 8).addLayer(cloudmade);

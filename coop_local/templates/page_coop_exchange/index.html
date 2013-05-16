@@ -77,7 +77,7 @@
 
 <div class="exchanges_pagination_top">
     <div class="pages">{% trans "Page:" %}</div>
-    <div class="carto">{% trans "Cartography" %}</div>
+    <div class="carto"><a href="{{ base_url }}p/carto">{% trans "Cartography" %}</a></div>
 </div>
 {% for e in exchanges %}
     <div class="coop_exchange">

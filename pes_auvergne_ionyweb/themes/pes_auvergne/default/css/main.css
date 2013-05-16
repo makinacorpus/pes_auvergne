@@ -1373,6 +1373,10 @@ h4.coop_agenda {
     float: left;
 }
 
+#leaflet_map {
+    width: 100%;
+    height: 600px;
+}
 
 #search_form #leaflet_map {
     margin: 5px;
@@ -1948,12 +1952,13 @@ span.date_to {
     float: right;
     background: #669CA2;
     border-radius: 5px;
-    color: #fff;
     padding-left: 5px;
     padding-right: 5px;
 }
 
-
+.exchanges_pagination_top .carto a {
+    color: #fff;    
+}
 
 
 
