@@ -189,18 +189,36 @@ aside, nav, article, figure {
     border-radius: 2px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
-/*     height: 20px; */
     max-width: 200px;
     background: none;
 }
 
-/*#main-content .add_form input[type='text'],
-#main-content .add_form input[type='date'],
-#main-content .add_form input[type='number'],
-#main-content .add_form input[type='password'],
-#main-content .add_form select {
-    padding: 10px;
-}*/
+#main-content #search_form input[type='text'],
+#main-content #search_form input[type='date'],
+#main-content #search_form input[type='number'],
+#main-content #search_form input[type='password'] {
+    border: 1px solid #EAEAEA;
+    border-radius: 3px 3px 3px 3px;
+    margin-top: 4px;
+    padding: 4px;
+}
+
+#main-content #search_form #id_free_search {
+    background: url("../images/search.png") no-repeat scroll 5px 4px transparent;
+    padding: 4px 4px 4px 25px;
+    width: 155px;
+}
+
+#main-content #search_form select {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #EAEAEA;
+    border-radius: 3px 3px 3px 3px;
+    color: #7790A6;
+    font-weight: bold;
+    margin-top: 4px;
+    padding: 3px;
+    width: 190px;
+}
 
 /***** Layout *****/
 .body {clear: both; margin: 0 auto; width: 960px;}
@@ -1265,7 +1283,7 @@ h4.coop_agenda {
 }
 
 #search_form #search_column1 #looking_for {
-    width: 115px;
+    width: 155px;
 }
 #search_form #search_column1 #type {
     width: 140px;
@@ -1859,4 +1877,34 @@ span.date_to {
 /* Form errors */
 .errorlist {
     color: red;
+}
+
+/* Pagination */
+.exchanges_pagination_top,
+.exchanges_pagination_bottom {
+    background: url(../images/bg-bottom-title.png) repeat-x bottom left;
+    float: left;
+    height: 40px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.exchanges_pagination_bottom {
+    background: url(../images/bg-bottom-title.png) repeat-x top left;
+    margin-top: 10px;
+    padding-top: 15px;
+}
+
+.exchanges_pagination_top .pages,
+.exchanges_pagination_bottom .pages {
+    float: left;
+}
+
+.exchanges_pagination_top .carto {
+    float: right;
+    background: #669CA2;
+    border-radius: 5px;
+    color: #fff;
+    padding-left: 5px;
+    padding-right: 5px;
 }
