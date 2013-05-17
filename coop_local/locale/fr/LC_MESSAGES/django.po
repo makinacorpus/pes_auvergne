@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-16 10:55+0200\n"
+"POT-Creation-Date: 2013-05-17 11:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,14 +28,14 @@ msgid "I'm looking for"
 msgstr "Je recherche"
 
 #: templates/page_blog/entry_archive.html:18
-#: templates/page_coop_agenda/index.html:91
+#: templates/page_coop_agenda/index.html:58
 #: templates/page_coop_exchange/index.html:26
 #: templates/page_members/index.html:49
 msgid "Search"
 msgstr "Recherche"
 
 #: templates/page_blog/entry_archive.html:19
-#: templates/page_coop_agenda/index.html:92
+#: templates/page_coop_agenda/index.html:59
 #: templates/page_coop_exchange/index.html:27
 #: templates/page_members/index.html:50
 msgid "Results"
@@ -43,9 +43,9 @@ msgstr "Résultats"
 
 #: templates/page_blog/entry_archive.html:42
 #: templates/page_coop_agenda/detail.html:74
-#: templates/page_coop_agenda/index.html:153
+#: templates/page_coop_agenda/index.html:120
 #: templates/page_coop_exchange/detail.html:79
-#: templates/page_coop_exchange/index.html:91
+#: templates/page_coop_exchange/index.html:93
 #: templates/page_members/detail.html:97 templates/page_members/index.html:81
 msgid "Read more"
 msgstr "En savoir plus"
@@ -59,7 +59,7 @@ msgid "Place"
 msgstr "Lieu"
 
 #: templates/page_coop_agenda/detail.html:27
-#: templates/page_coop_agenda/index.html:23
+#: templates/page_coop_agenda/index.html:20
 msgid "Organization"
 msgstr "Organisation"
 
@@ -78,7 +78,7 @@ msgid "Galery"
 msgstr "Galerie"
 
 #: templates/page_coop_agenda/detail.html:91
-#: templates/page_coop_agenda/index.html:19
+#: templates/page_coop_agenda/index.html:16
 #: templates/page_coop_exchange/detail.html:94
 #: templates/page_coop_exchange/index.html:33
 #: templates/page_members/detail.html:112 templates/page_members/index.html:16
@@ -102,46 +102,46 @@ msgstr "Mots-clés +"
 msgid "Type event"
 msgstr "Type d'évènement"
 
-#: templates/page_coop_agenda/index.html:27
+#: templates/page_coop_agenda/index.html:24
 #: templates/page_coop_exchange/index.html:41
 #: templates/page_coop_exchange/index.html:45
 #: templates/page_members/index.html:20
 msgid "Free search"
 msgstr "Recherche libre"
 
-#: templates/page_coop_agenda/index.html:33
+#: templates/page_coop_agenda/index.html:30
 #: templates/page_coop_exchange/detail.html:58
 #: templates/page_coop_exchange/index.html:18
-#: templates/page_coop_exchange/index.html:88
+#: templates/page_coop_exchange/index.html:90
 msgid "Type"
 msgstr ""
 
-#: templates/page_coop_agenda/index.html:37
+#: templates/page_coop_agenda/index.html:34
 msgid "Start date"
 msgstr "Date début"
 
-#: templates/page_coop_agenda/index.html:41
+#: templates/page_coop_agenda/index.html:38
 msgid "End date"
 msgstr "Date fin"
 
-#: templates/page_coop_agenda/index.html:47
+#: templates/page_coop_agenda/index.html:44
 #: templates/page_coop_exchange/index.html:51
 #: templates/page_members/index.html:32
 msgid "Location"
 msgstr "Lieu"
 
-#: templates/page_coop_agenda/index.html:51
+#: templates/page_coop_agenda/index.html:48
 #: templates/page_coop_exchange/index.html:55
 #: templates/page_members/index.html:36
 msgid "Location buffer"
 msgstr "Périmètre de recherche"
 
-#: templates/page_coop_agenda/index.html:130
+#: templates/page_coop_agenda/index.html:97
 #: templates/plugin_coop_agenda/index.html:3
 msgid "Agenda"
 msgstr ""
 
-#: templates/page_coop_agenda/index.html:141
+#: templates/page_coop_agenda/index.html:108
 #: templates/plugin_coop_agenda/index.html:11
 msgid "to"
 msgstr "à"
@@ -187,6 +187,15 @@ msgstr "Mode d'échange"
 #: templates/page_coop_exchange/index.html:67
 msgid "If skills"
 msgstr "Si compétences"
+
+#: templates/page_coop_exchange/index.html:79
+#: templates/page_coop_exchange/index.html:99
+msgid "Page:"
+msgstr ""
+
+#: templates/page_coop_exchange/index.html:80
+msgid "Cartography"
+msgstr "Cartographie"
 
 #: templates/page_members/detail.html:58
 msgid "Products, services and activities list"
