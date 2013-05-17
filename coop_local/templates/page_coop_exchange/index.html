@@ -107,6 +107,10 @@
         {% if mode_criteria == False %}
             less_criteria();
         {% endif %}
+
+        $( "#id_location" ).autocomplete({
+            source: {{ available_locations|safe }}
+        });
     });
 
     function more_criteria() {
