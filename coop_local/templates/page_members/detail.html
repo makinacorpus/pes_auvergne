@@ -1,7 +1,7 @@
 {% load i18n %}
 
 {% block extra_head %}
-    <link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}themes/pes_auvergne/default/js/leaflet/leaflet.css" />
 {% endblock %}
 
 <div id="members_top"></div>
@@ -27,7 +27,7 @@
         </div>
         <div class="map">
             <div id="leaflet_map"></div>
-                <script src="http://leaflet.cloudmade.com/dist/leaflet.js"></script>
+                <script src="{{ STATIC_URL }}themes/pes_auvergne/default/js/leaflet/leaflet.js"></script>
                 <script type="text/javascript">
 
                     var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png',
