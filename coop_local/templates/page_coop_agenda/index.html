@@ -87,6 +87,11 @@
 
         $('#id_start_date').datepicker({dateFormat: 'yy-mm-dd', constrainInput: false});
         $('#id_end_date').datepicker({dateFormat: 'yy-mm-dd', constrainInput: false});
+
+        $( "#id_location" ).autocomplete({
+            source: {{ available_locations|safe }}
+        });
+
         });
 </script>
 
