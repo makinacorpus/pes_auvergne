@@ -16,6 +16,9 @@
                 <span class="search_title">{% trans "Activity" %}</span>
                 {{ form.activity }}
             </div>
+            <div class="search_block" id="looking_for">
+                {{ form.activity2 }}
+            </div>
             <div class="search_block" id="free_search">
                 <span class="search_title">{% trans "Free search" %}</span>
                 {{ form.free_search }}
@@ -42,12 +45,18 @@
                 <span class="search_title">{% trans "Thematic" %}</span>
                 {{ form.thematic }}
             </div>
+            <div class="search_block" id="thematic">
+                {{ form.thematic2 }}
+            </div>
+            <div class="search_block" id="thematic">
+                {{ form.thematic3 }}
+            </div>
         </div>
 
         <div id="search_bottom">
             <div class="search_block" id="search_submit">
                 <input type="submit" value="{% trans "Search" %}" />
-                <div id="results_block"><span class="nb_results">{{ members.count }}</span> <span class="label_results">{% trans "Results" %}</span></div>
+                <!--<div id="results_block"><span class="nb_results">{{ members.count }}</span> <span class="label_results">{% trans "Results" %}</span></div>-->
             </div>
         </div>
     </form>
@@ -56,6 +65,12 @@
 
 <div id="members_top"></div>
 <div id="members">
+
+<div class="members_pagination_top pagination_top">
+    <div class="pages">{% trans "Page:" %}</div>
+    <div class="carto"><a href="{{ base_url }}p/carto">{% trans "Cartography" %}</a></div>
+</div>
+
 {% for m in members %}
     <div class="bloc_title">
         <div class="logo"><img src="{{ media_path}}{{ m.logo }}" alt=""></div>

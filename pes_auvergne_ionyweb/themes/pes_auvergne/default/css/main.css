@@ -1159,6 +1159,48 @@ h4.coop_agenda {
 }
 
 
+.light_blue_gradient,
+.content-coop_thematic #thematic_top,
+.content-coop_thematic #thematic_top_search {
+    /* Anciens navigateurs */
+    background: #4da1f9 url("gradient-bg.png") repeat-y left;
+    -o-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    /* Internet Explorer */
+    *background: #4da1f9;
+    background: #4da1f9\0/;
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr=#FFb3c9de, endColorstr=#FF4da1f9);
+    /* Navigateurs récents */
+    background-image: -webkit-gradient(
+        linear,
+        left top, right top,
+        from(#b3c9de),
+        to(#4da1f9)
+    );
+    background-image: -webkit-linear-gradient(
+        left,
+        #b3c9de,
+        #4da1f9
+    );
+    background-image: -moz-linear-gradient(
+        left,
+        #b3c9de,
+        #4da1f9
+    );
+    background-image: -o-linear-gradient(
+        left,
+        #b3c9de,
+        #4da1f9
+    );
+    background-image: linear-gradient(
+        left,
+        #b3c9de,
+        #4da1f9
+    );
+}
+
 .green_gradient,
 .content-coop_agenda #agenda_top,
 .content-coop_agenda #agenda_top_search {
@@ -1201,6 +1243,48 @@ h4.coop_agenda {
     );
 }
 
+
+.brown_gradient,
+.content-coop_project #projects_top,
+.content-coop_project #projects_top_search {
+    /* Anciens navigateurs */
+    background: #754d20 url("gradient-bg.png") repeat-y left;
+    -o-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    /* Internet Explorer */
+    *background: #754d20;
+    background: #754d20\0/;
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr=#FFa0866a, endColorstr=#FF754d20);
+    /* Navigateurs récents */
+    background-image: -webkit-gradient(
+        linear,
+        left top, right top,
+        from(#a0866a),
+        to(#754d20)
+    );
+    background-image: -webkit-linear-gradient(
+        left,
+        #a0866a,
+        #754d20
+    );
+    background-image: -moz-linear-gradient(
+        left,
+        #a0866a,
+        #754d20
+    );
+    background-image: -o-linear-gradient(
+        left,
+        #a0866a,
+        #754d20
+    );
+    background-image: linear-gradient(
+        left,
+        #a0866a,
+        #754d20
+    );
+}
 
 .violet_gradient,
 .content-coop_member #members_top,
@@ -1283,6 +1367,49 @@ h4.coop_agenda {
         left,
         #6fdba1,
         #36b568
+    );
+}
+
+
+.violet_gradient
+.content-services #services_top,
+.content-services #services_top_search {
+    /* Anciens navigateurs */
+    background: #8b3e74 url("gradient-bg.png") repeat-y left;
+    -o-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    /* Internet Explorer */
+    *background: #8b3e74;
+    background: #8b3e74\0/;
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr=#FF9a7d8f, endColorstr=#FF8b3e74);
+    /* Navigateurs récents */
+    background-image: -webkit-gradient(
+        linear,
+        left top, right top,
+        from(#9a7d8f),
+        to(#8b3e74)
+    );
+    background-image: -webkit-linear-gradient(
+        left,
+        #9a7d8f,
+        #8b3e74
+    );
+    background-image: -moz-linear-gradient(
+        left,
+        #9a7d8f,
+        #8b3e74
+    );
+    background-image: -o-linear-gradient(
+        left,
+        #9a7d8f,
+        #8b3e74
+    );
+    background-image: linear-gradient(
+        left,
+        #9a7d8f,
+        #8b3e74
     );
 }
 
@@ -1401,7 +1528,7 @@ h4.coop_agenda {
     font-size: 10px;
 }
 
-#search_submit input[type='submit'] {
+/*#search_submit input[type='submit'] {
     -moz-border-radius: 5px;
     border-radius: 5px;
     border: 2px solid #f8b133;
@@ -1448,7 +1575,7 @@ h4.coop_agenda {
         #fac972,
         #f9b43b
     );
-}
+}*/
 
 #criteria_option {
     margin-bottom: 10px;
@@ -1883,6 +2010,7 @@ span.date_to {
     width: 95px;
 }
 
+#search_submit input[type='submit'],
 .new_block input[type='submit'] {
     border: 1px solid #ccc;
     border-radius: 2px;
@@ -1890,7 +2018,9 @@ span.date_to {
     width: 95px;
 }
 
+
 .gradient_grey,
+#search_submit input[type='submit'],
 .new_block input[type='submit'] {
     /* Anciens navigateurs */
     background: #f8f8f8 url("gradient_grey-bg.png") repeat-x top;
@@ -1937,8 +2067,8 @@ span.date_to {
 }
 
 /* Pagination */
-.exchanges_pagination_top,
-.exchanges_pagination_bottom {
+.pagination_top,
+.pagination_bottom {
     background: url(../images/bg-bottom-title.png) repeat-x bottom left;
     float: left;
     height: 40px;
@@ -1946,28 +2076,34 @@ span.date_to {
     margin-bottom: 10px;
 }
 
-.exchanges_pagination_bottom {
+.pagination_bottom {
     background: url(../images/bg-bottom-title.png) repeat-x top left;
     margin-top: 10px;
     padding-top: 15px;
 }
 
-.exchanges_pagination_top .pages,
-.exchanges_pagination_bottom .pages {
+.pagination_top .pages,
+.pagination_bottom .pages {
     float: left;
 }
 
-.exchanges_pagination_top .carto {
+.pagination_top .carto {
     float: right;
-    background: #669CA2;
     border-radius: 5px;
     padding-left: 5px;
     padding-right: 5px;
 }
 
-.exchanges_pagination_top .carto a {
+.pagination_top .carto a {
     color: #fff;    
 }
 
+.exchanges_pagination_top .carto {
+    background: #669CA2;
+}
+
+.members_pagination_top .carto {
+    background: #a33126;
+}
 
 
