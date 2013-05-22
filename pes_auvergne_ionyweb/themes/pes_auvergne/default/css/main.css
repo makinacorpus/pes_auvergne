@@ -1744,97 +1744,97 @@ span.date_to {
     height: 250px;
 }
 
-.bloc_title .header #links a.facebook,
-.bloc_title .header #links a.twitter,
-.bloc_title .header #links a.google_plus,
-.bloc_title .header #links a.mail,
-.bloc_title .header #links a.plus,
-.bloc_title .header #links a.links,
-.bloc_title .header #links a.print {
+#links a.facebook,
+#links a.twitter,
+#links a.google_plus,
+#links a.mail,
+#links a.plus,
+#links a.links,
+#links a.print {
     width: 29px;
     height: 29px;
     float: left;
-    margin-right: 10px;
+    margin-left: 2px;
     margin-top: 5px;
     background: url(../images/icons/agenda_facebook.png) left top no-repeat;
 }
 
-.bloc_title .header #links a.twitter {
+#links a.twitter {
     background: url(../images/icons/agenda_twitter.png) left top no-repeat;
 }
-.bloc_title .header #links a.google_plus {
+#links a.google_plus {
     background: url(../images/icons/agenda_google_plus.png) left top no-repeat;
 }
 
-.bloc_title .header #links a.mail {
+#links a.mail {
     background: url(../images/icons/agenda_mail.png) left top no-repeat;
 }
 
-.bloc_title .header #links a.plus {
+#links a.plus {
     background: url(../images/icons/agenda_plus.png) left top no-repeat;
 }
 
-.bloc_title .header #links a.links {
+#links a.links {
     background: url(../images/icons/agenda_links.png) left top no-repeat;
 }
 
-.bloc_title .header #links a.print {
+#links a.print {
     background: url(../images/icons/agenda_print.png) left top no-repeat;
 }
 
-#members .bloc_title .header #links a.facebook {
+#members #links a.facebook {
     background: url(../images/icons/member_facebook.png) left top no-repeat;
 }
 
-#members .bloc_title .header #links a.twitter {
+#members #links a.twitter {
     background: url(../images/icons/member_twitter.png) left top no-repeat;
 }
-#members .bloc_title .header #links a.google_plus {
+#members #links a.google_plus {
     background: url(../images/icons/member_google_plus.png) left top no-repeat;
 }
 
-#members .bloc_title .header #links a.mail {
+#members #links a.mail {
     background: url(../images/icons/member_mail.png) left top no-repeat;
 }
 
-#members .bloc_title .header #links a.plus {
+#members #links a.plus {
     background: url(../images/icons/member_plus.png) left top no-repeat;
 }
 
-#members .bloc_title .header #links a.links {
+#members #links a.links {
     background: url(../images/icons/member_links.png) left top no-repeat;
 }
 
-#members .bloc_title .header #links a.print {
+#members #links a.print {
     background: url(../images/icons/member_print.png) left top no-repeat;
 }
 
 
 
-#coop_exchange .bloc_title .header #links a.facebook {
+#coop_exchange #links a.facebook {
     background: url(../images/icons/exchange_facebook.png) left top no-repeat;
 }
 
-#coop_exchange .bloc_title .header #links a.twitter {
+#coop_exchange #links a.twitter {
     background: url(../images/icons/exchange_twitter.png) left top no-repeat;
 }
-#coop_exchange .bloc_title .header #links a.google_plus {
+#coop_exchange #links a.google_plus {
     background: url(../images/icons/exchange_google_plus.png) left top no-repeat;
 }
 
-#coop_exchange .bloc_title .header #links a.mail {
+#coop_exchange #links a.mail {
     background: url(../images/icons/exchange_mail.png) left top no-repeat;
 }
 
-#coop_exchange .bloc_title .header #links a.plus {
+#coop_exchange #links a.plus {
     background: url(../images/icons/exchange_plus.png) left top no-repeat;
 }
 
-#coop_exchange .bloc_title .header #links a.links {
+#coop_exchange #links a.links {
     background: url(../images/icons/exchange_links.png) left top no-repeat;
 }
 
-#coop_exchange .bloc_title .header #links a.print {
+#coop_exchange #links a.print {
     background: url(../images/icons/exchange_print.png) left top no-repeat;
 }
 
