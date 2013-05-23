@@ -1,0 +1,42 @@
+{% load i18n %}
+
+    <form action="{{ base_url }}" method="post">{% csrf_token %}
+        <div class="search_column" id="search_column1">
+            <div class="search_block" id="activity">
+                <span class="search_title">{% trans "Activity" %}</span>
+                {{ form.activity }}
+            </div>
+            <div class="search_block" id="thematic">
+                <span class="search_title">{% trans "Thematic" %}</span>
+                {{ form.thematic }}
+            </div>
+
+            <div class="search_block" id="search_submit">
+                <input type="submit" value="{% trans "Search" %}" />                
+            </div>
+        </div>
+        <div class="search_column" id="search_column2">
+            <div class="search_block" id="location">
+                <span class="search_title">{% trans "Location" %}</span>
+                {{ form.location }}
+            </div>
+            <div class="search_block" id="location_buffer">
+                <span class="search_title">{% trans "Location buffer" %}</span>
+                {{ form.location_buffer }}
+            </div>
+
+        </div>
+        <div class="search_column" id="search_column3">
+            <div class="search_block checkbox_custom" id="mode">
+                <span class="search_title">{% trans "Exchange mode" %}</span>
+                {{ form.mode }}
+            </div>
+
+        </div>
+        <div class="search_column" id="search_column4">
+            <div class="search_block" id="free_search1">
+                <span class="search_title">{% trans "Free search" %}</span>
+                {{ form.free_search }}
+            </div>
+        </div>
+    </form>

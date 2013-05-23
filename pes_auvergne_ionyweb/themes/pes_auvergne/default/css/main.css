@@ -1082,7 +1082,8 @@ h4.coop_agenda {
 }
 
 .content-coop-app #search_form ,
-.content-coop_exchange #result_exchanges {
+.content-coop_exchange #result_exchanges,
+.content-services #result_exchanges {
     border-width: 0;
     float: left;
     margin-top: 0;
@@ -1094,13 +1095,16 @@ h4.coop_agenda {
     height: 210px;
 }
 
-.content-coop_exchange #result_exchanges {
+.content-coop_exchange #result_exchanges,
+.content-services #result_exchanges{
     width: 686px;
     height: auto;
 }
 
 .content-coop_exchange #exchanges_top,
 .content-coop_exchange #exchanges_top_search,
+.content-services #exchanges_top_search,
+.content-services #exchanges_top,
 .content-coop_member #members_top_search,
 .content-coop_agenda #agenda_top_search,
 .content-articles #articles_top_search {
@@ -1110,6 +1114,7 @@ h4.coop_agenda {
 }
 
 .content-coop_exchange #exchanges_top_search,
+.content-services #exchanges_top_search,
 .content-coop_member #members_top_search,
 .content-coop_agenda #agenda_top_search,
 .content-articles #articles_top_search {
@@ -1371,7 +1376,8 @@ h4.coop_agenda {
 }
 
 
-.violet_gradient
+.content-services #exchanges_top_search,
+.content-services #exchanges_top,
 .content-services #services_top,
 .content-services #services_top_search {
     /* Anciens navigateurs */
@@ -1598,6 +1604,10 @@ a.exchange_link {
 }
 a.articles_link {
     color: #53c97f;
+}
+
+.content-services a.exchange_link {
+    color: #8b3e74;
 }
 
 
@@ -2106,4 +2116,7 @@ span.date_to {
     background: #a33126;
 }
 
+.content-services .exchanges_pagination_top .carto {
+    background: #8b3e74;
+}
 

@@ -12,7 +12,8 @@
      {"title": "Member", "file": "index_member.html", "preview": "index.png"},
      {"title": "Agenda", "file": "index_agenda.html", "preview": "index.png"},
      {"title": "Projects", "file": "index_project.html", "preview": "index.png"},
-     {"title": "Articles", "file": "index_articles.html", "preview": "index.png"}
+     {"title": "Articles", "file": "index_articles.html", "preview": "index.png"},
+     {"title": "Services", "file": "index_service.html", "preview": "index.png"}
     ]
 }
 
