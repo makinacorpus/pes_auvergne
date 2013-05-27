@@ -94,6 +94,10 @@
             <span class="">{{ m.description|truncatewords_html:15|safe }}</span>
 
             <span class="readmore"><a class="member_link" href="{{ base_url }}p/{{ m.pk }}">{% trans "Read more" %}</a></span>
+            {% if request.user.is_superuser %}
+                <span class="edit"><a class="" href="{{ base_url }}p/member_edit/{{ m.pk }}">{% trans "Edit" %}</a></span>
+            {% endif %}
+
         </div>
     </div>
 

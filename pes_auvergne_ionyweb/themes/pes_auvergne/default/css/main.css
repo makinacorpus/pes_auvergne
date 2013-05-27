@@ -141,10 +141,14 @@ ol {
 .edit {
     position: absolute;
     right: 0;
-    top: 0;
+    top: 20px;
     background: #ff7070;
     padding: 1px;
     border-radius: 3px;
+    -webkit-box-shadow: 0 3px 3px #999;
+    -moz-box-shadow: 0 3px 3px #999;
+    box-shadow: 0 3px 3px #999;
+    
 }
 .edit:hover {
     background: #ff0000;

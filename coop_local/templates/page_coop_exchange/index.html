@@ -31,6 +31,9 @@
                 <a href="{{ base_url }}p/{{ e.pk }}"><h3 class="exchange_title resume_title">{{ e.title }}</h3></a>
                 <div class="exchange_desc">{{ e.description|safe }}</div>
                 <span class="readmore"><a class="exchange_link" href="{{ base_url }}p/{{ e.pk }}">{% trans "Read more" %}</a></span>
+                {% if request.user.is_superuser %}
+                    <span class="edit"><a class="" href="{{ base_url }}p/exchange_edit/{{ e.pk }}">{% trans "Edit" %}</a></span>
+                {% endif %}
             </div>
         </div>
     </div>
