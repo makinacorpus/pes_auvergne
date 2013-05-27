@@ -134,11 +134,25 @@ ol {
 }
 
 .readmore {
-/*     float: right */
     bottom: 0;
     position: absolute;
     right: 0;
 }
+.edit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #ff7070;
+    padding: 1px;
+    border-radius: 3px;
+}
+.edit:hover {
+    background: #ff0000;
+}
+.edit a {
+    color: #fff;
+}
+
 
 dl {margin: 0 0 1.5em 0;}
 dt {font-weight: bold;}
