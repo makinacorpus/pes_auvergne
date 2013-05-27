@@ -1698,7 +1698,8 @@ span.date_to {
 }
 
 .bloc_title .logo,
-.entry .block_img {
+.entry .block_img,
+.entry .block_img_off {
     width: 150px;
     height: 150px;
     float: left;    
