@@ -78,7 +78,7 @@
 
 
                         <div class="description">
-                            {{ o.event.description|truncatewords_html:15|safe }}
+                            {{ o.event.description|truncatechars:150|safe }}
                         </div>
                         <span class="readmore"><a class="agenda_link" href="{{ base_url }}p/{{ o.event.pk }}">{% trans "Read more" %}</a></span>
                     </div>

@@ -104,6 +104,7 @@
 
         <div class="exchange_content_keywords">
             <h3 class="exchange_link">{% trans "Keywords" %}</h3>
+            {{ e.tags.all|join:", " }}
         </div>
 
 

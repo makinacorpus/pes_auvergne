@@ -1637,6 +1637,9 @@ span.date_to {
     
 }
 
+.coop_exchange .exchange_desc {
+    padding-bottom: 25px;
+}
 
 .bloc_title,
 #articles .entry {
