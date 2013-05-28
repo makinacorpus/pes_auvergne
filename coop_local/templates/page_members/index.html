@@ -34,6 +34,7 @@
             <div class="search_block" id="location">
                 <span class="search_title">{% trans "Location" %}</span>
                 {{ form.location }}
+                {{ form.location_id.as_hidden }}
             </div>
             <div class="search_block" id="location">
                 <span class="search_title">{% trans "Location buffer" %}</span>
@@ -107,8 +108,14 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $( "#id_location" ).autocomplete({
-            source: {{ available_locations|safe }}
+        $("#id_location").autocomplete({
+            source: {{ available_locations|safe }},
+            select: function(e, ui) {
+                e.preventDefault() // <--- Prevent the value from being inserted.
+                $("#id_location_id").val(ui.item.value);
+
+                $(this).val(ui.item.label);
+            }
         });
     });
 </script>

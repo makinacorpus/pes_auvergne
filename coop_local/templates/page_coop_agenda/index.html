@@ -39,8 +39,14 @@
         $('#id_start_date').datepicker({dateFormat: 'yy-mm-dd', constrainInput: false});
         $('#id_end_date').datepicker({dateFormat: 'yy-mm-dd', constrainInput: false});
 
-        $( "#id_location" ).autocomplete({
-            source: {{ available_locations|safe }}
+        $("#id_location").autocomplete({
+            source: {{ available_locations|safe }},
+            select: function(e, ui) {
+                e.preventDefault() // <--- Prevent the value from being inserted.
+                $("#id_location_id").val(ui.item.value);
+
+                $(this).val(ui.item.label);
+            }
         });
 
         });

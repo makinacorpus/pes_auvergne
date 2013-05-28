@@ -1114,11 +1114,11 @@ h4.coop_agenda {
 }
 
 .content-coop_exchange #search_form {
-    height: 220px;
+    height: 190px;
 }
 
 .content-coop_exchange #column2 {
-    margin-top: 240px;
+    margin-top: 200px;
 }
 
 .content-coop_exchange #result_exchanges,
@@ -1481,7 +1481,7 @@ h4.coop_agenda {
 
 #search_form .search_column {
     width: 230px;
-    height: 170px;
+    height: auto !important;
     float: left;
 }
 
@@ -1536,6 +1536,9 @@ h4.coop_agenda {
     width: 100px;
 }
 
+#search_submit {
+    width: 100% !important;
+}
 
 #search_submit input[type='submit'] {
     float: left;
@@ -1560,57 +1563,11 @@ h4.coop_agenda {
     font-size: 10px;
 }
 
-/*#search_submit input[type='submit'] {
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    border: 2px solid #f8b133;
-    padding: 5px;
-    max-width: 120px;
-    text-align: center;
-    text-shadow: 2px 2px 2px #aaa;
-    color: #fff;
-    
-    /* Old browser */
-    background: #f9b43b url("gradient-bg.png") repeat-x top;
-    -o-background-size: 100% 100%;
-    -moz-background-size: 100% 100%;
-    -webkit-background-size: 100% 100%;
-    background-size: 100% 100%;
-    /* Internet Explorer */
-    *background: #f9b43b;
-    background: #f9b43b\0/;
-    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr=#FFfac972, endColorstr=#FFf9b43b);
-    /* Navigateurs récents */
-    background-image: -webkit-gradient(
-        linear,
-        left top, left bottom,
-        from(#fac972),
-        to(#f9b43b)
-    );
-    background-image: -webkit-linear-gradient(
-        top,
-        #fac972,
-        #f9b43b
-    );
-    background-image: -moz-linear-gradient(
-        top,
-        #fac972,
-        #f9b43b
-    );
-    background-image: -o-linear-gradient(
-        top,
-        #fac972,
-        #f9b43b
-    );
-    background-image: linear-gradient(
-        top,
-        #fac972,
-        #f9b43b
-    );
-}*/
 
 #criteria_option {
     margin-bottom: 10px;
+    margin-left: 20px;
+    float: left;
 }
 
 a.agenda_link,
