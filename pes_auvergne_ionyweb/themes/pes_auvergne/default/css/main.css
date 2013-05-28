@@ -1113,6 +1113,14 @@ h4.coop_agenda {
     height: 210px;
 }
 
+.content-coop_exchange #search_form {
+    height: 220px;
+}
+
+.content-coop_exchange #column2 {
+    margin-top: 240px;
+}
+
 .content-coop_exchange #result_exchanges,
 .content-services #result_exchanges{
     width: 686px;
@@ -2040,17 +2048,25 @@ span.date_to {
     width: 95px;
 }
 
-#search_submit input[type='submit'],
+
 .new_block input[type='submit'] {
     border: 1px solid #ccc;
     border-radius: 2px;
     height: 34px;
     width: 95px;
+
+}
+
+#search_submit input[type='submit'] {
+    border-radius: 5px;
+    padding: 3px;
+    background: #ff8f45;
+    border: none;
+    color: #fff;
 }
 
 
 .gradient_grey,
-#search_submit input[type='submit'],
 .new_block input[type='submit'] {
     /* Anciens navigateurs */
     background: #f8f8f8 url("gradient_grey-bg.png") repeat-x top;

@@ -11,56 +11,7 @@
 
 <div id="agenda_top_search"></div>
 <div id="search_form">
-    <form action="{{ base_url }}" method="post">{% csrf_token %}
-        <div class="search_column" id="search_column1">
-            <div class="search_block" id="activity">
-                <span class="search_title">{% trans "Activity" %}</span>
-                {{ form.activity }}
-            </div>
-            <div class="search_block" id="organization">
-                <span class="search_title">{% trans "Organization" %}</span>
-                {{ form.organization }}
-            </div>
-            <div class="search_block" id="free_search">
-                <span class="search_title">{% trans "Free search" %}</span>
-                {{ form.free_search }}
-            </div>
-        </div>
-        <div class="search_column" id="search_column2">
-            <div class="search_block" id="type">
-                <span class="search_title">{% trans "Type" %}</span>
-                {{ form.type }}
-            </div>
-            <div class="search_block" id="thematic">
-                <span class="search_title">{% trans "Start date" %}</span>
-                {{ form.start_date }}
-            </div>
-            <div class="search_block" id="thematic">
-                <span class="search_title">{% trans "End date" %}</span>
-                {{ form.end_date }}
-            </div>
-        </div>
-        <div class="search_column" id="search_column3">
-            <div class="search_block" id="location">
-                <span class="search_title">{% trans "Location" %}</span>
-                {{ form.location }}
-            </div>
-            <div class="search_block" id="location">
-                <span class="search_title">{% trans "Location buffer" %}</span>
-                {{ form.location_buffer }}
-            </div>
-        </div>
-
-        <div class="search_column" id="search_column4">
-        </div>
-
-        <div id="search_bottom">
-            <div class="search_block" id="search_submit">
-                <input type="submit" value="{% trans "Search" %}" />
-                <div id="results_block"><span class="nb_results">{{ occs_count }}</span> <span class="label_results">{% trans "Results" %}</span></div>
-            </div>
-        </div>
-    </form>
+    {% include search_form_template %}
 </div>
 
 <script type="text/javascript">
