@@ -33,7 +33,7 @@ pip uninstall django-selectable
 pip install -e git+git://github.com/makinacorpus/django-selectable.git@master#egg=django-selectable
 
 pip uninstall django-chosen
-pip install -e git+git://github.com/makinacorpus/django-chosen#egg=django-chosen
+pip install -e git+git://githubicone publier un article sur facebook.com/makinacorpus/django-chosen#egg=django-chosen
 # ----------------------
 
 

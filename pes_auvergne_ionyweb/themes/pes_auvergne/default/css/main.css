@@ -2112,6 +2112,10 @@ span.date_to {
     background: #a33126;
 }
 
+.agenda_pagination_top .carto {
+    background: #70BE46;
+}
+
 .content-services .exchanges_pagination_top .carto {
     background: #8b3e74;
 }

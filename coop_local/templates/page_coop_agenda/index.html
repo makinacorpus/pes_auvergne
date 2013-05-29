@@ -56,6 +56,11 @@
 
 <div id="agenda_top"></div>
 <div id="coop_agenda">
+<div class="agenda_pagination_top pagination_top">
+    <div class="pages">{% trans "Page:" %}</div>
+    <div class="carto"><a href="{{ base_url }}p/carto">{% trans "Cartography" %}</a></div>
+</div>
+
 {% for event_category, occs in events_by_categories.items %}
     <h3 class="coop_agenda">{% trans "Agenda" %} {{ event_category }}</h3>
         {% for o in occs %}            
@@ -81,6 +86,10 @@
                             {{ o.event.description|truncatechars:150|safe }}
                         </div>
                         <span class="readmore"><a class="agenda_link" href="{{ base_url }}p/{{ o.event.pk }}">{% trans "Read more" %}</a></span>
+                        {% if request.user.is_superuser %}
+                            <span class="edit"><a class="" href="{{ base_url }}p/event_edit/{{ o.event.pk }}">{% trans "Edit" %}</a></span>
+                        {% endif %}
+
                     </div>
                 </div>
 

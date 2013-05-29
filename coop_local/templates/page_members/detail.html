@@ -14,7 +14,7 @@
             <span class="member_acronym">{{ member.acronym }}</span><br/>
             <p>{{ member.description|truncatewords_html:15|safe }}</p>
             <p>{{ member.statut }} - {% trans "Creation" %}: {{ member.birth }}</p>
-            <a href="mailto:{{ member.pref_email }}" class="member_link">{% trans "Mailto member" %}</a>
+            <a href="mailto:{{ member.pref_email.content }}" class="member_link">{% trans "Mailto member" %}</a>
 
         </div>
         <div class="map">
@@ -77,7 +77,7 @@
                 {% endfor %}
 
                 {% for c in member.contacts.all %}                
-                    {{ c }}<br/>
+                    {{ c.content }}<br/>
                 {% endfor %}
 
                 <div class="member_link">
