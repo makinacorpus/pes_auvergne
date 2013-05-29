@@ -1079,6 +1079,7 @@ h4.coop_agenda {
 .content-coop_member #members,
 .content-coop_agenda #coop_agenda,
 .content-coop_exchange #coop_exchange,
+.content-services #coop_exchange,
 .content-articles #articles {
     border-width: 0;
     float: left;
