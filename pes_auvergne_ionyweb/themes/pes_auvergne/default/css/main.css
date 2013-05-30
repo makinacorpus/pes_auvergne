@@ -1080,6 +1080,7 @@ h4.coop_agenda {
 .content-coop_agenda #coop_agenda,
 .content-coop_exchange #coop_exchange,
 .content-services #coop_exchange,
+.content-projects #members,
 .content-articles #articles {
     border-width: 0;
     float: left;
@@ -1089,6 +1090,7 @@ h4.coop_agenda {
 
 #column1_top.standard,
 .content-coop_member #members_top,
+.content-projects #members_top,
 .content-coop_agenda #agenda_top,
 .content-articles #articles_top {
     height: 6px;
@@ -1110,7 +1112,8 @@ h4.coop_agenda {
     width: 950px;    
 }
 
-.content-coop_member #search_form {
+.content-coop_member #search_form,
+.content-projects #search_form {
     height: 210px;
 }
 
@@ -1133,6 +1136,7 @@ h4.coop_agenda {
 .content-services #exchanges_top_search,
 .content-services #exchanges_top,
 .content-coop_member #members_top_search,
+.content-projects #members_top_search,
 .content-coop_agenda #agenda_top_search,
 .content-articles #articles_top_search {
     height: 6px;
@@ -1144,6 +1148,7 @@ h4.coop_agenda {
 .content-services #exchanges_top_search,
 .content-coop_member #members_top_search,
 .content-coop_agenda #agenda_top_search,
+.content-projects #members_top_search,
 .content-articles #articles_top_search {
     width: 950px;
 }
@@ -1277,8 +1282,8 @@ h4.coop_agenda {
 
 
 .brown_gradient,
-.content-coop_project #projects_top,
-.content-coop_project #projects_top_search {
+.content-projects #members_top,
+.content-projects #members_top_search {
     /* Anciens navigateurs */
     background: #754d20 url("gradient-bg.png") repeat-y left;
     -o-background-size: 100% 100%;
