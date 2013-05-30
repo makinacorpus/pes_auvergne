@@ -14,7 +14,7 @@ class MyOrganizationAdmin(OrganizationAdmin):
     list_display = ('logo_list_display', 'label', 'id', 'active', 'has_description', 'has_location')
     fieldsets = (
         ('Identité', {
-            'fields': ('logo', 'title', ('acronym', 'pref_label'), 'subtitle', ('birth', 'active',),
+            'fields': ('is_project', 'logo', 'title', ('acronym', 'pref_label'), 'subtitle', ('birth', 'active',),
                         'web')
             }),
         ('Description', {
