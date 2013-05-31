@@ -46,7 +46,7 @@
                 <a href="{{ base_url }}p/{{ m.pk }}"><h3 class="member_title resume_title">{{ m.title }}</h3></a>
             {% endif %}
 
-            <span class="member_subtitle">{{ m.activity }}</span>
+            <div class="member_subtitle">{% if m.activity %} {{ m.activity }} {% endif %}</div>
 
             <span class="">{{ m.description|truncatechars:150|safe }}</span>
 
