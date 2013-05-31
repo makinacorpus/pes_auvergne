@@ -1678,13 +1678,15 @@ span.date_to {
 .entry .block_img_off {
     width: 150px;
     height: 150px;
-    float: left;    
+    float: left;
+    text-align: center;
 }
 
 
 .bloc_title .logo img,
 .entry .block_img_off img {
-    width: 140px;
+    max-height: 140px;
+    max-width: 140px;
 }
 
 .coop_agenda .bloc_title .logo {
