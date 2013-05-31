@@ -1689,6 +1689,10 @@ span.date_to {
     max-width: 135px;
 }
 
+.content-coop_member .bloc_title .logo_pes {
+    background: url(../images/logo_pes_auvergne_violet.png) center center no-repeat;
+}
+
 .coop_agenda .bloc_title .logo {
     background: url(../images/logo_pes_auvergne_green.png) center center no-repeat;
 }
@@ -1704,6 +1708,8 @@ span.date_to {
 .content-articles .entry .block_img {
     background: url(../images/logo_pes_auvergne_green.png) no-repeat center center !important;
 }
+
+
 
 
 .coop_exchange .block_desc {

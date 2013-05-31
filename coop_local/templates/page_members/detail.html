@@ -8,7 +8,12 @@
 <div id="members">
 
     <div class="bloc_title">
-        <div class="logo"><img src="{{ media_path}}{{ member.logo }}" alt=""></div>
+        {% if member.logo != '' %}
+            <div class="logo"><img src="{{ media_path }}{{ member.logo }}" alt="{{ member.title }}"></div>
+        {% else %}
+            <div class="logo logo_pes"></div>
+        {% endif %}
+
         <div class="header">
             <h3 class="member_title">{{ member.title }}</h3>
             <span class="member_acronym">{{ member.acronym }}</span><br/>

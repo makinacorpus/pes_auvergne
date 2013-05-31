@@ -24,7 +24,13 @@
 
 {% for m in members %}
     <div class="bloc_title">
-        <div class="logo"><img src="{{ media_path}}{{ m.logo }}" alt=""></div>
+
+        {% if m.logo != '' %}
+            <div class="logo"><img src="{{ media_path }}{{ m.logo }}" alt=""></div>
+        {% else %}
+            <div class="logo logo_pes"></div>
+        {% endif %}
+
         <div class="resume">
             {% if m.located == None %}{% else %} 
                 <span class="location">
