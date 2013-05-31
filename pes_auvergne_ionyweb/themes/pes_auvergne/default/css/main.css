@@ -1736,7 +1736,7 @@ span.date_to {
 
 .bloc_title .header {
     float: left;
-    width: 330px;
+    width: 310px;
 }
 
 .bloc_title .resume {
@@ -1748,14 +1748,14 @@ span.date_to {
 
 .bloc_title .map {
     float: left; 
-    width: 200px;
+    width: 220px;
 }
 
 
 
 .bloc_title .map #leaflet_map {
-    margin: 5px;
-    width: 200px;
+    margin: 0px;
+    width: 220px;
     height: 250px;
 }
 
@@ -1925,7 +1925,7 @@ span.date_to {
 .bloc_content .member_content_infos .column1,
 .bloc_content .exchange_content_infos .column1 {
     float: left;
-    width: 450px;
+    width: 460px;
 }
 
 .bloc_content .member_content_infos .column2,
