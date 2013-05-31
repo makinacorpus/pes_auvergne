@@ -70,7 +70,15 @@
                 <h3>{% trans "Hours" %}</h3>
             </div>
             <div class="column2">
-                {% for l in member.located.all %}
+                {% if member.pref_address.adr1 %}{{ member.pref_address.adr1|safe }}<br/>{% endif %}
+                {% if member.pref_address.adr2 %}{{ member.pref_address.adr2|safe }}<br/>{% endif %}
+                {% if member.pref_address.zipcode %}{{ member.pref_address.zipcode|safe }}{% endif %}
+                {% if member.pref_address.city %}{{ member.pref_address.city|safe }}{% endif %}<br/>
+
+                {% if member.pref_phone %}{{ member.pref_phone.content }}{% endif %}<br/>
+                {% if member.pref_email %}{{ member.pref_email.content }}{% endif %}
+
+<!--                {% for l in member.located.all %}
                     {% if l.location.adr1 != '' %}
                         {{ l.location.adr1|safe }}<br/>
                     {% endif %}
@@ -85,7 +93,7 @@
 
                 {% for c in member.contacts.all %}                
                     {{ c.content }}<br/>
-                {% endfor %}
+                {% endfor %}-->
 
                 <div class="member_link">
                     <a class="member_link" href="{{ member.web|safe }}" />{{ member.web|safe }}</a>

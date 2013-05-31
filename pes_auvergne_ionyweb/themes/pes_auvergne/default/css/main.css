@@ -1900,6 +1900,7 @@ span.date_to {
 
 .member_desc {
     position: relative;
+    min-height: 60px;
 }
 
 .bloc_content .event_content .description {
