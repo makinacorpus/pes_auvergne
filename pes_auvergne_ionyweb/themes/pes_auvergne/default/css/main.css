@@ -610,7 +610,8 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     padding: 5px;
 }
 
-.search_form_hide {
+.search_form_hide,
+.detail_form_hide {
     display: none;
 }
 
