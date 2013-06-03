@@ -29,6 +29,9 @@ class MyOrganizationAdmin(OrganizationAdmin):
         (_(u'Testimony'), {
             'fields': ['testimony',]
             }),
+        (_(u'Guaranties'), {
+            'fields': ['guaranties']
+            }),
     )
 
 admin.site.register(Organization, MyOrganizationAdmin)
