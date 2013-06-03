@@ -1557,6 +1557,10 @@ h4.coop_agenda {
     height: 600px;
 }
 
+.leaflet-container .leaflet-control-attribution, .leaflet-container .leaflet-control-scale {
+    font-size: 9px !important;
+}
+
 #search_form #leaflet_map {
     margin: 5px;
     width: 250px;
@@ -1882,6 +1886,11 @@ span.date_to {
     height: 300px;
 }
 
+.bloc_content .event_image img {
+    max-width: 200px;
+    max-height: 300px;
+}
+
 .bloc_content .event_content {
     float: left;
     width: 470px;
@@ -2142,3 +2151,5 @@ span.date_to {
 .content-projects .members_pagination_top .carto {
     background: #A0866A;
 }
+
+
