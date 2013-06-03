@@ -1,0 +1,23 @@
+[
+    {
+        "pk": 1, 
+        "model": "coop_local.clienttarget", 
+        "fields": {
+            "label": "Secteur public"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "coop_local.clienttarget", 
+        "fields": {
+            "label": "Entreprises"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "coop_local.clienttarget", 
+        "fields": {
+            "label": "Particuliers"
+        }
+    }
+]
