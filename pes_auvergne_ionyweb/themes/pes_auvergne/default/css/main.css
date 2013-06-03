@@ -1882,7 +1882,6 @@ span.date_to {
 .bloc_content .event_image {
     float: left;
     width: 200px;
-    border: 1px solid #eee;
     height: 300px;
 }
 
@@ -1932,6 +1931,10 @@ span.date_to {
     padding-bottom: 10px;
 }
 
+.bloc_content .member_content_infos {
+    border: none;
+}
+
 .bloc_content .member_content_infos .column1,
 .bloc_content .exchange_content_infos .column1 {
     float: left;
@@ -1943,6 +1946,18 @@ span.date_to {
     float: left;
     width: 220px;
 }
+
+.bloc_content .member_content_infos .column3 {
+    float: left;
+    width: 220px;
+}
+.bloc_content .member_content_infos .column1,
+.bloc_content .member_content_infos .column2 {
+    width: 230px;
+}
+
+
+
 .bloc_content .fake_img {
     float: left;
     width: 150px;
