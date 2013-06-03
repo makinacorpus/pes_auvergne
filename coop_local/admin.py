@@ -16,7 +16,7 @@ class MyOrganizationAdmin(OrganizationAdmin):
     fieldsets = (
         ('Identité', {
             'fields': ('is_project', 'logo', 'title', ('acronym', 'pref_label'), 'subtitle', ('birth', 'active',),
-                        'web')
+                        'web', 'crowdfunding')
             }),
         ('Description', {
             'fields': ('short_description', 'description', 'category', 'tags', ('statut', 'secteur_fse'), ('siret', 'naf'), 'transverse_themes')

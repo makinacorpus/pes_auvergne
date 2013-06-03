@@ -33,6 +33,7 @@ class Organization(BaseOrganization):
     secteur_fse = models.PositiveSmallIntegerField('Secteur d’activité FSE',
                                                     choices=SECTEURS_FSE.CHOICES,
                                                     default=SECTEURS_FSE.TOUS)
+    crowdfunding = models.URLField(u'crowdfunding', blank=True, null=True)
 
     class Meta:
         verbose_name = 'Initiative'
