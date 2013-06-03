@@ -413,7 +413,7 @@
         "pk": 42, 
         "model": "coop_local.guaranty", 
         "fields": {
-            "logo": "guaranty_logos/G42.jpg",
+            "logo": "guaranty_logos/G42.png",
             "type": 4, 
             "name": "CEDRE", 
             "description": "D\u00e9velopp\u00e9e par COORACE au b\u00e9n\u00e9fice de l'ensemble des structures d'insertion par l'activit\u00e9 \u00e9conomique (SIAE), la d\u00e9marche qualit\u00e9 CEDRE vise l'am\u00e9lioration continue des services propos\u00e9s aux salari\u00e9s en parcours d'insertion mais aussi aux clients, et la mise en \u0153uvre d'un syst\u00e8me de management par la qualit\u00e9."
@@ -443,7 +443,7 @@
         "pk": 45, 
         "model": "coop_local.guaranty", 
         "fields": {
-            "logo": "guaranty_logos/G45.jpg",
+            "logo": "guaranty_logos/G45.gif",
             "type": 5, 
             "name": "Agr\u00e9ment Jeunesse et Sports", 
             "description": "permet \u00e0 l'association sportive d\u00e9clar\u00e9e d'entretenir des relations privil\u00e9gi\u00e9es de partenariat avec l'\u00c9tat. Il offre de nombreuses pr\u00e9rogatives \u00e0 l'association sportive."
@@ -453,7 +453,7 @@
         "pk": 46, 
         "model": "coop_local.guaranty", 
         "fields": {
-            "logo": "guaranty_logos/G46.jpg",
+            "logo": "",
             "type": 5, 
             "name": "Agr\u00e9ment Organisme de formation", 
             "description": "Agr\u00e9ment pr\u00e9fectoral obtenu par une structure pour b\u00e9n\u00e9ficier du statut d'organisme de formation"
