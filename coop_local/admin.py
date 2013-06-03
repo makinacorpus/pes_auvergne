@@ -3,6 +3,7 @@ from django import forms
 from django.contrib import admin
 from django.core.exceptions import ImproperlyConfigured
 from coop_local.models import Organization
+from django.utils.translation import ugettext_lazy as _
 
 try:
     from coop.base_admin import *
@@ -24,7 +25,10 @@ class MyOrganizationAdmin(OrganizationAdmin):
         ('Préférences', {
             #'classes': ('collapse',),
             'fields': ('pref_email', 'pref_phone', 'pref_address', 'notes',)
-        })
+            }),
+        (_(u'Testimony'), {
+            'fields': ['testimony',]
+            }),
     )
 
 admin.site.register(Organization, MyOrganizationAdmin)
