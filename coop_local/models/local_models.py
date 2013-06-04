@@ -38,4 +38,6 @@ class Organization(BaseOrganization):
     class Meta:
         verbose_name = 'Initiative'
         verbose_name_plural = 'Initiatives'
-	app_label = 'coop_local'
+        app_label = 'coop_local'
+
+Organization._meta.get_field('category').verbose_name = u'catégorie ESS'
