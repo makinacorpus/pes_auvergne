@@ -48,7 +48,7 @@
 
             <div class="member_subtitle">{% if m.activity %} {{ m.activity }} {% endif %}</div>
 
-            <span class="">{{ m.description|safe|striptags|truncatechars:150 }}</span>
+            <span class="">{{ m.short_description }}</span>
 
             <span class="readmore"><a class="member_link" href="{{ base_url }}p/{{ m.pk }}">{% trans "Read more" %}</a></span>
             {% if request.user.is_superuser %}

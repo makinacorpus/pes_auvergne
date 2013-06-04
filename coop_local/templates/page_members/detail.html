@@ -17,10 +17,9 @@
         <div class="header">
             <h3 class="member_title">{{ member.title }}</h3>
             <span class="member_acronym">{{ member.acronym }}</span><br/>
-            <p>{{ member.description|truncatewords_html:15|safe }}</p>
-            <!-- TODO : replace with succinte description -->
+            <p>{{ member.short_description }}</p>
 
-            <p>{{ member.get_statut_display }} - {% trans "Creation" %}: {{ member.birth }}</p>
+            <p>{{ member.get_statut_display }} - {% trans "Creation" %}: {{ member.birth|default:"-" }}</p>
             <a href="mailto:{{ member.pref_email.content }}" class="member_link">{% trans "Mailto member" %}</a>
 
         </div>
@@ -92,8 +91,8 @@
     <div class="bloc_content">
         <h3>{% trans "Presentation" %}</h3>
         <div class="member_desc" id="animate_desc" >
-            <div id="member_description_short">{{ member.description|safe|striptags|truncatechars:150 }}</div>
-            <div id="member_description_full">{{ member.description|safe }}</div>
+            <div id="member_description_short">{{ member.description|safe|striptags }}</div>
+            <div id="member_description_full">{{ member.description2|safe|striptags }}</div>
             <span class="readmore"><a class="member_link" href="javascript:read_more();" id="read_more">{% trans "Read more" %}</a></span>
         </div>
     </div>
@@ -110,7 +109,7 @@
     <div class="bloc_content">
         <div class="member_content_activity">
             <h3>{% trans "Activity" %}</h3>
-            {{ member.activity }}
+            {{ member.offer_activities }}
         </div>
             
         <div class="member_content_thematic">
@@ -134,7 +133,6 @@
     });
 
     function read_more() {
-        $('#member_description_short').addClass("detail_form_hide");
         $('#member_description_full').removeClass("detail_form_hide");
         $('#read_more').addClass("detail_form_hide");        
    }
