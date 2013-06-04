@@ -34,6 +34,7 @@ class Organization(BaseOrganization):
                                                     choices=SECTEURS_FSE.CHOICES,
                                                     default=SECTEURS_FSE.TOUS)
     crowdfunding = models.URLField(u'crowdfunding', blank=True, null=True)
+    description2 = models.TextField(u'en savoir plus', blank=True, null=True)
 
     class Meta:
         verbose_name = 'Initiative'
@@ -41,3 +42,4 @@ class Organization(BaseOrganization):
         app_label = 'coop_local'
 
 Organization._meta.get_field('category').verbose_name = u'catégorie ESS'
+Organization._meta.get_field('description').verbose_name = u'présentation générale'

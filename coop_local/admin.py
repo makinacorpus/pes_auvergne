@@ -4,14 +4,23 @@ from django.contrib import admin
 from django.core.exceptions import ImproperlyConfigured
 from coop_local.models import Organization
 from django.utils.translation import ugettext_lazy as _
+from coop.org.admin import OrganizationAdminForm
+from tinymce.widgets import AdminTinyMCE
 
 try:
     from coop.base_admin import *
 except ImportError, exp:
     raise ImproperlyConfigured("Unable to find coop/base_admin.py file")
 
+
+class MyOrganizationAdminForm(OrganizationAdminForm):
+    description = forms.CharField(widget=AdminTinyMCE(attrs={'cols': 80, 'rows': 60}), required=False, label=u'Présentation générale')
+    description2 = forms.CharField(widget=AdminTinyMCE(attrs={'cols': 80, 'rows': 60}), required=False, label=u'En savoir plus')
+
+
 admin.site.unregister(Organization)
 class MyOrganizationAdmin(OrganizationAdmin):
+    form = MyOrganizationAdminForm
     list_display = ('logo_list_display', 'label', 'id', 'active', 'has_description', 'has_location')
     fieldsets = (
         ('Identité', {
@@ -19,7 +28,7 @@ class MyOrganizationAdmin(OrganizationAdmin):
                         'web', 'crowdfunding')
             }),
         ('Description', {
-            'fields': ('short_description', 'description', 'category', 'tags', ('statut', 'secteur_fse'), ('siret', 'naf'), 'transverse_themes')
+            'fields': ('short_description', 'description', 'description2', 'category', 'tags', ('statut', 'secteur_fse'), ('siret', 'naf'), 'transverse_themes')
             }),
         (_(u'Economic info'), {
             'fields': [('annual_revenue', 'workforce')]
@@ -37,4 +46,3 @@ class MyOrganizationAdmin(OrganizationAdmin):
     )
 
 admin.site.register(Organization, MyOrganizationAdmin)
-
