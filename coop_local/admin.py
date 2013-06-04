@@ -28,7 +28,7 @@ class MyOrganizationAdmin(OrganizationAdmin):
                         'web', 'crowdfunding')
             }),
         ('Description', {
-            'fields': ('short_description', 'description', 'description2', 'category', 'tags', ('statut', 'secteur_fse'), ('siret', 'naf'), 'transverse_themes')
+            'fields': ('short_description', 'description', 'description2', 'category', 'tags', ('legal_status', 'secteur_fse'), ('siret', 'naf'), 'transverse_themes')
             }),
         (_(u'Economic info'), {
             'fields': [('annual_revenue', 'workforce')]
