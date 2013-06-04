@@ -7,7 +7,7 @@
             "org_to_org": true,
             "uri": "http://ns.economie-solidaire.fr/ess#isMemberOf",
             "org_to_project": true,
-            "label": " membre "
+            "label": " est membre de "
         }
     },
     {
@@ -18,7 +18,7 @@
             "org_to_org": true,
             "uri": "http://ns.economie-solidaire.fr/ess#hasRegularSupplier",
             "org_to_project": false,
-            "label": " fournisseur r\u00e9gulier "
+            "label": " a pour fournisseur r\u00e9gulier "
         }
     },
     {
@@ -29,7 +29,7 @@
             "org_to_org": true,
             "uri": "http://ns.economie-solidaire.fr/ess#hasCasualSupplier",
             "org_to_project": true,
-            "label": " fournisseur occasionnel "
+            "label": " a pour fournisseur occasionnel "
         }
     },
     {
@@ -40,7 +40,7 @@
             "org_to_org": true,
             "uri": "http://ns.economie-solidaire.fr/ess#receivedTechnicalSupportFrom",
             "org_to_project": true,
-            "label": " soutien technique "
+            "label": " a pour partenaire technique "
         }
     },
     {
@@ -51,7 +51,7 @@
             "org_to_org": true,
             "uri": "http://ns.economie-solidaire.fr/ess#receivedFinancialSupportOf",
             "org_to_project": true,
-            "label": " soutien financier "
+            "label": " a pour partenaire financier "
         }
     }
 ]
