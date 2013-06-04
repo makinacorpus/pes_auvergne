@@ -21,7 +21,9 @@ class MyOrganizationAdmin(OrganizationAdmin):
         ('Description', {
             'fields': ('short_description', 'description', 'category', 'tags', ('statut', 'secteur_fse'), ('siret', 'naf'), 'transverse_themes')
             }),
-
+        (_(u'Economic info'), {
+            'fields': [('annual_revenue', 'workforce')]
+            }),
         ('Préférences', {
             #'classes': ('collapse',),
             'fields': ('pref_email', 'pref_phone', 'pref_address', 'notes',)
