@@ -33,6 +33,10 @@ class MyOrganizationAdmin(OrganizationAdmin):
         (_(u'Economic info'), {
             'fields': [('annual_revenue', 'workforce')]
             }),
+        (_(u'Management'), {
+            'fields': ['creation', 'modification', 'status', 'correspondence', 'transmission',
+                       'transmission_date', 'authors', 'validation']
+            }),
         ('Préférences', {
             #'classes': ('collapse',),
             'fields': ('pref_email', 'pref_phone', 'pref_address', 'notes',)
