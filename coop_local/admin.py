@@ -6,6 +6,9 @@ from coop_local.models import Organization
 from django.utils.translation import ugettext_lazy as _
 from coop.org.admin import OrganizationAdminForm
 from tinymce.widgets import AdminTinyMCE
+from coop.exchange.admin import ExchangeInline
+from coop_geo.admin import LocatedInline
+from coop.org.admin import ContactInline, EngagementInline, RelationInline, OfferInline, DocumentInline, ReferenceInline
 
 try:
     from coop.base_admin import *
@@ -48,5 +51,15 @@ class MyOrganizationAdmin(OrganizationAdmin):
             'fields': ['guaranties']
             }),
     )
+    inlines = [
+        ContactInline,
+        EngagementInline,
+        ExchangeInline,
+        RelationInline,
+        LocatedInline,
+        OfferInline,
+        DocumentInline,
+        ReferenceInline,
+    ]
 
 admin.site.register(Organization, MyOrganizationAdmin)
