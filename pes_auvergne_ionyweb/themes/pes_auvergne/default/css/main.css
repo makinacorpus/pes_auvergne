@@ -1864,7 +1864,30 @@ span.date_to {
     width: 100%;
 }
 
+.bloc_content .bloc_content_col1,
+.bloc_content .bloc_content_col2 {
+    float: left;
+    width: 260px;
+}
 
+.bloc_content .bloc_content_col2 {
+    width: 400px;
+    padding: 10px;
+}
+
+.bloc_content .bloc_content_col1 h3 {
+    background: url("../images/icons/widget-list-icon.png") no-repeat scroll left center transparent;
+    border-bottom: 1px solid #EEEEEE;
+    line-height: 35px;
+    padding-left: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.bloc_content .bloc_content_col1 h3 a {
+    color: #666;
+}
+    
 #members .bloc_content,
 #coop_exchange .bloc_content {
     float: left;
@@ -1872,7 +1895,16 @@ span.date_to {
 }
 
 #members .bloc_content {
+    border-bottom: 1px solid #eee;
+}
+
+#members .bloc_content_border {
     border-bottom: 1px solid #a03225;
+}
+
+
+#members .bloc_content_borderless {
+    border-bottom: none;
 }
 
 #coop_exchange .bloc_content {
@@ -1964,8 +1996,11 @@ span.date_to {
     height: 150px;
     margin-right: 30px;
     margin-left: 30px;
-    background: #ccc;
-    border: 1px solid #999;
+}
+
+.bloc_content .fake_img img {
+    max-width: 150px;
+    max-height: 150px;
 }
 
 .coop_agenda .label {
@@ -2167,4 +2202,6 @@ span.date_to {
     background: #A0866A;
 }
 
-
+.formset {
+    background: #ddd;
+}
