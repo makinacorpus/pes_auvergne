@@ -2,7 +2,10 @@
 
 {% block extra_head %}
     <link rel="stylesheet" href="{{ STATIC_URL }}themes/pes_auvergne/default/js/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}admintools_bootstrap/css/custom-theme/jquery-ui-1.8.16.custom.css" />
 {% endblock %}
+
+
 
 <div id="members_top"></div>
 <div id="members">
@@ -72,8 +75,17 @@
                     <a class="member_link" href="{{ member.web|safe }}" />{{ member.web|safe }}</a>
                 </div>
                 
-                <a href="" class="member_link">{% trans "Downloadable docs" %}</a>
+                {% if docs %}
+                    <a href="javascript:download_docs()" class="member_link">{% trans "Downloadable docs" %}</a>
+                {% endif %}
 
+                <div id="dialog-docs" title="{% trans "Documents" %}">
+                    <ul>
+                    {% for d in docs %}
+                        <li><a href="{{ media_path }}{{ d.attachment }}" alt='{{ d.name }}'>{{ d.name }}</a></li>
+                    {% endfor %}
+                    </ul>
+                </div>
             </div>
 
         </div>
@@ -188,6 +200,7 @@
     });
 
     function hide_complement() {
+        $('#dialog-docs').addClass("detail_form_hide");
         $('#garanties').addClass("detail_form_hide");
         $('#relationship').addClass("detail_form_hide");
         $('#projects').addClass("detail_form_hide");
@@ -203,6 +216,15 @@
    function show_infos(id_div) {
         hide_complement();
         $(id_div).removeClass("detail_form_hide");
+   }
+
+   function download_docs() {
+    $(function() {
+        $( "#dialog-docs" ).dialog({
+            height: 140,
+            modal: true
+        });
+    });
    }
 
 </script>
