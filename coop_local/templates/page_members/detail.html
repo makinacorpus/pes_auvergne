@@ -167,23 +167,34 @@
         </div>
         <div class="bloc_content_col2">
             <div id="garanties">
+                <h3>{% trans "Garanties" %}</h3>
                 {% for g in member.guaranties.all %}
                     <p>{{ g }}</p>
                 {% endfor %}
             </div>
             <div id="relationship">
+                <h3>{% trans "Relationship" %}</h3>
                 {% for r in member.relations.all %}
                     <p>{{ r }}</p>
                 {% endfor %}
 
             </div>
             <div id="projects">
-                Projets
+                <h3>{% trans "Projects" %}</h3>
+                
             </div>
             <div id="references">
-                Références
+                <h3>{% trans "References" %}</h3>
+                {% for r in member.reference_set.all %}
+                    <p>
+                        {{ r.customer }}<br/>
+                        {{ r.from_year }} - {{ r.to_year }}<br/>
+                        {{ r.services }}
+                    </p>
+                {% endfor %}
             </div>
             <div id="solidarity">
+                <h3>{% trans "Solidarity capital" %}</h3>
                 Solidarité
             </div>
         </div>
