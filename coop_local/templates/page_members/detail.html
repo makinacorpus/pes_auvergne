@@ -201,6 +201,11 @@
         
     </div>
 
+
+    {% if request.user.is_superuser %}
+        <span class="edit edit_inline"><a class="" href="{{ base_url }}p/member_edit/{{ member.pk }}">{% trans "Edit" %}</a></span>
+    {% endif %}
+
 </div>
 
 <script type="text/javascript">

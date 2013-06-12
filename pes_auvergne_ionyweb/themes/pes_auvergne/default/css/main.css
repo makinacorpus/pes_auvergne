@@ -156,7 +156,10 @@ ol {
 .edit a {
     color: #fff;
 }
-
+.edit_inline {
+    position: relative;
+    top: 0;
+}
 
 dl {margin: 0 0 1.5em 0;}
 dt {font-weight: bold;}
@@ -1887,7 +1890,11 @@ span.date_to {
 .bloc_content .bloc_content_col1 h3 a {
     color: #666;
 }
-    
+
+.bloc_content .bloc_content_col2 h3 {
+    margin-top: 0;
+}
+
 #members .bloc_content,
 #coop_exchange .bloc_content {
     float: left;
@@ -2204,4 +2211,8 @@ span.date_to {
 
 .formset {
     background: #ddd;
+}
+
+.table_formset {
+    border-bottom: 1px solid #ccc;
 }
