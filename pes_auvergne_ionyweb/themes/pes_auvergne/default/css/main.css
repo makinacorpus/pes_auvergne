@@ -2210,9 +2210,35 @@ span.date_to {
 }
 
 .formset {
-    background: #ddd;
+/*     background: #ddd; */
+    border: 10px solid #eee;
+    margin-top: 0;
 }
+
+ .title_formset {
+    background: none repeat scroll 0 0 #EEEEEE;
+    color: #AAAAAA;
+    margin-bottom: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-bottom: 0;
+    padding-left: 15px;  
+    padding-top: 5px;
+ }
 
 .table_formset {
     border-bottom: 1px solid #ccc;
+}
+
+
+.ui-tabs {
+    width: auto;
+}
+
+.ui-tabs .ui-tabs-panel {
+    padding: 0px !important;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+    color: #888 !important;
 }
