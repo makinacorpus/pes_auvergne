@@ -238,7 +238,7 @@ msgstr "Contacter la structure"
 
 #: templates/page_members/detail.html:83
 msgid "Products, services and activities list"
-msgstr "Listes des produits, services et activités de la structure"
+msgstr "Offre de biens et services"
 
 #: templates/page_members/detail.html:85
 msgid "Hours"

@@ -94,7 +94,13 @@
     <div class="bloc_content">
         {% if member.offer_activities %}
             <h3>{% trans "Products, services and activities list" %}</h3>
-            {{ member.offer_activities }}
+            <ul>
+            {% for o in member.offer_set.all %}
+                <li><a href="javascript:view_offer_details()">{{ o.title }}</a>
+                    <div id="dialog-offer" class="dialog-offer" title="{{ o.title }}">{{ o.get_desc|safe }}</div>
+                </li>
+            {% endfor %}
+            </ul>
         {% endif %}
         {% if member.located.all %}
             <h3>{% trans "Hours" %}</h3>
@@ -216,6 +222,7 @@
     });
 
     function hide_complement() {
+        $('.dialog-offer').addClass("detail_form_hide");
         $('#dialog-docs').addClass("detail_form_hide");
         $('#garanties').addClass("detail_form_hide");
         $('#relationship').addClass("detail_form_hide");
@@ -242,5 +249,15 @@
         });
     });
    }
+
+   function view_offer_details() {
+    $(function() {
+        $( "#dialog-offer" ).dialog({
+            height: 200,
+            modal: true
+        });
+    });
+   }
+
 
 </script>
