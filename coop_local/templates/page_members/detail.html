@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load rights %}
 
 {% block extra_head %}
     <link rel="stylesheet" href="{{ STATIC_URL }}themes/pes_auvergne/default/js/leaflet/leaflet.css" />
@@ -208,7 +209,7 @@
     </div>
 
 
-    {% if request.user.is_superuser %}
+    {% if request.user.is_superuser or member|tag_rights:request %}
         <span class="edit edit_inline"><a class="" href="{{ base_url }}p/member_edit/{{ member.pk }}">{% trans "Edit" %}</a></span>
     {% endif %}
 
