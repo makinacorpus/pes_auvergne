@@ -24,6 +24,9 @@
             <p>{{ member.short_description }}</p>
 
             <p>{{ member.legal_status|default:"" }}{% if member.birth %} - {% trans "Creation" %}: {{ member.birth }}{% endif %}</p>
+
+            <p>{{ member.category.all|join:", "  }}</p>
+
             <a href="mailto:{{ member.pref_email.content }}" class="member_link">{% trans "Mailto member" %}</a>
 
         </div>
