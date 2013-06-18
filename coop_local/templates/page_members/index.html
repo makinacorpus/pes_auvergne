@@ -26,7 +26,7 @@
     <div class="bloc_title">
 
         {% if m.logo != '' %}
-            <div class="logo"><img src="{{ media_path }}{{ m.logo }}" alt=""></div>
+            <div class="logo"><a class="member_link" href="{{ base_url }}p/{{ m.pk }}"><img src="{{ media_path }}{{ m.logo }}" alt=""></a></div>
         {% else %}
             <div class="logo logo_pes"></div>
         {% endif %}

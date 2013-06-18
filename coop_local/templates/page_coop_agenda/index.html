@@ -66,7 +66,12 @@
         {% for o in occs %}            
             <div class="coop_agenda">
                 <div class="bloc_title">
-                    <div class="logo"><img src="{{ media_path }}{{ o.event.image }}" alt=""></div>
+                    {% if o.event.image != '' %}
+                        <div class="logo"><a class="agenda_link" href="{{ base_url }}p/{{ o.event.pk }}"><img src="{{ media_path }}{{ o.event.image }}" alt=""></a></div>
+                    {% else %}
+                        <div class="logo logo_pes"></div>
+                    {% endif %}
+
                     <div class="resume">
                         {% if o.event.location == None %} {% else %} <span class="location">{{ o.event.location|truncatechars:20 }}</span> {% endif %}
                         <ul class="date">
