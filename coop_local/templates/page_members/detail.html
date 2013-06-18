@@ -44,10 +44,16 @@
 
                     {% for l in member.located.all %}
                         {% if l.location.point %}
-                            var centre = new L.LatLng({{ l.location.point.y|safe }}, {{ l.location.point.x|safe }});
-                            L.marker([{{ l.location.point.y|safe }}, {{ l.location.point.x|safe }}]).addTo(map)
-                                    .bindPopup('{{ l.location.label|safe }}')
-                                    .openPopup();
+                            {% if l.main_location %}
+                                var centre = new L.LatLng({{ l.location.point.y|safe }}, {{ l.location.point.x|safe }});
+                                L.marker([{{ l.location.point.y|safe }}, {{ l.location.point.x|safe }}]).addTo(map)
+                                        .bindPopup('{{ l.location.label|safe }}')
+                                        .openPopup();
+                            {% else %}
+                                L.marker([{{ l.location.point.y|safe }}, {{ l.location.point.x|safe }}]).addTo(map)
+                                        .bindPopup('{{ l.location.label|safe }}');
+                            {% endif %}
+                                                            
                             map.setView(centre, 8).addLayer(cloudmade);
                         {% endif %}
                     {% endfor %}
