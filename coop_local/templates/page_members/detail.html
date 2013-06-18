@@ -43,11 +43,13 @@
 
 
                     {% for l in member.located.all %}
-                        var centre = new L.LatLng({{ l.location.point.y|safe }}, {{ l.location.point.x|safe }});
-                        L.marker([{{ l.location.point.y|safe }}, {{ l.location.point.x|safe }}]).addTo(map)
-                                .bindPopup('{{ l.location.label|safe }}')
-                                .openPopup();
-                        map.setView(centre, 8).addLayer(cloudmade);
+                        {% if l.location.point %}
+                            var centre = new L.LatLng({{ l.location.point.y|safe }}, {{ l.location.point.x|safe }});
+                            L.marker([{{ l.location.point.y|safe }}, {{ l.location.point.x|safe }}]).addTo(map)
+                                    .bindPopup('{{ l.location.label|safe }}')
+                                    .openPopup();
+                            map.setView(centre, 8).addLayer(cloudmade);
+                        {% endif %}
                     {% endfor %}
                 </script>
             </div>            
@@ -171,19 +173,31 @@
 
     <div class="bloc_content bloc_content_borderless">
         <div class="bloc_content_col1">
-            <h3><a href="javascript:show_infos('#garanties');">{% trans "Garanties" %}</a></h3>
-            <h3><a href="javascript:show_infos('#relationship');">{% trans "Relationship" %}</a></h3>
-            <h3><a href="javascript:show_infos('#projects');">{% trans "Projects" %}</a></h3>
-            <h3><a href="javascript:show_infos('#references');">{% trans "References" %}</a></h3>
-            <h3><a href="javascript:show_infos('#solidarity');">{% trans "Solidarity capital" %}</a></h3>
+            {% if member.guaranties.exists %}
+                <h3><a href="javascript:show_infos('#garanties');">{% trans "Garanties" %}</a></h3>
+            {% endif %}
+            {% if member.relations.exists %}
+                <h3><a href="javascript:show_infos('#relationship');">{% trans "Relationship" %}</a></h3>
+            {% endif %}
+            {% if member.projects.exists %}
+                <h3><a href="javascript:show_infos('#projects');">{% trans "Projects" %}</a></h3>
+            {% endif %}
+            {% if member.reference_set.exists %}
+                <h3><a href="javascript:show_infos('#references');">{% trans "References" %}</a></h3>
+            {% endif %}
+            {% if member.solidarity.exists %}
+                <h3><a href="javascript:show_infos('#solidarity');">{% trans "Solidarity capital" %}</a></h3>
+            {% endif %}
         </div>
         <div class="bloc_content_col2">
+
             <div id="garanties">
                 <h3>{% trans "Garanties" %}</h3>
                 {% for g in member.guaranties.all %}
                     <p>{{ g }}</p>
                 {% endfor %}
             </div>
+
             <div id="relationship">
                 <h3>{% trans "Relationship" %}</h3>
                 {% for r in member.relations.all %}
@@ -191,10 +205,12 @@
                 {% endfor %}
 
             </div>
+
             <div id="projects">
                 <h3>{% trans "Projects" %}</h3>
-                
+            
             </div>
+
             <div id="references">
                 <h3>{% trans "References" %}</h3>
                 {% for r in member.reference_set.all %}
@@ -205,6 +221,7 @@
                     </p>
                 {% endfor %}
             </div>
+
             <div id="solidarity">
                 <h3>{% trans "Solidarity capital" %}</h3>
                 Solidarité
