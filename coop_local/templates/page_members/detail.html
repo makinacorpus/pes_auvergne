@@ -106,7 +106,7 @@
             {% endfor %}
             </ul>
         {% endif %}
-        {% if member.located.all %}
+        {% if openings %}
             <h3>{% trans "Hours" %}</h3>
             {% for l in member.located.all %}
                 {{ l.location }} : {{ l.opening }}<br/>
