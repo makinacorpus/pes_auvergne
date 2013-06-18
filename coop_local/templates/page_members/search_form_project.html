@@ -1,6 +1,10 @@
 {% load i18n %}
 
-    <form action="{{ base_url }}" method="post">{% csrf_token %}
+    {% if mode = 'carto' %}
+        <form action="{{ base_url }}p/carto" method="post">{% csrf_token %}
+    {% else %}
+        <form action="{{ base_url }}" method="post">{% csrf_token %}
+    {% endif %}
         <div class="search_column" id="search_column1">
             <div class="search_block" id="looking_for">
                 <span class="search_title">{% trans "Activity" %}</span>
