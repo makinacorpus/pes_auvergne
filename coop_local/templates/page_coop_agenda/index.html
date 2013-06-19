@@ -58,7 +58,7 @@
 <div id="coop_agenda">
 <div class="agenda_pagination_top pagination_top">
     <div class="pages">{% trans "Page:" %}</div>
-    <div class="carto"><a href="{{ base_url }}p/carto">{% trans "Cartography" %}</a></div>
+    <div class="carto"><a href="javascript:submitForm('{{ base_url }}p/carto')">{% trans "Cartography" %}</a></div>
 </div>
 
 {% for event_category, occs in events_by_categories.items %}
@@ -104,3 +104,12 @@
 {% endfor %}
 </div>
 
+
+
+<script type="text/javascript">
+    function submitForm(url) {
+        document.forms["search_form"].action = url;
+        document.forms["search_form"].submit();
+    }
+
+</script>

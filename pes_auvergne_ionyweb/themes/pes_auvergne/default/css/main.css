@@ -231,6 +231,8 @@ aside, nav, article, figure {
     border-radius: 3px 3px 3px 3px;
     margin-top: 4px;
     padding: 4px;
+    box-shadow: none;
+    font-size: 12px;
 }
 
 #main-content #search_form #id_free_search {
