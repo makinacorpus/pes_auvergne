@@ -17,7 +17,7 @@
 
 <div class="exchanges_pagination_top pagination_top">
     <div class="pages">{% trans "Page:" %}</div>
-    <div class="carto"><a href="{{ base_url }}p/carto">{% trans "Cartography" %}</a></div>
+    <div class="carto"><a href="javascript:submitForm('{{ base_url }}p/carto')">{% trans "Cartography" %}</a></div>
 </div>
 {% for e in exchanges %}
     <div class="coop_exchange">
@@ -57,6 +57,11 @@
             }
         });
     });
+
+    function submitForm(url) {
+        document.forms["search_form"].action = url;
+        document.forms["search_form"].submit();
+    }
 
 </script>
 
