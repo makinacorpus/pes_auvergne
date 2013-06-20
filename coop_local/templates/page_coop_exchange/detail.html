@@ -51,8 +51,14 @@
         <div class="exchange_content_infos">
             <div class="column1">
                 <h3>{{ e.get_eway_display }}</h3>
-                <h3>{% trans "Type" %}: {{ e.type }}</h3>
+
+                <h3>{% trans "Type" %}:</h3>
+                {{ e.type }}
+
                 <h3>{% trans "Modalities" %}:</h3>
+                {% for m in e.methods.all %}                
+                    {{ m }}<br/>
+                {% endfor %}
                 
                 <h3><a href="" class="exchange_link">{% trans "Answer exchange" %}</a></h3>
             </div>
@@ -72,7 +78,18 @@
                     {{ c }}<br/>
                 {% endfor %}
 
-                <a href="" class="exchange_link">{% trans "Downloadable docs" %}</a>
+                {% if docs %}
+                    <a href="javascript:download_docs()" class="exchange_link">{% trans "Downloadable docs" %}</a>
+                {% endif %}
+
+                <div id="dialog-docs" title="{% trans "Documents" %}">
+                    <ul>
+                    {% for d in docs %}
+                        <li><a href="{{ media_path }}{{ d.attachment }}" alt='{{ d.name }}'>{{ d.name }}</a></li>
+                    {% endfor %}
+                    </ul>
+                </div>
+
 
             </div>
 
@@ -86,12 +103,19 @@
         </div>
     </div>
     
-    <div class="bloc_content">
-        <h3>{% trans "Galery" %}</h3>
-        <div class="fake_img"></div>
-        <div class="fake_img"></div>
-        <div class="fake_img"></div>
-    </div>
+
+    {% if imgs %}
+        <div class="bloc_content bloc_content_border">
+            <h3>{% trans "Galery" %}</h3>
+            
+            {% for d in imgs %}
+                <div class="fake_img">
+                    <img src="{{ media_path }}{{ d.attachment }}" alt='{{ d.name }}' />
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
     
 
     <div class="bloc_content">
@@ -119,6 +143,30 @@
     </div>
 
 
+    {% if request.user.is_superuser %}
+        <span class="edit edit_inline"><a class="" href="{{ base_url }}exchange_edit/{{ e.pk }}">{% trans "Edit" %}</a></span>
+    {% endif %}
+
 </div>
 
 
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        hide_complement();
+    });
+
+    function hide_complement() {
+        $('#dialog-docs').addClass("detail_form_hide");
+    }
+
+   function download_docs() {
+    $(function() {
+        $( "#dialog-docs" ).dialog({
+            height: 140,
+            modal: true
+        });
+    });
+   }
+
+</script>

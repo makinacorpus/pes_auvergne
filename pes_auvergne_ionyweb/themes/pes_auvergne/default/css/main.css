@@ -2077,6 +2077,16 @@ span.date_to {
     margin: 10px;
 }
 
+.fieldWrapper ul.methods,
+.fieldWrapper ul.methods li {
+    float: left;
+}
+.fieldWrapper ul.methods li label {
+    clear:both;
+    text-align: left;
+    width: 200px;
+}
+    
 
 .add_form .maj_title {
     text-align: left;

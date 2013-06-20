@@ -165,7 +165,7 @@ msgstr "Modalités"
 
 #: templates/page_coop_exchange/detail.html:61
 msgid "Answer exchange"
-msgstr "Réponde à l'annonce"
+msgstr "Répondre à l'annonce"
 
 #: templates/page_coop_exchange/detail.html:64
 msgid "Contact"
