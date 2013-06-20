@@ -22,9 +22,12 @@
 {% for e in exchanges %}
     <div class="coop_exchange">
         <div class="bloc_title">
-<!--             <div class="block_img"></div> -->
-            <div class="logo"></div>
-<!--             <div class="block_desc"> -->
+            {% if e.img  %}
+                <div class="logo"><a class="member_link" href="{{ base_url }}p/{{ e.pk }}"><img src="{{ media_path }}{{ e.img }}" alt="{{ e.title }}"></a></div>
+            {% else %}
+                <div class="logo logo_pes"></div>
+            {% endif %}
+
             <div class="resume">
                 {% if e.location == None %} {% else %} <span class="location">{{ e.location|truncatechars:20 }}</span> {% endif %}
                 <div class="exchange_type">{% trans "Type" %} : {{ e.get_eway_display }}</div>

@@ -8,22 +8,18 @@
 <div id="exchanges_top"></div>
 <div id="coop_exchange" class="coop_exchange">
     <div class="bloc_title">
-        <div class="logo"></div>
+        {% if e.img != '' %}
+            <div class="logo"><img src="{{ media_path }}{{ e.img }}" alt="{{ e.title }}"></div>
+        {% else %}
+            <div class="logo logo_pes"></div>
+        {% endif %}
+
         <div class="header">
             <h3 class="exchange_title">{{ e.title }}</h3>
             <span class="exchange_date">{{ e.created }}</span><br/>
             <span class="exchange_dateexp">{{ e.expiration }}</span>
             {{ e.remote_organization_label }}
 
-            <div id="links">
-                <a class="facebook" href=""></a>
-                <a class="twitter" href=""></a>
-                <a class="google_plus" href=""></a>
-                <a class="mail" href=""></a>
-                <a class="plus" href=""></a>
-                <a class="links" href=""></a>
-                <a class="print" href=""></a>
-            </div>
         </div>
 
         <div class="map">
@@ -61,6 +57,15 @@
                 <h3><a href="" class="exchange_link">{% trans "Answer exchange" %}</a></h3>
             </div>
             <div class="column2">
+                <div id="links">
+                    <a class="facebook" href=""></a>
+                    <a class="twitter" href=""></a>
+                    <a class="google_plus" href=""></a>
+                    <a class="plus" href=""></a>
+                    <a class="links" href=""></a>
+                    <a class="print" href=""></a>
+                </div>
+
                 <h3>{% trans "Contact" %}</h3>
 
                 {% for c in e.contacts.all %}                

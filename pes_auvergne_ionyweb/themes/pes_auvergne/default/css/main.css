@@ -221,6 +221,8 @@ aside, nav, article, figure {
     -webkit-border-radius: 2px;
     max-width: 200px;
     background: none;
+    box-shadow: none;
+    font-size: 12px;    
 }
 
 #main-content #search_form input[type='text'],
@@ -1706,7 +1708,7 @@ span.date_to {
     background: url(../images/logo_pes_auvergne_green.png) center center no-repeat;
 }
 
-.coop_exchange .bloc_title .logo {
+.coop_exchange .bloc_title .logo_pes {
     background: url(../images/logo_pes_auvergne_blue.png) center center no-repeat;
 }
 
