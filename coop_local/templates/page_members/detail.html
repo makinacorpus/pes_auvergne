@@ -22,8 +22,11 @@
             <h3 class="member_title">{{ member.title }}</h3>
             <span class="member_acronym">{{ member.acronym }}</span><br/>
             <p>{{ member.short_description }}</p>
-
-            <p>{{ member.legal_status|default:"" }}{% if member.birth %} - {% trans "Creation" %}: {{ member.birth }}{% endif %}</p>
+            <p>
+            {% if member.legal_status %}
+                {{ member.legal_status|default:"" }}</br>
+            {% endif %}
+            {% if member.birth %} {% trans "Creation" %} : {{ member.birth }}{% endif %}</p>
 
             <p>{{ member.category.all|join:", "  }}</p>
 
@@ -72,7 +75,7 @@
             </div>
             <div class="column2">
                 {% if member.pref_phone %}{{ member.pref_phone.content }}{% endif %}<br/>
-                {% if member.pref_email %}{{ member.pref_email.content }}{% endif %}
+<!--                 {% if member.pref_email %}{{ member.pref_email.content }}{% endif %} -->
             </div>
             <div class="column3">
                 <div id="links">
@@ -84,7 +87,7 @@
                     <a class="print" href=""></a>
                 </div>
                 <div class="member_link">
-                    <a class="member_link" href="{{ member.web|safe }}" />{{ member.web|safe }}</a>
+                    <a class="member_link" href="{{ member.web|safe }}" />{% trans "Website" %}</a>
                 </div>
                 
                 {% if docs %}
@@ -179,11 +182,11 @@
 
     <div class="bloc_content bloc_content_borderless">
         <div class="bloc_content_col1">
-            {% if member.guaranties.exists %}
-                <h3><a href="javascript:show_infos('#garanties');">{% trans "Garanties" %}</a></h3>
-            {% endif %}
             {% if member.relations.exists %}
                 <h3><a href="javascript:show_infos('#relationship');">{% trans "Relationship" %}</a></h3>
+            {% endif %}
+            {% if member.guaranties.exists %}
+                <h3><a href="javascript:show_infos('#garanties');">{% trans "Garanties" %}</a></h3>
             {% endif %}
             {% if member.projects.exists %}
                 <h3><a href="javascript:show_infos('#projects');">{% trans "Projects" %}</a></h3>
@@ -197,19 +200,19 @@
         </div>
         <div class="bloc_content_col2">
 
+            <div id="relationship">
+                <h3>{% trans "Relationship" %}</h3>
+                {% for r in relationship_queryset.all %}
+                    <p>{{ r.source }} {{ r.relation_type }} <a href="{{ base_url }}p/{{ r.target.pk }}">{{ r.target.title }}</a></p>
+                {% endfor %}
+
+            </div>
+
             <div id="garanties">
                 <h3>{% trans "Garanties" %}</h3>
                 {% for g in member.guaranties.all %}
                     <p>{{ g }}</p>
                 {% endfor %}
-            </div>
-
-            <div id="relationship">
-                <h3>{% trans "Relationship" %}</h3>
-                {% for r in member.relations.all %}
-                    <p>{{ r }}</p>
-                {% endfor %}
-
             </div>
 
             <div id="projects">
