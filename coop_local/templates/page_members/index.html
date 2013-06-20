@@ -36,7 +36,9 @@
             {% if m.located == None %}{% else %} 
                 <span class="location">
                 {% for l in m.located.all %}
-                    {{ l.location.city|truncatechars:20|safe }} ({{ l.location.zipcode }})
+                    {% if l.main_location %}
+                        {{ l.location.city|truncatechars:20|safe }} ({{ l.location.zipcode }})
+                    {% endif %}
                 {% endfor %}
                 </span> 
             {% endif %}
