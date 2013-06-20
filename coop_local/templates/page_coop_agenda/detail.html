@@ -7,7 +7,7 @@
 <div id="agenda_top"></div>
 <div id="coop_agenda" class="coop_agenda">
     <div class="bloc_title">
-        <div class="logo"></div>
+        <div class="logo logo_pes"></div>
         <div class="header">
             <a href="{{ base_url }}{{ e.pk }}"><h3 class="coop_agenda_title">{{ e.title }}</h3></a>
             {% if e.occurrence_set.count %}
@@ -30,7 +30,6 @@
                 <a class="facebook" href=""></a>
                 <a class="twitter" href=""></a>
                 <a class="google_plus" href=""></a>
-                <a class="mail" href=""></a>
                 <a class="plus" href=""></a>
                 <a class="links" href=""></a>
                 <a class="print" href=""></a>
@@ -47,13 +46,15 @@
 
                     var map = new L.Map('leaflet_map');
 
-                    var centre = new L.LatLng({{ e.location.point.y|safe }}, {{ e.location.point.x|safe }});
-                    L.marker([{{ e.location.point.y|safe }}, {{ e.location.point.x|safe }}]).addTo(map)
-                            .bindPopup('{{ e.location.label|safe }}')
-                            .openPopup();
-
-                    
-                    map.setView(centre, 8).addLayer(cloudmade);
+                     {% if e.location.point %}
+                         var centre = new L.LatLng({{ e.location.point.y|safe }}, {{ e.location.point.x|safe }});
+                         L.marker([{{ e.location.point.y|safe }}, {{ e.location.point.x|safe }}]).addTo(map)
+                                 .bindPopup('{{ e.location.label|safe }}')
+                                 .openPopup();
+                         
+                         
+                         map.setView(centre, 8).addLayer(cloudmade);
+                     {% endif %}
 
                 </script>
             </div>            
@@ -78,12 +79,18 @@
 
 
 
-    <div class="bloc_content">
-        <h3>{% trans "Galery" %}</h3>
-        <div class="fake_img"></div>
-        <div class="fake_img"></div>
-        <div class="fake_img"></div>
-    </div>
+    {% if imgs %}
+        <div class="bloc_content bloc_content_border">
+            <h3>{% trans "Galery" %}</h3>
+            
+            {% for d in imgs %}
+                <div class="fake_img">
+                    <img src="{{ media_path }}{{ d.attachment }}" alt='{{ d.name }}' />
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
     
 
     <div class="bloc_content">
@@ -106,24 +113,77 @@
 
     </div>
 
-
     <div class="bloc_content">
         <span class='label'>{% trans "Type event" %}:</span> {% for cat in e.category.all %} {{ cat }} {% endfor %}
 
-        {% if e.linked_articles %}
-
-            {% with e.linked_articles.0 as article %}
-            {% thumbnail article.logo "120x120" as im %}
-            <a class="title" href="{{ article.get_absolute_url }}">
-                <img class="event-article-icon" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
-            </a>
-            {% endthumbnail %}
-
-            {% endwith %}
-
-        {% else %}
-        {% endif %}
     </div>
+
+
+    <div class="bloc_content bloc_content_borderless">
+        <div class="bloc_content_col1">
+            {% if e.exchanges.exists %}
+                <h3><a href="javascript:show_infos('#exchanges');">{% trans "Exchanges" %}</a></h3>
+            {% endif %}
+            {% if e.linked_articles.exists %}
+                <h3><a href="javascript:show_infos('#articles');">{% trans "Articles" %}</a></h3>
+            {% endif %}
+            {% if docs %}
+                <h3><a href="javascript:show_infos('#documents');">{% trans "Documents" %}</a></h3>
+            {% endif %}
+        </div>
+        <div class="bloc_content_col2">
+
+            <div id="exchanges">
+                <h3>{% trans "Exchanges associated" %}</h3>
+            </div>
+
+            <div id="articles">
+                <h3>{% trans "Articles associated" %}</h3>
+                    {% with e.linked_articles.0 as article %}
+                    {% thumbnail article.logo "120x120" as im %}
+                    <a class="title" href="{{ article.get_absolute_url }}">
+                        <img class="event-article-icon" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                    </a>
+                    {% endthumbnail %}
+
+                    {% endwith %}
+            </div>
+
+            <div id="documents">
+                <h3>{% trans "Documents associated" %}</h3>
+            
+            </div>
+
+        </div>
+        
+    </div>
+
+
+    {% if request.user.is_superuser %}
+        <span class="edit edit_inline"><a class="" href="{{ base_url }}event_edit/{{ e.pk }}">{% trans "Edit" %}</a></span>
+    {% endif %}
+
+
 </div>
 
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        hide_complement();
+    });
+
+    function hide_complement() {
+        $('#dialog-docs').addClass("detail_form_hide");
+        $('#exchanges').addClass("detail_form_hide");
+        $('#articles').addClass("detail_form_hide");
+        $('#documents').addClass("detail_form_hide");
+    }
+
+   function show_infos(id_div) {
+        hide_complement();
+        $(id_div).removeClass("detail_form_hide");
+   }
+
+
+</script>
 

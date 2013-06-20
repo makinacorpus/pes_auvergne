@@ -2086,7 +2086,12 @@ span.date_to {
     text-align: left;
     width: 200px;
 }
-    
+
+#point.fieldWrapper {
+    display: block;
+    height: 320px;
+}
+
 
 .add_form .maj_title {
     text-align: left;
