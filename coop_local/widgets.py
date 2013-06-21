@@ -8,6 +8,14 @@ from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
 
 
+from django.contrib.admin.widgets import AdminFileWidget
+from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy
+from django.utils.html import escape
+from django.conf import settings
+from PIL import Image
+import os
+
 class CustomCheckboxSelectMultiple(forms.CheckboxSelectMultiple):
     """
     Widget that renders multiple-select checkboxes in columns.
@@ -85,3 +93,42 @@ def columnize(items, columns):
     return elts_per_column
 
 
+
+class CustomClearableFileInput(forms.ClearableFileInput):
+    initial_text = ugettext_lazy('Currently')
+    input_text = ugettext_lazy('Change')
+    clear_checkbox_label = ugettext_lazy('Clear')
+
+    #template_with_initial = u'%(initial_text)s: %(initial)s %(clear_template)s<br />%(input_text)s: %(input)s'
+    template_with_initial = u'%(initial)s %(clear_template)s<br /><div class="modify">%(input_text)s: %(input)s</div>'
+
+    template_with_clear = u'%(clear)s <label for="%(clear_checkbox_id)s">%(clear_checkbox_label)s</label>'
+
+
+    def render(self, name, value, attrs=None):
+        substitutions = {
+            'initial_text': self.initial_text,
+            'input_text': self.input_text,
+            'clear_template': '',
+            'clear_checkbox_label': self.clear_checkbox_label,
+        }
+        template = u'%(input)s'
+        substitutions['input'] = super(forms.ClearableFileInput, self).render(name, value, attrs)
+
+        if value and hasattr(value, "url"):
+            template = self.template_with_initial
+            substitutions['initial'] = (u'<a href="%s">%s</a>'
+                                        % (escape(value.url),
+                                           escape(force_unicode(value))))
+            if not self.is_required:
+                checkbox_name = self.clear_checkbox_name(name)
+                checkbox_id = self.clear_checkbox_id(checkbox_name)
+                substitutions['clear_checkbox_name'] = conditional_escape(checkbox_name)
+                substitutions['clear_checkbox_id'] = conditional_escape(checkbox_id)
+                substitutions['clear'] = forms.CheckboxInput().render(checkbox_name, False, attrs={'id': checkbox_id})
+                substitutions['clear_template'] = self.template_with_clear % substitutions
+
+        return mark_safe(template % substitutions)
+
+  
+    

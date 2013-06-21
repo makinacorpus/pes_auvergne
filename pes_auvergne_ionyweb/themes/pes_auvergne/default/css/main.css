@@ -2093,6 +2093,15 @@ span.date_to {
 }
 
 
+.fieldWrapper .img_form {
+    margin-left: 160px;
+}
+
+.fieldWrapper .img_form a {
+    float: left;
+}
+
+
 .add_form .maj_title {
     text-align: left;
 }
