@@ -93,28 +93,27 @@
 
     
 
-    <div class="bloc_content">
-        <div class="coop_agendae_content_activity">
+    <div class="bloc_content bloc_content_borderless">
+        <div class="coop_agenda_content_activity content_border_grey">
             <h3>{% trans "Activity" %}</h3>
             {{ e.activity }}
         </div>
             
-        <div class="coop_agenda_content_thematic">
+        <div class="coop_agenda_content_thematic content_border_grey">
             <h3>{% trans "Thematic" %}</h3>
             {% for t in e.transverse_themes.all %}
                 {{ t }} <br/>
             {% endfor %}
         </div>
 
-        <div class="coop_agenda_content_keywords">
+        <div class="coop_agenda_content_keywords content_border_grey">
             <h3 class="coop_agenda_link">{% trans "Keywords" %}</h3>
         </div>
 
-
-    </div>
-
-    <div class="bloc_content">
-        <span class='label'>{% trans "Type event" %}:</span> {% for cat in e.category.all %} {{ cat }} {% endfor %}
+        <div class="coop_agenda_content_keywords content_border_grey">
+            <h3 class="coop_agenda_link">{% trans "Type event" %}</h3>
+            {% for cat in e.category.all %} {{ cat }} {% endfor %}
+        </div>
 
     </div>
 
@@ -154,7 +153,11 @@
 
             <div id="documents">
                 <h3>{% trans "Documents associated" %}</h3>
-            
+                    <ul>
+                    {% for d in docs %}
+                        <li><a href="{{ media_path }}{{ d.attachment }}" alt='{{ d.name }}'>{{ d.name }}</a></li>
+                    {% endfor %}
+                    </ul>            
             </div>
 
             <div id="partners">

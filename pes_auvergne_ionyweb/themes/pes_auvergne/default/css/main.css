@@ -1914,7 +1914,8 @@ span.date_to {
 }
 
 
-#members .bloc_content_borderless {
+#members .bloc_content_borderless,
+.bloc_content_borderless {
     border-bottom: none;
 }
 
@@ -1963,6 +1964,7 @@ span.date_to {
     width: 100%;
 }
 
+.content_border_grey,
 .bloc_content .member_content_infos,
 .bloc_content .member_content_activity,
 .bloc_content .member_content_thematic,
