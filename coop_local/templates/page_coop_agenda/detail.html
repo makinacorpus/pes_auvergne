@@ -24,7 +24,7 @@
             {% endif %}
             <span class='label'>{% trans "Place" %}:</span> {% if e.location == None %} {% else %}{{ e.location }} {% endif %}
             <br/>
-            <span class='label'>{% trans "Organization" %}:</span> {% if e.organization == None %} {% else %}{{ e.organization }} {% endif %}
+            <span class='label'>{% trans "Organization" %}:</span> {% if e.organization == None %} {% else %}<a href="/annuaire/p/{{ e.organization.pk }}" class="agenda_link">{{ e.organization }}</a> {% endif %}
             <br/>
             <div id="links">
                 <a class="facebook" href=""></a>
@@ -130,6 +130,9 @@
             {% if docs %}
                 <h3><a href="javascript:show_infos('#documents');">{% trans "Documents" %}</a></h3>
             {% endif %}
+            {% if e.organizations %}
+                <h3><a href="javascript:show_infos('#partners');">{% trans "Partners" %}</a></h3>
+            {% endif %}
         </div>
         <div class="bloc_content_col2">
 
@@ -152,6 +155,13 @@
             <div id="documents">
                 <h3>{% trans "Documents associated" %}</h3>
             
+            </div>
+
+            <div id="partners">
+                <h3>{% trans "Partners" %}</h3>
+                {% for p in e.organizations.all %}
+                        {{ p.label }}<br/>
+                {% endfor %}
             </div>
 
         </div>
@@ -177,6 +187,7 @@
         $('#exchanges').addClass("detail_form_hide");
         $('#articles').addClass("detail_form_hide");
         $('#documents').addClass("detail_form_hide");
+        $('#partners').addClass("detail_form_hide");
     }
 
    function show_infos(id_div) {
