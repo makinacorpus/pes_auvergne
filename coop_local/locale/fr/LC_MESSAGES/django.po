@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-21 15:00+0200\n"
+"POT-Creation-Date: 2013-06-24 10:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,7 +73,7 @@ msgstr "Résultats"
 #: templates/page_blog/entry_archive.html:42
 #: templates/page_coop_agenda/detail.html:75
 #: templates/page_coop_agenda/index.html:93
-#: templates/page_coop_exchange/detail.html:101
+#: templates/page_coop_exchange/detail.html:103
 #: templates/page_coop_exchange/index.html:36
 #: templates/page_members/detail.html:139 templates/page_members/index.html:56
 msgid "Read more"
@@ -101,13 +101,13 @@ msgid "Event's description"
 msgstr "Description de l'évènement"
 
 #: templates/page_coop_agenda/detail.html:84
-#: templates/page_coop_exchange/detail.html:109
+#: templates/page_coop_exchange/detail.html:111
 #: templates/page_members/detail.html:147
 msgid "Galery"
 msgstr "Galerie"
 
 #: templates/page_coop_agenda/detail.html:98
-#: templates/page_coop_exchange/detail.html:123
+#: templates/page_coop_exchange/detail.html:125
 #: templates/page_coop_exchange/search_form_exchange.html:26
 #: templates/page_coop_exchange/search_form_service.html:6
 #: templates/page_members/detail.html:161
@@ -117,7 +117,7 @@ msgid "Activity"
 msgstr "Secteur d'activité"
 
 #: templates/page_coop_agenda/detail.html:103
-#: templates/page_coop_exchange/detail.html:128
+#: templates/page_coop_exchange/detail.html:130
 #: templates/page_coop_exchange/search_form_exchange.html:33
 #: templates/page_coop_exchange/search_form_service.html:13
 #: templates/page_members/detail.html:168
@@ -127,7 +127,7 @@ msgid "Thematic"
 msgstr "Thématiques"
 
 #: templates/page_coop_agenda/detail.html:110
-#: templates/page_coop_exchange/detail.html:135
+#: templates/page_coop_exchange/detail.html:137
 #: templates/page_members/detail.html:177
 msgid "Keywords"
 msgstr "Mots-clés +"
@@ -146,7 +146,7 @@ msgid "Articles"
 msgstr ""
 
 #: templates/page_coop_agenda/detail.html:130
-#: templates/page_coop_exchange/detail.html:85
+#: templates/page_coop_exchange/detail.html:87
 #: templates/page_members/detail.html:97
 msgid "Documents"
 msgstr ""
@@ -170,7 +170,7 @@ msgstr "Documents associés"
 
 #: templates/page_coop_agenda/detail.html:176
 #: templates/page_coop_agenda/index.html:95
-#: templates/page_coop_exchange/detail.html:147
+#: templates/page_coop_exchange/detail.html:149
 #: templates/page_coop_exchange/index.html:38
 #: templates/page_members/detail.html:244 templates/page_members/index.html:59
 msgid "Edit"
@@ -199,35 +199,43 @@ msgstr ""
 msgid "to"
 msgstr "à"
 
-#: templates/page_coop_exchange/detail.html:55
+#: templates/page_coop_exchange/detail.html:22
+msgid "Posted by"
+msgstr "Posté par"
+
+#: templates/page_coop_exchange/detail.html:23
+msgid "Contact organization"
+msgstr "Contacter l'annonceur"
+
+#: templates/page_coop_exchange/detail.html:57
 #: templates/page_coop_exchange/index.html:33
 #: templates/page_coop_exchange/search_form_exchange.html:16
 msgid "Type"
 msgstr ""
 
-#: templates/page_coop_exchange/detail.html:58
+#: templates/page_coop_exchange/detail.html:60
 msgid "Modalities"
 msgstr "Modalités"
 
-#: templates/page_coop_exchange/detail.html:63
+#: templates/page_coop_exchange/detail.html:65
 msgid "Answer exchange"
 msgstr "Répondre à l'annonce"
 
-#: templates/page_coop_exchange/detail.html:75
+#: templates/page_coop_exchange/detail.html:77
 msgid "Contact"
 msgstr ""
 
-#: templates/page_coop_exchange/detail.html:82
+#: templates/page_coop_exchange/detail.html:84
 #: templates/page_members/detail.html:94
 msgid "Downloadable docs"
 msgstr "Documents téléchargeables"
 
-#: templates/page_coop_exchange/detail.html:98
+#: templates/page_coop_exchange/detail.html:100
 #: templates/page_members/detail.html:134
 msgid "Presentation"
 msgstr "Présentation"
 
-#: templates/page_coop_exchange/detail.html:141
+#: templates/page_coop_exchange/detail.html:143
 msgid "Solidarity"
 msgstr "Solidarité"
 

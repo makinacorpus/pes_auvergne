@@ -18,7 +18,9 @@
             <h3 class="exchange_title">{{ e.title }}</h3>
             <span class="exchange_date">{{ e.created }}</span><br/>
             <span class="exchange_dateexp">{{ e.expiration }}</span>
-            {{ e.remote_organization_label }}
+
+            <h3 class="exchange_title">{% trans "Posted by" %}</h3>
+            <a href="/annuaire/p/{{ e.organization.pk }}"  class="exchange_link">{% trans "Contact organization" %}</a>
 
         </div>
 
