@@ -121,25 +121,25 @@
     
 
     <div class="bloc_content">
-        <div class="exchange_content_activity">
+        <div class="exchange_content_infos exchange_content_activity">
             <h3>{% trans "Activity" %}</h3>
             {{ e.activity }}
         </div>
             
-        <div class="exchange_content_thematic">
+        <div class="exchange_content_infos exchange_content_thematic">
             <h3>{% trans "Thematic" %}</h3>
             {% for t in e.transverse_themes.all %}
                 {{ t }} <br/>
             {% endfor %}
         </div>
 
-        <div class="exchange_content_keywords">
+        <div class="exchange_content_infos exchange_content_keywords">
             <h3 class="exchange_link">{% trans "Keywords" %}</h3>
             {{ e.tags.all|join:", " }}
         </div>
 
 
-        <div class="exchange_content_solidarity">
+        <div class="exchange_content_infos exchange_content_solidarity">
             <h3 class="exchange_link">{% trans "Solidarity" %}</h3>
         </div>
     </div>

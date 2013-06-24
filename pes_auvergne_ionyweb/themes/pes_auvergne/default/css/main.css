@@ -623,7 +623,7 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 }
 
 .search_form_enabled #column2 {
-    margin-top: 290px;    
+    margin-top: 200px;    
 }
 
 .search_form_enabled_member #column2 {
@@ -1129,9 +1129,9 @@ h4.coop_agenda {
     height: 190px;
 }
 
-.content-coop_exchange #column2 {
+/*.content-coop_exchange #column2 {
     margin-top: 200px;
-}
+}*/
 
 .content-coop_exchange #result_exchanges,
 .content-services #result_exchanges{
