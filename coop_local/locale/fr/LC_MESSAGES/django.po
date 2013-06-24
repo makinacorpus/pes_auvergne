@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-24 10:16+0200\n"
+"POT-Creation-Date: 2013-06-24 11:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -199,6 +199,15 @@ msgstr ""
 msgid "to"
 msgstr "à"
 
+#: templates/page_coop_exchange/detail.html:19
+#: templates/page_members/search_form_project.html:25
+msgid "Date start"
+msgstr "Date début"
+
+#: templates/page_coop_exchange/detail.html:20
+msgid "Date end"
+msgstr "Date fin"
+
 #: templates/page_coop_exchange/detail.html:22
 msgid "Posted by"
 msgstr "Posté par"
@@ -334,10 +343,6 @@ msgstr "Plus-value solidaire"
 #: templates/page_members/search_form_organization.html:24
 msgid "Statut"
 msgstr "Statut juridique"
-
-#: templates/page_members/search_form_project.html:25
-msgid "Date start"
-msgstr "Date début"
 
 #: templates/plugin_coop_agenda/index.html:29
 msgid "See all events..."
