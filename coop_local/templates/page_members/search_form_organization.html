@@ -1,9 +1,9 @@
 {% load i18n %}
 
     {% if mode = 'carto' %}
-        <form action="{{ base_url }}p/carto" method="post" id="search_form">{% csrf_token %}
+        <form action="{{ base_url }}p/carto" method="post" id="search-form">{% csrf_token %}
     {% else %}
-        <form action="{{ base_url }}" method="post" id="search_form">{% csrf_token %}
+        <form action="{{ base_url }}" method="post" id="search-form">{% csrf_token %}
     {% endif %}
         
         <div class="search_column" id="search_column1">
