@@ -7,11 +7,11 @@
     {% endif %}
         
         <div class="search_column" id="search_column1">
-            <div class="search_block" id="looking_for">
+            <div class="search_block" id="activity">
                 <span class="search_title">{% trans "Activity" %}</span>
                 {{ form.activity }}
             </div>
-            <div class="search_block" id="looking_for2">
+            <div class="search_block" id="activity2">
                 {{ form.activity2 }}
             </div>
             <div class="search_block" id="free_search">
@@ -20,6 +20,15 @@
             </div>
         </div>
         <div class="search_column" id="search_column2">
+            <div class="search_block" id="thematic">
+                <span class="search_title">{% trans "Thematic" %}</span>
+                {{ form.thematic }}
+            </div>
+            <div class="search_block" id="thematic2">
+                {{ form.thematic2 }}
+            </div>
+        </div>
+        <div class="search_column" id="search_column3">
             <div class="search_block" id="statut">
                 <span class="search_title">{% trans "Statut" %}</span>
                 {{ form.statut }}
@@ -28,7 +37,7 @@
                 {{ form.statut2 }}
             </div>
         </div>
-        <div class="search_column" id="search_column3">
+        <div class="search_column" id="search_column4">
             <div class="search_block" id="location">
                 <span class="search_title">{% trans "Location" %}</span>
                 {{ form.location }}
@@ -39,20 +48,58 @@
                 {{ form.location_buffer }}
             </div>
         </div>
-        <div class="search_column" id="search_column4">
-            <div class="search_block" id="thematic">
-                <span class="search_title">{% trans "Thematic" %}</span>
-                {{ form.thematic }}
-            </div>
-            <div class="search_block" id="thematic2">
-                {{ form.thematic2 }}
-            </div>
-        </div>
 
         <div id="search_bottom">
             <div class="search_block" id="search_submit">
                 <input type="submit" value="{% trans "Search" %}" />
-                <!--<div id="results_block"><span class="nb_results">{{ members.count }}</span> <span class="label_results">{% trans "Results" %}</span></div>-->
+                <div id="criteria_option">
+                    <a href="javascript:more_criteria();" id="more_criteria" class="member_link">{% trans "Display more criteria" %}</a>
+                    <a href="javascript:less_criteria(true);" id="less_criteria" class="member_link">{% trans "Display less criteria" %}</a>
+                </div>
             </div>
         </div>
     </form>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        {% if mode_criteria == False %}
+            less_criteria(false);
+        {% endif %}
+    });
+
+    function more_criteria() {
+            $('#activity2').removeClass("search_form_hide");
+            $('#thematic2').removeClass("search_form_hide");
+            $('#statut2').removeClass("search_form_hide");
+
+            $('#less_criteria').removeClass("search_form_hide");
+
+            $('#more_criteria').addClass("search_form_hide");
+
+            $("#search_form").animate({
+                height: '+=40px'
+            }, 500);
+            $("#column2").animate({
+                'margin-top': '+=40px'
+            }, 500);
+
+    }
+    function less_criteria(animate) {
+            $('#activity2').addClass("search_form_hide");
+            $('#thematic2').addClass("search_form_hide");
+            $('#statut2').addClass("search_form_hide");
+
+            $('#less_criteria').addClass("search_form_hide");
+
+            $('#more_criteria').removeClass("search_form_hide");
+
+            if(animate) {
+                $("#search_form").animate({
+                    height: '-=40px'
+                }, 500);
+                $("#column2").animate({
+                    'margin-top': '-=40px'
+                }, 500);
+            }
+    }
+</script>
