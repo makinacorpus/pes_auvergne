@@ -1030,6 +1030,18 @@ li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
     float: left;
 }
 
+.site_cov {
+    background: url(../images/covoiturage.png) no-repeat left top;
+    width: 70px;
+    height: 70px;
+    float: left;
+}
+.site_cov_text {
+    float: left;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
 .home_title {
     background: url(../images/icons/last.png) no-repeat left top;
     font-size: 24px;
@@ -1964,7 +1976,7 @@ span.date_to {
 }
 
 .bloc_content .event_content .description {
-    min-height: 300px;
+    min-height: 130px;
     width: 450px;
 }
 
