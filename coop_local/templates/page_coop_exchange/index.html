@@ -3,7 +3,11 @@
 
 <script type="text/javascript">
     // We need to set a new class to content element, in order do properly display the form and the other elements
-    $('#main-content').addClass("search_form_enabled");
+    {% if is_exchange %} 
+        $('#main-content').addClass("search_form_enabled_exchange");
+    {% else %} 
+        $('#main-content').addClass("search_form_enabled_service");
+    {% endif %} 
 </script>
 
 <div id="exchanges_top_search"></div>
