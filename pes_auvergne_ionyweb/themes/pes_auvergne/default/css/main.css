@@ -632,7 +632,7 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 
 
 .search_form_enabled_agenda #column2 {
-    margin-top: 290px;    
+    margin-top: 160px;    
 }
 
 
@@ -1151,9 +1151,10 @@ h4.coop_agenda {
     height: 190px;
 }
 
-/*.content-coop_exchange #column2 {
-    margin-top: 200px;
-}*/
+.content-coop_agenda #search_form {
+    height: 150px;
+}
+
 
 .content-coop_exchange #result_exchanges,
 .content-services #result_exchanges{
