@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-24 11:29+0200\n"
+"POT-Creation-Date: 2013-06-27 11:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,7 +71,7 @@ msgid "Results"
 msgstr "Résultats"
 
 #: templates/page_blog/entry_archive.html:42
-#: templates/page_coop_agenda/detail.html:75
+#: templates/page_coop_agenda/detail.html:77
 #: templates/page_coop_agenda/index.html:93
 #: templates/page_coop_exchange/detail.html:103
 #: templates/page_coop_exchange/index.html:36
@@ -92,21 +92,25 @@ msgstr "Lieu"
 msgid "Organization"
 msgstr "Organisation"
 
-#: templates/page_coop_agenda/detail.html:69
+#: templates/page_coop_agenda/detail.html:72
 msgid "Register for the event"
 msgstr "S'incrire à l'évènement"
 
-#: templates/page_coop_agenda/detail.html:71
+#: templates/page_coop_agenda/detail.html:74
 msgid "Event's description"
 msgstr "Description de l'évènement"
 
-#: templates/page_coop_agenda/detail.html:84
+#: templates/page_coop_agenda/detail.html:80
+msgid "Use car pool"
+msgstr "Pensez à utilisez le covoiturage !"
+
+#: templates/page_coop_agenda/detail.html:88
 #: templates/page_coop_exchange/detail.html:111
 #: templates/page_members/detail.html:147
 msgid "Galery"
 msgstr "Galerie"
 
-#: templates/page_coop_agenda/detail.html:98
+#: templates/page_coop_agenda/detail.html:102
 #: templates/page_coop_exchange/detail.html:125
 #: templates/page_coop_exchange/search_form_exchange.html:26
 #: templates/page_coop_exchange/search_form_service.html:6
@@ -116,7 +120,7 @@ msgstr "Galerie"
 msgid "Activity"
 msgstr "Secteur d'activité"
 
-#: templates/page_coop_agenda/detail.html:103
+#: templates/page_coop_agenda/detail.html:107
 #: templates/page_coop_exchange/detail.html:130
 #: templates/page_coop_exchange/search_form_exchange.html:33
 #: templates/page_coop_exchange/search_form_service.html:13
@@ -126,49 +130,49 @@ msgstr "Secteur d'activité"
 msgid "Thematic"
 msgstr "Thématiques"
 
-#: templates/page_coop_agenda/detail.html:110
+#: templates/page_coop_agenda/detail.html:114
 #: templates/page_coop_exchange/detail.html:137
 #: templates/page_members/detail.html:177
 msgid "Keywords"
 msgstr "Mots-clés +"
 
-#: templates/page_coop_agenda/detail.html:114
+#: templates/page_coop_agenda/detail.html:118
 msgid "Type event"
 msgstr "Type d'évènement"
 
-#: templates/page_coop_agenda/detail.html:124
+#: templates/page_coop_agenda/detail.html:128
 #: templates/plugin_coop_exchange/index.html:3
 msgid "Exchanges"
 msgstr "Echanges"
 
-#: templates/page_coop_agenda/detail.html:127
+#: templates/page_coop_agenda/detail.html:131
 msgid "Articles"
 msgstr ""
 
-#: templates/page_coop_agenda/detail.html:130
+#: templates/page_coop_agenda/detail.html:134
 #: templates/page_coop_exchange/detail.html:87
 #: templates/page_members/detail.html:97
 msgid "Documents"
 msgstr ""
 
-#: templates/page_coop_agenda/detail.html:133
-#: templates/page_coop_agenda/detail.html:164
+#: templates/page_coop_agenda/detail.html:137
+#: templates/page_coop_agenda/detail.html:168
 msgid "Partners"
 msgstr ""
 
-#: templates/page_coop_agenda/detail.html:139
+#: templates/page_coop_agenda/detail.html:143
 msgid "Exchanges associated"
 msgstr "Echanges associés"
 
-#: templates/page_coop_agenda/detail.html:143
+#: templates/page_coop_agenda/detail.html:147
 msgid "Articles associated"
 msgstr "Articles associés"
 
-#: templates/page_coop_agenda/detail.html:155
+#: templates/page_coop_agenda/detail.html:159
 msgid "Documents associated"
 msgstr "Documents associés"
 
-#: templates/page_coop_agenda/detail.html:176
+#: templates/page_coop_agenda/detail.html:180
 #: templates/page_coop_agenda/index.html:95
 #: templates/page_coop_exchange/detail.html:149
 #: templates/page_coop_exchange/index.html:38
