@@ -1930,8 +1930,10 @@ span.date_to {
 
 .bloc_content .event_image {
     float: left;
-    width: 200px;
     height: 300px;
+    margin-top: -150px;
+    padding: 10px;
+    width: 200px;    
 }
 
 .bloc_content .event_image img {
@@ -1941,8 +1943,9 @@ span.date_to {
 
 .bloc_content .event_content {
     float: left;
-    width: 470px;
+    width: 450px;
     padding: 5px;
+    margin-top: -50px;
 }
 
 .bloc_content .event_content .description,
@@ -1962,6 +1965,7 @@ span.date_to {
 
 .bloc_content .event_content .description {
     min-height: 300px;
+    width: 450px;
 }
 
 .bloc_content .event_content .readmore {

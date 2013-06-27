@@ -26,14 +26,6 @@
             <br/>
             <span class='label'>{% trans "Organization" %}:</span> {% if e.organization == None %} {% else %}<a href="/annuaire/p/{{ e.organization.pk }}" class="agenda_link">{{ e.organization }}</a> {% endif %}
             <br/>
-            <div id="links">
-                <a class="facebook" href=""></a>
-                <a class="twitter" href=""></a>
-                <a class="google_plus" href=""></a>
-                <a class="plus" href=""></a>
-                <a class="links" href=""></a>
-                <a class="print" href=""></a>
-            </div>
         </div>
         <div class="map">
             <div id="leaflet_map"></div>
@@ -57,9 +49,20 @@
                      {% endif %}
 
                 </script>
-            </div>            
+            <div id="links">
+                <a class="facebook" href=""></a>
+                <a class="twitter" href=""></a>
+                <a class="google_plus" href=""></a>
+                <a class="plus" href=""></a>
+                <a class="links" href=""></a>
+                <a class="print" href=""></a>
+            </div>
+
+        </div>            
+
 
         </div>
+
 
 
     <div class="bloc_content">
@@ -71,9 +74,8 @@
             <h3 class="coop_agenda_subtitle">{% trans "Event's description" %}</h3>
             <div class="description">
                 {{ e.description }}
+                <span class="readmore"><a class="agenda_link" href="">{% trans "Read more" %}</a></span>
             </div>
-            <div class="readmore"><a class="agenda_link" href="">{% trans "Read more" %}</a></div>
-
         </div>
     </div>
 
