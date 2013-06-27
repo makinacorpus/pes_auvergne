@@ -38,7 +38,7 @@ class MyOrganizationAdmin(OrganizationAdmin):
             }),
         (_(u'Management'), {
             'fields': ['creation', 'modification', 'status', 'correspondence', 'transmission',
-                       'transmission_date', 'authors', 'validation']
+                       'transmission_date', 'authors', 'validation', 'source_info']
             }),
         ('Préférences', {
             #'classes': ('collapse',),
