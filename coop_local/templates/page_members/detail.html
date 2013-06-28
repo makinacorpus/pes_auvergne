@@ -106,6 +106,7 @@
         </div>
     </div>
 
+    {% if member.offer_activities or openings or member.offer_zone %}
     <div class="bloc_content">
         {% if member.offer_activities %}
             <h3>{% trans "Products, services and activities list" %}</h3>
@@ -128,6 +129,7 @@
             {{ member.offer_zone }}
         {% endif %}
     </div>
+    {% endif %}
 
     <div class="bloc_content bloc_content_border">
         {% if member.description %}
