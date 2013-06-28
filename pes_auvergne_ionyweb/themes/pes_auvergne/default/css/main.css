@@ -2319,7 +2319,12 @@ span.date_to {
 }
 
 .help_text {    
-    color: #CCCCCC;
+    color: #AAAAAA;
     margin-left: 160px;
+    font-style: italic;
+}
+
+.helptext {    
+    color: #AAAAAA;
     font-style: italic;
 }
