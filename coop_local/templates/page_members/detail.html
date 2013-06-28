@@ -133,11 +133,12 @@
         {% if member.description %}
             <h3>{% trans "Presentation" %}</h3>
             <div class="member_desc" id="animate_desc" >
-                <div id="member_description_short">{{ member.description|safe|striptags }}</div>
-                {% if member.description2 %}
-                    <div id="member_description_full">{{ member.description2|safe|striptags }}</div>
+                <div id="member_description_short">{{ member.description|safe|striptags|truncatechars:1500 }}</div>
+                    <div id="member_description_full">
+                            {{ member.description|safe|striptags }}<br/>
+                            {{ member.description2|safe|striptags }}
+                    </div>
                     <span class="readmore"><a class="member_link" href="javascript:read_more();" id="read_more">{% trans "Read more" %}</a></span>
-                {% endif %}
             </div>
         {% endif %}
     </div>
