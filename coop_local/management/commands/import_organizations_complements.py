@@ -167,8 +167,9 @@ def _save_contact(provider, data, category, is_tel_number, set_provider_field=Fa
         contact.save()
     else:
         if (contacts.count() > 1):
-            logging.warn("Contact > %(data)s < of category %(category)s has duplicated entries" 
-                        % {'data': data, 'category': category})
+            print "Contact has duplicated entries"
+            #logging.warn("Contact > %(data)s < of category %(category)s has duplicated entries" 
+            #            % {'data': data, 'category': category})
         contact = contacts[0]
         contact.content_object = provider
         contact.save()
