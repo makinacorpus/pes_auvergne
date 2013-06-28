@@ -2317,3 +2317,9 @@ span.date_to {
 .ui-tabs .ui-tabs-nav li a {
     color: #888 !important;
 }
+
+.help_text {    
+    color: #CCCCCC;
+    margin-left: 160px;
+    font-style: italic;
+}
