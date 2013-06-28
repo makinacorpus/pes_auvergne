@@ -99,7 +99,7 @@ msgstr "Description de l'évènement"
 
 #: templates/page_coop_agenda/detail.html:80
 msgid "Use car pool"
-msgstr "Pensez à utilisez le covoiturage !"
+msgstr "Pensez à covoiturer"
 
 #: templates/page_coop_agenda/detail.html:88
 #: templates/page_coop_exchange/detail.html:111
