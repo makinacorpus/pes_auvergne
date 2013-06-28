@@ -136,7 +136,9 @@
                 <div id="member_description_short">{{ member.description|safe|striptags|truncatechars:1500 }}</div>
                     <div id="member_description_full">
                             {{ member.description|safe|striptags }}<br/>
-                            {{ member.description2|safe|striptags }}
+                            {% if member.description2 %}
+                                {{ member.description2|safe|striptags }}
+                            {% endif %}
                     </div>
                     <span class="readmore"><a class="member_link" href="javascript:read_more();" id="read_more">{% trans "Read more" %}</a></span>
             </div>
