@@ -642,6 +642,10 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     margin-top: 200px;    
 }
 
+.search_form_enabled_territory #column2 {
+    margin-top: 270px;    
+}
+
 .search_form_enabled_article #column2 {
     margin-top: 100px;    
 }
@@ -1165,7 +1169,7 @@ h4.coop_agenda {
 }
 
 .content-coop_territory #search_form {
-    height: 190px;
+    height: 260px;
 }
 
 
@@ -1691,7 +1695,8 @@ h4.coop_agenda {
 a.agenda_link,
 a.member_link,
 a.exchange_link,
-a.articles_link {
+a.articles_link,
+a.territory_link {
     font-weight: bold;
 }
 a.agenda_link {
@@ -1705,6 +1710,9 @@ a.exchange_link {
 }
 a.articles_link {
     color: #53c97f;
+}
+a.territory_link {
+    color: #50A1FA;
 }
 
 .content-services a.exchange_link {
@@ -2326,6 +2334,10 @@ span.date_to {
 
 .exchanges_pagination_top .carto {
     background: #669CA2;
+}
+
+.territory_pagination_top .carto {
+    background: #50A1FA;
 }
 
 .members_pagination_top .carto {
