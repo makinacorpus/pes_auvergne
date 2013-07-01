@@ -8,13 +8,12 @@
                     <li>
                         <span class="date_from">{{ o.start_time|date:"j" }} {{ o.start_time|date:"M"|lower }} {{ o.start_time|date:"Y"|lower }}</span>
                         {% if  o.start_time.date != o.end_time.date %}
-                            <span class="date_to">{% trans "to" %}</span>
+                            <span class="date_to">-</span>
                         <span class="date_from">{{ o.end_time|date:"j" }} {{ o.end_time|date:"M"|lower }} {{ o.end_time|date:"Y"|lower }}</span>
                         {% endif %}
                     </li>
                 </ul>
-
-                
+                <br/>
                 <h5 class="coop_agenda_title"><a href="{{ agenda_url }}p/{{ o.event.pk }}">{{ o.event.title }}</a></h5>
             </div>
 
