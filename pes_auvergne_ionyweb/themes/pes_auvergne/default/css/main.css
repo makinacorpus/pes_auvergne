@@ -1789,6 +1789,7 @@ span.date_to {
 .bloc_title .header {
     float: left;
     width: 310px;
+    overflow: hidden;
 }
 
 .bloc_title .resume {
