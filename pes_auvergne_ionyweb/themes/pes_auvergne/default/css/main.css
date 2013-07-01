@@ -1797,6 +1797,7 @@ span.date_to {
     width: 520px;
     position: relative;
     min-height: 150px;
+    overflow: hidden;
 }
 
 .bloc_title .map {
