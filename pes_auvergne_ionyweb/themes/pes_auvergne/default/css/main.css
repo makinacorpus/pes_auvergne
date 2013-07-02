@@ -2186,6 +2186,7 @@ span.date_to {
     width: 150px;
     float: left;
     text-align: right;
+    margin-right: 3px;
 }
 
 .fieldWrapper {
@@ -2256,6 +2257,8 @@ span.date_to {
 
 .gradient_grey,
 .new_block input[type='submit'] {
+    color: #444444;
+    font-weight: bold;
     /* Anciens navigateurs */
     background: #f8f8f8 url("gradient_grey-bg.png") repeat-x top;
     -o-background-size: 100% 100%;
@@ -2357,9 +2360,12 @@ span.date_to {
 }
 
 .formset {
-/*     background: #ddd; */
     border: 10px solid #eee;
     margin-top: 0;
+    border-radius: 0 0 15px 15px;
+    -webkit-box-shadow: 0 3px 3px #bbb;
+    -moz-box-shadow: 0 3px 3px #bbb;
+    box-shadow: 0 3px 3px #bbb;
 }
 
  .title_formset {
@@ -2371,6 +2377,9 @@ span.date_to {
     padding-bottom: 0;
     padding-left: 15px;  
     padding-top: 5px;
+    -webkit-box-shadow: 0 3px 3px #bbb;
+    -moz-box-shadow: 0 3px 3px #bbb;
+    box-shadow: 0 3px 3px #bbb;
  }
 
 .table_formset {
