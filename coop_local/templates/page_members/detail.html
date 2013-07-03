@@ -112,8 +112,8 @@
             <h3>{% trans "Products, services and activities list" %}</h3>
             <ul>
             {% for o in member.offer_set.all %}
-                <li><a href="javascript:view_offer_details()">{{ o.title }}</a>
-                    <div id="dialog-offer" class="dialog-offer" title="{{ o.title }}">{{ o.get_desc|safe }}</div>
+                <li><a href="javascript:view_offer_details({{ o.pk }})">{{ o.title }}</a>
+                    <div id="dialog-offer-{{ o.pk }}" class="dialog-offer" title="{{ o.title }}">{{ o.get_desc|safe }}</div>
                 </li>
             {% endfor %}
             </ul>
@@ -124,10 +124,10 @@
                 {{ l.location }} : {{ l.opening }}<br/>
             {% endfor %}
         {% endif %}
-        {% if member.offer_zone %}
+<!--        {% if member.offer_zone %}
             <h3>{% trans "Zone" %}</h3>
             {{ member.offer_zone }}
-        {% endif %}
+        {% endif %}-->
     </div>
     {% endif %}
 
@@ -287,9 +287,9 @@
     });
    }
 
-   function view_offer_details() {
+   function view_offer_details(pk) {
     $(function() {
-        $( "#dialog-offer" ).dialog({
+        $( "#dialog-offer-"+pk ).dialog({
             height: 200,
             modal: true
         });
