@@ -2401,15 +2401,20 @@ span.date_to {
 
 .help_text {    
     color: #AAAAAA;
-    margin-left: 160px;
+/*     margin-left: 160px; */
     font-style: italic;
+    background: url(../images/help_icon.png) no-repeat center left;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
 }
 
 .helptext {    
     color: #AAAAAA;
     font-style: italic;
+
 }
 
 
 /* Tooptips */
-.ui-tooltip{padding:8px;position:absolute;z-index:9999;max-width:300px;-webkit-box-shadow:0 0 5px #aaa;box-shadow:0 0 5px #aaa}body .ui-tooltip{border-width:2px}
+.ui-tooltip{padding:8px;position:absolute;z-index:9999;max-width:400px;-webkit-box-shadow:0 0 5px #aaa;box-shadow:0 0 5px #aaa}body .ui-tooltip{border-width:2px}
