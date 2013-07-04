@@ -109,15 +109,18 @@
     {% if member.offer_activities or openings or member.offer_zone %}
     <div class="bloc_content">
         {% if member.offer_activities %}
-            <h3>{% trans "Products, services and activities list" %}</h3>
-            <ul>
-            {% for o in member.offer_set.all %}
-                <li><a href="javascript:view_offer_details({{ o.pk }})">{{ o.title }}</a>
-                    <div id="dialog-offer-{{ o.pk }}" class="dialog-offer" title="{{ o.title }}">{{ o.get_desc|safe }}</div>
-                </li>
-            {% endfor %}
-            </ul>
+            {% if member.is_offer_labels %}
+                <h3>{% trans "Products, services and activities list" %}</h3>
+                <ul>
+                {% for o in member.offer_set.all %}
+                    <li><a href="javascript:view_offer_details({{ o.pk }})">{{ o.title }}</a>
+                        <div id="dialog-offer-{{ o.pk }}" class="dialog-offer" title="{{ o.title }}">{{ o.get_desc|safe }}</div>
+                    </li>
+                {% endfor %}
+                </ul>
+            {% endif %}
         {% endif %}
+
         {% if openings %}
             <h3>{% trans "Hours" %}</h3>
             {% for l in member.located.all %}
@@ -162,10 +165,12 @@
 
     <div class="bloc_content bloc_content_borderless">
         {% if member.offer_activities %}
-            <div class="member_content_activity">
-                <h3>{% trans "Activity" %}</h3>
-                {{ member.offer_activities }}
-            </div>
+            {% if member.is_offer_labels %}
+                <div class="member_content_activity">
+                    <h3>{% trans "Activity" %}</h3>
+                    {{ member.offer_activities }}
+                </div>
+            {% endif %}
         {% endif %}
 
         {% if member.transverse_themes.all %}
