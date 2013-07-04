@@ -142,12 +142,12 @@ ol {
     position: absolute;
     right: 0;
     top: 20px;
-    background: #ff7070;
+    background: #FF8F45;
     padding: 1px;
     border-radius: 3px;
-    -webkit-box-shadow: 0 3px 3px #999;
+/*    -webkit-box-shadow: 0 3px 3px #999;
     -moz-box-shadow: 0 3px 3px #999;
-    box-shadow: 0 3px 3px #999;
+    box-shadow: 0 3px 3px #999;*/
     
 }
 .edit:hover {
@@ -2064,7 +2064,7 @@ span.date_to {
 
 .member_desc {
     position: relative;
-    min-height: 60px;
+    min-height: 100px;
 }
 
 .bloc_content .event_content .description {
@@ -2109,9 +2109,13 @@ span.date_to {
     float: left;
     width: 220px;
 }
-.bloc_content .member_content_infos .column1,
+
+.bloc_content .member_content_infos .column1 {
+    width: 250px;
+}
+
 .bloc_content .member_content_infos .column2 {
-    width: 230px;
+    width: 210px;
 }
 
 
