@@ -2133,6 +2133,21 @@ span.date_to {
     max-height: 150px;
 }
 
+.bloc_content .fake_img img {
+    max-width: 150px;
+    max-height: 150px;
+}
+
+#slider {
+    height: auto;
+}
+
+#slider img {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+
 .coop_agenda .label {
     background: none !important;
 }

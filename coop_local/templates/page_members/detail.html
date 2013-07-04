@@ -4,7 +4,13 @@
 {% block extra_head %}
     <link rel="stylesheet" href="{{ STATIC_URL }}themes/pes_auvergne/default/js/leaflet/leaflet.css" />
     <link rel="stylesheet" href="{{ STATIC_URL }}admintools_bootstrap/css/custom-theme/jquery-ui-1.8.16.custom.css" />
+
+    
+    <link rel="stylesheet" href="{{ STATIC_URL }}themes/pes_auvergne/default/js/easyslider1.7/css/screen.css" />
+    <script type="text/javascript" src="{{ STATIC_URL }}themes/pes_auvergne/default/js/easyslider1.7/js/easySlider1.7.js"></script>
+
 {% endblock %}
+
 
 
 
@@ -154,11 +160,16 @@
         <div class="bloc_content bloc_content_border">
             <h3>{% trans "Galery" %}</h3>
             
-            {% for d in imgs %}
-                <div class="fake_img">
-                    <img src="{{ media_path }}{{ d.attachment }}" alt='{{ d.name }}' />
-                </div>
-            {% endfor %}
+            <div id="slider">
+                <ul>                
+                    {% for d in imgs %}
+                        <li>
+                            <a href="{{ media_path }}{{ d.attachment }}"><img src="{{ media_path }}{{ d.attachment }}" alt='{{ d.name }}' /></a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
         </div>
     {% endif %}
     
@@ -261,6 +272,15 @@
         $('#member_description_full').addClass("detail_form_hide");
 
         hide_complement();
+
+        $("#slider").easySlider({
+                auto: true,
+                continuous: true,
+                nextId: "slider1next",
+                prevId: "slider1prev",
+                numeric: true
+            });
+
     });
 
     function hide_complement() {
