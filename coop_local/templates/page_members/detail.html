@@ -217,45 +217,41 @@
     <div class="bloc_content bloc_content_borderless">
         <div class="bloc_content_col1">
             {% if member.relations.exists %}
-                <h3><a href="javascript:show_infos('#relationship');">{% trans "Relationship" %}</a></h3>
+                <h3 id="menu_relationship"><a href="javascript:show_infos('relationship');">{% trans "Relationship" %}</a></h3>
             {% endif %}
             {% if member.guaranties.exists %}
-                <h3><a href="javascript:show_infos('#garanties');">{% trans "Garanties" %}</a></h3>
+                <h3 id="menu_garanties"><a href="javascript:show_infos('garanties');">{% trans "Garanties" %}</a></h3>
             {% endif %}
             {% if member.projects.exists %}
-                <h3><a href="javascript:show_infos('#projects');">{% trans "Projects" %}</a></h3>
+                <h3 id="menu_projects"><a href="javascript:show_infos('projects');">{% trans "Projects" %}</a></h3>
             {% endif %}
             {% if member.reference_set.exists %}
-                <h3><a href="javascript:show_infos('#references');">{% trans "References" %}</a></h3>
+                <h3 id="menu_references"><a href="javascript:show_infos('references');">{% trans "References" %}</a></h3>
             {% endif %}
             {% if member.solidarity.exists %}
-                <h3><a href="javascript:show_infos('#solidarity');">{% trans "Solidarity capital" %}</a></h3>
+                <h3 id="menu_solidarity"><a href="javascript:show_infos('solidarity');">{% trans "Solidarity capital" %}</a></h3>
             {% endif %}
         </div>
         <div class="bloc_content_col2">
 
             <div id="relationship">
-                <h3>{% trans "Relationship" %}</h3>
                 {% for r in relationship_queryset.all %}
-                    <p>{{ r.source }} {{ r.relation_type }} <a href="{{ base_url }}p/{{ r.target.pk }}">{{ r.target.title }}</a></p>
+                    <p>{{ r.source }} {{ r.relation_type }} <a href="{{ base_url }}p/{{ r.target.pk }}" class="member_link">{{ r.target.title }}</a></p>
                 {% endfor %}
 
             </div>
 
             <div id="garanties">
-                <h3>{% trans "Garanties" %}</h3>
                 {% for g in member.guaranties.all %}
                     <p>{{ g }}</p>
                 {% endfor %}
             </div>
 
             <div id="projects">
-                <h3>{% trans "Projects" %}</h3>
             
             </div>
 
             <div id="references">
-                <h3>{% trans "References" %}</h3>
                 {% for r in member.reference_set.all %}
                     <p>
                         {{ r.customer }}<br/>
@@ -266,7 +262,6 @@
             </div>
 
             <div id="solidarity">
-                <h3>{% trans "Solidarity capital" %}</h3>
                 Solidarité
             </div>
         </div>
@@ -304,6 +299,12 @@
         $('#projects').addClass("detail_form_hide");
         $('#references').addClass("detail_form_hide");
         $('#solidarity').addClass("detail_form_hide");
+
+        $('#menu_garanties').removeClass("menu_selected");
+        $('#menu_relationship').removeClass("menu_selected");
+        $('#menu_projects').removeClass("menu_selected");
+        $('#menu_references').removeClass("menu_selected");
+        $('#menu_solidarity').removeClass("menu_selected");
     }
 
     function read_more() {
@@ -313,7 +314,8 @@
    }
    function show_infos(id_div) {
         hide_complement();
-        $(id_div).removeClass("detail_form_hide");
+        $("#" + id_div).removeClass("detail_form_hide");
+        $("#menu_" + id_div).addClass("menu_selected");
    }
 
    function download_docs() {
