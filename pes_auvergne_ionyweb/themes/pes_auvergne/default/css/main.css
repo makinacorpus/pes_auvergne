@@ -2064,7 +2064,7 @@ span.date_to {
 
 .member_desc {
     position: relative;
-    min-height: 100px;
+    min-height: 250px;
 }
 
 .bloc_content .event_content .description {
