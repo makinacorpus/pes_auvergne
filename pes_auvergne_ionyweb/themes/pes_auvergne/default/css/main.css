@@ -2191,6 +2191,7 @@ span.date_to {
     float: left;
     text-align: right;
     margin-right: 3px;
+    font-weight: normal;
 }
 
 .fieldWrapper {
@@ -2388,6 +2389,10 @@ span.date_to {
 
 .table_formset {
     border-bottom: 1px solid #ccc;
+}
+
+.table_formset table th {
+    width: 100px;
 }
 
 
