@@ -49,7 +49,8 @@
                         cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttribution});
 
                     var map = new L.Map('leaflet_map');
-
+                    
+                    var any_main_location = false;
 
                     {% for l in member.located.all %}
                         {% if l.location.point %}
@@ -58,14 +59,26 @@
                                 L.marker([{{ l.location.point.y|safe }}, {{ l.location.point.x|safe }}]).addTo(map)
                                         .bindPopup('{{ l.location.label|safe }}')
                                         .openPopup();
+                                any_main_location = true;
                             {% else %}
                                 L.marker([{{ l.location.point.y|safe }}, {{ l.location.point.x|safe }}]).addTo(map)
                                         .bindPopup('{{ l.location.label|safe }}');
                             {% endif %}
                                                             
-                            map.setView(centre, 8).addLayer(cloudmade);
+                            
                         {% endif %}
                     {% endfor %}
+
+                    if(any_main_location == false) {
+                        {% for l in member.located.all %}
+                            {% if l.location.point %}
+                                var centre = new L.LatLng({{ l.location.point.y|safe }}, {{ l.location.point.x|safe }});
+                            {% endif %}
+                        {% endfor %}
+                    }
+
+                    if(centre)
+                        map.setView(centre, 8).addLayer(cloudmade);
                 </script>
             </div>            
         </div>
