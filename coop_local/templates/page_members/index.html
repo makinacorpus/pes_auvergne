@@ -69,7 +69,15 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $("#id_location").autocomplete({
-            source: {{ available_locations|safe }},
+            //source: {{ available_locations|safe }},
+            source: function( request, response ) {
+                var matches = $.map( {{ available_locations|safe }}, function(tag, i) {
+                    if ( tag.label.toUpperCase().indexOf(request.term.toUpperCase()) === 0 ) {
+                        return tag;
+                    }
+                });
+                response(matches);
+            },
             select: function(e, ui) {
                 e.preventDefault() // <--- Prevent the value from being inserted.
                 $("#id_location_id").val(ui.item.value);
@@ -78,6 +86,7 @@
             }
         });
     });
+
 
     function submitForm(url) {
         document.forms["search-form"].action = url;
