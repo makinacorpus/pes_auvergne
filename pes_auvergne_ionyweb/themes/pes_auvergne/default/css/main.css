@@ -225,6 +225,9 @@ aside, nav, article, figure {
     font-size: 12px;    
 }
 
+
+#main-content #login_form input[type='text'],
+#main-content #login_form input[type='password'],
 #main-content #search_form input[type='text'],
 #main-content #search_form input[type='date'],
 #main-content #search_form input[type='number'],
@@ -674,13 +677,17 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 }
 
 #column2 .column-widget h2,
-.maj_title {
+.maj_title,
+.title {
     text-align: center;
     background: url(../images/bg-bottom-title.png) repeat-x bottom left;
     line-height: 40px;
     text-transform: uppercase;
 }
 
+.title {
+    text-align: left;
+}
 
 #column2 .column-widget ul {
     margin-left: 0px;
@@ -1084,7 +1091,7 @@ li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
 /* plugins / apps */
 #column1.standard,
 #coop_agenda,
-#coop_account,
+/*#coop_account,*/
 #coop_exchange,
 #coop_territory,
 #members,
