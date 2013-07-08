@@ -2256,7 +2256,9 @@ span.date_to {
 
 
 .fieldWrapper .img_form {
+    border: 1px solid #CCCCCC;
     margin-left: 160px;
+    padding: 5px 0 5px 5px;    
 }
 
 .fieldWrapper .img_form a {
