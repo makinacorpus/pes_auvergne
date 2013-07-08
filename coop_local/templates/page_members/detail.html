@@ -9,8 +9,14 @@
     <link rel="stylesheet" href="{{ STATIC_URL }}themes/pes_auvergne/default/js/easyslider1.7/css/screen.css" />
     <script type="text/javascript" src="{{ STATIC_URL }}themes/pes_auvergne/default/js/easyslider1.7/js/easySlider1.7.js"></script>
 
-{% endblock %}
+    <script type="text/javascript" src="{{ STATIC_URL }}themes/pes_auvergne/default/js/jquery.carouFredSel-6.2.1-packed.js"></script>
 
+    <script type="text/javascript" language="javascript" src="{{ STATIC_URL }}themes/pes_auvergne/default/js/helper-plugins/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" language="javascript" src="{{ STATIC_URL }}themes/pes_auvergne/default/js/helper-plugins/jquery.touchSwipe.min.js"></script>
+    <script type="text/javascript" language="javascript" src="{{ STATIC_URL }}themes/pes_auvergne/default/js/helper-plugins/jquery.transit.min.js"></script>
+    <script type="text/javascript" language="javascript" src="{{ STATIC_URL }}themes/pes_auvergne/default/js/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
+
+{% endblock %}
 
 
 
@@ -172,18 +178,24 @@
     {% if imgs %}
         <div class="bloc_content bloc_content_border">
             <h3>{% trans "Galery" %}</h3>
-            
-            <div id="slider">
-                <ul>                
-                    {% for d in imgs %}
-                        <li>
-                            <a href="{{ media_path }}{{ d.attachment }}"><img src="{{ media_path }}{{ d.attachment }}" alt='{{ d.name }}' /></a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
+
+                <div class="list_carousel">
+                    <ul id="foo2">
+                        {% for d in imgs %}
+                            <li>
+                                <a href="{{ media_path }}{{ d.attachment }}"><img src="{{ media_path }}{{ d.attachment }}" alt='{{ d.name }}' height="100px" /></a>
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+                    <div class="clearfix"></div>
+                    <a id="prev2" class="prev" href="#"></a>
+                    <a id="next2" class="next" href="#"></a>
+                    <div id="pager2" class="pager"></div>
+                </div>
 
         </div>
+
     {% endif %}
     
 
@@ -281,13 +293,18 @@
 
         hide_complement();
 
-        $("#slider").easySlider({
-                auto: true,
-                continuous: true,
-                nextId: "slider1next",
-                prevId: "slider1prev",
-                numeric: true
-            });
+        $('#foo2').carouFredSel({
+            items: 3,
+            auto: false,
+            prev: '#prev2',
+            next: '#next2',
+            pagination: "#pager2",
+            mousewheel: true,
+            swipe: {
+                onMouse: true,
+                onTouch: true
+            }
+        });
 
     });
 
