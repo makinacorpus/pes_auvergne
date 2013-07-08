@@ -27,7 +27,7 @@
         <div class="header">
             <h3 class="member_title">{{ member.title }}</h3>
             <span class="member_acronym">{{ member.acronym }}</span><br/>
-            <p>{{ member.short_description }}</p>
+            <p class='short_description'>{{ member.short_description }}</p>
             <p>
             {% if member.legal_status %}
                 {{ member.legal_status|default:"" }}</br>

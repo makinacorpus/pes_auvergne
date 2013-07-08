@@ -2084,6 +2084,10 @@ span.date_to {
     float: left;
 }
 
+.short_description {
+    font-style: italic;
+}
+
 .member_complement {
     width: 100%;
 }
