@@ -2265,6 +2265,11 @@ span.date_to {
     float: left;
 }
 
+.labelWrapper  {
+    float: left;
+    margin-right: 3px;
+}
+
 
 .add_form .maj_title {
     text-align: left;
