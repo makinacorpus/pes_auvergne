@@ -1796,6 +1796,7 @@ span.date_to {
     margin-bottom: 5px;
     width: 100%;
     border-bottom: 1px solid #eee;
+    padding-bottom: 3px;
 }
 
 .bloc_title_home {
@@ -1871,6 +1872,10 @@ span.date_to {
     margin-left: 0px !important;
 }
 
+/*.member_acronym {
+    margin-left: 15px;
+}*/
+
 .resume_title {
     margin-left: 0px;
 }
@@ -1892,6 +1897,7 @@ span.date_to {
 .bloc_title .map {
     float: left; 
     width: 220px;
+    border: 1px solid #CCCCCC;
 }
 
 
@@ -2024,6 +2030,7 @@ span.date_to {
     padding-left: 15px;
     font-size: 14px;
     font-weight: bold;
+    margin-top: 0;
 }
 
 .bloc_content .bloc_content_col1 h3 a {
