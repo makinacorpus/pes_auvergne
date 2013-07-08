@@ -1173,7 +1173,8 @@ h4.coop_agenda {
     float: left;
     margin-top: 0;
     height: 280px;
-    width: 950px;    
+    width: 940px;    
+    padding-left: 10px;
 }
 
 .content-projects #search_form {
@@ -1644,7 +1645,7 @@ h4.coop_agenda {
 #search_form #search_column1,
 #search_form #search_column2,
 #search_form #search_column3 {
-    width: 240px;
+    width: 230px;
 }
 #search_form #search_column2 .search_block,
 #search_form #search_column2 .search_block_bottom,
