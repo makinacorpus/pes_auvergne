@@ -2457,26 +2457,17 @@ span.date_to {
 
 #members .pagination .step-links a {
     text-decoration: none;
-    color: #999999;
 }
 
 #members .pagination .prev-link {
-    background: url('../images/icon-prev.png') no-repeat;
+    background: url('../images/icon-prev.png') no-repeat 2px left;
     padding:  3px 0 3px 20px;
-    border-right: solid 1px #D7DBDE;
 }
 
 #members .pagination .next-link {
-    background: url('../images/icon-next.png') no-repeat top right;
-    padding:  3px 20px 3px 10px;
+    background: url('../images/icon-next.png') no-repeat center right;
+    padding:  3px 20px 3px 0;
 }
-
-
-
-
-
-
-
 
 
 
@@ -2608,7 +2599,7 @@ span.date_to {
     float: left;
     width: 500px;
     text-align: center;
-    display: none !important;
+/*     display: none !important; */
 }
 .pager a {
     margin: 0 5px;
