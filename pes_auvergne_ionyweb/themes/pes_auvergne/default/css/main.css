@@ -2424,6 +2424,62 @@ span.date_to {
     background: #A0866A;
 }
 
+
+#members .top-pagination {
+    height: 30px;
+}
+
+#members .bottom-pagination {
+/*     padding-top: 15px; */
+    height: 30px;
+}
+
+#members .pagination .page-link {
+    background: #f08f7e;
+    color: #ffffff;
+    padding: 2px 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#members .pagination .page-link:hover {
+    background: #A33126;
+}
+
+#members .pagination .page-link.current {
+    background: #A33126;
+}
+
+#members .pagination .step-links {
+    float: right;
+}
+
+#members .pagination .step-links a {
+    text-decoration: none;
+    color: #999999;
+}
+
+#members .pagination .prev-link {
+    background: url('../images/icon-prev.png') no-repeat;
+    padding:  3px 0 3px 20px;
+    border-right: solid 1px #D7DBDE;
+}
+
+#members .pagination .next-link {
+    background: url('../images/icon-next.png') no-repeat top right;
+    padding:  3px 20px 3px 10px;
+}
+
+
+
+
+
+
+
+
+
+
 .formset {
     border: 10px solid #eee;
     margin-top: 0;
