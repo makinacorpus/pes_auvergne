@@ -19,7 +19,6 @@
 {% endblock %}
 
 
-
 <div id="members_top"></div>
 <div id="members">
 
@@ -180,7 +179,7 @@
             <h3>{% trans "Galery" %}</h3>
 
                 <div class="list_carousel">
-                    <ul id="foo2">
+                    <ul id="carousel">
                         {% for d in imgs %}
                             <li>
                                 <a href="{{ media_path }}{{ d.attachment }}"><img src="{{ media_path }}{{ d.attachment }}" alt='{{ d.name }}' height="100px" /></a>
@@ -293,7 +292,7 @@
 
         hide_complement();
 
-        $('#foo2').carouFredSel({
+        $('#carousel').carouFredSel({
             items: 3,
             auto: false,
             prev: '#prev2',
@@ -305,6 +304,8 @@
                 onTouch: true
             }
         });
+
+        $('#carousel a').fancybox({ 'hideOnContentClick': false,'zoomSpeedIn': 300, 'zoomSpeedOut': 300, 'overlayShow': true });
 
         show_infos('relationship');
 
