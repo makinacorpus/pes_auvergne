@@ -2582,8 +2582,8 @@ span.date_to {
     margin-top: -60px;
     position: absolute;    
     background: url("../images/icons/widget-list-icon-left.png") no-repeat scroll left center transparent;
-    height: 13px;
-    width: 8px;
+    height: 20px;
+    width: 19px;
 }
 .next {
 /*    float: right;
@@ -2592,9 +2592,18 @@ span.date_to {
     margin-top: -60px;
     position: absolute;   
     background: url("../images/icons/widget-list-icon.png") no-repeat scroll left center transparent;
-    height: 13px;
-    width: 8px;
+    height: 20px;
+    width: 19px;
 }
+
+#members .prev {
+    background: url('../images/icon-prev.png') no-repeat center right;
+}
+
+#members .next {
+    background: url('../images/icon-next.png') no-repeat center right;
+}
+
 .pager {
     float: left;
     width: 500px;
