@@ -229,19 +229,19 @@
     <div class="bloc_content bloc_content_borderless">
         <div class="bloc_content_col1">
             {% if member.relations.exists %}
-                <h3 id="menu_relationship"><a href="javascript:show_infos('relationship');">{% trans "Relationship" %}</a></h3>
+                <h3 id="menu_relationship"><a href="javascript:show_infos('relationship');">{% trans "Relationship" %}<div class="menu_selected_arrow"></div></a></h3>
             {% endif %}
             {% if member.guaranties.exists %}
-                <h3 id="menu_garanties"><a href="javascript:show_infos('garanties');">{% trans "Garanties" %}</a></h3>
+                <h3 id="menu_garanties"><a href="javascript:show_infos('garanties');">{% trans "Garanties" %}<div class="menu_selected_arrow"></div></a></h3>
             {% endif %}
             {% if member.projects.exists %}
-                <h3 id="menu_projects"><a href="javascript:show_infos('projects');">{% trans "Projects" %}</a></h3>
+                <h3 id="menu_projects"><a href="javascript:show_infos('projects');">{% trans "Projects" %}<div class="menu_selected_arrow"></div></a></h3>
             {% endif %}
             {% if member.reference_set.exists %}
-                <h3 id="menu_references"><a href="javascript:show_infos('references');">{% trans "References" %}</a></h3>
+                <h3 id="menu_references"><a href="javascript:show_infos('references');">{% trans "References" %}<div class="menu_selected_arrow"></div></a></h3>
             {% endif %}
             {% if member.solidarity.exists %}
-                <h3 id="menu_solidarity"><a href="javascript:show_infos('solidarity');">{% trans "Solidarity capital" %}</a></h3>
+                <h3 id="menu_solidarity"><a href="javascript:show_infos('solidarity');">{% trans "Solidarity capital" %}<div class="menu_selected_arrow"></div></a></h3>
             {% endif %}
         </div>
         <div class="bloc_content_col2">

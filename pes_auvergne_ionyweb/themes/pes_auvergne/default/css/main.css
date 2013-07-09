@@ -630,6 +630,19 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     background: url("../images/icons/widget-list-icon.png") no-repeat scroll left center transparent;
 }
 
+.content-coop_member .bloc_content .bloc_content_col1 h3 {
+    background: url("../images/icon-next.png") no-repeat scroll left center transparent
+}
+
+.menu_selected_arrow {
+    background: url("../images/icon_arrow_white.png") no-repeat scroll left center transparent;
+    float: right;
+    height: 16px;
+    margin-right: 4px;
+    margin-top: 8px;
+    width: 9px;    
+}
+
 .bloc_content .bloc_content_col1 h3.menu_selected {
     border-radius: 3px 0 0 3px;
     border-bottom: none;
@@ -1458,7 +1471,7 @@ h4.coop_agenda {
 .violet_gradient,
 .content-coop_member #members_top, 
 .content-coop_member #members_top_search,
-.content-coop_member h3.menu_selected {
+.content-coop_member .bloc_content .bloc_content_col1 h3.menu_selected {
     /* Anciens navigateurs */
     background: #9f3224 url("gradient-bg.png") repeat-y left;
     -o-background-size: 100% 100%;
@@ -2012,11 +2025,11 @@ span.date_to {
 .bloc_content .bloc_content_col1,
 .bloc_content .bloc_content_col2 {
     float: left;
-    width: 260px;
+    width: 280px;
 }
 
 .bloc_content .bloc_content_col2 {
-    width: 400px;
+    width: 380px;
     padding: 10px;
 }
 
@@ -2027,7 +2040,7 @@ span.date_to {
 
 .bloc_content .bloc_content_col1 h3 {
     line-height: 35px;
-    padding-left: 15px;
+    padding-left: 20px;
     font-size: 14px;
     font-weight: bold;
     margin-top: 0;
