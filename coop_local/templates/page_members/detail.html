@@ -219,8 +219,9 @@
 
         {% if member.tags.all %}
             <div class="member_content_keywords">
-                <h3 class="member_link">{% trans "Keywords" %}</h3>
-                {{ member.tags.all|join:", " }}
+                <h3 class="member_link">{% trans "Keywords" %}<a href="javascript:keywords_show_complement()" class="member_link">+</a></h3>
+                <div id="keywords_short">{{ member.tags.all|join:", "|truncatechars:100 }}</div>
+                <div id="keywords_long">{{ member.tags.all|join:", " }}</div>
             </div>
         {% endif %}
     </div>
@@ -291,6 +292,7 @@
         $('#member_description_full').addClass("detail_form_hide");
 
         hide_complement();
+        keywords_hide_complement();
 
         $('#carousel').carouFredSel({
             items: 3,
@@ -310,6 +312,16 @@
         show_infos('relationship');
 
     });
+
+
+    function keywords_hide_complement() {
+        $('#keywords_long').addClass("detail_form_hide");
+    }
+
+    function keywords_show_complement() {
+        $('#keywords_long').removeClass("detail_form_hide");
+        $('#keywords_short').addClass("detail_form_hide");
+    }
 
     function hide_complement() {
         $('.dialog-offer').addClass("detail_form_hide");

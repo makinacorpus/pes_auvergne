@@ -131,7 +131,7 @@ msgstr "Thématiques"
 #: templates/page_coop_exchange/detail.html:138
 #: templates/page_members/detail.html:182
 msgid "Keywords"
-msgstr "Mots-clés +"
+msgstr "Mots-clés"
 
 #: templates/page_coop_agenda/detail.html:118
 msgid "Type event"
