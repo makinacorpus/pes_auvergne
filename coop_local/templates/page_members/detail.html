@@ -162,7 +162,7 @@
         {% if member.description %}
             <h3>{% trans "Presentation" %}</h3>
             <div class="member_desc" id="animate_desc" >
-                <div id="member_description_short">{{ member.description|safe|striptags|truncatechars:1500 }}</div>
+                <div id="member_description_short">{{ member.description|safe|truncatewords_html:90 }}</div>
                     <div id="member_description_full">
                             {{ member.description|safe }}<br/>
                             {% if member.description2 %}
