@@ -1738,6 +1738,7 @@ h4.coop_agenda {
 
 a.agenda_link,
 a.member_link,
+a.account_link,
 a.exchange_link,
 a.articles_link,
 a.territory_link {
@@ -1757,6 +1758,9 @@ a.articles_link {
 }
 a.territory_link {
     color: #50A1FA;
+}
+a.account_link {
+    color: #F8B133;
 }
 
 .content-services a.exchange_link {
