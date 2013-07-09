@@ -149,7 +149,7 @@
         {% if openings %}
             <h3>{% trans "Hours" %}</h3>
             {% for l in member.located.all %}
-                {{ l.location }} : {{ l.opening }}<br/>
+                {{ l.location.get_full_address }} :<br/><span class="opening">{{ l.opening }}</span><br/><br/>
             {% endfor %}
         {% endif %}
 <!--        {% if member.offer_zone %}
