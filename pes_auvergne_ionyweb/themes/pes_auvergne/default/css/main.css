@@ -2566,3 +2566,9 @@ span.date_to {
     height: 6px;
     width: 0px;
 }
+
+
+.dialog-offer label {
+    font-weight: bold;
+    text-transform: capitalize;
+}
