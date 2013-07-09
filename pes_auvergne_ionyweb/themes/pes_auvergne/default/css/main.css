@@ -133,11 +133,19 @@ ol {
     margin-bottom: 1px;
 }
 
-.readmore {
+.readmore,
+#members .resume .readmore {
     bottom: 0;
     position: absolute;
     right: 0;
 }
+
+#members .readmore {
+    float: right;
+    position: relative;
+}
+
+
 .edit {
     position: absolute;
     right: 0;
@@ -2115,7 +2123,8 @@ span.date_to {
 
 .member_desc {
     position: relative;
-    min-height: 250px;
+/*     min-height: 250px; */
+    height: auto;
 }
 
 .bloc_content .event_content .description {
