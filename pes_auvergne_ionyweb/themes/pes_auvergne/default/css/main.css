@@ -2341,8 +2341,14 @@ span.date_to {
     width: 95px;
 }
 
+#modify_submit {
+    margin: 20px auto;
+    width: 200px;
+}
 
-.new_block input[type='submit'] {
+
+.new_block input[type='submit'],
+.new_block input[type='button'] {
     border: 1px solid #ccc;
     border-radius: 2px;
     height: 34px;
@@ -2360,7 +2366,8 @@ span.date_to {
 
 
 .gradient_grey,
-.new_block input[type='submit'] {
+.new_block input[type='submit'],
+.new_block input[type='button'] {
     color: #444444;
     font-weight: bold;
     /* Anciens navigateurs */

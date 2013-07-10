@@ -23,3 +23,10 @@ function textCounter( field, maxLimit) {
         return false;
     }
 }
+
+
+function delete_object(msg, url) {
+    if(confirm(msg)) {
+        $(location).attr('href',url)
+    }
+}
