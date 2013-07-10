@@ -140,7 +140,7 @@ msgstr "Type d'évènement"
 #: templates/page_coop_agenda/detail.html:128
 #: templates/plugin_coop_exchange/index.html:3
 msgid "Exchanges"
-msgstr "Echanges"
+msgstr "Annonces"
 
 #: templates/page_coop_agenda/detail.html:131
 msgid "Articles"
@@ -360,7 +360,7 @@ msgstr "Voir tous les échanges"
 
 #: templates/plugin_coop_members/index.html:3
 msgid "Members"
-msgstr "Membres"
+msgstr "Annuaire"
 
 #: templates/plugin_coop_members/index.html:15
 msgid "See all members..."
