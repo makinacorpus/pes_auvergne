@@ -638,8 +638,13 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     background: url("../images/icons/widget-list-icon.png") no-repeat scroll left center transparent;
 }
 
-.content-coop_member .bloc_content .bloc_content_col1 h3 {
+.content-coop_member .bloc_content .bloc_content_col1 h3,
+.content-coop_member .member_list {
     background: url("../images/icon-next.png") no-repeat scroll left center transparent
+}
+
+.content-coop_member .member_list {
+    padding-left: 20px;
 }
 
 .menu_selected_arrow {

@@ -135,13 +135,11 @@
         {% if member.offer_activities %}
             {% if member.is_offer_labels %}
                 <h3>{% trans "Products, services and activities list" %}</h3>
-                <ul>
                 {% for o in member.offer_set.all %}
-                    <li><a href="javascript:view_offer_details({{ o.pk }})">{{ o.title }}</a>
+                    <a href="javascript:view_offer_details({{ o.pk }})" class="member_link member_list">{{ o.title }}</a>
                         <div id="dialog-offer-{{ o.pk }}" class="dialog-offer" title="{{ o.title }}">{{ o.get_desc|safe }}</div>
-                    </li>
+                    <br/>
                 {% endfor %}
-                </ul>
             {% endif %}
         {% endif %}
 
