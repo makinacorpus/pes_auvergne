@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-03 09:51+0200\n"
+"POT-Creation-Date: 2013-07-10 15:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,15 +34,15 @@ msgstr ""
 msgid "Guaranties"
 msgstr "Garanties"
 
-#: widgets.py:98
+#: widgets.py:106
 msgid "Currently"
 msgstr ""
 
-#: widgets.py:99
+#: widgets.py:107
 msgid "Change"
 msgstr "Modifier"
 
-#: widgets.py:100
+#: widgets.py:108
 msgid "Clear"
 msgstr ""
 
@@ -72,7 +72,7 @@ msgstr "Résultats"
 #: templates/page_coop_agenda/index.html:93
 #: templates/page_coop_exchange/detail.html:104
 #: templates/page_coop_exchange/index.html:41
-#: templates/page_members/detail.html:145 templates/page_members/index.html:56
+#: templates/page_members/detail.html:173 templates/page_members/index.html:53
 msgid "Read more"
 msgstr "En savoir plus"
 
@@ -103,7 +103,7 @@ msgstr "Pensez à covoiturer"
 
 #: templates/page_coop_agenda/detail.html:88
 #: templates/page_coop_exchange/detail.html:112
-#: templates/page_members/detail.html:152
+#: templates/page_members/detail.html:179
 msgid "Galery"
 msgstr "Galerie"
 
@@ -111,7 +111,7 @@ msgstr "Galerie"
 #: templates/page_coop_exchange/detail.html:126
 #: templates/page_coop_exchange/search_form_exchange.html:26
 #: templates/page_coop_exchange/search_form_service.html:6
-#: templates/page_members/detail.html:166
+#: templates/page_members/detail.html:205
 #: templates/page_members/search_form_organization.html:11
 #: templates/page_members/search_form_project.html:12
 msgid "Activity"
@@ -121,7 +121,7 @@ msgstr "Secteurs d'activités"
 #: templates/page_coop_exchange/detail.html:131
 #: templates/page_coop_exchange/search_form_exchange.html:33
 #: templates/page_coop_exchange/search_form_service.html:34
-#: templates/page_members/detail.html:173
+#: templates/page_members/detail.html:213
 #: templates/page_members/search_form_organization.html:24
 #: templates/page_members/search_form_project.html:21
 msgid "Thematic"
@@ -129,7 +129,7 @@ msgstr "Thématiques"
 
 #: templates/page_coop_agenda/detail.html:114
 #: templates/page_coop_exchange/detail.html:138
-#: templates/page_members/detail.html:182
+#: templates/page_members/detail.html:222
 msgid "Keywords"
 msgstr "Mots-clés"
 
@@ -148,7 +148,7 @@ msgstr ""
 
 #: templates/page_coop_agenda/detail.html:134
 #: templates/page_coop_exchange/detail.html:88
-#: templates/page_members/detail.html:97
+#: templates/page_members/detail.html:121
 msgid "Documents"
 msgstr ""
 
@@ -173,20 +173,19 @@ msgstr "Documents associés"
 #: templates/page_coop_agenda/index.html:95
 #: templates/page_coop_exchange/detail.html:150
 #: templates/page_coop_exchange/index.html:43
-#: templates/page_members/detail.html:249 templates/page_members/index.html:59
+#: templates/page_members/detail.html:285 templates/page_members/index.html:56
 msgid "Edit"
 msgstr "Editer"
 
 #: templates/page_coop_agenda/index.html:60
 #: templates/page_coop_exchange/index.html:24
 #: templates/page_coop_exchange/index.html:50
-#: templates/page_members/index.html:21
 msgid "Page:"
 msgstr ""
 
 #: templates/page_coop_agenda/index.html:61
 #: templates/page_coop_exchange/index.html:25
-#: templates/page_members/index.html:22 templates/page_members/index.html:23
+#: templates/page_members/index.html:23
 msgid "Cartography"
 msgstr "Cartographie"
 
@@ -235,12 +234,12 @@ msgid "Contact"
 msgstr ""
 
 #: templates/page_coop_exchange/detail.html:85
-#: templates/page_members/detail.html:94
+#: templates/page_members/detail.html:118
 msgid "Downloadable docs"
 msgstr "Documents téléchargeables"
 
 #: templates/page_coop_exchange/detail.html:101
-#: templates/page_members/detail.html:136
+#: templates/page_members/detail.html:163
 msgid "Presentation"
 msgstr "Présentation"
 
@@ -297,58 +296,54 @@ msgstr "Afficher moins de critères..."
 msgid "Warranty"
 msgstr "Garantie"
 
-#: templates/page_members/detail.html:29
-msgid "Creation"
-msgstr "Création"
-
-#: templates/page_members/detail.html:33
-msgid "Mailto member"
-msgstr "Contacter la structure"
-
-#: templates/page_members/detail.html:80
-msgid "Website"
-msgstr "Site web"
-
-#: templates/page_members/detail.html:112
-msgid "Products, services and activities list"
-msgstr "Offre de biens et services"
-
-#: templates/page_members/detail.html:122
-msgid "Hours"
-msgstr "Horaires"
-
-#: templates/page_members/detail.html:128
-msgid "Zone"
-msgstr "Zone d'intervention"
-
-#: templates/page_members/detail.html:191
-#: templates/page_members/detail.html:209
-msgid "Relationship"
-msgstr "Relations avec d'autres structures"
-
-#: templates/page_members/detail.html:194
-#: templates/page_members/detail.html:217
-msgid "Garanties"
-msgstr "Garanties"
-
-#: templates/page_members/detail.html:197
-#: templates/page_members/detail.html:224
-msgid "Projects"
-msgstr "Projets de la structure"
-
-#: templates/page_members/detail.html:200
-#: templates/page_members/detail.html:229
-msgid "References"
-msgstr "Références"
-
-#: templates/page_members/detail.html:203
-#: templates/page_members/detail.html:240
-msgid "Solidarity capital"
-msgstr "Plus-value solidaire"
-
+#: templates/page_members/detail.html:38
 #: templates/page_members/search_form_organization.html:33
 msgid "Statut"
 msgstr "Statut juridique"
+
+#: templates/page_members/detail.html:40
+msgid "Creation"
+msgstr "Année de création"
+
+#: templates/page_members/detail.html:44
+msgid "Mailto member"
+msgstr "Contacter la structure"
+
+#: templates/page_members/detail.html:104
+msgid "Website"
+msgstr "Site web"
+
+#: templates/page_members/detail.html:137
+msgid "Products, services and activities list"
+msgstr "Offre de biens et services"
+
+#: templates/page_members/detail.html:149
+msgid "Hours"
+msgstr "Horaires"
+
+#: templates/page_members/detail.html:155
+msgid "Zone"
+msgstr "Zone d'intervention"
+
+#: templates/page_members/detail.html:232
+msgid "Relationship"
+msgstr "Relations avec d'autres structures"
+
+#: templates/page_members/detail.html:235
+msgid "Garanties"
+msgstr "Garanties"
+
+#: templates/page_members/detail.html:238
+msgid "Projects"
+msgstr "Projets de la structure"
+
+#: templates/page_members/detail.html:241
+msgid "References"
+msgstr "Références"
+
+#: templates/page_members/detail.html:244
+msgid "Solidarity capital"
+msgstr "Plus-value solidaire"
 
 #: templates/plugin_coop_agenda/index.html:28
 msgid "See all events..."

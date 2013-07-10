@@ -30,16 +30,16 @@
         {% endif %}
 
         <div class="header">
-            <h3 class="member_title">{{ member.title }}</h3>
-            <span class="member_acronym">{{ member.acronym }}</span><br/>
-            <p class='short_description'>{{ member.short_description }}</p>
+            <h2 class="member_title">{{ member.title }}</h2>
+            {% if member.acronym %} <span class="member_acronym">{{ member.acronym }}</span><br/>{% endif %}
+            {% if member.short_description %}<p class='short_description'>{{ member.short_description }}</p>{% endif %}
             <p>
-            {% if member.legal_status %}
-                {{ member.legal_status|default:"" }}</br>
-            {% endif %}
-            {% if member.birth %} {% trans "Creation" %} : {{ member.birth }}{% endif %}</p>
+                {% if member.legal_status %}{% trans "Statut" %} : {{ member.legal_status|default:"" }}</br>{% endif %}
+                {% if member.birth %} {% trans "Creation" %} : {{ member.birth.year }}<br/>{% endif %}
+                {% if member.category.all %}{% trans "Category" %} : {{ member.category.all|join:", "  }}{% endif %}
+            </p>
 
-            <p>{{ member.category.all|join:", "  }}</p>
+            
 
             <a href="mailto:{{ member.pref_email.content }}" class="member_link">{% trans "Mailto member" %}</a>
 

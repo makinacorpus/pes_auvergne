@@ -1152,6 +1152,7 @@ h4.coop_agenda {
 
 .member_title {
     color: #757575 !important;
+    font-weight:  bold;
 }
 .member_subtitle {
     font-weight:  bold;
@@ -2120,6 +2121,12 @@ span.date_to {
 .opening {
     font-style: italic;
 }
+
+.short_description {
+    margin-top: 10px;
+}
+
+
 
 .member_complement {
     width: 100%;
