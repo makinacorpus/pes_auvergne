@@ -657,7 +657,7 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 }
 
 .bloc_content .bloc_content_col1 h3.menu_selected {
-    border-radius: 3px 0 0 3px;
+    border-radius: 3px;
     border-bottom: none;
 }
 
@@ -2049,10 +2049,12 @@ span.date_to {
 .bloc_content .bloc_content_col2 {
     width: 380px;
     padding: 10px;
+    min-height: 120px;
 }
 
 .content-coop_member .bloc_content .bloc_content_col2 {
-    border-left: 1px solid #9f3224
+    border-left: 1px solid #9f3224;
+    margin-left: 5px;
 }
 
 
