@@ -2526,6 +2526,16 @@ span.date_to {
     box-shadow: 0 3px 3px #bbb;
 }
 
+#location.formset {
+    float: left;
+}
+
+#point_carto {
+    float: left;
+    min-height:400px;
+    margin-left: 160px;
+}
+
  .title_formset {
     background: none repeat scroll 0 0 #EEEEEE;
     color: #AAAAAA;
