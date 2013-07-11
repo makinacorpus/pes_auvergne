@@ -156,21 +156,24 @@
     </div>
     {% endif %}
 
-    <div class="bloc_content bloc_content_border">
-        {% if member.description %}
+    
+    {% if member.description %}
+        <div class="bloc_content bloc_content_border">
             <h3>{% trans "Presentation" %}</h3>
             <div class="member_desc" id="animate_desc" >
                 <div id="member_description_short">{{ member.description|safe|truncatewords_html:90 }}</div>
                     <div id="member_description_full">
-                            {{ member.description|safe }}<br/>
+                            {{ member.description|safe }}
                             {% if member.description2 %}
+                                <br/>
                                 {{ member.description2|safe }}
                             {% endif %}
                     </div>
             </div>
             <span class="readmore"><a class="member_link" href="javascript:read_more();" id="read_more">{% trans "Read more" %}</a></span>
-        {% endif %}
-    </div>
+        </div>    
+    {% endif %}
+    
 
     {% if imgs %}
         <div class="bloc_content bloc_content_border">
@@ -192,7 +195,6 @@
                 </div>
 
         </div>
-
     {% endif %}
     
 
@@ -224,6 +226,7 @@
         {% endif %}
     </div>
 
+    {% if member.relations.exists or member.guaranties.exists or member.projects.exists or member.solidarity.exists%}
     <div class="bloc_content bloc_content_borderless">
         <div class="bloc_content_col1">
             {% if member.relations.exists %}
@@ -277,6 +280,8 @@
         </div>
         
     </div>
+    {% endif %}
+
 
 
     {% if request.user.is_superuser or member|tag_rights:request %}
@@ -308,6 +313,14 @@
         $('#carousel a').fancybox({ 'hideOnContentClick': false,'zoomSpeedIn': 300, 'zoomSpeedOut': 300, 'overlayShow': true });
 
         show_infos('relationship');
+
+
+        // Check if we have to hide read more or not
+        if($('#member_description_short') && $('#member_description_full')) {
+            if($.trim($('#member_description_short').text()) == $.trim($('#member_description_full').text())) {
+                $('#read_more').addClass("detail_form_hide");  
+            }
+        }
 
     });
 
