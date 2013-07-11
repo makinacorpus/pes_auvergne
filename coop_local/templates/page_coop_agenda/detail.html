@@ -24,7 +24,7 @@
             {% endif %}
             <span class='label'>{% trans "Place" %}:</span> {% if e.location == None %} {% else %}{{ e.location }} {% endif %}
             <br/>
-            <span class='label'>{% trans "Organization" %}:</span> {% if e.organization == None %} {% else %}<a href="/annuaire/p/{{ e.organization.pk }}" class="agenda_link">{{ e.organization }}</a> {% endif %}
+            <span class='label'>{% trans "Organizator" %}:</span> {% if e.organization == None %} {% else %}<a href="/annuaire/p/{{ e.organization.pk }}" class="agenda_link">{{ e.organization }}</a> {% endif %}
             <br/>
         </div>
         <div class="map">
@@ -49,16 +49,16 @@
                      {% endif %}
 
                 </script>
-            <div id="links">
-                <a class="facebook" href=""></a>
-                <a class="twitter" href=""></a>
-                <a class="google_plus" href=""></a>
-                <a class="plus" href=""></a>
-                <a class="links" href=""></a>
-                <a class="print" href=""></a>
-            </div>
-
-        </div>            
+        </div>           
+        <div id="links">
+            <a class="facebook" href=""></a>
+            <a class="twitter" href=""></a>
+            <a class="google_plus" href=""></a>
+            <a class="plus" href=""></a>
+            <a class="links" href=""></a>
+            <a class="print" href=""></a>
+        </div>
+ 
 
 
         </div>
@@ -70,14 +70,14 @@
         <div class="event_content">
             
             <h3><a class="agenda_link" href="{{ base_url }}event_reply/{{ e.pk }}">{% trans "Register for the event" %}</a></h3>
-
-            <h3 class="coop_agenda_subtitle">{% trans "Event's description" %}</h3>
+            <br/>
+            <h3 class="coop_agenda_title">{% trans "Event's description" %}</h3>
             <div class="description">
                 {{ e.description }}
                 <span class="readmore"><a class="agenda_link" href="">{% trans "Read more" %}</a></span>
             </div>
 
-            <a href="http://www.covoiturageauvergne.net/"><div class="site_cov_text">{% trans "Use car pool" %}</div><div class="site_cov"></div></a>
+            <a href="http://www.covoiturageauvergne.net/" class="agenda_link"><div class="site_cov_text" >{% trans "Use car pool" %}</div><div class="site_cov"></div></a>
         </div>
     </div>
 

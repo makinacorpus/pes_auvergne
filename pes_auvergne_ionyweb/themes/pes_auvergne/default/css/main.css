@@ -1750,7 +1750,7 @@ a.territory_link {
     font-weight: bold;
 }
 a.agenda_link {
-    color: #abdb91;
+    color: #70BE46;
 }
 a.member_link {
     color: #a03225;
@@ -1938,6 +1938,11 @@ span.date_to {
     height: 250px;
 }
 
+#links {
+ float: right;
+ margin-right: 15px;
+}
+
 #links a.facebook,
 #links a.twitter,
 #links a.google_plus,
@@ -2100,14 +2105,17 @@ span.date_to {
 .bloc_content .event_image {
     float: left;
     height: 300px;
-    margin-top: -150px;
+    margin-top: -100px;
     padding: 10px;
     width: 200px;    
 }
 
 .bloc_content .event_image img {
-    max-width: 200px;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
     max-height: 300px;
+    max-width: 200px;
+    padding: 2px;
 }
 
 .bloc_content .event_content {
