@@ -1179,7 +1179,7 @@ h4.coop_agenda {
 .content-coop_agenda #coop_agenda,
 .content-coop_exchange #coop_exchange,
 .content-coop_territory #coop_territory,
-.content-services #coop_exchange,
+.content-services #coop_service,
 .content-projects #members,
 .content-articles #articles {
     border-width: 0;
@@ -1205,7 +1205,7 @@ h4.coop_agenda {
 .content-coop-app #search_form ,
 .content-coop_exchange #result_exchanges,
 .content-coop_territory #result_territory,
-.content-services #result_exchanges {
+.content-services #result_service {
     border-width: 0;
     float: left;
     margin-top: 0;
@@ -1247,7 +1247,7 @@ h4.coop_agenda {
 
 .content-coop_exchange #result_exchanges,
 .content-coop_territory #result_territory,
-.content-services #result_exchanges{
+.content-services #result_service {
     width: 686px;
     height: auto;
     padding: 7px;
@@ -1255,8 +1255,8 @@ h4.coop_agenda {
 
 .content-coop_exchange #exchanges_top,
 .content-coop_exchange #exchanges_top_search,
-.content-services #exchanges_top_search,
-.content-services #exchanges_top,
+.content-services #service_top_search,
+.content-services #service_top,
 .content-coop_territory #territory_top,
 .content-coop_territory #territory_top_search,
 .content-coop_member #members_top_search,
@@ -1270,7 +1270,7 @@ h4.coop_agenda {
 
 .content-coop_exchange #exchanges_top_search,
 .content-coop_territory #territory_top_search,
-.content-services #exchanges_top_search,
+.content-services #service_top_search,
 .content-coop_member #members_top_search,
 .content-coop_agenda #agenda_top_search,
 .content-projects #members_top_search,
@@ -1579,10 +1579,8 @@ h4.coop_agenda {
 }
 
 
-.content-services #exchanges_top_search,
-.content-services #exchanges_top,
-.content-services #services_top,
-.content-services #services_top_search {
+.content-services #service_top_search,
+.content-services #service_top {
     /* Anciens navigateurs */
     background: #8b3e74 url("gradient-bg.png") repeat-y left;
     -o-background-size: 100% 100%;
@@ -1625,6 +1623,7 @@ h4.coop_agenda {
 #search_form,
 #result_exchanges,
 #result_territory,
+#result_service,
 #coop_agenda,
 #coop_article,
 #coop_exchange {
@@ -1757,6 +1756,7 @@ a.agenda_link,
 a.member_link,
 a.account_link,
 a.exchange_link,
+a.service_link,
 a.articles_link,
 a.territory_link,
 .articles_link {
@@ -1782,7 +1782,7 @@ a.account_link {
     color: #F8B133;
 }
 
-.content-services a.exchange_link {
+.content-services a.service_link {
     color: #8b3e74;
 }
 
@@ -2490,7 +2490,7 @@ span.date_to {
     background: #70BE46;
 }
 
-.content-services .exchanges_pagination_top .carto {
+.content-services .service_pagination_top .carto {
     background: #8b3e74;
 }
 
