@@ -2,9 +2,8 @@
 
 {% block extra_head %}
     <link rel="stylesheet" href="{{ STATIC_URL }}themes/pes_auvergne/default/js/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}admintools_bootstrap/css/custom-theme/jquery-ui-1.8.16.custom.css" />
     <script type="text/javascript" src="{{ STATIC_URL }}themes/pes_auvergne/default/js/jquery.carouFredSel-6.2.1-packed.js"></script>
-
-
 
 {% endblock %}
 
@@ -71,7 +70,14 @@
 
 
     <div class="bloc_content">
-        <div class="event_image"><img src="{{ media_path }}{{ e.image }}" alt=""></div>
+        <div class="event_image">
+            <img src="{{ media_path }}{{ e.image }}" alt="">
+            <a class="agenda_link" href="javascript:open_popup('#dialog-source');">{% trans "Source" %}</a>
+            <div id="dialog-source" title="{% trans "Source" %}">
+                {{ e.source_info }}
+            </div>
+
+        </div>
         <div class="event_content">
             
             <h3><a class="agenda_link" href="{{ base_url }}event_reply/{{ e.pk }}">{% trans "Register for the event" %}</a></h3>
@@ -244,6 +250,7 @@
 
     function hide_complement() {
         $('#dialog-docs').addClass("detail_form_hide");
+        $('#dialog-source').addClass("detail_form_hide");
         $('#exchanges').addClass("detail_form_hide");
         $('#articles').addClass("detail_form_hide");
         $('#documents').addClass("detail_form_hide");
@@ -262,5 +269,13 @@
         $('#read_more').addClass("detail_form_hide");        
    }
 
+   function open_popup(id) {
+        $(function() {
+            $( id ).dialog({
+                height: 200,
+                modal: true
+            });
+        });
+    }
 </script>
 
