@@ -74,7 +74,9 @@
             <img src="{{ media_path }}{{ e.image }}" alt="">
             <a class="agenda_link" href="javascript:open_popup('#dialog-source');">{% trans "Source" %}</a>
             <div id="dialog-source" title="{% trans "Source" %}">
-                {{ e.source_info }}
+                {% if e.source_info %}
+                    {{ e.source_info }}
+                {% endif %}
             </div>
 
         </div>
