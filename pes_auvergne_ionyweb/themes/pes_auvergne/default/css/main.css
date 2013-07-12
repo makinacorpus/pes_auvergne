@@ -640,12 +640,17 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 
 .content-coop_member .bloc_content .bloc_content_col1 h3,
 .content-coop_member .member_list {
-    background: url("../images/icon-next.png") no-repeat scroll left center transparent
+    background: url("../images/icon-next-member.png") no-repeat scroll left center transparent
 }
 
 .content-coop_member .member_list {
     padding-left: 20px;
 }
+
+.content-coop_agenda .bloc_content .bloc_content_col1 h3 {
+    background: url("../images/icon-next-agenda.png") no-repeat scroll left center transparent
+}
+
 
 .menu_selected_arrow {
     background: url("../images/icon_arrow_white.png") no-repeat scroll left center transparent;
@@ -1398,7 +1403,8 @@ h4.coop_agenda {
 
 .green_gradient,
 .content-coop_agenda #agenda_top,
-.content-coop_agenda #agenda_top_search {
+.content-coop_agenda #agenda_top_search,
+.content-coop_agenda .bloc_content .bloc_content_col1 h3.menu_selected {
     /* Anciens navigateurs */
     background: #5c973c url("gradient-bg.png") repeat-y left;
     -o-background-size: 100% 100%;
@@ -2056,14 +2062,18 @@ span.date_to {
     min-height: 120px;
 }
 
-.content-coop_member .bloc_content .bloc_content_col2 {
+.content-coop_member .bloc_content .bloc_content_col2,
+.content-coop_agenda .bloc_content .bloc_content_col2 {
     border-left: 1px solid #9f3224;
     margin-left: 5px;
 }
 
+.content-coop_agenda .bloc_content .bloc_content_col2 {
+    border-left: 1px solid #70BE46;
+}
 
 .bloc_content .bloc_content_col1 h3 {
-    line-height: 35px;
+    line-height: 34px;
     padding-left: 20px;
     font-size: 14px;
     font-weight: bold;
@@ -2079,7 +2089,8 @@ span.date_to {
 }
 
 #members .bloc_content,
-#coop_exchange .bloc_content {
+#coop_exchange .bloc_content,
+#coop_agenda .bloc_content {
     float: left;
     padding-bottom: 10px;
 }
@@ -2514,12 +2525,12 @@ span.date_to {
 }
 
 #members .pagination .prev-link {
-    background: url('../images/icon-prev.png') no-repeat 2px left;
+    background: url('../images/icon-prev-member.png') no-repeat 2px left;
     padding:  3px 0 3px 20px;
 }
 
 #members .pagination .next-link {
-    background: url('../images/icon-next.png') no-repeat center right;
+    background: url('../images/icon-next-member.png') no-repeat center right;
     padding:  3px 20px 3px 0;
 }
 
@@ -2604,6 +2615,7 @@ span.date_to {
 .list_carousel {
     margin: 0 0 30px 60px;
     width: 560px;
+    position: relative;
 }
 .list_carousel ul {
     margin: 0;
@@ -2638,11 +2650,7 @@ span.date_to {
     clear: both;
 }
 .prev {
-/*    float: left;
-    margin-left: 10px;*/
-/*     float: left; */
-    left: 30px;
-    margin-left: 10px;
+    margin-left: -30px;
     margin-top: -60px;
     position: absolute;    
     background: url("../images/icons/widget-list-icon-left.png") no-repeat scroll left center transparent;
@@ -2661,12 +2669,21 @@ span.date_to {
 }
 
 #members .prev {
-    background: url('../images/icon-prev.png') no-repeat center right;
+    background: url('../images/icon-prev-member.png') no-repeat center right;
 }
 
 #members .next {
-    background: url('../images/icon-next.png') no-repeat center right;
+    background: url('../images/icon-next-member.png') no-repeat center right;
 }
+
+#coop_agenda .prev {
+    background: url('../images/icon-prev-agenda.png') no-repeat center right;
+}
+
+#coop_agenda .next {
+    background: url('../images/icon-next-agenda.png') no-repeat center right;
+}
+
 
 .pager {
     float: left;

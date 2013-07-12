@@ -2,6 +2,10 @@
 
 {% block extra_head %}
     <link rel="stylesheet" href="{{ STATIC_URL }}themes/pes_auvergne/default/js/leaflet/leaflet.css" />
+    <script type="text/javascript" src="{{ STATIC_URL }}themes/pes_auvergne/default/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+
+
+
 {% endblock %}
 
 <div id="agenda_top"></div>
@@ -22,8 +26,9 @@
             </ul>
             {% else %}
             {% endif %}
-            <span class='label'>{% trans "Place" %}:</span> {% if e.location == None %} {% else %}{{ e.location }} {% endif %}
             <br/>
+            <span class='label'>{% trans "Place" %}:</span> {% if e.location == None %} {% else %}{{ e.location }} {% endif %}
+            <br/><br/>
             <span class='label'>{% trans "Organizator" %}:</span> {% if e.organization == None %} {% else %}<a href="/annuaire/p/{{ e.organization.pk }}" class="agenda_link">{{ e.organization }}</a> {% endif %}
             <br/>
         </div>
@@ -83,7 +88,7 @@
 
 
 
-    {% if imgs %}
+<!--    {% if imgs %}
         <div class="bloc_content bloc_content_border">
             <h3>{% trans "Galery" %}</h3>
             
@@ -92,6 +97,28 @@
                     <img src="{{ media_path }}{{ d.attachment }}" alt='{{ d.name }}' />
                 </div>
             {% endfor %}
+        </div>
+    {% endif %}-->
+
+    {% if imgs %}
+        <div class="bloc_content bloc_content_border">
+            <h3>{% trans "Galery" %}</h3>
+
+                <div class="list_carousel">
+                    <ul id="carousel">
+                        {% for d in imgs %}
+                            <li>
+                                <a href="{{ media_path }}{{ d.attachment }}"><img src="{{ media_path }}{{ d.attachment }}" alt='{{ d.name }}' height="100px" /></a>
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+                    <div class="clearfix"></div>
+                    <a id="prev2" class="prev" href="#"></a>
+                    <a id="next2" class="next" href="#"></a>
+                    <div id="pager2" class="pager"></div>
+                </div>
+
         </div>
     {% endif %}
 
@@ -125,16 +152,16 @@
     <div class="bloc_content bloc_content_borderless">
         <div class="bloc_content_col1">
             {% if e.exchanges.exists %}
-                <h3><a href="javascript:show_infos('#exchanges');">{% trans "Exchanges" %}</a></h3>
+                <h3 id="menu_exchanges"><a href="javascript:show_infos('exchanges');">{% trans "Exchanges" %}<div class="menu_selected_arrow"></div></a></h3>
             {% endif %}
             {% if e.linked_articles.exists %}
-                <h3><a href="javascript:show_infos('#articles');">{% trans "Articles" %}</a></h3>
+                <h3 id="menu_articles"><a href="javascript:show_infos('articles');">{% trans "Articles" %}<div class="menu_selected_arrow"></div></a></h3>
             {% endif %}
             {% if docs %}
-                <h3><a href="javascript:show_infos('#documents');">{% trans "Documents" %}</a></h3>
+                <h3 id="menu_documents"><a href="javascript:show_infos('documents');">{% trans "Documents" %}<div class="menu_selected_arrow"></div></a></h3>
             {% endif %}
             {% if e.organizations %}
-                <h3><a href="javascript:show_infos('#partners');">{% trans "Partners" %}</a></h3>
+                <h3 id="menu_partners"><a href="javascript:show_infos('partners');">{% trans "Partners" %}<div class="menu_selected_arrow"></div></a></h3>
             {% endif %}
         </div>
         <div class="bloc_content_col2">
@@ -187,6 +214,22 @@
     $(document).ready(function() {
 
         hide_complement();
+        show_infos('partners');
+
+        $('#carousel').carouFredSel({
+            items: 2,
+            auto: false,
+            prev: '#prev2',
+            next: '#next2',
+            pagination: "#pager2",
+            mousewheel: true,
+            swipe: {
+                onMouse: true,
+                onTouch: true
+            }
+        });
+        $('#carousel a').fancybox({ 'hideOnContentClick': false,'zoomSpeedIn': 300, 'zoomSpeedOut': 300, 'overlayShow': true });
+
     });
 
     function hide_complement() {
@@ -199,9 +242,9 @@
 
    function show_infos(id_div) {
         hide_complement();
-        $(id_div).removeClass("detail_form_hide");
+        $("#" + id_div).removeClass("detail_form_hide");
+        $("#menu_" + id_div).addClass("menu_selected");
    }
-
 
 </script>
 
