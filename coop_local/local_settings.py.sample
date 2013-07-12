@@ -59,6 +59,7 @@ INSTALLED_APPS = settings.INSTALLED_APPS + [
     'ionyweb_plugins.page_coop_account',
     'ionyweb_plugins.page_coop_blog',
     'ionyweb_plugins.page_coop_territory',
+    'ionyweb_plugins.page_coop_service',
     'ionyweb_plugins.plugin_coop_members',
     'ionyweb_plugins.plugin_coop_agenda',
     'ionyweb_plugins.plugin_coop_exchange',
