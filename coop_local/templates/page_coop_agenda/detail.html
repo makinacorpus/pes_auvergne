@@ -76,29 +76,31 @@
             
             <h3><a class="agenda_link" href="{{ base_url }}event_reply/{{ e.pk }}">{% trans "Register for the event" %}</a></h3>
             <br/>
-            <h3 class="coop_agenda_title">{% trans "Event's description" %}</h3>
+
+            <!--<h3 class="coop_agenda_title">{% trans "Event's description" %}</h3>
             <div class="description">
                 {{ e.description }}
                 <span class="readmore"><a class="agenda_link" href="">{% trans "Read more" %}</a></span>
-            </div>
+            </div>-->
+
+
+            {% if e.description %}
+                <div class="bloc_content bloc_content_border bloc_content_borderless">
+                    <h3 class="coop_agenda_title">{% trans "Event's description" %}</h3>
+                    <div class="description" id="animate_desc" >
+                        <div id="description_short">{{ e.description|safe|truncatewords_html:50 }}</div>
+                        <div id="description_full">{{ e.description|safe }}</div>
+                    </div>
+                    <span class="readmore"><a class="agenda_link" href="javascript:read_more();" id="read_more">{% trans "Read more" %}</a></span>
+                </div>    
+            {% endif %}
+
+
 
             <a href="http://www.covoiturageauvergne.net/" class="agenda_link"><div class="site_cov_text" >{% trans "Use car pool" %}</div><div class="site_cov"></div></a>
         </div>
     </div>
 
-
-
-<!--    {% if imgs %}
-        <div class="bloc_content bloc_content_border">
-            <h3>{% trans "Galery" %}</h3>
-            
-            {% for d in imgs %}
-                <div class="fake_img">
-                    <img src="{{ media_path }}{{ d.attachment }}" alt='{{ d.name }}' />
-                </div>
-            {% endfor %}
-        </div>
-    {% endif %}-->
 
     {% if imgs %}
         <div class="bloc_content bloc_content_border">
@@ -213,6 +215,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
 
+        $('#description_full').addClass("detail_form_hide");
         hide_complement();
         show_infos('partners');
 
@@ -230,6 +233,13 @@
         });
         $('#carousel a').fancybox({ 'hideOnContentClick': false,'zoomSpeedIn': 300, 'zoomSpeedOut': 300, 'overlayShow': true });
 
+        // Check if we have to hide read more or not
+        if($('#description_short') && $('#description_full')) {
+            if($.trim($('#description_short').text()) == $.trim($('#description_full').text())) {
+                $('#read_more').addClass("detail_form_hide");  
+            }
+        }
+
     });
 
     function hide_complement() {
@@ -244,6 +254,12 @@
         hide_complement();
         $("#" + id_div).removeClass("detail_form_hide");
         $("#menu_" + id_div).addClass("menu_selected");
+   }
+
+    function read_more() {
+        $('#description_full').removeClass("detail_form_hide");
+        $('#description_short').addClass("detail_form_hide");
+        $('#read_more').addClass("detail_form_hide");        
    }
 
 </script>

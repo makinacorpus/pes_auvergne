@@ -161,8 +161,8 @@
         <div class="bloc_content bloc_content_border">
             <h3>{% trans "Presentation" %}</h3>
             <div class="member_desc" id="animate_desc" >
-                <div id="member_description_short">{{ member.description|safe|truncatewords_html:90 }}</div>
-                    <div id="member_description_full">
+                <div id="description_short">{{ member.description|safe|truncatewords_html:90 }}</div>
+                    <div id="description_full">
                             {{ member.description|safe }}
                             {% if member.description2 %}
                                 <br/>
@@ -292,7 +292,7 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#member_description_full').addClass("detail_form_hide");
+        $('#description_full').addClass("detail_form_hide");
 
         hide_complement();
         keywords_hide_complement();
@@ -316,8 +316,8 @@
 
 
         // Check if we have to hide read more or not
-        if($('#member_description_short') && $('#member_description_full')) {
-            if($.trim($('#member_description_short').text()) == $.trim($('#member_description_full').text())) {
+        if($('#description_short') && $('#description_full')) {
+            if($.trim($('#description_short').text()) == $.trim($('#description_full').text())) {
                 $('#read_more').addClass("detail_form_hide");  
             }
         }
@@ -351,8 +351,8 @@
     }
 
     function read_more() {
-        $('#member_description_full').removeClass("detail_form_hide");
-        $('#member_description_short').addClass("detail_form_hide");
+        $('#description_full').removeClass("detail_form_hide");
+        $('#description_short').addClass("detail_form_hide");
         $('#read_more').addClass("detail_form_hide");        
    }
    function show_infos(id_div) {

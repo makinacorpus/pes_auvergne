@@ -140,7 +140,8 @@ ol {
     right: 0;
 }
 
-#members .readmore {
+#members .readmore,
+#coop_agenda .readmore {
     float: right;
     position: relative;
 }
