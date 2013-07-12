@@ -1137,7 +1137,12 @@ li:last-child .hentry, #content > .hentry {border: 0; margin: 0;}
     position: relative;
 }
 
-
+#articles .author {
+  position: absolute;
+  right: 0;
+  top: 0;
+  
+}
 
 h3.coop_agenda {
     display: none;
@@ -1753,7 +1758,8 @@ a.member_link,
 a.account_link,
 a.exchange_link,
 a.articles_link,
-a.territory_link {
+a.territory_link,
+.articles_link {
     font-weight: bold;
 }
 a.agenda_link {
@@ -1765,7 +1771,8 @@ a.member_link {
 a.exchange_link {
     color: #468b92;
 }
-a.articles_link {
+a.articles_link,
+.articles_link {
     color: #53c97f;
 }
 a.territory_link {
