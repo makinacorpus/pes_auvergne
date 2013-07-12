@@ -64,52 +64,57 @@
 
 <div id="agenda_top"></div>
 <div id="coop_agenda">
-<div class="agenda_pagination_top pagination_top">
-    <div class="pages">{% trans "Page:" %}</div>
+<div class="agenda_pagination_top pagination_top pagination">
+    {% include "page_coop_agenda/pagination.html" %}
     <div class="carto"><a href="javascript:submitForm('{{ base_url }}p/carto')">{% trans "Cartography" %}</a></div>
 </div>
 
-{% for event_category, occs in events_by_categories.items %}
-    <h3 class="coop_agenda">{% trans "Agenda" %} {{ event_category }}</h3>
-        {% for o in occs %}            
-            <div class="coop_agenda">
-                <div class="bloc_title">
-                    {% if o.event.image != '' %}
-                        <div class="logo"><a class="agenda_link" href="{{ base_url }}p/{{ o.event.pk }}"><img src="{{ media_path }}{{ o.event.image }}" alt=""></a></div>
-                    {% else %}
-                        <div class="logo logo_pes"></div>
+
+<h3 class="coop_agenda">{% trans "Agenda" %}</h3>
+    {% for o in occs %}            
+        <div class="coop_agenda">
+            <div class="bloc_title">
+                {% if o.event.image != '' %}
+                    <div class="logo"><a class="agenda_link" href="{{ base_url }}p/{{ o.event.pk }}"><img src="{{ media_path }}{{ o.event.image }}" alt=""></a></div>
+                {% else %}
+                    <div class="logo logo_pes"></div>
+                {% endif %}
+
+                <div class="resume">
+                    {% if o.event.location == None %} {% else %} <span class="location">{{ o.event.location|truncatechars:20 }}</span> {% endif %}
+                    <ul class="date">
+                        <li>
+                            <span class="date_from">{{ o.start_time|date:"j" }} {{ o.start_time|date:"M"|lower }} {{ o.start_time|date:"Y"|lower }}</span>
+                            {% if  o.start_time.date != o.end_time.date %}
+                                <span class="date_to">{% trans "to" %}</span>
+                            <span class="date_from">{{ o.end_time|date:"j" }} {{ o.end_time|date:"M"|lower }} {{ o.end_time|date:"Y"|lower }}</span>
+                            {% endif %}
+                        </li>
+                    </ul>
+
+                    <a href="{{ base_url }}p/{{ o.event.pk }}"><h3 class="coop_agenda_title resume_title">{{ o.event.title }}</h3></a>
+
+
+                    <div class="description">
+                        {{ o.event.description|truncatechars:150|safe }}
+                    </div>
+                    <span class="readmore"><a class="agenda_link" href="{{ base_url }}p/{{ o.event.pk }}">{% trans "Read more" %}</a></span>
+                    {% if request.user.is_superuser %}
+                        <span class="edit"><a class="" href="{{ base_url }}p/event_edit/{{ o.event.pk }}">{% trans "Edit" %}</a></span>
                     {% endif %}
 
-                    <div class="resume">
-                        {% if o.event.location == None %} {% else %} <span class="location">{{ o.event.location|truncatechars:20 }}</span> {% endif %}
-                        <ul class="date">
-                            <li>
-                                <span class="date_from">{{ o.start_time|date:"j" }} {{ o.start_time|date:"M"|lower }} {{ o.start_time|date:"Y"|lower }}</span>
-                                {% if  o.start_time.date != o.end_time.date %}
-                                    <span class="date_to">{% trans "to" %}</span>
-                                <span class="date_from">{{ o.end_time|date:"j" }} {{ o.end_time|date:"M"|lower }} {{ o.end_time|date:"Y"|lower }}</span>
-                                {% endif %}
-                            </li>
-                        </ul>
-
-                        <a href="{{ base_url }}p/{{ o.event.pk }}"><h3 class="coop_agenda_title resume_title">{{ o.event.title }}</h3></a>
-
-
-                        <div class="description">
-                            {{ o.event.description|truncatechars:150|safe }}
-                        </div>
-                        <span class="readmore"><a class="agenda_link" href="{{ base_url }}p/{{ o.event.pk }}">{% trans "Read more" %}</a></span>
-                        {% if request.user.is_superuser %}
-                            <span class="edit"><a class="" href="{{ base_url }}p/event_edit/{{ o.event.pk }}">{% trans "Edit" %}</a></span>
-                        {% endif %}
-
-                    </div>
                 </div>
-
-
             </div>
-        {% endfor %}
-{% endfor %}
+
+
+        </div>
+    {% endfor %}
+
+
+    <div class="agenda_pagination_bottom pagination_bottom pagination">
+        {% include "page_coop_agenda/pagination.html" %}
+    </div>
+
 </div>
 
 

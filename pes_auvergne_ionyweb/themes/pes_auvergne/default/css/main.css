@@ -2449,6 +2449,7 @@ span.date_to {
     height: 40px;
     width: 100%;
     margin-bottom: 10px;
+    height: 30px;
 }
 
 .pagination_bottom {
@@ -2498,16 +2499,7 @@ span.date_to {
 }
 
 
-#members .top-pagination {
-    height: 30px;
-}
-
-#members .bottom-pagination {
-/*     padding-top: 15px; */
-    height: 30px;
-}
-
-#members .pagination .page-link {
+.pagination .page-link {
     background: #f08f7e;
     color: #ffffff;
     padding: 2px 5px;
@@ -2516,32 +2508,93 @@ span.date_to {
     cursor: pointer;
 }
 
-#members .pagination .page-link:hover {
-    background: #A33126;
+.pagination .step-links {
+    float: right;
 }
 
+.pagination .step-links a {
+    text-decoration: none;
+}
+
+.pagination .prev-link {
+    padding:  3px 0 3px 20px;
+}
+
+.pagination .next-link {
+    padding:  3px 20px 3px 0;
+}
+
+
+#members .pagination .page-link {
+    background: #f08f7e;    
+}
+
+#members .pagination .page-link:hover,
 #members .pagination .page-link.current {
     background: #A33126;
 }
 
-#members .pagination .step-links {
-    float: right;
-}
-
-#members .pagination .step-links a {
-    text-decoration: none;
-}
-
 #members .pagination .prev-link {
     background: url('../images/icon-prev-member.png') no-repeat 2px left;
-    padding:  3px 0 3px 20px;
 }
 
 #members .pagination .next-link {
     background: url('../images/icon-next-member.png') no-repeat center right;
-    padding:  3px 20px 3px 0;
 }
 
+#articles .pagination .page-link {
+    background: #91ddad;    
+}
+
+#articles .pagination .page-link:hover,
+#articles .pagination .page-link.current {
+    background: #53c97f;
+}
+
+#articles .pagination .prev-link {
+    background: url('../images/icon-prev-blog.png') no-repeat 2px left;
+}
+
+#articles .pagination .next-link {
+    background: url('../images/icon-next-blog.png') no-repeat center right;
+}
+
+
+
+#result_exchanges .pagination .page-link {
+    background: #9eccd0;    
+}
+
+#result_exchanges .pagination .page-link:hover,
+#result_exchanges .pagination .page-link.current {
+    background: #468b92;
+}
+
+#result_exchanges .pagination .prev-link {
+    background: url('../images/icon-prev-exchange.png') no-repeat 2px left;
+}
+
+#result_exchanges .pagination .next-link {
+    background: url('../images/icon-next-exchange.png') no-repeat center right;
+}
+
+
+#coop_agenda .pagination .page-link {
+    background: #adda94;    
+}
+
+#coop_agenda .pagination .page-link:hover,
+#coop_agenda .pagination .page-link.current {
+    background: #70be46;
+}
+
+#coop_agenda .pagination .prev-link {
+    background: url('../images/icon-prev-agenda.png') no-repeat 2px left;
+}
+
+#coop_agenda .pagination .next-link {
+    background: url('../images/icon-next-agenda.png') no-repeat center right;
+}
 
 
 .formset {
