@@ -2321,7 +2321,7 @@ span.date_to {
     margin: 10px;
 }
 
-.fieldWrapper ul.methods,
+/* .fieldWrapper ul.methods, */
 .fieldWrapper ul.methods li {
     float: left;
 }
