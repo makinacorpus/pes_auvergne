@@ -2175,6 +2175,11 @@ span.date_to {
     height: auto;
 }
 
+.member_desc #description_short div,
+.member_desc #description_full div {
+    max-width: 570px;
+}
+
 .bloc_content .event_content .description {
     min-height: 130px;
     width: 450px;
