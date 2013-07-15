@@ -96,9 +96,11 @@
             <div class="column2">
                 {% if member.pref_phone %}{{ member.pref_phone.content }}{% endif %}<br/>
 <!--                 {% if member.pref_email %}{{ member.pref_email.content }}{% endif %} -->
-                <div class="member_link">
-                    <a class="member_link" href="{{ member.web|safe }}" />{% trans "Website" %}</a>
-                </div>
+                {% if member.web %}
+                    <div class="member_link">
+                        <a class="member_link" href="{{ member.web|safe }}" />{% trans "Website" %}</a>
+                    </div>
+                {% endif %}
             </div>
             <div class="column3">
                 <div id="links">
@@ -126,7 +128,7 @@
         </div>
     </div>
 
-    {% if member.offer_activities or openings or member.offer_zone %}
+    {% if member.offer_activities or openings %}
     <div class="bloc_content">
         {% if member.offer_activities %}
             {% if member.is_offer_labels %}
