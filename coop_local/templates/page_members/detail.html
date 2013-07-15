@@ -128,17 +128,15 @@
         </div>
     </div>
 
-    {% if member.offer_activities or openings %}
+    {% if member.is_offer_labels or openings %}
     <div class="bloc_content">
-        {% if member.offer_activities %}
-            {% if member.is_offer_labels %}
-                <h3>{% trans "Products, services and activities list" %}</h3>
-                {% for o in member.offer_set.all %}
-                    <a href="javascript:view_offer_details({{ o.pk }})" class="member_link member_list">{{ o.title }}</a>
-                        <div id="dialog-offer-{{ o.pk }}" class="dialog-offer" title="{{ o.title }}">{{ o.get_desc|safe }}</div>
-                    <br/>
-                {% endfor %}
-            {% endif %}
+        {% if member.is_offer_labels %}
+            <h3>{% trans "Products, services and activities list" %}</h3>
+            {% for o in member.offer_set.all %}
+                <a href="javascript:view_offer_details({{ o.pk }})" class="member_link member_list">{{ o.title }}</a>
+                    <div id="dialog-offer-{{ o.pk }}" class="dialog-offer" title="{{ o.title }}">{{ o.get_desc|safe }}</div>
+                <br/>
+            {% endfor %}
         {% endif %}
 
         {% if openings %}
