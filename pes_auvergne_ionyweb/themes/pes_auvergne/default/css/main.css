@@ -2331,6 +2331,12 @@ span.date_to {
     width: 200px;
 }
 
+#methods {
+    height: 170px;
+    margin-left: 140px;
+    width: 500px;
+}
+
 #point.fieldWrapper {
     display: block;
     height: 320px;
