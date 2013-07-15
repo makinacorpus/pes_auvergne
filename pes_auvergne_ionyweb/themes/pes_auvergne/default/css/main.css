@@ -1785,6 +1785,10 @@ a.account_link {
 .content-services a.service_link {
     color: #8b3e74;
 }
+.content-projects a.member_link {
+    color: #A0866A;
+}
+
 
 
 span.date_from {
@@ -1818,6 +1822,11 @@ span.date_to {
     background: url(../images/icons/member_location.png) no-repeat left center;
 }
 
+.content-projects #members .location {
+    color: #A0866A !important;
+    background: url(../images/icons/project_location.png) no-repeat left center;
+}
+    
 .coop_exchange .location {
     color: #468b92 !important;
     background: url(../images/icons/exchange_location.png) no-repeat left center;
@@ -2559,6 +2568,24 @@ span.date_to {
 #members .pagination .next-link {
     background: url('../images/icon-next-member.png') no-repeat center right;
 }
+
+.content-projects #members .pagination .page-link {
+    background: #c5b5a9;    
+}
+
+.content-projects #members .pagination .page-link:hover,
+.content-projects #members .pagination .page-link.current {
+    background: #7f6856;
+}
+
+.content-projects #members .pagination .prev-link {
+    background: url('../images/icon-prev-project.png') no-repeat 2px left;
+}
+
+.content-projects #members .pagination .next-link {
+    background: url('../images/icon-next-project.png') no-repeat center right;
+}
+
 
 #articles .pagination .page-link {
     background: #91ddad;    
