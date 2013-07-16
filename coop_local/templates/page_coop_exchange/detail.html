@@ -3,6 +3,14 @@
 {% block extra_head %}
     <link rel="stylesheet" href="{{ STATIC_URL }}themes/pes_auvergne/default/js/leaflet/leaflet.css" />
     <link rel="stylesheet" href="{{ STATIC_URL }}admintools_bootstrap/css/custom-theme/jquery-ui-1.8.16.custom.css" />
+
+    <script type="text/javascript" src="{{ STATIC_URL }}themes/pes_auvergne/default/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+
+    <script type="text/javascript" language="javascript" src="{{ STATIC_URL }}themes/pes_auvergne/default/js/helper-plugins/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" language="javascript" src="{{ STATIC_URL }}themes/pes_auvergne/default/js/helper-plugins/jquery.touchSwipe.min.js"></script>
+    <script type="text/javascript" language="javascript" src="{{ STATIC_URL }}themes/pes_auvergne/default/js/helper-plugins/jquery.transit.min.js"></script>
+    <script type="text/javascript" language="javascript" src="{{ STATIC_URL }}themes/pes_auvergne/default/js/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
+
 {% endblock %}
 
 
@@ -106,20 +114,29 @@
         </div>
     </div>
     
-
     {% if imgs %}
         <div class="bloc_content bloc_content_border">
             <h3>{% trans "Galery" %}</h3>
-            
-            {% for d in imgs %}
-                <div class="fake_img">
-                    <img src="{{ media_path }}{{ d.attachment }}" alt='{{ d.name }}' />
+
+                <div class="list_carousel">
+                    <ul id="carousel">
+                        {% for d in imgs %}
+                            <li>
+                                <a href="{{ media_path }}{{ d.attachment }}"><img src="{{ media_path }}{{ d.attachment }}" alt='{{ d.name }}' height="100px" /></a>
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+                    <div class="clearfix"></div>
+                    <a id="prev2" class="prev" href="#"></a>
+                    <a id="next2" class="next" href="#"></a>
+                    <div id="pager2" class="pager"></div>
                 </div>
-            {% endfor %}
+
         </div>
     {% endif %}
-
     
+
 
     <div class="bloc_content">
         <div class="exchange_content_infos exchange_content_activity">
@@ -157,6 +174,21 @@
 <script type="text/javascript">
     $(document).ready(function() {
         hide_complement();
+
+        $('#carousel').carouFredSel({
+            items: 2,
+            auto: false,
+            prev: '#prev2',
+            next: '#next2',
+            pagination: "#pager2",
+            mousewheel: true,
+            swipe: {
+                onMouse: true,
+                onTouch: true
+            }
+        });
+
+        $('#carousel a').fancybox({ 'hideOnContentClick': false,'zoomSpeedIn': 300, 'zoomSpeedOut': 300, 'overlayShow': true });
     });
 
     function hide_complement() {
