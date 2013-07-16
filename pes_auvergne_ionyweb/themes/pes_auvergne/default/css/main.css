@@ -1904,6 +1904,10 @@ span.date_to {
     background: url(../images/logo_pes_auvergne_blue.png) no-repeat center center !important;
 }
 
+.coop_territory .bloc_title .logo_pes {
+    background: url(../images/logo_pes_auvergne_blue_light.png) no-repeat center center !important;
+}
+
 .content-articles .entry .block_img {
     background: url(../images/logo_pes_auvergne_green.png) no-repeat center center !important;
 }
@@ -1911,7 +1915,6 @@ span.date_to {
 .content-projects .bloc_title .logo_pes {
     background: url(../images/logo_pes_auvergne_brown.png) no-repeat center center !important;
 }
-
 
 
 .coop_exchange .block_desc {
