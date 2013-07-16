@@ -692,7 +692,7 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 }
 
 .search_form_enabled_territory #column2 {
-    margin-top: 270px;    
+    margin-top: 180px;    
 }
 
 .search_form_enabled_article #column2 {
@@ -1228,7 +1228,7 @@ h4.coop_agenda {
 }
 
 .content-coop_territory #search_form {
-    height: 260px;
+    height: 170px;
 }
 
 
@@ -2659,6 +2659,23 @@ span.date_to {
     background: url('../images/icon-next-service.png') no-repeat center right;
 }
 
+
+#result_territory .pagination .page-link {
+    background: #73b4fb;    
+}
+
+#result_territory .pagination .page-link:hover,
+#result_territory .pagination .page-link.current {
+    background: #1c85f9;
+}
+
+#result_territory .pagination .prev-link {
+    background: url('../images/icon-prev-territory.png') no-repeat 2px left;
+}
+
+#result_territory .pagination .next-link {
+    background: url('../images/icon-next-territory.png') no-repeat center right;
+}
 
 .formset {
     border: 10px solid #eee;
