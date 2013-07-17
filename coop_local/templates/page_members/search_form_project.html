@@ -46,6 +46,8 @@
                 {{ form.location_buffer }}
             </div>
         </div>
+    
+        <input type="hidden" name="more_criteria_status" id="more_criteria_status" value="">
 
         <div id="search_bottom">
             <div class="search_block" id="search_submit">
@@ -84,9 +86,13 @@
 
         $('#id_date_start').datepicker({dateFormat: 'yy-mm-dd', constrainInput: false, changeYear: true});
 
-        {% if mode_criteria == False %}
+        {% if more_criteria %}
+            more_criteria();
+        {% else %}
             less_criteria(false);
         {% endif %}
+
+
     });
 
 
@@ -98,6 +104,8 @@
             $('#less_criteria').removeClass("search_form_hide");
 
             $('#more_criteria').addClass("search_form_hide");
+
+            $('#more_criteria_status').val("True");
 
             $("#search_form").animate({
                 height: '+=0px'
@@ -115,6 +123,8 @@
             $('#less_criteria').addClass("search_form_hide");
 
             $('#more_criteria').removeClass("search_form_hide");
+
+            $('#more_criteria_status').val("False");
 
             if(animate) {
                 $("#search_form").animate({
