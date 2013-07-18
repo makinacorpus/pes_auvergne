@@ -2938,3 +2938,22 @@ span.date_to {
     font-weight: bold;
     text-transform: capitalize;
 }
+
+/* Account */
+
+.account_disconnect {
+    text-align: right;
+}
+
+h3.account_link {
+    border-bottom: 1px solid #F8B133;
+    color: #F8B133;
+}
+
+#coop_account .ui-tabs .ui-tabs-nav li a {
+    padding: 0 8px;
+}
+
+#tabs-infos {
+    margin-top: 20px;
+}
