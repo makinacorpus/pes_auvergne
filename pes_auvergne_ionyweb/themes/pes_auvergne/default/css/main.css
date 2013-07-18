@@ -144,6 +144,7 @@ ol {
 
 #members .readmore,
 #coop_agenda .readmore,
+#articles .readmore,
 #coop_exchange .readmore {
     float: right;
     position: relative;
@@ -632,6 +633,14 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     padding: 5px;
 }
 
+#articles #column1 {
+    width: 250px;
+}
+
+#articles #column2 {
+    width: 250px;
+}
+
 .search_form_hide,
 .detail_form_hide {
     display: none;
@@ -655,6 +664,10 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
     background: url("../images/icon-next-agenda.png") no-repeat scroll left center transparent
 }
 
+
+.content-articles .bloc_content .bloc_content_col1 h3 {
+    background: url("../images/icon-next-blog.png") no-repeat scroll left center transparent
+}
 
 .menu_selected_arrow {
     background: url("../images/icon_arrow_white.png") no-repeat scroll left center transparent;
@@ -1541,7 +1554,8 @@ h4.coop_agenda {
 
 .green_gradient,
 .content-articles #articles_top,
-.content-articles #articles_top_search {
+.content-articles #articles_top_search,
+.content-articles .bloc_content .bloc_content_col1 h3.menu_selected{
     /* Anciens navigateurs */
     background: #36b568 url("gradient-bg.png") repeat-y left;
     -o-background-size: 100% 100%;
@@ -1911,8 +1925,9 @@ span.date_to {
     background: url(../images/logo_pes_auvergne_blue_light.png) no-repeat center center !important;
 }
 
-.content-articles .entry .block_img {
-    background: url(../images/logo_pes_auvergne_green.png) no-repeat center center !important;
+.content-articles .entry .block_img,
+.content-articles .bloc_title .logo_pes {
+    background: url(../images/logo_pes_auvergne_green_light.png) no-repeat center center !important;
 }
 
 .content-projects .bloc_title .logo_pes {
@@ -1952,6 +1967,12 @@ span.date_to {
     overflow: hidden;
 }
 
+
+#articles .bloc_title .header {
+    width: 530px;
+}
+
+
 .bloc_title .resume {
     float: left;
     width: 520px;
@@ -1977,6 +1998,10 @@ span.date_to {
 #links {
  float: right;
  margin-right: 15px;
+}
+
+#articles #links {
+ float: left;
 }
 
 #links a.facebook,
@@ -2074,6 +2099,31 @@ span.date_to {
 }
 
 
+
+#articles #links a.facebook {
+    background: url(../images/icons/articles_facebook.png) left top no-repeat;
+}
+
+#articles #links a.twitter {
+    background: url(../images/icons/articles_twitter.png) left top no-repeat;
+}
+#articles #links a.google_plus {
+    background: url(../images/icons/articles_google_plus.png) left top no-repeat;
+}
+
+#articles #links a.plus {
+    background: url(../images/icons/articles_plus.png) left top no-repeat;
+}
+
+#articles #links a.links {
+    background: url(../images/icons/articles_links.png) left top no-repeat;
+}
+
+#articles #links a.print {
+    background: url(../images/icons/articles_print.png) left top no-repeat;
+}
+
+
 .bloc_content {
     border-bottom: 1px solid #a4da86;
     float: left;
@@ -2093,7 +2143,8 @@ span.date_to {
 }
 
 .content-coop_member .bloc_content .bloc_content_col2,
-.content-coop_agenda .bloc_content .bloc_content_col2 {
+.content-coop_agenda .bloc_content .bloc_content_col2,
+.content-articles .bloc_content .bloc_content_col2 {
     border-left: 1px solid #9f3224;
     margin-left: 5px;
 }
@@ -2101,6 +2152,11 @@ span.date_to {
 .content-coop_agenda .bloc_content .bloc_content_col2 {
     border-left: 1px solid #70BE46;
 }
+
+.content-articles .bloc_content .bloc_content_col2 {
+    border-left: 1px solid #53C97F;
+}
+
 
 .bloc_content .bloc_content_col1 h3 {
     line-height: 34px;
@@ -2120,7 +2176,8 @@ span.date_to {
 
 #members .bloc_content,
 #coop_exchange .bloc_content,
-#coop_agenda .bloc_content {
+#coop_agenda .bloc_content,
+#articles .bloc_content {
     float: left;
     padding-bottom: 10px;
 }
@@ -2133,6 +2190,9 @@ span.date_to {
     border-bottom: 1px solid #a03225;
 }
 
+#articles .bloc_content {
+    border-bottom: 1px solid #53C97F;
+}
 
 
 #coop_exchange .bloc_content {
@@ -2141,6 +2201,7 @@ span.date_to {
 
 
 #members .bloc_content_borderless,
+#articles .bloc_content_borderless,
 #coop_exchange .bloc_content_borderless,
 .bloc_content_borderless {
     border-bottom: none;
@@ -2835,6 +2896,13 @@ span.date_to {
     background: url('../images/icon-next-agenda.png') no-repeat center right;
 }
 
+#articles .prev {
+    background: url('../images/icon-prev-blog.png') no-repeat center right;
+}
+
+#articles .next {
+    background: url('../images/icon-next-blog.png') no-repeat center right;
+}
 
 .pager {
     float: left;
