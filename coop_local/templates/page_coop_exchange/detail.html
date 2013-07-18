@@ -25,10 +25,14 @@
 
         <div class="header">
             <h3 class="exchange_title">{{ e.title }}</h3>
+            <br/>
             <span class="exchange_date">{%  trans "Date start" %} : {{ e.created }}</span><br/>
-            <span class="exchange_dateexp">{%  trans "Date end" %} : {{ e.expiration }}</span>
+            {% if e.expiration %}
+                <span class="exchange_dateexp">{%  trans "Date end" %} : {{ e.expiration }}</span><br/>
+            {% endif %}
 
-            <h3 class="exchange_title">{% trans "Posted by" %}</h3>
+            <h3 class="exchange_title">{% trans "Posted by" %} :</h3>
+            <br/>
             <a href="/annuaire/p/{{ e.organization.pk }}"  class="exchange_link">{% trans "Contact organization" %}</a>
 
         </div>
@@ -63,21 +67,25 @@
             <div class="column1">
                 <h3>{{ e.get_eway_display }}</h3>
 
-                <h3>{% trans "Type" %}:</h3>
-                {{ e.type }}
+                {% if e.type %}
+                    <h3>{% trans "Type" %}:</h3>
+                    {{ e.type }}
+                {% endif %}
 
-                <h3>{% trans "Modalities" %}:</h3>
-                {% for m in e.methods.all %}                
-                    {{ m }}<br/>
-                {% endfor %}
+                {% if e.methods.all %}
+                    <h3>{% trans "Modalities" %}:</h3>
+                    {% for m in e.methods.all %}                
+                        {{ m }}<br/>
+                    {% endfor %}
+                {% endif %}
                 
                 <h3><a href="{{ base_url }}exchange_reply/{{ e.pk }}" class="exchange_link">{% trans "Answer exchange" %}</a></h3>
             </div>
             <div class="column2">
                 <div id="links">
-                    <a class="facebook" href=""></a>
-                    <a class="twitter" href=""></a>
-                    <a class="google_plus" href=""></a>
+                    <a class="facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=#{{ request.build_absolute_uri }}"></a>
+                    <a class="twitter" href="https://twitter.com/share?url={{ request.build_absolute_uri }}" target="_blank"></a>
+                    <a class="google_plus"  target="_blank" href="https://plus.google.com/share?url={{ request.build_absolute_uri }}"></a>
                     <a class="plus" href=""></a>
                     <a class="links" href=""></a>
                     <a class="print" href=""></a>
@@ -88,6 +96,22 @@
                 {% for c in e.contacts.all %}                
                     {{ c }}<br/>
                 {% endfor %}
+
+                {% if e.location %}
+                    {% if e.location.adr1 %}
+                        {{ e.location.adr1 }}<br/>
+                    {% endif %}
+                    {% if e.location.adr2 %}
+                        {{ e.location.adr2 }}<br/>
+                    {% endif %}
+                    {% if e.location.zipcode %}
+                        {{ e.location.zipcode }}<br/>
+                    {% endif %}
+                    {% if e.location.city %}
+                        {{ e.location.city }}<br/>
+                    {% endif %}
+                {% endif %}
+
 
                 {% if docs %}
                     <a href="javascript:download_docs()" class="exchange_link">{% trans "Downloadable docs" %}</a>
@@ -106,11 +130,15 @@
 
         </div>
         <div class="exchange_complement">
-                <h3>{% trans "Presentation" %}</h3>
-                <div class="exchange_desc">
-                    <p>{{ e.description|safe }}</p>
-                    <span class="readmore"><a class="exchange_link" href="{{ e.web|safe }}">{% trans "Read more" %}</a></span>
+
+            <h3>{% trans "Presentation" %}</h3>
+            <div class="exchange_desc" id="animate_desc" >
+                <div id="description_short">{{ e.description|safe|truncatewords_html:90 }}</div>
+                <div id="description_full">
+                        {{ e.description|safe }}
                 </div>
+            </div>
+            <span class="readmore"><a class="exchange_link" href="javascript:read_more();" id="read_more">{% trans "Read more" %}</a></span>
         </div>
     </div>
     
@@ -138,28 +166,38 @@
     
 
 
-    <div class="bloc_content">
-        <div class="exchange_content_infos exchange_content_activity">
-            <h3>{% trans "Activity" %}</h3>
-            {{ e.activity }}
-        </div>
+    <div class="bloc_content bloc_content_borderless">
+        {% if e.activity %}
+            <div class="exchange_content_infos exchange_content_activity">
+                <h3>{% trans "Activity" %}</h3>
+                {{ e.activity }}
+            </div>
+        {% endif %}
             
-        <div class="exchange_content_infos exchange_content_thematic">
-            <h3>{% trans "Thematic" %}</h3>
-            {% for t in e.transverse_themes.all %}
-                {{ t }} <br/>
-            {% endfor %}
-        </div>
+        {% if e.tags.all %}
+            <div class="exchange_content_infos exchange_content_thematic">
+                <h3>{% trans "Thematic" %}</h3>
+                {% for t in e.transverse_themes.all %}
+                    {{ t }} <br/>
+                {% endfor %}
+            </div>
+        {% endif %}
 
-        <div class="exchange_content_infos exchange_content_keywords">
-            <h3 class="exchange_link">{% trans "Keywords" %}</h3>
-            {{ e.tags.all|join:", " }}
-        </div>
+        {% if e.tags.all %}
+            <div class="exchange_content_infos exchange_content_keywords">
+                <h3 class="exchange_link">{% trans "Keywords" %}<a href="javascript:keywords_show_complement()" class="exchange_link">+</a></h3>
+                <div id="keywords_short">{{ e.tags.all|join:", "|truncatechars:100 }}</div>
+                <div id="keywords_long">{{ e.tags.all|join:", " }}</div>
+            </div>
 
+        {% endif %}
 
-        <div class="exchange_content_infos exchange_content_solidarity">
-            <h3 class="exchange_link">{% trans "Solidarity" %}</h3>
-        </div>
+        {% if e.solidarity %}
+            <div class="exchange_content_infos exchange_content_solidarity">
+                <h3 class="exchange_link">{% trans "Solidarity" %}</h3>
+            </div>
+        {% endif %}
+    
     </div>
 
 
@@ -174,6 +212,8 @@
 <script type="text/javascript">
     $(document).ready(function() {
         hide_complement();
+        keywords_hide_complement();
+        $('#description_full').addClass("detail_form_hide");
 
         $('#carousel').carouFredSel({
             items: 2,
@@ -189,11 +229,32 @@
         });
 
         $('#carousel a').fancybox({ 'hideOnContentClick': false,'zoomSpeedIn': 300, 'zoomSpeedOut': 300, 'overlayShow': true });
+
+        // Check if we have to hide read more or not
+        if($('#description_short') && $('#description_full')) {
+            if($.trim($('#description_short').text()) == $.trim($('#description_full').text())) {
+                $('#read_more').addClass("detail_form_hide");  
+            }
+        }
     });
+
+    function keywords_hide_complement() {
+        $('#keywords_long').addClass("detail_form_hide");
+    }
+
+    function keywords_show_complement() {
+        $('#keywords_long').removeClass("detail_form_hide");
+        $('#keywords_short').addClass("detail_form_hide");
+    }
 
     function hide_complement() {
         $('#dialog-docs').addClass("detail_form_hide");
     }
+    function read_more() {
+        $('#description_full').removeClass("detail_form_hide");
+        $('#description_short').addClass("detail_form_hide");
+        $('#read_more').addClass("detail_form_hide");        
+   }
 
    function download_docs() {
     $(function() {

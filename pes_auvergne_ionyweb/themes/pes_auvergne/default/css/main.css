@@ -119,7 +119,9 @@ ul {
 }
 
 ol {
-	list-style: outside decimal;
+	list-style: outside decimal;.bloc_content .exchange_complement {
+    position: relative;
+}
 	margin: 1em 0 1.5em 1.5em;
 }
 
@@ -141,7 +143,8 @@ ol {
 }
 
 #members .readmore,
-#coop_agenda .readmore {
+#coop_agenda .readmore,
+#coop_exchange .readmore {
     float: right;
     position: relative;
 }
@@ -2131,13 +2134,16 @@ span.date_to {
 }
 
 
-#members .bloc_content_borderless,
-.bloc_content_borderless {
-    border-bottom: none;
-}
 
 #coop_exchange .bloc_content {
     border-bottom: 1px solid #468B92;
+}
+
+
+#members .bloc_content_borderless,
+#coop_exchange .bloc_content_borderless,
+.bloc_content_borderless {
+    border-bottom: none;
 }
 
 .bloc_content .event_image {
@@ -2220,6 +2226,7 @@ span.date_to {
 .bloc_content .member_content_infos {
     border: none;
 }
+
 
 .bloc_content .member_content_infos .column1,
 .bloc_content .exchange_content_infos .column1 {
