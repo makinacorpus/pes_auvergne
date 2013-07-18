@@ -634,12 +634,18 @@ img.left, figure.left {float: right; margin: 0 0 2em 2em;}
 }
 
 #articles #column1 {
-    width: 250px;
+    width: 240px;
 }
 
 #articles #column2 {
-    width: 250px;
+    width: 260px;
 }
+
+#articles #column2 #last_modification{
+    text-align: right;
+    font-size: 10px;
+}
+
 
 .search_form_hide,
 .detail_form_hide {
