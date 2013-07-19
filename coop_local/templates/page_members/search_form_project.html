@@ -3,9 +3,9 @@
 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}admintools_bootstrap/css/custom-theme/jquery-ui-1.8.16.custom.css" />
 
     {% if mode = 'carto' %}
-        <form action="{{ base_url }}p/carto" method="get">{% csrf_token %}
+        <form action="{{ base_url }}p/carto" method="get" id="search-form">{% csrf_token %}
     {% else %}
-        <form action="{{ base_url }}" method="get">{% csrf_token %}
+        <form action="{{ base_url }}" method="get" id="search-form">{% csrf_token %}
     {% endif %}
         <div class="search_column" id="search_column1">
             <div class="search_block" id="activity">
