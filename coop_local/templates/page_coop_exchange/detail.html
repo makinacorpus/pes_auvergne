@@ -97,6 +97,11 @@
                     {{ c }}<br/>
                 {% endfor %}
 
+                {% if e.phone %}
+                    {{ e.phone }}<br/>
+                {% endif %}
+
+
                 {% if e.location %}
                     {% if e.location.adr1 %}
                         {{ e.location.adr1 }}<br/>
