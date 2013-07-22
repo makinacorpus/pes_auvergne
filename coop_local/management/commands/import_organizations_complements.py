@@ -100,7 +100,7 @@ class Command(BaseCommand):
                     # Si person is empty but not email
                     #if person and len(person) == 0 and len(email) > 0:
                     if len(person) == 0 and len(email) > 0:
-                        person = email.split("@")[0]
+                        person = email.split("@")[0][:30]
                     
                     if person and len(person) > 0:
                         new_person = _save_person(person, title, email)
