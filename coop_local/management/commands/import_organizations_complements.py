@@ -97,6 +97,11 @@ class Command(BaseCommand):
                     if email:
                         _save_contact(organization, email, 'Email', False, True, 'pref_email')
                     
+                    # Si person is empty but not email
+                    #if person and len(person) == 0 and len(email) > 0:
+                    if len(person) == 0 and len(email) > 0:
+                        person = email
+                    
                     if person and len(person) > 0:
                         new_person = _save_person(person, title, email)
                         # TODO: check if it works
