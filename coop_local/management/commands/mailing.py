@@ -35,23 +35,19 @@ class Command(BaseCommand):
                     row[k.decode('utf8')] = v.decode('utf8')
 
                 title = "Rejoindre la plate-forme d'échanges solidaires en Auvergne"
-                #content_text = "Ceci est un test de mail"
-                #content_html = "<h1>Ceci est un test de mail<h1>"
                 sender = "contact@echanges-solidaires-auvergne.fr"
                 dest = row[u'email'].strip()
                 
                 login = row[u'username'].strip()
                 password = row[u'password'].strip()
-
                 
-                plaintext = get_template('mailing_pes.txt')
+                plaintext = get_template('~/projects/pes_auvergne/pes_auvergne/coop_local/management/commands/mailing_pes.txt')
                 htmly     = get_template('mailing_pes.html')
 
                 d = Context({ 'login': login , 'password': password})
 
                 subject, from_email, to = 'hello', 'from@example.com', 'to@example.com'
-                #text_content = plaintext.render(d)
-                text_content = "test"
+                text_content = plaintext.render(d)
                 html_content = htmly.render(d)
 
                 msg = EmailMultiAlternatives(title, text_content, sender, [dest])
