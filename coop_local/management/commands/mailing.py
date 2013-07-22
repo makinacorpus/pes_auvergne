@@ -44,8 +44,8 @@ class Command(BaseCommand):
                 password = row[u'password'].strip()
 
                 
-                plaintext = get_template('email.txt')
-                htmly     = get_template('email.html')
+                plaintext = get_template('mailing_pes.txt')
+                htmly     = get_template('mailing_pes.html')
 
                 d = Context({ 'login': login , 'password': password})
 
