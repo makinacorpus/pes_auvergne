@@ -127,7 +127,7 @@ def _save_person(data, structure_name, email):
     try:
         person = Person.objects.get(first_name=first_name, last_name=last_name, structure=structure_name, email=email)
     except Person.DoesNotExist:
-        print "New  person created"
+        print "New  person created: %s" % (email)
         person = Person(first_name=first_name, last_name=last_name, structure=structure_name, email=email)
         person.save()
         
@@ -140,13 +140,7 @@ def _save_person(data, structure_name, email):
             
         person.user = u   
         person.save()
-                
-    #person, created = Person.objects.get_or_create(first_name=first_name, last_name=last_name, structure=structure_name)
-        
-        #person = Person(first_name=first_name, last_name=last_name, structure=structure_name)
-        #person.save()
-        
-        
+
     return person
 
 
