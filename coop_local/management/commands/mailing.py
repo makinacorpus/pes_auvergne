@@ -41,12 +41,11 @@ class Command(BaseCommand):
                 login = row[u'username'].strip()
                 password = row[u'password'].strip()
                 
-                plaintext = get_template('~/projects/pes_auvergne/pes_auvergne/coop_local/management/commands/mailing_pes.txt')
+                plaintext = get_template('mailing_pes.txt')
                 htmly     = get_template('mailing_pes.html')
 
                 d = Context({ 'login': login , 'password': password})
 
-                subject, from_email, to = 'hello', 'from@example.com', 'to@example.com'
                 text_content = plaintext.render(d)
                 html_content = htmly.render(d)
 
