@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-16 17:09+0200\n"
+"POT-Creation-Date: 2013-07-26 15:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,10 +56,10 @@ msgid "I'm looking for"
 msgstr "Je recherche"
 
 #: templates/page_blog/entry_archive.html:18
-#: templates/page_coop_exchange/search_form_exchange.html:70
+#: templates/page_coop_exchange/search_form_exchange.html:72
 #: templates/page_coop_exchange/search_form_service.html:56
-#: templates/page_members/search_form_organization.html:54
-#: templates/page_members/search_form_project.html:52
+#: templates/page_members/search_form_organization.html:56
+#: templates/page_members/search_form_project.html:54
 msgid "Search"
 msgstr "Recherche"
 
@@ -68,12 +68,12 @@ msgid "Results"
 msgstr "Résultats"
 
 #: templates/page_blog/entry_archive.html:42
-#: templates/page_coop_agenda/detail.html:91
-#: templates/page_coop_agenda/detail.html:102
+#: templates/page_coop_agenda/detail.html:92
+#: templates/page_coop_agenda/detail.html:103
 #: templates/page_coop_agenda/index.html:101
-#: templates/page_coop_exchange/detail.html:112
+#: templates/page_coop_exchange/detail.html:146
 #: templates/page_coop_exchange/index.html:42
-#: templates/page_members/detail.html:169 templates/page_members/index.html:53
+#: templates/page_members/detail.html:169 templates/page_members/index.html:58
 msgid "Read more"
 msgstr "En savoir plus"
 
@@ -89,32 +89,32 @@ msgstr "Lieu"
 msgid "Organizator"
 msgstr "Organisateur"
 
-#: templates/page_coop_agenda/detail.html:75
 #: templates/page_coop_agenda/detail.html:76
+#: templates/page_coop_agenda/detail.html:77
 msgid "Source"
 msgstr ""
 
-#: templates/page_coop_agenda/detail.html:85
+#: templates/page_coop_agenda/detail.html:86
 msgid "Register for the event"
 msgstr "S'incrire à l'évènement"
 
-#: templates/page_coop_agenda/detail.html:88
-#: templates/page_coop_agenda/detail.html:97
+#: templates/page_coop_agenda/detail.html:89
+#: templates/page_coop_agenda/detail.html:98
 msgid "Event's description"
 msgstr "Description de l'évènement"
 
-#: templates/page_coop_agenda/detail.html:108
+#: templates/page_coop_agenda/detail.html:109
 msgid "Use car pool"
 msgstr "Pensez à covoiturer"
 
-#: templates/page_coop_agenda/detail.html:115
-#: templates/page_coop_exchange/detail.html:119
+#: templates/page_coop_agenda/detail.html:116
+#: templates/page_coop_exchange/detail.html:152
 #: templates/page_members/detail.html:176
 msgid "Galery"
 msgstr "Galerie"
 
-#: templates/page_coop_agenda/detail.html:139
-#: templates/page_coop_exchange/detail.html:143
+#: templates/page_coop_agenda/detail.html:140
+#: templates/page_coop_exchange/detail.html:177
 #: templates/page_coop_exchange/search_form_exchange.html:26
 #: templates/page_coop_exchange/search_form_service.html:6
 #: templates/page_members/detail.html:201
@@ -123,8 +123,8 @@ msgstr "Galerie"
 msgid "Activity"
 msgstr "Secteurs d'activités"
 
-#: templates/page_coop_agenda/detail.html:144
-#: templates/page_coop_exchange/detail.html:148
+#: templates/page_coop_agenda/detail.html:145
+#: templates/page_coop_exchange/detail.html:184
 #: templates/page_coop_exchange/search_form_exchange.html:33
 #: templates/page_coop_exchange/search_form_service.html:34
 #: templates/page_members/detail.html:209
@@ -133,59 +133,59 @@ msgstr "Secteurs d'activités"
 msgid "Thematic"
 msgstr "Thématiques"
 
-#: templates/page_coop_agenda/detail.html:151
-#: templates/page_coop_exchange/detail.html:155
+#: templates/page_coop_agenda/detail.html:152
+#: templates/page_coop_exchange/detail.html:193
 #: templates/page_members/detail.html:218
 msgid "Keywords"
 msgstr "Mots-clés"
 
-#: templates/page_coop_agenda/detail.html:155
+#: templates/page_coop_agenda/detail.html:156
 msgid "Type event"
 msgstr "Type d'évènement"
 
-#: templates/page_coop_agenda/detail.html:165
+#: templates/page_coop_agenda/detail.html:166
 #: templates/plugin_coop_exchange/index.html:3
 msgid "Exchanges"
 msgstr "Annonces"
 
-#: templates/page_coop_agenda/detail.html:168
+#: templates/page_coop_agenda/detail.html:169
 msgid "Articles"
 msgstr ""
 
-#: templates/page_coop_agenda/detail.html:171
-#: templates/page_coop_exchange/detail.html:96
+#: templates/page_coop_agenda/detail.html:172
+#: templates/page_coop_exchange/detail.html:125
 #: templates/page_members/detail.html:119
 msgid "Documents"
 msgstr ""
 
-#: templates/page_coop_agenda/detail.html:174
-#: templates/page_coop_agenda/detail.html:205
+#: templates/page_coop_agenda/detail.html:175
+#: templates/page_coop_agenda/detail.html:206
 msgid "Partners"
 msgstr ""
 
-#: templates/page_coop_agenda/detail.html:180
+#: templates/page_coop_agenda/detail.html:181
 msgid "Exchanges associated"
 msgstr "Echanges associés"
 
-#: templates/page_coop_agenda/detail.html:184
+#: templates/page_coop_agenda/detail.html:185
 msgid "Articles associated"
 msgstr "Articles associés"
 
-#: templates/page_coop_agenda/detail.html:196
+#: templates/page_coop_agenda/detail.html:197
 msgid "Documents associated"
 msgstr "Documents associés"
 
-#: templates/page_coop_agenda/detail.html:217
+#: templates/page_coop_agenda/detail.html:218
 #: templates/page_coop_agenda/index.html:103
-#: templates/page_coop_exchange/detail.html:167
+#: templates/page_coop_exchange/detail.html:210
 #: templates/page_coop_exchange/index.html:44
-#: templates/page_members/detail.html:284 templates/page_members/index.html:56
+#: templates/page_members/detail.html:284 templates/page_members/index.html:61
 msgid "Edit"
 msgstr "Editer"
 
 #: templates/page_coop_agenda/index.html:69
 #: templates/page_coop_exchange/index.html:25
-#: templates/page_members/index.html:23
+#: templates/page_members/index.html:28
 msgid "Cartography"
 msgstr "Cartographie"
 
@@ -198,52 +198,52 @@ msgstr ""
 msgid "to"
 msgstr "à"
 
-#: templates/page_coop_exchange/detail.html:28
+#: templates/page_coop_exchange/detail.html:29
 #: templates/page_members/search_form_project.html:34
 msgid "Date start"
 msgstr "Date début"
 
-#: templates/page_coop_exchange/detail.html:29
+#: templates/page_coop_exchange/detail.html:31
 msgid "Date end"
 msgstr "Date fin"
 
-#: templates/page_coop_exchange/detail.html:31
+#: templates/page_coop_exchange/detail.html:34
 msgid "Posted by"
 msgstr "Posté par"
 
-#: templates/page_coop_exchange/detail.html:32
+#: templates/page_coop_exchange/detail.html:36
 msgid "Contact organization"
 msgstr "Contacter l'annonceur"
 
-#: templates/page_coop_exchange/detail.html:66
+#: templates/page_coop_exchange/detail.html:71
 #: templates/page_coop_exchange/index.html:39
 #: templates/page_coop_exchange/search_form_exchange.html:16
 msgid "Type"
 msgstr ""
 
-#: templates/page_coop_exchange/detail.html:69
+#: templates/page_coop_exchange/detail.html:76
 msgid "Modalities"
 msgstr "Modalités"
 
-#: templates/page_coop_exchange/detail.html:74
+#: templates/page_coop_exchange/detail.html:82
 msgid "Answer exchange"
 msgstr "Répondre à l'annonce"
 
-#: templates/page_coop_exchange/detail.html:86
+#: templates/page_coop_exchange/detail.html:94
 msgid "Contact"
 msgstr ""
 
-#: templates/page_coop_exchange/detail.html:93
+#: templates/page_coop_exchange/detail.html:122
 #: templates/page_members/detail.html:116
 msgid "Downloadable docs"
 msgstr "Documents téléchargeables"
 
-#: templates/page_coop_exchange/detail.html:109
+#: templates/page_coop_exchange/detail.html:139
 #: templates/page_members/detail.html:158
 msgid "Presentation"
 msgstr "Présentation"
 
-#: templates/page_coop_exchange/detail.html:161
+#: templates/page_coop_exchange/detail.html:202
 msgid "Solidarity"
 msgstr "Solidarité"
 
@@ -278,17 +278,17 @@ msgstr "Mode d'échange"
 msgid "If skills"
 msgstr "Si compétences"
 
-#: templates/page_coop_exchange/search_form_exchange.html:72
+#: templates/page_coop_exchange/search_form_exchange.html:74
 #: templates/page_coop_exchange/search_form_service.html:58
-#: templates/page_members/search_form_organization.html:56
-#: templates/page_members/search_form_project.html:54
+#: templates/page_members/search_form_organization.html:58
+#: templates/page_members/search_form_project.html:56
 msgid "Display more criteria"
 msgstr "Afficher plus de critères..."
 
-#: templates/page_coop_exchange/search_form_exchange.html:73
+#: templates/page_coop_exchange/search_form_exchange.html:75
 #: templates/page_coop_exchange/search_form_service.html:59
-#: templates/page_members/search_form_organization.html:57
-#: templates/page_members/search_form_project.html:55
+#: templates/page_members/search_form_organization.html:59
+#: templates/page_members/search_form_project.html:57
 msgid "Display less criteria"
 msgstr "Afficher moins de critères..."
 
@@ -352,6 +352,10 @@ msgstr "Références"
 #: templates/page_members/detail.html:241
 msgid "Solidarity capital"
 msgstr "Plus-value solidaire"
+
+#: templates/page_members/index.html:25
+msgid "Sort by"
+msgstr "Trier par"
 
 #: templates/plugin_coop_agenda/index.html:28
 msgid "See all events..."

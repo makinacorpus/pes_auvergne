@@ -2957,3 +2957,12 @@ h3.account_link {
 #tabs-infos {
     margin-top: 20px;
 }
+
+/* Form sort */
+.sort {
+    margin-left: 10px;
+}
+
+#sort-form {
+    display: inline;
+}

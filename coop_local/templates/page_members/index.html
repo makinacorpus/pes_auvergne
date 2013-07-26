@@ -20,6 +20,11 @@
 
 <div class="members_pagination_top pagination_top pagination">
     {% include "page_members/pagination.html" %}
+
+    <form method="get" id="sort-form">{% csrf_token %}
+        <span class="sort">{% trans "Sort by" %} : {{ sort_form.sort }}</span>
+    </form>
+
     <div class="carto"><a href="javascript:submitForm('{{ base_url }}p/carto')">{% trans "Cartography" %}</a></div>
 </div>
 
@@ -100,6 +105,14 @@
                 e.preventDefault() // <--- Prevent the value from being inserted.
                 $("#id_free_search_id").val(ui.item.value);
                 $(this).val(ui.item.label);
+            }
+        });
+
+        $("#id_sort").change(function () {
+            criteria = $("#id_sort option:selected").val()
+            if(criteria != "") {
+                 url = "?{{ get_params }}&sort=" + criteria;
+                window.location.replace(url);
             }
         });
 
