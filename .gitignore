@@ -2,3 +2,4 @@
 /coop_local/local_settings.py
 /media/
 /ve/
+*.pyc
