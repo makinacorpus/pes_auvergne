@@ -1,7 +1,8 @@
 # -*- coding:utf-8 -*-
+from django.conf.urls.defaults import patterns, url
 from django.contrib import admin
-from django.conf.urls.defaults import patterns, include, url
-from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
+from .api import OrganistationListView, OrganistationDetailView
 
 # # https://code.djangoproject.com/ticket/10405#comment:11
 # from django.db.models.loading import cache as model_cache
@@ -12,16 +13,16 @@ admin.autodiscover()
 
 
 # Add you own URLs here
-urlpatterns = []
-
-# urlpatterns += patterns('',
-#    url(r'^$', 'coop_local.views.home', name="home"),
-#    url(r'^org/$', 'coop_local.views.org_list', name="org_list"), #view coop
-
-# )
+urlpatterns = patterns(
+    '',
+    url(r'^api/organisations/$',
+        OrganistationListView.as_view(),
+        name="organistations_list"),
+    url(r'^api/organisations/(?P<uuid>.+)/$',
+        csrf_exempt(OrganistationDetailView.as_view()),
+        name="organistations_detail"),
+)
 
 
 from coop.default_project_urls import urlpatterns as default_project_urls
 urlpatterns += default_project_urls
-
-
