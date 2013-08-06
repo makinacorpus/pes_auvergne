@@ -1,5 +1,8 @@
 import json
 
+from isodate import parse_date
+
+from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.views.generic.base import View
@@ -30,6 +33,17 @@ def to_dict(item, fields):
             result[field] = value
 
     return result
+
+
+def from_dict(item, data, fields):
+    for field, setter in fields.items():
+        if field in data:
+            value = data[field]
+
+            if setter:
+                setter(item, value)
+            else:
+                setattr(item, field, value)
 
 
 def address_to_dict(address):
@@ -108,6 +122,31 @@ def organisation_to_dict(organisation):
     })
 
 
+def attr_setter(name, func):
+    def setter(item, value):
+        setattr(item, name, func(value))
+    return setter
+
+
+def organisation_from_dict(organisation, data):
+    from_dict(organisation, data, {
+        'title': None,
+        'acronym': None,
+        'short_description': None,
+        'testimony': None,
+        'annual_revenue': None,
+        'workforce': None,
+        #'legal_status': attr_setter('legal_status', TODO),
+        'birth': attr_setter('birth', parse_date),
+        #'pref_phone': attr_setter('pref_phone', TODO),
+        #'pref_email': attr_setter('pref_email', TODO),
+        #'pref_address': attr_setter('pref_address', TODO),
+        'web': None,
+        #'members': attr_setter('members', TODO),
+        #'contacts': attr_setter('contacts', TODO),
+    })
+
+
 class OrganistationListView(BaseListView):
     model = Organization
 
@@ -129,4 +168,16 @@ class OrganistationDetailView(View):
 
     def get(self, request, uuid):
         organisation = get_object_or_404(Organization, uuid=uuid)
+        return self.render_to_response(organisation)
+
+    def put(self, request, uuid):
+        try:
+            organisation = Organization.objects.get(uuid=uuid)
+        except ObjectDoesNotExist:
+            organisation = Organization()
+
+        organisation_from_dict(organisation,
+                               json.loads(request.body))
+        organisation.save()
+
         return self.render_to_response(organisation)
