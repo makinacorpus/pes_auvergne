@@ -1,8 +1,10 @@
 # -*- coding:utf-8 -*-
 from django.conf.urls.defaults import patterns, url
 from django.contrib import admin
-from django.views.decorators.csrf import csrf_exempt
-from .api import OrganistationListView, OrganistationDetailView
+from .api import (
+    OrganizationListView,
+    OrganizationDetailView,
+)
 
 # # https://code.djangoproject.com/ticket/10405#comment:11
 # from django.db.models.loading import cache as model_cache
@@ -15,12 +17,12 @@ admin.autodiscover()
 # Add you own URLs here
 urlpatterns = patterns(
     '',
-    url(r'^api/organisations/$',
-        OrganistationListView.as_view(),
-        name="organistations_list"),
-    url(r'^api/organisations/(?P<uuid>.+)/$',
-        csrf_exempt(OrganistationDetailView.as_view()),
-        name="organistations_detail"),
+    url(r'^api/organizations/$',
+        OrganizationListView.as_view(),
+        name="organization_list"),
+    url(r'^api/organizations/(?P<uuid>.+)/$',
+        OrganizationDetailView.as_view(),
+        name="organization_detail"),
 )
 
 
