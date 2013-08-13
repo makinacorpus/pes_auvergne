@@ -2,12 +2,14 @@
 from django.conf.urls.defaults import patterns, url
 from django.contrib import admin
 from .api import (
-    OrganizationListView,
-    OrganizationDetailView,
-    PersonListView,
-    PersonDetailView,
-    LocationListView,
+    ContactDetailView,
+    ContactListView,
     LocationDetailView,
+    LocationListView,
+    OrganizationDetailView,
+    OrganizationListView,
+    PersonDetailView,
+    PersonListView,
 )
 
 # # https://code.djangoproject.com/ticket/10405#comment:11
@@ -27,18 +29,27 @@ urlpatterns = patterns(
     url(r'^api/organizations/(?P<uuid>.+)/$',
         OrganizationDetailView.as_view(),
         name="organization_detail"),
+
     url(r'^api/persons/$',
         PersonListView.as_view(),
         name="person_list"),
     url(r'^api/persons/(?P<uuid>.+)/$',
         PersonDetailView.as_view(),
         name="person_detail"),
+
     url(r'^api/locations/$',
         LocationListView.as_view(),
         name="location_list"),
     url(r'^api/locations/(?P<uuid>.+)/$',
         LocationDetailView.as_view(),
         name="location_detail"),
+
+    url(r'^api/contacts/$',
+        ContactListView.as_view(),
+        name="organization_contact_list"),
+    url(r'^api/contacts/(?P<uuid>.+)$',
+        ContactDetailView.as_view(),
+        name="organization_contact_list"),
 )
 
 

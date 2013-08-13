@@ -27,7 +27,8 @@ def serialize_contact(contact):
     return serialize(contact, {
         'uuid': None,
         'content': None,
-        'details': None,
+        'content_object': attrgetter('uuid'),
+        'content_type': str,
     })
 
 
