@@ -8,6 +8,7 @@ from django.views.generic.list import BaseListView
 from .models import (
     Contact,
     Engagement,
+    Event,
     Location,
     Organization,
     Person,
@@ -55,6 +56,13 @@ class ApiDetailView(BaseDetailView):
         return HttpResponse(json.dumps(content, indent=2),
                             content_type="application/json")
 
+    def delete(self, request, uuid):
+        obj = self.get_object()
+        if hasattr(self, 'delete_related'):
+            self.delete_related(obj)
+        obj.delete()
+        return HttpResponse()
+
 
 class OrganizationListView(ApiListView):
     model = Organization
@@ -90,6 +98,11 @@ class OrganizationListView(ApiListView):
 class OrganizationDetailView(ApiDetailView):
     model = Organization
     serialize = staticmethod(serialize_organization)
+
+    def delete_related(self, obj):
+        Contact.objects.filter(organization=obj).delete()
+        Engagement.objects.filter(organization=obj).delete()
+        Event.objects.filter(organization=obj).delete()
 
 
 class ContactListView(ApiListView):
@@ -136,6 +149,9 @@ class PersonListView(ApiListView):
 class PersonDetailView(ApiDetailView):
     model = Person
     serialize = staticmethod(serialize_person)
+
+    def delete_related(self, obj):
+        Contact.objects.filter(person=obj).delete()
 
 
 class LocationListView(ApiListView):
