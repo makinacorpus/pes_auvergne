@@ -6,6 +6,8 @@ from .api import (
     OrganizationDetailView,
     PersonListView,
     PersonDetailView,
+    LocationListView,
+    LocationDetailView,
 )
 
 # # https://code.djangoproject.com/ticket/10405#comment:11
@@ -31,6 +33,12 @@ urlpatterns = patterns(
     url(r'^api/persons/(?P<uuid>.+)/$',
         PersonDetailView.as_view(),
         name="person_detail"),
+    url(r'^api/locations/$',
+        LocationListView.as_view(),
+        name="location_list"),
+    url(r'^api/locations/(?P<uuid>.+)/$',
+        LocationDetailView.as_view(),
+        name="location_detail"),
 )
 
 

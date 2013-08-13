@@ -6,12 +6,13 @@ from django.views.generic.detail import BaseDetailView
 from django.views.generic.list import BaseListView
 
 from .models import (
+    Location,
     Organization,
     Person,
 )
 from .serializers import (
     #serialize_contact,
-    #serialize_location,
+    serialize_location,
     serialize_organization,
     serialize_person,
 )
@@ -55,3 +56,13 @@ class PersonListView(ApiListView):
 class PersonDetailView(ApiDetailView):
     model = Person
     serialize = staticmethod(serialize_person)
+
+
+class LocationListView(ApiListView):
+    model = Location
+    serialize = staticmethod(serialize_location)
+
+
+class LocationDetailView(ApiDetailView):
+    model = Location
+    serialize = staticmethod(serialize_location)
