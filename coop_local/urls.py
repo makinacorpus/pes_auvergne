@@ -4,6 +4,8 @@ from django.contrib import admin
 from .api import (
     OrganizationListView,
     OrganizationDetailView,
+    PersonListView,
+    PersonDetailView,
 )
 
 # # https://code.djangoproject.com/ticket/10405#comment:11
@@ -23,6 +25,12 @@ urlpatterns = patterns(
     url(r'^api/organizations/(?P<uuid>.+)/$',
         OrganizationDetailView.as_view(),
         name="organization_detail"),
+    url(r'^api/persons/$',
+        PersonListView.as_view(),
+        name="person_list"),
+    url(r'^api/persons/(?P<uuid>.+)/$',
+        PersonDetailView.as_view(),
+        name="person_detail"),
 )
 
 

@@ -5,12 +5,15 @@ from django.http import HttpResponse
 from django.views.generic.detail import BaseDetailView
 from django.views.generic.list import BaseListView
 
-from .models import Organization
+from .models import (
+    Organization,
+    Person,
+)
 from .serializers import (
     #serialize_contact,
     #serialize_location,
     serialize_organization,
-    #serialize_person,
+    serialize_person,
 )
 
 
@@ -42,3 +45,13 @@ class OrganizationListView(ApiListView):
 class OrganizationDetailView(ApiDetailView):
     model = Organization
     serialize = staticmethod(serialize_organization)
+
+
+class PersonListView(ApiListView):
+    model = Person
+    serialize = staticmethod(serialize_person)
+
+
+class PersonDetailView(ApiDetailView):
+    model = Person
+    serialize = staticmethod(serialize_person)
