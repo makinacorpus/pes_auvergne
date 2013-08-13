@@ -1,6 +1,8 @@
 # -*- coding:utf-8 -*-
 from django.conf.urls.defaults import patterns, url
 from django.contrib import admin
+from django.views.decorators.csrf import csrf_exempt
+
 from .api import (
     ContactDetailView,
     ContactListView,
@@ -24,31 +26,31 @@ admin.autodiscover()
 urlpatterns = patterns(
     '',
     url(r'^api/organizations/$',
-        OrganizationListView.as_view(),
+        csrf_exempt(OrganizationListView.as_view()),
         name="organization_list"),
     url(r'^api/organizations/(?P<uuid>.+)/$',
-        OrganizationDetailView.as_view(),
+        csrf_exempt(OrganizationDetailView.as_view()),
         name="organization_detail"),
 
     url(r'^api/persons/$',
-        PersonListView.as_view(),
+        csrf_exempt(PersonListView.as_view()),
         name="person_list"),
     url(r'^api/persons/(?P<uuid>.+)/$',
-        PersonDetailView.as_view(),
+        csrf_exempt(PersonDetailView.as_view()),
         name="person_detail"),
 
     url(r'^api/locations/$',
-        LocationListView.as_view(),
+        csrf_exempt(LocationListView.as_view()),
         name="location_list"),
     url(r'^api/locations/(?P<uuid>.+)/$',
-        LocationDetailView.as_view(),
+        csrf_exempt(LocationDetailView.as_view()),
         name="location_detail"),
 
     url(r'^api/contacts/$',
-        ContactListView.as_view(),
+        csrf_exempt(ContactListView.as_view()),
         name="organization_contact_list"),
     url(r'^api/contacts/(?P<uuid>.+)$',
-        ContactDetailView.as_view(),
+        csrf_exempt(ContactDetailView.as_view()),
         name="organization_contact_list"),
 )
 

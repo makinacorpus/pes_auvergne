@@ -24,12 +24,13 @@ def mapper(func):
 
 
 def serialize_contact(contact):
-    return serialize(contact, {
+    serialized = serialize(contact, {
         'uuid': None,
         'content': None,
         'content_object': attrgetter('uuid'),
-        'content_type': str,
     })
+    serialized['content_type'] = contact.content_object.__class__.__name__
+    return serialized
 
 
 def serialize_location(location):

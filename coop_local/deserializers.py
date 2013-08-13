@@ -2,17 +2,8 @@ from decimal import Decimal
 
 from isodate import parse_date
 
-from .models import (
-    Contact,
-    Location,
-    Organization,
-    Person,
-)
-
 
 def deserialize(obj, data, mapping):
-    #print('%s %s deserialize' % (obj.__class__.__name__, data['uuid']))
-
     for field_name, setter in mapping.items():
         if field_name in data:
             value = data[field_name]
@@ -51,16 +42,16 @@ def field_list_setter(source_field_name):
     return setter
 
 
-def deserialize_contact(data):
-    return deserialize(Contact(), data, {
+def deserialize_contact(obj, data):
+    return deserialize(obj, data, {
         'uuid': None,
         'content': None,
         'details': None,
     })
 
 
-def deserialize_location(data):
-    return deserialize(Location(), data, {
+def deserialize_location(obj, data):
+    return deserialize(obj, data, {
         'uuid': None,
         'label': None,
         'adr1': None,
@@ -72,18 +63,16 @@ def deserialize_location(data):
     })
 
 
-def deserialize_person(data):
-    person = Person()
-    person.username = data['uuid']
-    return deserialize(person, data, {
+def deserialize_person(obj, data):
+    return deserialize(obj, data, {
         'uuid': None,
         'first_name': None,
         'last_name': None,
     })
 
 
-def deserialize_organization(data):
-    return deserialize(Organization(), data, {
+def deserialize_organization(obj, data):
+    return deserialize(obj, data, {
         'uuid': None,
         'title': None,
         'acronym': None,
