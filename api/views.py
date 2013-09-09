@@ -112,7 +112,7 @@ class OrganizationDetailView(OrganizationView, BaseDetailView):
     def update_organization(self, organization, data):
         deserialize_organization(organization, data)
         organization.save()
-        self.update_contacts(organization, data['contacts'])
+        self.update_contacts(organization, data.get('contacts', []))
         self.update_pref(organization, 'pref_email', data)
         self.update_pref(organization, 'pref_phone', data)
 
@@ -123,7 +123,7 @@ class OrganizationDetailView(OrganizationView, BaseDetailView):
 
     def update(self, organization, data):
         self.update_organization(organization, data)
-        self.delete_old_contacts(organization, data['contacts'])
+        self.delete_old_contacts(organization, data.get('contacts', []))
 
     def put(self, request, *args, **kwargs):
         self.object = self.get_or_create_object()
@@ -150,7 +150,7 @@ class PersonDetailView(PersonView, BaseDetailView):
     def update_person(self, person, data):
         deserialize_person(person, data)
         person.save()
-        self.update_contacts(person, data['contacts'])
+        self.update_contacts(person, data.get('contacts', []))
         self.update_pref(person, 'pref_email', data)
 
         person.save()
@@ -160,7 +160,7 @@ class PersonDetailView(PersonView, BaseDetailView):
 
     def update(self, person, data):
         self.update_person(person, data)
-        self.delete_old_contacts(person, data['contacts'])
+        self.delete_old_contacts(person, data.get('contacts', []))
 
     def put(self, request, *args, **kwargs):
         self.object = self.get_or_create_object()

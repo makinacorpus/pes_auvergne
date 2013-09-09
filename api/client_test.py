@@ -181,6 +181,22 @@ class TestOrganization(TestMixin, TestCase):
         reponse = self.put_organization(uuid, data)
         self.assertValidOrganization(reponse)
 
+    def test_update_organization(self):
+        self.output_name = 'update_organization'
+        data = self.create_organization()
+        data['web'] = 'http://%s.local' % uuid4().hex
+        reponse = self.put_organization(data['uuid'], data)
+        self.assertEquals(reponse, data)
+
+    def test_update_organization_with_only_new_data(self):
+        self.output_name = 'update_organization_with_only_new_data'
+        data = self.create_organization()
+        data['web'] = 'http://%s.local' % uuid4().hex
+        reponse = self.put_organization(data['uuid'], {
+            'web': data['web']
+        })
+        self.assertEquals(reponse, data)
+
     def test_create_organization_with_owned_contacts(self):
         self.output_name = 'organization_with_owned_contacts'
         uuid = uuid4().hex
@@ -245,6 +261,22 @@ class TestPerson(TestMixin, TestCase):
         data = self.make_person()
         reponse = self.put_person(uuid, data)
         self.assertValidPerson(reponse)
+
+    def test_update_person(self):
+        self.output_name = 'update_person'
+        data = self.create_person()
+        data['first_name'] = uuid4().hex
+        reponse = self.put_person(data['uuid'], data)
+        self.assertEquals(reponse, data)
+
+    def test_update_person_with_only_new_data(self):
+        self.output_name = 'update_person_with_only_new_data'
+        data = self.create_person()
+        data['first_name'] = uuid4().hex
+        reponse = self.put_person(data['uuid'], {
+            'first_name': data['first_name']
+        })
+        self.assertEquals(reponse, data)
 
     def test_create_person_with_owned_contacts(self):
         self.output_name = 'person_with_owned_contacts'
