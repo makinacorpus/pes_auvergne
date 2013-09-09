@@ -124,6 +124,9 @@ class TestMixin(object):
     def delete_person(self, uuid):
         return self.delete(self.persons_url % uuid)
 
+    def delete_organization(self, uuid):
+        return self.delete(self.organizations_url % uuid)
+
     def make_person(self, updates=None):
         person = {
             'first_name': uuid4().hex,
@@ -247,6 +250,11 @@ class TestOrganization(TestMixin, TestCase):
         })
         reponse = self.put_organization(uuid, data)
         self.assertValidOrganization(reponse)
+
+    def test_delete_organization(self):
+        self.output_name = 'delete_organization'
+        person = self.create_organization()
+        self.delete_organization(person['uuid'])
 
 
 class TestPersonList(TestMixin, TestCase):
