@@ -157,7 +157,7 @@ class TestMixin(object):
             'legal_status': None,
             'pref_phone': None,
             'pref_address': None,
-            #'transverse_themes': [],
+            'transverse_themes': [],
             'short_description': '',
             'members': []
         }
@@ -200,6 +200,16 @@ class TestOrganization(TestMixin, TestCase):
         data = self.make_organization()
         reponse = self.put_organization(uuid, data)
         self.assertValidOrganization(reponse)
+
+    def test_create_organization_with_theme(self):
+        self.output_name = 'organization_with_theme'
+        uuid = uuid4().hex
+        data = self.make_organization({
+            'transverse_themes': [1]
+        })
+        reponse = self.put_organization(uuid, data)
+        self.assertValidOrganization(reponse)
+        self.assertEquals(reponse['transverse_themes'], [1])
 
     def test_update_organization(self):
         self.output_name = 'update_organization'

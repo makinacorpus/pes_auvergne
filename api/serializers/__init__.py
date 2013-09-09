@@ -24,7 +24,7 @@ def serialize_organization(organization):
         'pref_email',
         'pref_address',
         'web',
-        #'transverse_themes',
+        'transverse_themes',
         'members',
     ), inline={
         'contacts': serialize_contact,
@@ -74,7 +74,6 @@ def deserialize_organization(organization, data):
         'workforce',
         'birth',
         'web',
-        'transverse_themes',
     ))
 
 
