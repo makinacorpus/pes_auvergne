@@ -107,6 +107,23 @@ class TestMixin(object):
     def put_organization(self, uuid, data):
         return self.put(self.organizations_url % uuid, data)
 
+    def delete(self, url):
+        response = requests.delete(url)
+        try:
+            response.raise_for_status()
+        except Exception as e:
+            with open('%s.html' % self.output_name, 'w') as output:
+                output.write(response.text)
+            raise(e)
+
+        with open('%s.json' % self.output_name, 'w') as output:
+            json.dump(response.json(), output, indent=4)
+
+        return response.json()
+
+    def delete_person(self, uuid):
+        return self.delete(self.persons_url % uuid)
+
     def make_person(self, updates=None):
         person = {
             'first_name': uuid4().hex,
@@ -305,6 +322,11 @@ class TestPerson(TestMixin, TestCase):
         })
         reponse = self.put_person(uuid, data)
         self.assertValidPerson(reponse)
+
+    def test_delete_person(self):
+        self.output_name = 'delete_person'
+        person = self.create_person()
+        self.delete_person(person['uuid'])
 
 
 if __name__ == '__main__':

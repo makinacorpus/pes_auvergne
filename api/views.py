@@ -171,3 +171,10 @@ class PersonDetailView(PersonView, BaseDetailView):
             self.create(self.object, data)
         context = self.get_context_data(object=self.object)
         return self.render_to_response(context)
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        for contact in self.object.contacts.all():
+            contact.delete()
+        self.object.delete()
+        return json_response({})
