@@ -52,6 +52,7 @@
                     var map = new L.Map('leaflet_map');
                     
                     var any_main_location = false;
+                    var tab_markers = new Array();
 
                     {% for l in member.located.all %}
                         {% if l.location.point %}
@@ -65,7 +66,7 @@
                                 L.marker([{{ l.location.point.y|safe }}, {{ l.location.point.x|safe }}]).addTo(map)
                                         .bindPopup('{{ l.location.label|safe }}');
                             {% endif %}
-                                                            
+                            tab_markers.push(new L.LatLng({{ l.location.point.y|safe }}, {{ l.location.point.x|safe }}))
                             
                         {% endif %}
                     {% endfor %}
@@ -80,6 +81,13 @@
 
                     if(centre)
                         map.setView(centre, 8).addLayer(cloudmade);
+
+                    if(tab_markers.length > 0) {
+                        global_bounds = new L.LatLngBounds(tab_markers);
+                        map.fitBounds(global_bounds);
+                        map.zoomOut();
+                    }
+
                 </script>
             </div>            
         </div>

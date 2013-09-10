@@ -27,6 +27,10 @@
             <div class="search_block" id="thematic2">
                 {{ form.thematic2 }}
             </div>
+            <div class="search_block" id="category">
+                <span class="search_title">{% trans "Category" %}</span>
+                {{ form.category }}
+            </div>
         </div>
         <div class="search_column" id="search_column3">
             <div class="search_block" id="statut">
@@ -75,6 +79,7 @@
             $('#activity2').removeClass("search_form_hide");
             $('#thematic2').removeClass("search_form_hide");
             $('#statut2').removeClass("search_form_hide");
+            $('#category').removeClass("search_form_hide");
 
             $('#less_criteria').removeClass("search_form_hide");
 
@@ -94,6 +99,7 @@
             $('#activity2').addClass("search_form_hide");
             $('#thematic2').addClass("search_form_hide");
             $('#statut2').addClass("search_form_hide");
+            $('#category').addClass("search_form_hide");
 
             $('#less_criteria').addClass("search_form_hide");
 
