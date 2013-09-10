@@ -55,9 +55,9 @@ class TestMixin(object):
             'contacts',
         ], self.assertValidContact)
 
-        #self.assertAreListOf(organization, [
-        #    'transverse_themes',
-        #], int)
+        self.assertAreListOf(organization, [
+            'transverse_themes',
+        ], int)
 
     def assertValidPerson(self, person):
         self.assertAreInstances(person, [
