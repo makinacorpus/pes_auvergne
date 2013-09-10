@@ -130,7 +130,6 @@ install_app() {
 
     ### ??? ###
     $PIP install urlobject
-    $PIP install django-filebrowser
 
     ### ??? ###
     $PYTHON ./manage.py syncdb
