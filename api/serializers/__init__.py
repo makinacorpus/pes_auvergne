@@ -1,6 +1,10 @@
 from .serialize import serialize
 from .deserialize import deserialize
 
+from coop_local.models import (
+    Engagement,
+)
+
 
 def serialize_contact(contact):
     return {
@@ -10,7 +14,7 @@ def serialize_contact(contact):
 
 
 def serialize_organization(organization):
-    return serialize(organization, include=(
+    serialized = serialize(organization, include=(
         'uuid',
         'title',
         'acronym',
@@ -25,10 +29,16 @@ def serialize_organization(organization):
         'pref_address',
         'web',
         'transverse_themes',
-        'members',
     ), inline={
         'contacts': serialize_contact,
     })
+    serialized['members'] = []
+    for engagement in Engagement.objects.filter(organization=organization):
+        serialized['members'].append({
+            'person': engagement.person.uuid,
+            'role': getattr(engagement.role, 'uuid', None),
+        })
+    return serialized
 
 
 def serialize_person(person):

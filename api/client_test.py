@@ -24,6 +24,15 @@ class TestMixin(object):
             if not obj[key] is None:
                 self.assertIsInstance(obj[key], type_)
 
+    def assertValidMember(self, member):
+        self.assertAreInstances(member, [
+            'person',
+        ], basestring)
+
+        self.assertAreInstancesOrNone(member, [
+            'role',
+        ], basestring)
+
     def assertValidOrganization(self, organization):
         self.assertAreInstances(organization, [
             'uuid',
@@ -47,9 +56,9 @@ class TestMixin(object):
             'workforce',
         ], float)
 
-        self.assertAreListOf(organization, [
+        self.assertAreListOfValid(organization, [
             'members',
-        ], basestring)
+        ], self.assertValidMember)
 
         self.assertAreListOfValid(organization, [
             'contacts',
