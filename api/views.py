@@ -61,8 +61,9 @@ class BaseDetailView(DetailView):
         return contact
 
     def update_contacts(self, content_object, data):
-        for contact_data in data:
-            self.update_contact(content_object, contact_data)
+        if 'contacts' in data:
+            for contact_data in data['contacts']:
+                self.update_contact(content_object, contact_data)
 
     def is_old_contact(self, content_object, contact, contact_uuids):
         return (
@@ -81,12 +82,13 @@ class BaseDetailView(DetailView):
                 contact.delete()
 
     def update_pref(self, content_object, name, data):
-        uuid = data.get(name)
-        if uuid:
-            contact = Contact.objects.get(uuid=uuid)
-        else:
-            contact = None
-        setattr(content_object, name, contact)
+        if name in data:
+            uuid = data[name]
+            if uuid:
+                contact = Contact.objects.get(uuid=uuid)
+            else:
+                contact = None
+            setattr(content_object, name, contact)
 
     def get_object(self):
         uuid = self.kwargs.get('uuid', None)
@@ -113,8 +115,11 @@ class OrganizationListView(OrganizationView, BaseListView):
 class OrganizationDetailView(OrganizationView, BaseDetailView):
 
     def update_transverse_themes(self, organization, data):
-        transverse_themes = TransverseTheme.objects.filter(id__in=data)
-        organization.transverse_themes = transverse_themes.all()
+        if 'transverse_themes' in data:
+            transverse_themes = TransverseTheme.objects.filter(
+                id__in=data['transverse_themes']
+            )
+            organization.transverse_themes = transverse_themes.all()
 
     def delete_old_engagements(self, organization):
         Engagement.objects.filter(organization=organization).delete()
@@ -129,20 +134,20 @@ class OrganizationDetailView(OrganizationView, BaseDetailView):
         engagement.save()
 
     def update_members(self, organization, data):
-        self.delete_old_engagements(organization)
+        if 'members' in data:
+            self.delete_old_engagements(organization)
 
-        for engagement_data in data:
-            self.create_engagement(organization, engagement_data)
+            for engagement_data in data['members']:
+                self.create_engagement(organization, engagement_data)
 
     def update_organization(self, organization, data):
         deserialize_organization(organization, data)
         organization.save()
-        self.update_contacts(organization, data.get('contacts', []))
+        self.update_contacts(organization, data)
         self.update_pref(organization, 'pref_email', data)
         self.update_pref(organization, 'pref_phone', data)
-        self.update_transverse_themes(organization,
-                                      data.get('transverse_themes', []))
-        self.update_members(organization, data.get('members', []))
+        self.update_transverse_themes(organization, data)
+        self.update_members(organization, data)
         organization.save()
 
     def create(self, organization, data):
@@ -184,7 +189,7 @@ class PersonDetailView(PersonView, BaseDetailView):
     def update_person(self, person, data):
         deserialize_person(person, data)
         person.save()
-        self.update_contacts(person, data.get('contacts', []))
+        self.update_contacts(person, data)
         self.update_pref(person, 'pref_email', data)
 
         person.save()
