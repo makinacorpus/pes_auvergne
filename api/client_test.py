@@ -107,6 +107,26 @@ class TestMixin(object):
     def put_organization(self, uuid, data):
         return self.put(self.organizations_url % uuid, data)
 
+    def delete(self, url):
+        response = requests.delete(url)
+        try:
+            response.raise_for_status()
+        except Exception as e:
+            with open('%s.html' % self.output_name, 'w') as output:
+                output.write(response.text)
+            raise(e)
+
+        with open('%s.json' % self.output_name, 'w') as output:
+            json.dump(response.json(), output, indent=4)
+
+        return response.json()
+
+    def delete_person(self, uuid):
+        return self.delete(self.persons_url % uuid)
+
+    def delete_organization(self, uuid):
+        return self.delete(self.organizations_url % uuid)
+
     def make_person(self, updates=None):
         person = {
             'first_name': uuid4().hex,
@@ -137,7 +157,7 @@ class TestMixin(object):
             'legal_status': None,
             'pref_phone': None,
             'pref_address': None,
-            #'transverse_themes': [],
+            'transverse_themes': [],
             'short_description': '',
             'members': []
         }
@@ -180,6 +200,16 @@ class TestOrganization(TestMixin, TestCase):
         data = self.make_organization()
         reponse = self.put_organization(uuid, data)
         self.assertValidOrganization(reponse)
+
+    def test_create_organization_with_theme(self):
+        self.output_name = 'organization_with_theme'
+        uuid = uuid4().hex
+        data = self.make_organization({
+            'transverse_themes': [1]
+        })
+        reponse = self.put_organization(uuid, data)
+        self.assertValidOrganization(reponse)
+        self.assertEquals(reponse['transverse_themes'], [1])
 
     def test_update_organization(self):
         self.output_name = 'update_organization'
@@ -230,6 +260,11 @@ class TestOrganization(TestMixin, TestCase):
         })
         reponse = self.put_organization(uuid, data)
         self.assertValidOrganization(reponse)
+
+    def test_delete_organization(self):
+        self.output_name = 'delete_organization'
+        person = self.create_organization()
+        self.delete_organization(person['uuid'])
 
 
 class TestPersonList(TestMixin, TestCase):
@@ -305,6 +340,11 @@ class TestPerson(TestMixin, TestCase):
         })
         reponse = self.put_person(uuid, data)
         self.assertValidPerson(reponse)
+
+    def test_delete_person(self):
+        self.output_name = 'delete_person'
+        person = self.create_person()
+        self.delete_person(person['uuid'])
 
 
 if __name__ == '__main__':

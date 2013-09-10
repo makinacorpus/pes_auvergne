@@ -12,6 +12,7 @@ from coop_local.models import (
     Contact,
     Organization,
     Person,
+    TransverseTheme,
 )
 
 from .serializers import (
@@ -109,13 +110,18 @@ class OrganizationListView(OrganizationView, BaseListView):
 
 class OrganizationDetailView(OrganizationView, BaseDetailView):
 
+    def update_transverse_themes(self, organization, data):
+        transverse_themes = TransverseTheme.objects.filter(id__in=data)
+        organization.transverse_themes = transverse_themes.all()
+
     def update_organization(self, organization, data):
         deserialize_organization(organization, data)
         organization.save()
         self.update_contacts(organization, data.get('contacts', []))
         self.update_pref(organization, 'pref_email', data)
         self.update_pref(organization, 'pref_phone', data)
-
+        self.update_transverse_themes(organization,
+                                      data.get('transverse_themes', []))
         organization.save()
 
     def create(self, organization, data):
@@ -134,6 +140,13 @@ class OrganizationDetailView(OrganizationView, BaseDetailView):
             self.create(self.object, data)
         context = self.get_context_data(object=self.object)
         return self.render_to_response(context)
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        for contact in self.object.contacts.all():
+            contact.delete()
+        self.object.delete()
+        return json_response({})
 
 
 class PersonView(object):
@@ -171,3 +184,10 @@ class PersonDetailView(PersonView, BaseDetailView):
             self.create(self.object, data)
         context = self.get_context_data(object=self.object)
         return self.render_to_response(context)
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        for contact in self.object.contacts.all():
+            contact.delete()
+        self.object.delete()
+        return json_response({})
