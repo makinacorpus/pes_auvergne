@@ -9,6 +9,7 @@ import requests
 class TestMixin(object):
     organizations_url = 'http://localhost:8000/api/organizations/%s/'
     persons_url = 'http://localhost:8000/api/persons/%s/'
+    administrator_role_uuid = 'tiaGboxY3UEcpX9TJEkVpP'
 
     def assertAreListOf(self, obj, keys, type_):
         for key in keys:
@@ -219,6 +220,27 @@ class TestOrganization(TestMixin, TestCase):
         reponse = self.put_organization(uuid, data)
         self.assertValidOrganization(reponse)
         self.assertEquals(reponse['transverse_themes'], [1])
+
+    def test_create_organization_with_member(self):
+        self.output_name = 'organization_with_member'
+        uuid = uuid4().hex
+        person = self.create_person()
+        data = self.make_organization({
+            'members': [
+                {
+                    'role': self.administrator_role_uuid,
+                    'person': person['uuid']
+                }
+            ]
+        })
+        reponse = self.put_organization(uuid, data)
+        self.assertValidOrganization(reponse)
+        self.assertEquals(reponse['members'], [
+            {
+                'role': self.administrator_role_uuid,
+                'person': person['uuid']
+            }
+        ])
 
     def test_update_organization(self):
         self.output_name = 'update_organization'

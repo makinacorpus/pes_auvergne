@@ -10,8 +10,10 @@ from django.views.generic import (
 
 from coop_local.models import (
     Contact,
+    Engagement,
     Organization,
     Person,
+    Role,
     TransverseTheme,
 )
 
@@ -114,6 +116,24 @@ class OrganizationDetailView(OrganizationView, BaseDetailView):
         transverse_themes = TransverseTheme.objects.filter(id__in=data)
         organization.transverse_themes = transverse_themes.all()
 
+    def delete_old_engagements(self, organization):
+        Engagement.objects.filter(organization=organization).delete()
+
+    def create_engagement(self, organization, data):
+        person = Person.objects.get(uuid=data['person'])
+        role = Role.objects.get(uuid=data['role'])
+
+        engagement = Engagement(organization=organization,
+                                person=person,
+                                role=role)
+        engagement.save()
+
+    def update_members(self, organization, data):
+        self.delete_old_engagements(organization)
+
+        for engagement_data in data:
+            self.create_engagement(organization, engagement_data)
+
     def update_organization(self, organization, data):
         deserialize_organization(organization, data)
         organization.save()
@@ -122,6 +142,7 @@ class OrganizationDetailView(OrganizationView, BaseDetailView):
         self.update_pref(organization, 'pref_phone', data)
         self.update_transverse_themes(organization,
                                       data.get('transverse_themes', []))
+        self.update_members(organization, data.get('members', []))
         organization.save()
 
     def create(self, organization, data):
