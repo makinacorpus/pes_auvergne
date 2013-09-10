@@ -11,6 +11,7 @@ from .views import (
     PersonDetailView,
     PersonListView,
     RoleListView,
+    TransverseThemeListView,
 )
 
 urlpatterns = patterns(
@@ -22,4 +23,5 @@ urlpatterns = patterns(
     url(r'^persons/(?P<uuid>\w+)/',
         csrf_exempt(PersonDetailView.as_view())),
     url(r'^roles/$', RoleListView.as_view()),
+    url(r'^transverse_themes/$', TransverseThemeListView.as_view()),
 )

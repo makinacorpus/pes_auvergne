@@ -24,6 +24,7 @@ from .serializers import (
     serialize_organization,
     serialize_person,
     serialize_role,
+    serialize_transverse_theme,
 )
 
 
@@ -223,3 +224,8 @@ class PersonDetailView(PersonView, BaseDetailView):
 class RoleListView(BaseListView):
     model = Role
     serialize = staticmethod(serialize_role)
+
+
+class TransverseThemeListView(BaseListView):
+    model = TransverseTheme
+    serialize = staticmethod(serialize_transverse_theme)

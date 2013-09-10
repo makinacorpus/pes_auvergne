@@ -405,5 +405,34 @@ class TestRoleList(TestMixin, TestCase):
             self.assertValidRole(role)
 
 
+class TestTransverseThemeList(TestMixin, TestCase):
+
+    def assertValidTransverseTheme(self, transverse_theme):
+        self.assertAreInstances(transverse_theme, [
+            'id',
+        ], int)
+        self.assertAreInstances(transverse_theme, [
+            'name',
+        ], basestring)
+
+    def setUp(self):
+        response = requests.get('http://localhost:8000/api/transverse_themes/')
+        try:
+            response.raise_for_status()
+        except Exception as e:
+            with open('transverse_theme_listing.html', 'w') as output:
+                output.write(response.text)
+            raise(e)
+
+        self.transverse_themes = response.json()
+
+        with open('transverse_theme_listing.json', 'w') as output:
+            json.dump(response.json(), output, indent=4)
+
+    def test_transverse_themes_are_valid(self):
+        for transverse_theme in self.transverse_themes:
+            self.assertValidTransverseTheme(transverse_theme)
+
+
 if __name__ == '__main__':
     main()

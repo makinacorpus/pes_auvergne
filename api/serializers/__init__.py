@@ -71,6 +71,13 @@ def serialize_role(role):
     ))
 
 
+def serialize_transverse_theme(transverse_theme):
+    return serialize(transverse_theme, include=(
+        'id',
+        'name',
+    ))
+
+
 def deserialize_contact(content_object, contact, data):
     deserialize(contact, data, include=(
         'uuid',
