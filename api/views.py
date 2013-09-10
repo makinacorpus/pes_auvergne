@@ -23,6 +23,7 @@ from .serializers import (
     deserialize_person,
     serialize_organization,
     serialize_person,
+    serialize_role,
 )
 
 
@@ -217,3 +218,8 @@ class PersonDetailView(PersonView, BaseDetailView):
             contact.delete()
         self.object.delete()
         return json_response({})
+
+
+class RoleListView(BaseListView):
+    model = Role
+    serialize = staticmethod(serialize_role)

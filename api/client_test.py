@@ -378,5 +378,32 @@ class TestPerson(TestMixin, TestCase):
         self.delete_person(person['uuid'])
 
 
+class TestRoleList(TestMixin, TestCase):
+
+    def assertValidRole(self, role):
+        self.assertAreInstances(role, [
+            'uuid',
+            'label',
+        ], basestring)
+
+    def setUp(self):
+        response = requests.get('http://localhost:8000/api/roles/')
+        try:
+            response.raise_for_status()
+        except Exception as e:
+            with open('role_listing.html', 'w') as output:
+                output.write(response.text)
+            raise(e)
+
+        self.roles = response.json()
+
+        with open('role_listing.json', 'w') as output:
+            json.dump(response.json(), output, indent=4)
+
+    def test_roles_are_valid(self):
+        for role in self.roles:
+            self.assertValidRole(role)
+
+
 if __name__ == '__main__':
     main()

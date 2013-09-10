@@ -64,6 +64,13 @@ def serialize_location(location):
     })
 
 
+def serialize_role(role):
+    return serialize(role, include=(
+        'uuid',
+        'label',
+    ))
+
+
 def deserialize_contact(content_object, contact, data):
     deserialize(contact, data, include=(
         'uuid',

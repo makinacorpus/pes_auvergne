@@ -6,10 +6,11 @@ from django.conf.urls.defaults import (
 from django.views.decorators.csrf import csrf_exempt
 
 from .views import (
-    OrganizationListView,
     OrganizationDetailView,
-    PersonListView,
+    OrganizationListView,
     PersonDetailView,
+    PersonListView,
+    RoleListView,
 )
 
 urlpatterns = patterns(
@@ -20,4 +21,5 @@ urlpatterns = patterns(
     url(r'^persons/$', PersonListView.as_view()),
     url(r'^persons/(?P<uuid>\w+)/',
         csrf_exempt(PersonDetailView.as_view())),
+    url(r'^roles/$', RoleListView.as_view()),
 )
