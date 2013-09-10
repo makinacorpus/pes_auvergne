@@ -96,6 +96,10 @@ install_app() {
     $PIP install --exists-action=w -e git+git://github.com/makinacorpus/django-chosen#egg=django-chosen
     # ----------------------
 
+    # geohash fails to install from pypi
+    tar -xvf Geohash-1.0rc1.tar.gz
+    $PYTHON Geohash-1.0rc1/setup.py install
+
     $PIP install -r ./requirements.txt
 
     ### ??? ###
