@@ -5,17 +5,17 @@ from coop_local.settings import PROJECT_NAME
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'coop_pes_auvergne',                      # Or path to database file if using sqlite3.
-        'USER': 'gisuser',                      # Not used with sqlite3.
-        'PASSWORD': 'xxxxx',                  # Not used with sqlite3.
+        'NAME': 'DB_NAME',                      # Or path to database file if using sqlite3.
+        'USER': 'DB_USER',                      # Not used with sqlite3.
+        'PASSWORD': 'DB_PASS',                  # Not used with sqlite3.
         'HOST' : 'localhost',
    },
    
     'geofla_db': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'coop_pes_auvergne',                      # Or path to database file if using sqlite3.
-        'USER': 'gisuser',                      # Not used with sqlite3.
-        'PASSWORD': 'xxxxxxxx',                  # Not used with sqlite3.
+        'NAME': 'DB_NAME',                      # Or path to database file if using sqlite3.
+        'USER': 'DB_USER',                      # Not used with sqlite3.
+        'PASSWORD': 'DB_PASS',                  # Not used with sqlite3.
         'HOST' : 'localhost',
     },
 }
