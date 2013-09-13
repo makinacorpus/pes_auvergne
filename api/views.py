@@ -2,7 +2,10 @@ import json
 
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponse
-from django.shortcuts import get_object_or_404
+from django.shortcuts import (
+    get_object_or_404,
+    render
+)
 from django.views.generic import (
     ListView,
     DetailView
@@ -37,6 +40,10 @@ def get_or_create_object(model, **kwargs):
         return model.objects.get(**kwargs)
     except ObjectDoesNotExist:
         return model(**kwargs)
+
+
+def help_view(request):
+    return render(request, 'api/help.html')
 
 
 class BaseListView(ListView):
