@@ -3,6 +3,23 @@
 <head>
     <title>API - Documentation</title>
     <meta charset="utf-8" />
+    <style type="text/css" media="screen">
+    h2 {
+        background-color: #CCC;
+        border: solid 1px #AAA;
+        border-left: none;
+        border-right: none;
+        padding: .2em;
+        text-align: center;
+    }
+    h3 {
+        background-color: #EEE;
+        border: solid 1px #CCC;
+        border-left: none;
+        border-right: none;
+        padding: .2em;
+    }
+    </style>
 </head>
 <body>
     <section>
@@ -81,6 +98,30 @@
     </section>
     <section>
         <h2>Persons</h2>
+        <h3>Persons structure</h3>
+        <pre>
+        {
+            "first_name": "First Name",
+            "last_name": "Last Name",
+            "contacts": [
+                {
+                    "content": "00.00.00.00.00",
+                    "uuid": "33746d9321fd4d6db5449950878510ed" 
+                },
+                …
+            ],
+            "pref_email": "9b9eec5c5d4a462790b8f596adc0f33d",
+            "uuid": "6c7b266e58174207add94cb64d3f8a5f",
+        }
+        </pre>
+        <p>Where:
+            <dl>
+                <dt><b>pref_email</b></dt>
+                <dd>
+                    An existing person/organization contact or an owned contact.
+                </dd>
+            </dl>
+        </p>
         <h3>End Points</h3>
         <dl>
             <dt><b>GET /api/persons/</b><dt>
@@ -100,9 +141,6 @@
                 <p>Create or update a person.</p>
             </dd>
         </dl>
-        <h3>Persons structure</h3>
-        <pre>
-        </pre>
     </section>
     <section>
         <h2>Transverse Themes</h2>
@@ -115,6 +153,10 @@
         </dl>
         <h3>Transverse Themes structure</h3>
         <pre>
+        {
+            "id": 1,
+            "name": "Theme Name"
+        }
         </pre>
     </section>
     <section>
@@ -128,6 +170,10 @@
         </dl>
         <h3>Roles structure</h3>
         <pre>
+        {
+            "uuid": "DhkrWCaL6YVmrJcuNTuYUh",
+            "label": "Role Label"
+        }
         </pre>
     </section>
 </body>
