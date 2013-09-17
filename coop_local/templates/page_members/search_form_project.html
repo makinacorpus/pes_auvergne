@@ -106,14 +106,6 @@
             $('#more_criteria').addClass("search_form_hide");
 
             $('#more_criteria_status').val("True");
-
-            $("#search_form").animate({
-                height: '+=0px'
-            }, 500);
-            $("#column2").animate({
-                'margin-top': '+=0px'
-            }, 500);
-
     }
     function less_criteria(animate) {
             $('#activity2').addClass("search_form_hide");
@@ -125,14 +117,5 @@
             $('#more_criteria').removeClass("search_form_hide");
 
             $('#more_criteria_status').val("False");
-
-            if(animate) {
-                $("#search_form").animate({
-                    height: '-=0px'
-                }, 500);
-                $("#column2").animate({
-                    'margin-top': '-=0px'
-                }, 500);
-            }
     }
 </script>
