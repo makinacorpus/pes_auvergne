@@ -7,25 +7,25 @@
 
   <div id="main-content" class="content-index content-services content-coop-app">
     <section id="content" class="body">
-        <div id="column1">{% block page %}{% render_page %}{% endblock %}</div>
-
-        <div id="column2">
-            <div class="" id="services_text">
-                {% render_layout 'services_text' %}
+        {% block page %}{% render_page %}{% endblock %}
+            <div id="column2">
+                <div class="" id="services_text">
+                    {% render_layout 'services_text' %}
+                </div>
+                <div class="" id="services_links">
+                    {% render_layout 'services_icons' %}
+                </div>
+                <div class="column-widget" id="service_participate">
+                    {% render_layout 'participate' %}
+                </div>
+                <div class="column-widget" id="service_discover">
+                    {% render_layout 'discover' %}
+                </div>
+                <div class="column-widget" id="promote">
+                    {% render_layout 'promote' %}
+                </div>
             </div>
-            <div class="" id="services_links">
-                {% render_layout 'services_icons' %}
-            </div>
-            <div class="column-widget" id="service_participate">
-                {% render_layout 'participate' %}
-            </div>
-            <div class="column-widget" id="service_discover">
-                {% render_layout 'discover' %}
-            </div>
-            <div class="column-widget" id="promote">
-                {% render_layout 'promote' %}
-            </div>
-        </div>
+        </div> <!-- end row -->
     </section>
  </div>
   

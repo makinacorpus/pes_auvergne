@@ -7,25 +7,25 @@
 
   <div id="main-content" class="content-index content-coop_territory content-coop-app">
     <section id="content" class="body">
-        <div id="column1">{% block page %}{% render_page %}{% endblock %}</div>
-
-        <div id="column2">
-            <div class="" id="territory_text">
-                {% render_layout 'territory_text' %}
+        {% block page %}{% render_page %}{% endblock %}
+            <div id="column2">
+                <div class="" id="territory_text">
+                    {% render_layout 'territory_text' %}
+                </div>
+                <div class="" id="territory_links">
+                    {% render_layout 'territory_icons' %}
+                </div>
+                <div class="column-widget" id="territory_participate">
+                    {% render_layout 'participate' %}
+                </div>
+                <div class="column-widget" id="territory_discover">
+                    {% render_layout 'discover' %}
+                </div>
+                <div class="column-widget" id="promote">
+                    {% render_layout 'promote' %}
+                </div>
             </div>
-            <div class="" id="territory_links">
-                {% render_layout 'territory_icons' %}
-            </div>
-            <div class="column-widget" id="territory_participate">
-                {% render_layout 'participate' %}
-            </div>
-            <div class="column-widget" id="territory_discover">
-                {% render_layout 'discover' %}
-            </div>
-            <div class="column-widget" id="promote">
-                {% render_layout 'promote' %}
-            </div>
-        </div>
+        </div> <!-- end row -->
     </section>
  </div>
   
