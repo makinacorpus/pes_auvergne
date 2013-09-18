@@ -49,13 +49,11 @@
     
         <input type="hidden" name="more_criteria_status" id="more_criteria_status" value="">
 
-        <div id="search_bottom">
-            <div class="search_block" id="search_submit">
-                <input type="submit" value="{% trans "Search" %}" />
-                <div id="criteria_option">
-                    <a href="javascript:more_criteria();" id="more_criteria" class="member_link">{% trans "Display more criteria" %}</a>
-                    <a href="javascript:less_criteria(true);" id="less_criteria" class="member_link">{% trans "Display less criteria" %}</a>
-                </div>
+        <div class="search_block" id="search_submit">
+            <input type="submit" value="{% trans "Search" %}" />
+            <div id="criteria_option">
+                <a href="javascript:more_criteria();" id="more_criteria" class="member_link">{% trans "Display more criteria" %}</a>
+                <a href="javascript:less_criteria(true);" id="less_criteria" class="member_link">{% trans "Display less criteria" %}</a>
             </div>
         </div>
     </form>

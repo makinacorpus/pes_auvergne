@@ -171,8 +171,9 @@ ol .bloc_content .exchange_complement {
 #coop_agenda .readmore,
 #articles .readmore,
 #coop_exchange .readmore {
-  float: right;
-  position: relative;
+  position: absolute;
+  right: 0;
+  bottom: 5px;
 }
 .edit {
   position: absolute;
@@ -461,7 +462,7 @@ figure.left {
   padding: 0;
   text-align: center;
   width: 780px;
-  font-family: Aller;
+  font-family: Aller, 'Helvetica', Trebuchet, Arial, sans-serif;
 }
 #banner nav.index {
   position: absolute;
@@ -661,6 +662,7 @@ figure.left {
   float: left;
   width: 240px;
   padding: 5px;
+  margin-top: -15px;
 }
 #articles #column1 {
   width: 240px;
@@ -707,24 +709,6 @@ figure.left {
 }
 .bloc_content .bloc_content_col1 h3.menu_selected a {
   color: #fff;
-}
-.search_form_enabled #column2 {
-  margin-top: 200px;
-}
-.search_form_enabled_member #column2 {
-  margin-top: 160px;
-}
-.search_form_enabled_service #column2 {
-  margin-top: 160px;
-}
-.search_form_enabled_exchange #column2 {
-  margin-top: 200px;
-}
-.search_form_enabled_territory #column2 {
-  margin-top: 180px;
-}
-.search_form_enabled_article #column2 {
-  margin-top: 100px;
 }
 #column2 .column-widget {
   background: #fff;
@@ -1207,6 +1191,7 @@ h4.coop_agenda {
   float: left;
   margin-top: 0;
   width: 686px;
+  margin-right: 10px;
 }
 #column1_top.standard,
 .content-coop_member #members_top,
@@ -1229,30 +1214,13 @@ h4.coop_agenda {
   margin-top: 0;
   width: 950px;
 }
-.content-projects #search_form {
-  height: 145px;
-}
-.content-coop_member #search_form {
-  height: 150px;
-}
-.content-coop_exchange #search_form {
-  height: 190px;
-}
-.content-coop_territory #search_form {
-  height: 170px;
-}
-.content-services #search_form {
-  height: 150px;
-}
-.content-articles #search_form {
-  height: 90px;
-}
 .content-coop_exchange #result_exchanges,
 .content-coop_territory #result_territory,
 .content-services #result_service {
   width: 686px;
   height: auto;
   padding: 7px;
+  margin-right: 10px;
 }
 .content-coop_exchange #exchanges_top,
 .content-coop_exchange #exchanges_top_search,
@@ -1479,26 +1447,50 @@ h4.coop_agenda {
 #coop_article,
 #coop_exchange {
   background: #fff;
-  margin-bottom: 25px;
+  margin-bottom: 25px!important;
   box-shadow: 2px 2px 2px #aaa;
   float: left;
 }
 #search_form {
   margin-top: 5px;
   padding: 0;
+  float: none;
+  clear: both;
+}
+#search_form:before,
+#search_form:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+#search_form:after {
+  clear: both;
 }
 #search_form .search_block {
   float: left;
-  padding: 10px;
+  padding: 10px!important;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  width: 100%;
+  width: 100%!important;
+}
+#search_form .search_column-double .checkbox_custom {
+  width: 50%!important;
+}
+#search_form .search_column-double .checkbox_custom:first-child {
+  padding-right: 0!important;
+}
+#search_form #search_column4.search_column-double {
+  width: 260px;
 }
 #search_form .search_title {
   font-weight: bold;
   display: block;
   margin-bottom: 5px;
+  font-size: 14px;
 }
 #search_form .label {
   width: 85px;
@@ -1557,11 +1549,20 @@ h4.coop_agenda {
   float: left;
   width: 100px;
 }
-#search_bottom {
+#search_submit {
   clear: both;
+}
+#criteria_option {
+  margin-left: 20px;
+  margin-top: 5px;
+  float: left;
 }
 #search_submit input[type='submit'] {
   float: left;
+  line-height: 18px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 #leaflet_map {
   width: 100%;
@@ -1582,11 +1583,6 @@ h4.coop_agenda {
 #search_form label {
   font-size: 10px;
 }
-#criteria_option {
-  margin-top: 7px;
-  margin-left: 20px;
-  float: left;
-}
 a.agenda_link,
 a.member_link,
 a.account_link,
@@ -1601,23 +1597,39 @@ a.agenda_link {
   color: #70BE46;
 }
 a.agenda_link:hover {
-  color: #2e4f1c;
+  color: #447529;
 }
 a.member_link {
   color: #a03225;
 }
+a.member_link:hover {
+  color: #4d1812;
+}
 a.exchange_link {
   color: #468b92;
+}
+a.exchange_link:hover {
+  color: #25494d;
 }
 a.articles_link,
 .articles_link {
   color: #53c97f;
 }
+a.articles_link:hover,
+.articles_link:hover {
+  color: #2b8b4f;
+}
 a.territory_link {
   color: #50A1FA;
 }
+a.territory_link:hover {
+  color: #066dde;
+}
 a.account_link {
   color: #F8B133;
+}
+a.account_link:hover {
+  color: #be7c07;
 }
 .content-services a.service_link {
   color: #8b3e74;
@@ -1666,6 +1678,9 @@ span.date_to {
 .coop_exchange .exchange_desc {
   padding-bottom: 25px;
 }
+.bloc_title {
+  position: relative;
+}
 .bloc_title,
 #articles .entry {
   float: left;
@@ -1673,6 +1688,9 @@ span.date_to {
   width: 100%;
   border-bottom: 1px solid #eee;
   padding-bottom: 3px;
+}
+#articles h3 {
+  margin-top: 25px;
 }
 .bloc_title_home {
   border-bottom: 1px solid #ccc;
@@ -1699,6 +1717,22 @@ span.date_to {
 .entry .block_img_off img {
   max-height: 140px;
   max-width: 135px;
+}
+.coop_agenda {
+  float: none;
+  clear: both;
+}
+.coop_agenda:before,
+.coop_agenda:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+.coop_agenda:after {
+  clear: both;
 }
 .content-coop_member .bloc_title .logo_pes {
   background: url(../images/logo_pes_auvergne_violet.png) center center no-repeat;
@@ -2158,11 +2192,11 @@ span.date_to {
 #search_submit input[type='submit'] {
   border-radius: 5px;
   padding: 6px 15px;
+  margin: 0;
   background: #ff8f45;
   border: none;
   color: #fff;
   font-size: 15px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   cursor: pointer;
 }
 #search_submit input[type='submit']:hover {

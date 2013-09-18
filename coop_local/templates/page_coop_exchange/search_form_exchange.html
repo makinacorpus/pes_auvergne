@@ -7,7 +7,7 @@
         <form action="{{ base_url }}" method="get" id="search-form">{% csrf_token %}
     {% endif %}
     
-        <div class="search_column" id="search_column1">
+        <div class="search_column search_column-double" id="search_column1">
             <div class="search_block checkbox_custom" id="looking_for">
                 <span class="search_title">{% trans "I'm looking for" %}</span>
                 {{ form.type_exchange }}
@@ -54,7 +54,7 @@
             </div>
 
         </div>
-        <div class="search_column" id="search_column4">
+        <div class="search_column search_column-double" id="search_column4">
             <div class="search_block checkbox_custom" id="mode">
                 <span class="search_title">{% trans "Exchange mode" %}</span>
                 {{ form.method }}
@@ -75,7 +75,6 @@
                 <a href="javascript:less_criteria(true);" id="less_criteria" class="exchange_link">{% trans "Display less criteria" %}</a>
             </div>
         </div>
-
     </form>
 
 
