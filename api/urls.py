@@ -12,10 +12,12 @@ from .views import (
     PersonListView,
     RoleListView,
     TransverseThemeListView,
+    help_view,
 )
 
 urlpatterns = patterns(
     '',
+    url(r'^$', help_view),
     url(r'^organizations/$', OrganizationListView.as_view()),
     url(r'^organizations/(?P<uuid>\w+)/',
         csrf_exempt(OrganizationDetailView.as_view())),

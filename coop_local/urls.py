@@ -16,7 +16,7 @@ admin.autodiscover()
 # Add you own URLs here
 urlpatterns = patterns(
     '',
-    #url(r'^api/', include('api.urls')),
+    url(r'^api/', include('api.urls')),
 )
 
 from coop.default_project_urls import urlpatterns as default_project_urls
