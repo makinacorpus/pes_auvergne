@@ -1,6 +1,8 @@
-/coop_local/db_settings.py
-/coop_local/local_settings.py
-/media/
-/ve/
+venv/
+static_collected/
+src/
+media/
+project_install/config_dev.py
 *.pyc
-*.*~
+pg_dump.data
+build/
