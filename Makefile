@@ -6,7 +6,6 @@ default:
 	@echo "Read README.rst first"
 
 clean:
-	rm -rf Geohash-1.0rc1
 	rm -rf build dist
 
 virtualenv: $(PYTHON)
@@ -30,10 +29,6 @@ requirements: virtualenv
 	$(PIP) install --exists-action=w -e git+git://github.com/makinacorpus/django-selectable.git@master#egg=django-selectable
 	$(PIP) install --exists-action=w -e git+git://github.com/makinacorpus/django-chosen#egg=django-chosen
 	# ----------------------
-
-	# geohash fails to install from pypi
-	tar -xvf Geohash-1.0rc1.tar.gz
-	$(PYTHON) Geohash-1.0rc1/setup.py install
 
 	$(PIP) install -r ./requirements.txt
 
