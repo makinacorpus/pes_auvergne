@@ -99,8 +99,8 @@ install_app() {
 }
 
 ### MAIN ###
-#install_system_dependencies
-#configure_postgres
+install_system_dependencies
+configure_postgres
 create_db_user
 create_db
-#install_app
+install_app
