@@ -7,25 +7,25 @@
 
   <div id="main-content" class="content-index content-coop_member content-coop-app">
     <section id="content" class="body">
-        <div id="column1">{% block page %}{% render_page %}{% endblock %}</div>
-
-        <div id="column2">
-            <div class="" id="member_text">
-                {% render_layout 'member_text' %}
+        {% block page %}{% render_page %}{% endblock %}
+            <div id="column2" class="span4">
+                <div class="" id="member_text">
+                    {% render_layout 'member_text' %}
+                </div>
+                <div class="" id="member_links">
+                    {% render_layout 'member_icons' %}
+                </div>
+                <div class="column-widget" id="exchanges_participate">
+                    {% render_layout 'participate' %}
+                </div>
+                <div class="column-widget" id="exchanges_discover">
+                    {% render_layout 'discover' %}
+                </div>
+                <div class="column-widget" id="promote">
+                    {% render_layout 'promote' %}
+                </div>
             </div>
-            <div class="" id="member_links">
-                {% render_layout 'member_icons' %}
-            </div>
-            <div class="column-widget" id="exchanges_participate">
-                {% render_layout 'participate' %}
-            </div>
-            <div class="column-widget" id="exchanges_discover">
-                {% render_layout 'discover' %}
-            </div>
-            <div class="column-widget" id="promote">
-                {% render_layout 'promote' %}
-            </div>
-        </div>
+        </div> <!-- end row -->
     </section>
  </div>
   

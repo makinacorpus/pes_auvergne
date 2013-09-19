@@ -49,13 +49,11 @@
     
         <input type="hidden" name="more_criteria_status" id="more_criteria_status" value="">
 
-        <div id="search_bottom">
-            <div class="search_block" id="search_submit">
-                <input type="submit" value="{% trans "Search" %}" />
-                <div id="criteria_option">
-                    <a href="javascript:more_criteria();" id="more_criteria" class="member_link">{% trans "Display more criteria" %}</a>
-                    <a href="javascript:less_criteria(true);" id="less_criteria" class="member_link">{% trans "Display less criteria" %}</a>
-                </div>
+        <div class="search_block" id="search_submit">
+            <input type="submit" value="{% trans "Search" %}" />
+            <div id="criteria_option">
+                <a href="javascript:more_criteria();" id="more_criteria" class="member_link">{% trans "Display more criteria" %}</a>
+                <a href="javascript:less_criteria(true);" id="less_criteria" class="member_link">{% trans "Display less criteria" %}</a>
             </div>
         </div>
     </form>
@@ -106,14 +104,6 @@
             $('#more_criteria').addClass("search_form_hide");
 
             $('#more_criteria_status').val("True");
-
-            $("#search_form").animate({
-                height: '+=0px'
-            }, 500);
-            $("#column2").animate({
-                'margin-top': '+=0px'
-            }, 500);
-
     }
     function less_criteria(animate) {
             $('#activity2').addClass("search_form_hide");
@@ -125,14 +115,5 @@
             $('#more_criteria').removeClass("search_form_hide");
 
             $('#more_criteria_status').val("False");
-
-            if(animate) {
-                $("#search_form").animate({
-                    height: '-=0px'
-                }, 500);
-                $("#column2").animate({
-                    'margin-top': '-=0px'
-                }, 500);
-            }
     }
 </script>
