@@ -14,7 +14,7 @@ $(PYTHON):
 	$(PIP) install -U distribute
 
 requirements: virtualenv
-	### ??? ###
+	#### ??? ###
 	$(PIP) install django==1.4.5
 	$(PIP) install django-selectable
 	$(PIP) install -e git+git://github.com/makinacorpus/django-coop@django-coop-ionyweb#egg=django-coop
@@ -38,11 +38,11 @@ install: requirements
 
 	### ??? ###
 	$(PYTHON) ./manage.py collectstatic --noinput
-	$(PYTHON) ./manage.py syncdb --all  # Can't use noinput. Want admin user created
+	$(PYTHON) ./manage.py syncdb --all --noinput
+	$(PYTHON) ./manage.py createsuperuser --username admin
 	$(PYTHON) ./manage.py migrate --fake
 	$(PYTHON) ./manage.py loaddata coop_local/fixtures/*
 
-	### ??? ###
 	$(PIP) install pillow
 
 	### ??? ###
