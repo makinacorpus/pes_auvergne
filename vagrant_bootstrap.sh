@@ -43,13 +43,21 @@ install_system_dependencies() {
     sudo apt-get -y install mercurial
 }
 
+postgres_is_configured() {
+    sudo grep '^local\s*all\s*all\s*ident$' \
+        /etc/postgresql/9.1/main/pg_hba.conf \
+        &> /dev/null
+}
+
 configure_postgres() {
-    echo_red "######################"
-    echo_red "# Configure Postgres #"
-    echo_red "######################"
-    # change local auth from peer to ident
-    sudo sed -i 's/^\(local\s*all\s*all\s*\)peer$/\1ident/' /etc/postgresql/9.1/main/pg_hba.conf
-    sudo service postgresql restart
+    if ! postgres_is_configured; then
+        echo_red "######################"
+        echo_red "# Configure Postgres #"
+        echo_red "######################"
+        # change local auth from peer to ident
+        sudo sed -i 's/^\(local\s*all\s*all\s*\)peer$/\1ident/' /etc/postgresql/9.1/main/pg_hba.conf
+        sudo service postgresql restart
+    fi
 }
 
 db_user_exists() {
