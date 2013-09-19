@@ -43,6 +43,7 @@ install: requirements
 	$(PYTHON) ./manage.py migrate --fake
 	$(PYTHON) ./manage.py loaddata coop_local/fixtures/*
 
+	$(PIP) uninstall pil -y
 	$(PIP) install pillow
 
 	### ??? ###
