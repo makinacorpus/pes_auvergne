@@ -47,9 +47,8 @@ configure_postgres() {
     echo_red "######################"
     echo_red "# Configure Postgres #"
     echo_red "######################"
-    # TODO find a better regexp
-    # change auth from peer to ident
-    sudo sed -i 's/^local *all *all *peer$/local   all             all                                     ident/' /etc/postgresql/9.1/main/pg_hba.conf
+    # change local auth from peer to ident
+    sudo sed -i 's/^\(local\s*all\s*all\s*\)peer$/\1ident/' /etc/postgresql/9.1/main/pg_hba.conf
     sudo service postgresql restart
 }
 
