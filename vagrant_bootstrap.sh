@@ -3,14 +3,19 @@
 set -e
 
 ### CONFIG ###
-VENV="./venv"
-PYTHON="$VENV/bin/python"
-PIP="$VENV/bin/pip"
+[ -f ".env" ] && source .env
 
-DB_USER=coop_mes
-DB_PASS=coop_mes
-DB_NAME=coop_mes
+if [ -z "$DB_USER" ]; then
+    DB_USER=coop_mes
+fi
+if [ -z "$DB_PASS" ]; then
+    DB_PASS=coop_mes
+fi
+if [ -z "$DB_NAME" ]; then
+    DB_NAME=coop_mes
+fi
 
+### FUNCTIONS ###
 echo_red() {
     echo -e "\033[31m\033[1m$*\033[0m"
 }
@@ -75,6 +80,7 @@ install_app() {
     sudo -u postgres psql -d ${DB_NAME} -c "UPDATE multisite_alias SET domain='localhost:8000' WHERE id=1;"
 }
 
+### MAIN ###
 install_system_dependencies
 configure_postgres
 create_db_user
