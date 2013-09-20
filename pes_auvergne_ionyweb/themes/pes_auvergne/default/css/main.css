@@ -290,6 +290,11 @@ figure {
 #main-content #login_form input[type='password'] {
   width: auto;
 }
+
+#main-content .date_select select {
+  width: auto;
+}
+
 #main-content #search_form input[type='date'] {
   padding-top: 3px;
   padding-bottom: 3px;
