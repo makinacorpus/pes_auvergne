@@ -52,18 +52,6 @@ def serialize_person(person):
     })
 
 
-def serialize_location(location):
-    return serialize(location, {
-        'uuid',
-        'label',
-        'adr1',
-        'adr2',
-        'zipcode',
-        'city',
-        'country',
-    })
-
-
 def serialize_role(role):
     return serialize(role, include=(
         'uuid',
