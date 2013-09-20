@@ -7,7 +7,7 @@
             <h5 class="coop_exchange_title"><a href="{{ exchange_url }}p/{{ e.pk }}">{{ e.title }}</a></h5>
            
         </div>
-        <div class="exchange_desc">{{ e.description|safe }}</div>
+        <div class="exchange_desc">{{ e.description|safe|truncatechars:100 }}</div>
     {% endfor %}
     </div>
 
