@@ -153,6 +153,9 @@ ol {
 ol .bloc_content .exchange_complement {
   position: relative;
 }
+input[type='submit'] {
+  cursor: pointer;
+}
 .post-info {
   float: right;
   margin: 10px;
@@ -262,6 +265,7 @@ figure {
   background: none;
   box-shadow: none;
   font-size: 12px;
+  width: 40%;
 }
 #main-content #login_form input[type='text'],
 #main-content #login_form input[type='password'],
@@ -282,6 +286,16 @@ figure {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+#main-content #login_form input[type='text'],
+#main-content #login_form input[type='password'] {
+  width: auto;
+}
+
+#main-content .date_select select,
+#sort-form select {
+  width: auto;
+}
+
 #main-content #search_form input[type='date'] {
   padding-top: 3px;
   padding-bottom: 3px;
@@ -657,6 +671,7 @@ figure.left {
 }
 #column1.standard {
   width: 695px;
+  margin-right: 10px;
 }
 #column2 {
   float: left;
