@@ -14,11 +14,10 @@
                 <span class="search_title">{% trans "I'm looking for" %}</span>
                 {{ form.type_exchange }}
             </div>
-            <div class="search_block" id="search_submit">
-                <input type="submit" value="{% trans "Search" %}" />                
-                <div id="results_block"><span class="nb_results">{{ exchanges.count }}</span> <span class="label_results">{% trans "Results" %}</span></div>
-                
-            </div>
+        </div>
+        <div class="search_block" id="search_submit">
+            <input type="submit" value="{% trans "Search" %}" />                
+            <div id="results_block"><span class="nb_results">{{ exchanges.count }}</span> <span class="label_results">{% trans "Results" %}</span></div>
         </div>
     </form>
 </div>

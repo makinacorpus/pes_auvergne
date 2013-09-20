@@ -3,126 +3,129 @@
 
 
 {% if search_form %}
+<div class="row">
+    <script type="text/javascript">
+        // We need to set a new class to content element, in order do properly display the form and the other elements
+        $('#main-content').addClass("search_form_enabled_agenda");
+    </script>
 
-<script type="text/javascript">
-    // We need to set a new class to content element, in order do properly display the form and the other elements
-    $('#main-content').addClass("search_form_enabled_agenda");
-</script>
-
-<div id="agenda_top_search"></div>
-<div id="search_form">
-    {% include search_form_template %}
-</div>
-
-<script type="text/javascript">
-    $(function() {
-        $.datepicker.regional['fr'] = {
-            closeText: 'Fermer',
-            prevText: '&#x3c;Préc',
-            nextText: 'Suiv&#x3e;',
-            currentText: 'Courant',
-            monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin',
-            'Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
-            monthNamesShort: ['Jan','Fév','Mar','Avr','Mai','Jun',
-            'Jul','Aoû','Sep','Oct','Nov','Déc'],
-            dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
-            dayNamesShort: ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'],
-            dayNamesMin: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
-            weekHeader: 'Sm',
-            dateFormat: 'dd/mm/yy',
-            firstDay: 1,
-            isRTL: false,
-            showMonthAfterYear: false,
-            yearSuffix: ''};
-        $.datepicker.setDefaults($.datepicker.regional['fr']);
-
-        $('#id_start_date').datepicker({dateFormat: 'yy-mm-dd', constrainInput: false});
-        $('#id_end_date').datepicker({dateFormat: 'yy-mm-dd', constrainInput: false});
-
-        $("#id_location").autocomplete({
-            source: function( request, response ) {
-                var matches = $.map( {{ available_locations|safe }}, function(tag, i) {
-                    if ( tag.label.toUpperCase().indexOf(request.term.toUpperCase()) === 0 ) {
-                        return tag;
-                    }
-                });
-                response(matches);
-            },
-            select: function(e, ui) {
-                e.preventDefault() // <--- Prevent the value from being inserted.
-                $("#id_location_id").val(ui.item.value);
-
-                $(this).val(ui.item.label);
-            }
-        });
-
-
-        });
-</script>
-
-{% endif %}
-
-<div id="agenda_top"></div>
-<div id="coop_agenda">
-<div class="agenda_pagination_top pagination_top pagination">
-    {% include "page_coop_agenda/pagination.html" %}
-    <div class="carto"><a href="javascript:submitForm('{{ base_url }}p/carto')">{% trans "Cartography" %}</a></div>
-</div>
-
-
-<h3 class="coop_agenda">{% trans "Agenda" %}</h3>
-    {% for o in occs %}            
-        <div class="coop_agenda">
-            <div class="bloc_title">
-                {% if o.event.image != '' %}
-                    <div class="logo"><a class="agenda_link" href="{{ base_url }}p/{{ o.event.pk }}"><img src="{{ media_path }}{{ o.event.image }}" alt=""></a></div>
-                {% else %}
-                    <div class="logo logo_pes"></div>
-                {% endif %}
-
-                <div class="resume">
-                    {% if o.event.location == None %} {% else %} <span class="location">{{ o.event.location|truncatechars:20 }}</span> {% endif %}
-                    <ul class="date">
-                        <li>
-                            <span class="date_from">{{ o.start_time|date:"j" }} {{ o.start_time|date:"M"|lower }} {{ o.start_time|date:"Y"|lower }}</span>
-                            {% if  o.start_time.date != o.end_time.date %}
-                                <span class="date_to">{% trans "to" %}</span>
-                            <span class="date_from">{{ o.end_time|date:"j" }} {{ o.end_time|date:"M"|lower }} {{ o.end_time|date:"Y"|lower }}</span>
-                            {% endif %}
-                        </li>
-                    </ul>
-
-                    <a href="{{ base_url }}p/{{ o.event.pk }}"><h3 class="coop_agenda_title resume_title">{{ o.event.title }}</h3></a>
-
-
-                    <div class="description">
-                        {{ o.event.description|truncatechars:150|safe }}
-                    </div>
-                    <span class="readmore"><a class="agenda_link" href="{{ base_url }}p/{{ o.event.pk }}">{% trans "Read more" %}</a></span>
-                    {% if request.user.is_superuser %}
-                        <span class="edit"><a class="" href="{{ base_url }}p/event_edit/{{ o.event.pk }}">{% trans "Edit" %}</a></span>
-                    {% endif %}
-
-                </div>
-            </div>
-
-
-        </div>
-    {% endfor %}
-
-
-    <div class="agenda_pagination_bottom pagination_bottom pagination">
-        {% include "page_coop_agenda/pagination.html" %}
+    <div id="agenda_top_search"></div>
+    <div id="search_form">
+        {% include search_form_template %}
     </div>
 
-</div>
+    <script type="text/javascript">
+        $(function() {
+            $.datepicker.regional['fr'] = {
+                closeText: 'Fermer',
+                prevText: '&#x3c;Préc',
+                nextText: 'Suiv&#x3e;',
+                currentText: 'Courant',
+                monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin',
+                'Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+                monthNamesShort: ['Jan','Fév','Mar','Avr','Mai','Jun',
+                'Jul','Aoû','Sep','Oct','Nov','Déc'],
+                dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+                dayNamesShort: ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'],
+                dayNamesMin: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
+                weekHeader: 'Sm',
+                dateFormat: 'dd/mm/yy',
+                firstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: ''};
+            $.datepicker.setDefaults($.datepicker.regional['fr']);
+
+            $('#id_start_date').datepicker({dateFormat: 'yy-mm-dd', constrainInput: false});
+            $('#id_end_date').datepicker({dateFormat: 'yy-mm-dd', constrainInput: false});
+
+            $("#id_location").autocomplete({
+                source: function( request, response ) {
+                    var matches = $.map( {{ available_locations|safe }}, function(tag, i) {
+                        if ( tag.label.toUpperCase().indexOf(request.term.toUpperCase()) === 0 ) {
+                            return tag;
+                        }
+                    });
+                    response(matches);
+                },
+                select: function(e, ui) {
+                    e.preventDefault() // <--- Prevent the value from being inserted.
+                    $("#id_location_id").val(ui.item.value);
+
+                    $(this).val(ui.item.label);
+                }
+            });
+
+
+            });
+    </script>
+</div> <!-- end row -->
+{% endif %}
+
+<div class="row">
+    <div id="column1">
+        <div id="agenda_top"></div>
+        <div id="coop_agenda">
+        <div class="agenda_pagination_top pagination_top pagination">
+            {% include "page_coop_agenda/pagination.html" %}
+            <div class="carto"><a href="javascript:submitForm('{{ base_url }}p/carto')">{% trans "Cartography" %}</a></div>
+        </div>
+
+
+        <h3 class="coop_agenda">{% trans "Agenda" %}</h3>
+            {% for o in occs %}            
+                <div class="coop_agenda">
+                    <div class="bloc_title">
+                        {% if o.event.image != '' %}
+                            <div class="logo"><a class="agenda_link" href="{{ base_url }}p/{{ o.event.pk }}"><img src="{{ media_path }}{{ o.event.image }}" alt=""></a></div>
+                        {% else %}
+                            <div class="logo logo_pes"></div>
+                        {% endif %}
+
+                        <div class="resume">
+                            {% if o.event.location == None %} {% else %} <span class="location">{{ o.event.location|truncatechars:20 }}</span> {% endif %}
+                            <ul class="date">
+                                <li>
+                                    <span class="date_from">{{ o.start_time|date:"j" }} {{ o.start_time|date:"M"|lower }} {{ o.start_time|date:"Y"|lower }}</span>
+                                    {% if  o.start_time.date != o.end_time.date %}
+                                        <span class="date_to">{% trans "to" %}</span>
+                                    <span class="date_from">{{ o.end_time|date:"j" }} {{ o.end_time|date:"M"|lower }} {{ o.end_time|date:"Y"|lower }}</span>
+                                    {% endif %}
+                                </li>
+                            </ul>
+
+                            <a href="{{ base_url }}p/{{ o.event.pk }}"><h3 class="coop_agenda_title resume_title">{{ o.event.title }}</h3></a>
+
+
+                            <div class="description">
+                                {{ o.event.description|truncatechars:150|safe }}
+                            </div>
+                            <span class="readmore"><a class="agenda_link" href="{{ base_url }}p/{{ o.event.pk }}">{% trans "Read more" %}</a></span>
+                            {% if request.user.is_superuser %}
+                                <span class="edit"><a class="" href="{{ base_url }}p/event_edit/{{ o.event.pk }}">{% trans "Edit" %}</a></span>
+                            {% endif %}
+
+                        </div>
+                    </div>
+
+
+                </div>
+            {% endfor %}
+
+
+            <div class="agenda_pagination_bottom pagination_bottom pagination">
+                {% include "page_coop_agenda/pagination.html" %}
+            </div>
+
+        </div>
 
 
 
-<script type="text/javascript">
-    function submitForm(url) {
-        document.forms["search-form"].action = url;
-        document.forms["search-form"].submit();
-    }
+        <script type="text/javascript">
+            function submitForm(url) {
+                document.forms["search-form"].action = url;
+                document.forms["search-form"].submit();
+            }
 
-</script>
+        </script>
+    </div>

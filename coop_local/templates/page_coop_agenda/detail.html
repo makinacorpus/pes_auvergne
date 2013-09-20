@@ -150,6 +150,7 @@
 
         <div class="coop_agenda_content_keywords content_border_grey">
             <h3 class="coop_agenda_link">{% trans "Keywords" %}</h3>
+            <div id="keywords_long">{{ member.tags.all|join:", " }}</div>
         </div>
 
         <div class="coop_agenda_content_keywords content_border_grey">
