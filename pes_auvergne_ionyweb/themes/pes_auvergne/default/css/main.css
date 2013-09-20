@@ -291,7 +291,8 @@ figure {
   width: auto;
 }
 
-#main-content .date_select select {
+#main-content .date_select select,
+#sort-form select {
   width: auto;
 }
 
@@ -2142,7 +2143,6 @@ span.date_to {
   text-align: right;
   margin-right: 3px;
   font-weight: normal;
-  margin-top: 5px;
 }
 .fieldWrapper {
   margin: 10px;
