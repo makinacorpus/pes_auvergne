@@ -10,6 +10,8 @@ class TestMixin(object):
     organizations_url = 'http://localhost:8000/api/organizations/%s/'
     persons_url = 'http://localhost:8000/api/persons/%s/'
     administrator_role_uuid = 'tiaGboxY3UEcpX9TJEkVpP'
+    api_key = 'test'
+    api_key2 = 'test2'
 
     def assertAreListOf(self, obj, keys, type_):
         for key in keys:
@@ -95,10 +97,14 @@ class TestMixin(object):
             'content',
         ], basestring)
 
-    def put(self, url, data):
+    def put(self, url, data, api_key=None):
         content = json.dumps(data)
 
-        response = requests.put(url, content)
+        params = {}
+        if not api_key is None:
+            params['api_key'] = api_key
+
+        response = requests.put(url, content, params=params)
         try:
             response.raise_for_status()
         except Exception as e:
@@ -111,11 +117,11 @@ class TestMixin(object):
 
         return response.json()
 
-    def put_person(self, uuid, data):
-        return self.put(self.persons_url % uuid, data)
+    def put_person(self, uuid, data, api_key=None):
+        return self.put(self.persons_url % uuid, data, api_key)
 
-    def put_organization(self, uuid, data):
-        return self.put(self.organizations_url % uuid, data)
+    def put_organization(self, uuid, data, api_key=None):
+        return self.put(self.organizations_url % uuid, data, api_key)
 
     def delete(self, url):
         response = requests.delete(url)
@@ -148,10 +154,10 @@ class TestMixin(object):
             person.update(updates)
         return person
 
-    def create_person(self, updates=None):
+    def create_person(self, updates=None, api_key=None):
         uuid = uuid4().hex
         person = self.make_person(updates)
-        return self.put_person(uuid, person)
+        return self.put_person(uuid, person, api_key)
 
     def make_organization(self, updates=None):
         organization = {
@@ -175,10 +181,10 @@ class TestMixin(object):
             organization.update(updates)
         return organization
 
-    def create_organization(self, updates=None):
+    def create_organization(self, updates=None, api_key=None):
         uuid = uuid4().hex
         organization = self.make_organization(updates)
-        return self.put_organization(uuid, organization)
+        return self.put_organization(uuid, organization, api_key)
 
 
 class TestOrganizationList(TestMixin, TestCase):
@@ -208,8 +214,27 @@ class TestOrganization(TestMixin, TestCase):
         self.output_name = 'minimal_organization'
         uuid = uuid4().hex
         data = self.make_organization()
-        reponse = self.put_organization(uuid, data)
+        reponse = self.put_organization(uuid, data, api_key=self.api_key)
         self.assertValidOrganization(reponse)
+
+    def test_create_minimal_organization_without_api_key_returns_401(self):
+        self.output_name = 'minimal_organization_without_api_key'
+        with self.assertRaises(requests.exceptions.HTTPError) as ctx:
+            self.create_organization(api_key=None)
+
+        self.assertEquals(ctx.exception.response.status_code, 401)
+
+    def test_update_organization_with_wrong_api_key_returns_401(self):
+        self.output_name = 'update_organization_with_wrong_api_key'
+        data = self.create_organization(api_key=self.api_key)
+        data['web'] = 'http://%s.local' % uuid4().hex
+
+        with self.assertRaises(requests.exceptions.HTTPError) as ctx:
+            self.put_organization(data['uuid'],
+                                  data,
+                                  api_key=self.api_key2)
+
+        self.assertEquals(ctx.exception.response.status_code, 403)
 
     def test_create_organization_with_theme(self):
         self.output_name = 'organization_with_theme'
@@ -217,14 +242,14 @@ class TestOrganization(TestMixin, TestCase):
         data = self.make_organization({
             'transverse_themes': [1]
         })
-        reponse = self.put_organization(uuid, data)
+        reponse = self.put_organization(uuid, data, api_key=self.api_key)
         self.assertValidOrganization(reponse)
         self.assertEquals(reponse['transverse_themes'], [1])
 
     def test_create_organization_with_member(self):
         self.output_name = 'organization_with_member'
         uuid = uuid4().hex
-        person = self.create_person()
+        person = self.create_person(api_key=self.api_key)
         data = self.make_organization({
             'members': [
                 {
@@ -233,7 +258,7 @@ class TestOrganization(TestMixin, TestCase):
                 }
             ]
         })
-        reponse = self.put_organization(uuid, data)
+        reponse = self.put_organization(uuid, data, api_key=self.api_key)
         self.assertValidOrganization(reponse)
         self.assertEquals(reponse['members'], [
             {
@@ -244,18 +269,20 @@ class TestOrganization(TestMixin, TestCase):
 
     def test_update_organization(self):
         self.output_name = 'update_organization'
-        data = self.create_organization()
+        data = self.create_organization(api_key=self.api_key)
         data['web'] = 'http://%s.local' % uuid4().hex
-        reponse = self.put_organization(data['uuid'], data)
+        reponse = self.put_organization(data['uuid'],
+                                        data,
+                                        api_key=self.api_key)
         self.assertEquals(reponse, data)
 
     def test_update_organization_with_only_new_data(self):
         self.output_name = 'update_organization_with_only_new_data'
-        data = self.create_organization()
+        data = self.create_organization(api_key=self.api_key)
         data['web'] = 'http://%s.local' % uuid4().hex
         reponse = self.put_organization(data['uuid'], {
             'web': data['web']
-        })
+        }, api_key=self.api_key)
         self.assertEquals(reponse, data)
 
     def test_create_organization_with_owned_contacts(self):
@@ -271,7 +298,7 @@ class TestOrganization(TestMixin, TestCase):
             'pref_email': pref_email,
             'pref_phone': pref_phone,
         })
-        reponse = self.put_organization(uuid, data)
+        reponse = self.put_organization(uuid, data, api_key=self.api_key)
         self.assertValidOrganization(reponse)
 
     def test_create_organization_with_member_pref_email_and_phone(self):
@@ -284,17 +311,17 @@ class TestOrganization(TestMixin, TestCase):
                 {'uuid': pref_email, 'content': 'contact@test.local'},
                 {'uuid': pref_phone, 'content': '00.00.00.00.00'},
             ],
-        })
+        }, api_key=self.api_key)
         data = self.make_organization({
             'pref_email': pref_email,
             'pref_phone': pref_phone,
         })
-        reponse = self.put_organization(uuid, data)
+        reponse = self.put_organization(uuid, data, api_key=self.api_key)
         self.assertValidOrganization(reponse)
 
     def test_delete_organization(self):
         self.output_name = 'delete_organization'
-        person = self.create_organization()
+        person = self.create_organization(api_key=self.api_key)
         self.delete_organization(person['uuid'])
 
 
@@ -325,23 +352,42 @@ class TestPerson(TestMixin, TestCase):
         self.output_name = 'minimal_person'
         uuid = uuid4().hex
         data = self.make_person()
-        reponse = self.put_person(uuid, data)
+        reponse = self.put_person(uuid, data, api_key=self.api_key)
         self.assertValidPerson(reponse)
+
+    def test_create_minimal_person_without_api_key_returns_401(self):
+        self.output_name = 'minimal_person_without_api_key'
+        with self.assertRaises(requests.exceptions.HTTPError) as ctx:
+            self.create_person(api_key=None)
+
+        self.assertEquals(ctx.exception.response.status_code, 401)
+
+    def test_update_person_with_wrong_api_key_returns_401(self):
+        self.output_name = 'update_person_with_wrong_api_key'
+        data = self.create_person(api_key=self.api_key)
+        data['web'] = 'http://%s.local' % uuid4().hex
+
+        with self.assertRaises(requests.exceptions.HTTPError) as ctx:
+            self.put_person(data['uuid'],
+                            data,
+                            api_key=self.api_key2)
+
+        self.assertEquals(ctx.exception.response.status_code, 403)
 
     def test_update_person(self):
         self.output_name = 'update_person'
-        data = self.create_person()
+        data = self.create_person(api_key=self.api_key)
         data['first_name'] = uuid4().hex
-        reponse = self.put_person(data['uuid'], data)
+        reponse = self.put_person(data['uuid'], data, api_key=self.api_key)
         self.assertEquals(reponse, data)
 
     def test_update_person_with_only_new_data(self):
         self.output_name = 'update_person_with_only_new_data'
-        data = self.create_person()
+        data = self.create_person(api_key=self.api_key)
         data['first_name'] = uuid4().hex
         reponse = self.put_person(data['uuid'], {
             'first_name': data['first_name']
-        })
+        }, api_key=self.api_key)
         self.assertEquals(reponse, data)
 
     def test_create_person_with_owned_contacts(self):
@@ -354,7 +400,7 @@ class TestPerson(TestMixin, TestCase):
             ],
             'pref_email': pref_email,
         })
-        reponse = self.put_person(uuid, data)
+        reponse = self.put_person(uuid, data, api_key=self.api_key)
         self.assertValidPerson(reponse)
 
     def test_create_person_with_organization_pref_email_and_phone(self):
@@ -365,16 +411,16 @@ class TestPerson(TestMixin, TestCase):
             'contacts': [
                 {'uuid': pref_email, 'content': 'contact@test.local'},
             ],
-        })
+        }, api_key=self.api_key)
         data = self.make_person({
             'pref_email': pref_email,
         })
-        reponse = self.put_person(uuid, data)
+        reponse = self.put_person(uuid, data, api_key=self.api_key)
         self.assertValidPerson(reponse)
 
     def test_delete_person(self):
         self.output_name = 'delete_person'
-        person = self.create_person()
+        person = self.create_person(api_key=self.api_key)
         self.delete_person(person['uuid'])
 
 
