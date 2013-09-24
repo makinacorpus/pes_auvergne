@@ -23,6 +23,19 @@
 </head>
 <body>
     <section>
+        <h2>API Key</h2>
+        <p>
+        Create and update requests (HTTP PUT) require to provide an API key in the request
+        url.
+        </p>
+        <p>
+        Exemple:
+        </p>
+        <pre>
+            PUT /api/organizations/MRjCUntUYHKRwcdaL6YVUh?api_key=MyPrivateKey
+        </pre>
+    </section>
+    <section>
         <h2>Organizations</h2>
         <h3>Organization structure</h3>
         <pre>
@@ -90,7 +103,7 @@
             <dd>
                 <p>Delete an organization by its uuid.</p>
             </dd>
-            <dt><b>PUT /api/organizations/:uuid</b></dt>
+            <dt><b>PUT /api/organizations/:uuid?api_key=:api_key</b></dt>
             <dd>
                 <p>Create or update an organization.</p>
             </dd>
@@ -136,7 +149,7 @@
             <dd>
                 <p>Delete an person by its uuid.</p>
             </dd>
-            <dt><b>PUT /api/persons/:uuid</b></dt>
+            <dt><b>PUT /api/persons/:uuid?api_key=:api_key</b></dt>
             <dd>
                 <p>Create or update a person.</p>
             </dd>
