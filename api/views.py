@@ -1,6 +1,9 @@
 import json
 
-from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import (
+    ObjectDoesNotExist,
+    PermissionDenied
+)
 from django.http import HttpResponse
 from django.shortcuts import (
     get_object_or_404,
@@ -30,9 +33,67 @@ from .serializers import (
     serialize_transverse_theme,
 )
 
+from .models import (
+    ApiKey,
+    ApiPermissions
+)
 
-def json_response(content):
-    return HttpResponse(json.dumps(content), content_type='application/json')
+
+def json_response(content, status=200):
+    return HttpResponse(json.dumps(content),
+                        content_type='application/json',
+                        status=status)
+
+
+def json_401_response(message):
+    return HttpResponse(
+        json.dumps({
+            'error': message
+        }),
+        content_type='application/json',
+        status=401)
+
+
+def require_api_key(method):
+
+    def wrapper(view, request, *args, **kwargs):
+        api_key = request.REQUEST.get('api_key')
+        if api_key is None:
+            return json_401_response('No api_key provided')
+
+        try:
+            ApiKey.objects.get(key=api_key)
+            return method(view, request, *args, **kwargs)
+        except ObjectDoesNotExist:
+            return json_401_response('Unknow api_key %s' % api_key)
+
+    return wrapper
+
+
+def create_api_permission(method):
+
+    def wrapper(view, instance, data):
+        method(view, instance, data)
+        api_key = ApiKey.objects.get(key=view.request.REQUEST['api_key'])
+        permission = ApiPermissions(resource_key=instance.pk, api_key=api_key)
+        permission.save()
+
+    return wrapper
+
+
+def require_api_permission(method):
+
+    def wrapper(view, instance, data):
+        api_key = view.request.REQUEST['api_key']
+        if instance.pk:
+            try:
+                ApiPermissions.objects.get(resource_key=instance.pk,
+                                           api_key__key=api_key)
+            except ObjectDoesNotExist:
+                raise PermissionDenied()
+        method(view, instance, data)
+
+    return wrapper
 
 
 def get_or_create_object(model, **kwargs):
@@ -159,13 +220,16 @@ class OrganizationDetailView(OrganizationView, BaseDetailView):
         self.update_members(organization, data)
         organization.save()
 
+    @create_api_permission
     def create(self, organization, data):
         self.update_organization(organization, data)
 
+    @require_api_permission
     def update(self, organization, data):
         self.update_organization(organization, data)
         self.delete_old_contacts(organization, data.get('contacts', []))
 
+    @require_api_key
     def put(self, request, *args, **kwargs):
         self.object = self.get_or_create_object()
         data = json.loads(self.request.body)
@@ -203,13 +267,16 @@ class PersonDetailView(PersonView, BaseDetailView):
 
         person.save()
 
+    @create_api_permission
     def create(self, person, data):
         self.update_person(person, data)
 
+    @require_api_permission
     def update(self, person, data):
         self.update_person(person, data)
         self.delete_old_contacts(person, data.get('contacts', []))
 
+    @require_api_key
     def put(self, request, *args, **kwargs):
         self.object = self.get_or_create_object()
         data = json.loads(self.request.body)
