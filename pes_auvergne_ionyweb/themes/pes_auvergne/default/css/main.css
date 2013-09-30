@@ -107,7 +107,6 @@ a img {
 a:link,
 a:visited {
   color: #444;
-  padding: 0 1px;
   text-decoration: none;
 }
 a:hover,
@@ -285,16 +284,14 @@ figure {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-#main-content #login_form input[type='text'],
-#main-content #login_form input[type='password'] {
-  width: auto;
-}
-
 #main-content .date_select select,
 #sort-form select {
   width: auto;
 }
-
+#main-content #login_form input[type='text'],
+#main-content #login_form input[type='password'] {
+  width: auto;
+}
 #main-content #search_form input[type='date'] {
   padding-top: 3px;
   padding-bottom: 3px;
@@ -668,15 +665,14 @@ figure.left {
   float: left;
   width: 710px;
 }
-#column1.standard {
-  width: 695px;
-  margin-right: 10px;
-}
 #column2 {
   float: left;
   width: 240px;
   padding: 5px;
   margin-top: -15px;
+}
+#layout-content #column2 {
+  margin-top: -10px;
 }
 #articles #column1 {
   width: 240px;
@@ -1163,6 +1159,11 @@ li:last-child .hentry,
   box-shadow: 2px 2px 2px #aaa;
   padding: 7px;
 }
+#column1.standard {
+  width: 660px;
+  margin-right: 10px;
+  padding: 20px;
+}
 #articles .entry {
   position: relative;
 }
@@ -1193,6 +1194,7 @@ h4.coop_agenda {
 .member_subtitle {
   font-weight: bold;
   color: #959595 !important;
+  clear: both;
 }
 .content-coop_member #members,
 .content-coop_agenda #coop_agenda,
@@ -1215,9 +1217,6 @@ h4.coop_agenda {
   height: 6px;
   float: left;
   width: 700px;
-}
-#column1_top.standard {
-  width: 710px;
 }
 .content-coop-app #search_form,
 .content-coop_exchange #result_exchanges,
@@ -1652,11 +1651,9 @@ a.account_link:hover {
   color: #A0866A;
 }
 span.date_from {
-  float: left;
   font-weight: bold;
 }
 span.date_to {
-  float: left;
   line-height: 20px !important;
   margin-right: 7px;
   margin-left: 7px;
@@ -1666,8 +1663,7 @@ span.date_to {
   color: #abdb91 !important;
   float: right;
   padding-left: 15px;
-  /*     margin-top: -25px; */
-
+  margin-bottom: 5px;
   font-weight: normal !important;
 }
 #articles .location {
@@ -1786,6 +1782,8 @@ span.date_to {
 }
 .member_title {
   margin-left: 0px !important;
+  float: left;
+  font-size: 16px;
 }
 /*.member_acronym {
     margin-left: 15px;
@@ -2337,6 +2335,9 @@ span.date_to {
 }
 .pagination .step-links a {
   text-decoration: none;
+}
+#main-content .pagination select {
+  width: 130px;
 }
 .pagination .prev-link {
   padding: 3px 0 3px 20px;
