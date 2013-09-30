@@ -40,7 +40,7 @@
 body {
   background: #ffffff url(../images/bg_body.png) repeat left top;
   color: #767676;
-  font-size: 11pt;
+  font-size: 13px;
   font-family: 'Helvetica', Trebuchet, Arial, sans-serif;
   line-height: 1.429;
   margin: 0;
@@ -68,7 +68,7 @@ h5 {
 }
 /* 16px */
 h6 {
-  font-size: 1em;
+  font-size: 1.143em;
 }
 /* 14px */
 h1,
