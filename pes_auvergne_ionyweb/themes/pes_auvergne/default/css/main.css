@@ -1863,10 +1863,11 @@ span.date_to {
 }
 .bloc_title .resume {
   float: left;
-  width: 520px;
+  width: 510px;
   position: relative;
   min-height: 150px;
   overflow: hidden;
+  margin-left: 15px;
 }
 .bloc_title .map {
   float: left;
