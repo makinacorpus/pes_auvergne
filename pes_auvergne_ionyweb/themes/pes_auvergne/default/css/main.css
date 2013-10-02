@@ -384,7 +384,11 @@ figure.left {
 }
 #logo-home #layout-logo {
   left: 0px;
+  top: 8px;
   position: absolute;
+}
+#logo-home #layout-logo img {
+  width: 100%!important;
 }
 /* Menu top */
 #menu-top {
@@ -1147,7 +1151,7 @@ li:last-child .hentry,
   margin-bottom: .5em;
 }
 .site_logo {
-  background: url(../images/logo_pes_auvergne.png) no-repeat left 6px;
+  background: url(../images/logo_pes_auvergne.png) no-repeat 10px 8px;
   width: 250px;
   height: 150px;
   float: left;
@@ -2175,11 +2179,21 @@ span.date_to {
 }
 .plugin-slideshow-link {
   background: none !important;
-  bottom: 100px !important;
-  height: 100px !important;
+  bottom: 70px !important;
+  height: 80px !important;
   opacity: 1 !important;
-  left: 485px !important;
-  width: 370px !important;
+  right: 80px!important;
+  left: auto!important;
+  top: auto!important;
+  text-align: right;
+}
+.plugin-slideshow-link a {
+  font-size: 6em;
+  font-weight: 100!important;
+  text-transform: uppercase;
+  line-height: 1em;
+  border-bottom: 1px solid #fff;
+  display: inline-block;
 }
 .plugin-slideshow-link a:after {
   display: block;
@@ -2192,23 +2206,19 @@ span.date_to {
 .plugin-slideshow-desc {
   background: none !important;
   position: absolute;
-  bottom: 30px !important;
+  bottom: 0 !important;
   height: 70px !important;
   opacity: 1 !important;
-  left: 485px !important;
+  left: auto !important;
+  right: 80px !important;
   width: 370px !important;
+  text-align: justify;
 }
 .plugin-slideshow-link a,
 .plugin-slideshow-desc a {
   color: #FFFFFF;
-  font-size: 5em;
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5), 0px 0px 22px #000000;
-  border-bottom: 1px solid #fff;
   font-family: 'Aller';
-  font-weight: 100!important;
-  text-transform: uppercase;
-  display: inline-block;
-  line-height: 1em;
 }
 .plugin-slideshow-desc a {
   font-size: 1em;
