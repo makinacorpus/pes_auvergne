@@ -970,6 +970,9 @@ figure.left {
   text-decoration: none;
   text-transform: uppercase;
 }
+#contentinfo a:hover {
+  color: #f8b133;
+}
 #contentinfo ul {
   list-style: none;
   margin: 0;
