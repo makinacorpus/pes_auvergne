@@ -224,7 +224,14 @@ thead th {
 }
 /* Tbody */
 tbody td {
-  padding: .5em .4em;
+  padding: 5px 0;
+  vertical-align: bottom;
+}
+tbody th {
+  padding: 5px 0;
+}
+tbody tr {
+  padding: 10px 0;
 }
 /* Tfoot */
 /* HTML5 tags */
@@ -2228,6 +2235,9 @@ span.date_to {
   display: inline-block;
   margin-right: 3px;
 }
+.formset .labelWrapper {
+  vertical-align: top;
+}
 .add_form .maj_title {
   text-align: left;
 }
@@ -2514,6 +2524,7 @@ span.date_to {
 }
 .table_formset table th {
   width: 100px;
+  vertical-align: top;
 }
 .ui-tabs {
   width: auto;
