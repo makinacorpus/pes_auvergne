@@ -1135,7 +1135,7 @@ li:last-child .hentry,
   margin-bottom: .5em;
 }
 .site_logo {
-  background: url(../images/logo_pes_auvergne.png) no-repeat left top;
+  background: url(../images/logo_pes_auvergne.png) no-repeat left 6px;
   width: 250px;
   height: 150px;
   float: left;
