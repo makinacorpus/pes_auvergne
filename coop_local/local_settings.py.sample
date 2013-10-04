@@ -69,6 +69,7 @@ INSTALLED_APPS = settings.INSTALLED_APPS + [
     'ionyweb_plugins.plugin_coop_blog',
     'ionyweb_plugins.plugin_coop_searchglobal',
     'ionyweb_plugins.plugin_coop_tagcloud',
+    'ionyweb_plugins.plugin_coop_zoomon',
     'api',
 ]
 
@@ -109,6 +110,7 @@ COOP_EXCHANGE_SERVICES_URL = "/produits-services/"
 COOP_EXCHANGE_EXCHANGES_URL = "/annonces/"
 COOP_MEMBER_ORGANIZATIONS_URL = "/annuaire/"
 COOP_MEMBER_PROJECTS_URL = "/projets/"
+COOP_AGENDA_URL = "/agenda/"
 
 EMAIL_HOST = "localhost"
 EMAIL_PORT = "25"

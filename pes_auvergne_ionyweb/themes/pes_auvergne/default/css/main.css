@@ -1700,7 +1700,8 @@ span.date_to {
 #articles .location {
   color: #53c97f !important;
 }
-#members .location {
+#members .location,
+.coop_zoomon .members .location {
   color: #a03225 !important;
   background: url(../images/icons/member_location.png) no-repeat left center;
 }
@@ -1807,7 +1808,8 @@ span.date_to {
   background: url(../images/logo_pes_auvergne_blue_light.png) no-repeat center center !important;
 }
 .content-articles .entry .block_img,
-.content-articles .bloc_title .logo_pes {
+.content-articles .bloc_title .logo_pes,
+.coop_zoomon .entry .block_img {
   background: url(../images/logo_pes_auvergne_green_light.png) no-repeat center center !important;
 }
 .content-projects .bloc_title .logo_pes {
