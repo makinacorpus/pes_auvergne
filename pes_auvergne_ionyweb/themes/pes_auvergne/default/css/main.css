@@ -168,6 +168,11 @@ input[type='submit'] {
   position: absolute;
   right: 0;
 }
+
+.readmore_detail {
+  float: right;   
+}
+
 .edit {
   position: absolute;
   right: 0;
