@@ -1789,7 +1789,8 @@ span.date_to {
 .coop_agenda:after {
   clear: both;
 }
-.content-coop_member .bloc_title .logo_pes {
+.content-coop_member .bloc_title .logo_pes,
+.logo_pes_organization {
   background: url(../images/logo_pes_auvergne_violet.png) center center no-repeat;
 }
 .coop_service .logo_pes {
