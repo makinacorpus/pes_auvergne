@@ -67,9 +67,9 @@
             <div class="column1">
                 <h3>{{ e.get_eway_display }}</h3>
 
-                {% if e.type %}
+                {% if e.etype %}
                     <h3>{% trans "Type" %}:</h3>
-                    {{ e.type }}
+                    {{ e.get_etype_display }}
                 {% endif %}
 
                 {% if e.methods.all %}
