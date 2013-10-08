@@ -16,10 +16,6 @@
                 <span class="search_title">{% trans "Type" %}</span>
                 {{ form.type }}
             </div>
-            <div class="search_block" id="free_search1">
-                <span class="search_title">{% trans "Free search" %}</span>
-                {{ form.free_search }}
-            </div>
         </div>
         <div class="search_column" id="search_column2">
             <div class="search_block" id="activity">
@@ -28,13 +24,6 @@
             </div>
             <div class="search_block" id="activity2">
                 {{ form.activity2 }}
-            </div>
-            <div class="search_block" id="thematic">
-                <span class="search_title">{% trans "Thematic" %}</span>
-                {{ form.thematic }}
-            </div>
-            <div class="search_block" id="thematic2">
-                {{ form.thematic2 }}
             </div>
 
             <div class="search_block" id="free_search2">
@@ -51,6 +40,13 @@
             <div class="search_block" id="location_buffer">
                 <span class="search_title">{% trans "Location buffer" %}</span>
                 {{ form.location_buffer }}
+            </div>
+            <div class="search_block" id="thematic">
+                <span class="search_title">{% trans "Thematic" %}</span>
+                {{ form.thematic }}
+            </div>
+            <div class="search_block" id="thematic2">
+                {{ form.thematic2 }}
             </div>
 
         </div>
@@ -91,28 +87,24 @@
 
     function more_criteria() {
             $('#activity2').removeClass("search_form_hide");
-            $('#free_search1').removeClass("search_form_hide");
             $('#thematic').removeClass("search_form_hide");
             $('#thematic2').removeClass("search_form_hide");
             $('#mode').removeClass("search_form_hide");
             $('#skills').removeClass("search_form_hide");
             $('#less_criteria').removeClass("search_form_hide");
 
-            $('#free_search2').addClass("search_form_hide");
             $('#more_criteria').addClass("search_form_hide");
 
             $('#more_criteria_status').val("True");
     }
     function less_criteria(animate) {
             $('#activity2').addClass("search_form_hide");
-            $('#free_search1').addClass("search_form_hide");
             $('#thematic').addClass("search_form_hide");
             $('#thematic2').addClass("search_form_hide");
             $('#mode').addClass("search_form_hide");
             $('#skills').addClass("search_form_hide");
             $('#less_criteria').addClass("search_form_hide");
 
-            $('#free_search2').removeClass("search_form_hide");
             $('#more_criteria').removeClass("search_form_hide");
 
             $('#more_criteria_status').val("False");
