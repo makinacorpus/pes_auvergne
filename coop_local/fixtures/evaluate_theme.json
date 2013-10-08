@@ -1,0 +1,34 @@
+[
+    {
+        "pk": 1, 
+        "model": "coop_local.evaluationquestiontheme", 
+        "fields": {
+            "label": "Emploi et coopération : développement économique",
+            "cssclass": "emploi"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "coop_local.evaluationquestiontheme", 
+        "fields": {
+            "label": "Social et solidaire : développement humain",
+            "cssclass": "social"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "coop_local.evaluationquestiontheme", 
+        "fields": {
+            "label": "Impact écologique : participation à la transition énergétique et préservation de l’environnement",
+            "cssclass": "ecologie"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "coop_local.evaluationquestiontheme", 
+        "fields": {
+            "label": "Gouvernance : participation à la vie de la structure",
+            "cssclass": "gouvernance"
+        }
+    }
+]

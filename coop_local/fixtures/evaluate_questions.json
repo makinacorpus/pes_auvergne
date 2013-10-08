@@ -1,0 +1,110 @@
+[
+    {
+        "pk": 1, 
+        "model": "coop_local.evaluationquestion", 
+        "fields": {
+            "theme": 1,
+            "label": "Compétences dans le champ de l’emploi ou dans l’accompagnement", 
+            "question": "Lutte contre la précarité, intégration de public en situation de vulnérabilité, pérennisation des emplois..."
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "coop_local.evaluationquestion", 
+        "fields": {
+            "theme": 1,
+            "label": "Démarche de proximité et de progrès", 
+            "question": "Utilisation de ressources locales ou de l’économie sociale (et durable) : prestataires ESS, fournisseurs, savoir-faire, circuits de commercialisation..."
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "coop_local.evaluationquestion", 
+        "fields": {
+            "theme": 1,
+            "label": "Réseau local et coopération", 
+            "question": "Coopération avec les acteurs locaux, implication dans des événements locaux, conséquences de l’activité sur le territoire (utilité des produits/services)..."
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "coop_local.evaluationquestion", 
+        "fields": {
+            "theme": 1,
+            "label": "Partage et mutualisation de moyens", 
+            "question": "Prêt, partage ou mutualisation de ressources, d’outils, d’équipements, de compétences..."
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "coop_local.evaluationquestion", 
+        "fields": {
+            "theme": 2,
+            "label": "Relations éthiques et équitables", 
+            "question": "Prix solidaires, rémunérations équitables, labellisations, traçabilité, partenariats, coopération, prise en compte des besoins des salariés/bénévoles/utilisateurs, écarts de salaires raisonnés (bulle d’aide)..."
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "coop_local.evaluationquestion", 
+        "fields": {
+            "theme": 2,
+            "label": "Montée en compétences / développement de compétences", 
+            "question": "Pour les salariés, bénévoles et usagers : transmission de connaissances, formations, espace de communication et de développement personnel..."
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "coop_local.evaluationquestion", 
+        "fields": {
+            "theme": 2,
+            "label": "Lien social et solidarité", 
+            "question": "Développement du lien social (avec les habitants, intergénérationnel…), luttes contre les discriminations et les exclusions, accessibilité des produits et services, protection des personnes en situation de vulnérabilité..."
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "coop_local.evaluationquestion", 
+        "fields": {
+            "theme": 3,
+            "label": "Économie des ressources", 
+            "question": "Économie d’eau, d’énergies, de matières premières..."
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "coop_local.evaluationquestion", 
+        "fields": {
+            "theme": 3,
+            "label": "Utilisation de ressources renouvelables", 
+            "question": "Produits recyclés ou d’occasion, isolants naturels, énergies, produits biologiques..."
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "coop_local.evaluationquestion", 
+        "fields": {
+            "theme": 3,
+            "label": "Impact environnemental", 
+            "question": "Préservation de la biodiversité, conception éco-responsable, gestion et limitation des déchets, des transports, performance énergétique des bâtiments..."
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "coop_local.evaluationquestion", 
+        "fields": {
+            "theme": 4,
+            "label": "Implication des parties prenantes", 
+            "question": "Transparence et accessibilité de l’information interne et externe, participation des salariés, des bénévoles, des usagers, des citoyens, des collectivités..."
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "coop_local.evaluationquestion", 
+        "fields": {
+            "theme": 4,
+            "label": "Mode de décision démocratique", 
+            "question": "Statuts ESS (coopérative, association, mutuelle), répartition des valeurs ajoutées, implication des salariés, des bénévoles et des usagers lors des décisions..."
+        }
+    }
+]

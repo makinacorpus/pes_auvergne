@@ -2740,3 +2740,72 @@ h3.account_link {
 #sort-form {
   display: inline;
 }
+
+
+/* Evaluation */
+#evaluation {
+
+}
+
+.stars > * {
+    margin: -1000000px;
+}
+.stars0 {
+    width: 0px;
+}
+.stars1 {
+    width: 16px;
+}
+.stars2 {
+    width: 32px;
+}
+.stars3 {
+    width: 48px;
+}
+.stars4 {
+    width: 64px;
+}
+.stars5 {
+    width: 80px;
+}
+.stars6 {
+    width: 96px;
+}
+.stars7 {
+    width: 112px;
+}
+.stars8 {
+    width: 128px;
+}
+.stars9 {
+    width: 144px;
+}
+.stars10 {
+    width: 160px;
+}
+.stars11 {
+    width: 176px;
+}
+.stars12 {
+    width: 192px;
+}
+
+#evaluation .emploi {
+    color: #468b92;
+    background: url('../images/star_blue.png') repeat-x;
+}
+
+#evaluation .ecologie {
+    color: #70be46;    
+    background: url('../images/star_green.png') repeat-x;
+}
+
+#evaluation .gouvernance {
+    color: #ffcc00;    
+    background: url('../images/star_yellow.png') repeat-x;
+}
+
+#evaluation .social {
+    color: #d40000;
+    background: url('../images/star_red.png') repeat-x;
+}

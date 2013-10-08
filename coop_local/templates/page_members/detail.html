@@ -245,8 +245,8 @@
             {% if member.reference_set.exists %}
                 <h3 id="menu_references"><a href="javascript:show_infos('references');">{% trans "References" %}<div class="menu_selected_arrow"></div></a></h3>
             {% endif %}
-            {% if member.solidarity.exists %}
-                <h3 id="menu_solidarity"><a href="javascript:show_infos('solidarity');">{% trans "Solidarity capital" %}<div class="menu_selected_arrow"></div></a></h3>
+            {% if evaluate %}
+                <h3 id="menu_evaluation"><a href="javascript:show_infos('evaluation');">{% trans "Solidarity capital" %}<div class="menu_selected_arrow"></div></a></h3>
             {% endif %}
         </div>
         <div class="bloc_content_col2">
@@ -278,8 +278,12 @@
                 {% endfor %}
             </div>
 
-            <div id="solidarity">
-                Solidarité
+            <div id="evaluation">
+                {% for t in evaluate %}
+                    {{ t.theme }}
+                    <div class="{{t.cssclass}} stars{{t.points}}"><span>{{t.points}}</span></div>
+
+                {% endfor %}
             </div>
         </div>
         
@@ -345,13 +349,13 @@
         $('#relationship').addClass("detail_form_hide");
         $('#projects').addClass("detail_form_hide");
         $('#references').addClass("detail_form_hide");
-        $('#solidarity').addClass("detail_form_hide");
+        $('#evaluation').addClass("detail_form_hide");
 
         $('#menu_garanties').removeClass("menu_selected");
         $('#menu_relationship').removeClass("menu_selected");
         $('#menu_projects').removeClass("menu_selected");
         $('#menu_references').removeClass("menu_selected");
-        $('#menu_solidarity').removeClass("menu_selected");
+        $('#menu_evaluation').removeClass("menu_selected");
     }
 
     function read_more() {
