@@ -10,9 +10,15 @@
 <div id="agenda_top"></div>
 <div id="coop_agenda" class="coop_agenda">
     <div class="bloc_title">
-        <div class="logo logo_pes"></div>
+        {% if e.organization.logo != '' %}
+            <div class="logo"><img src="{{ media_path }}{{ e.organization.logo }}" alt="{{ e.organization.title }}"></div>
+        {% else %}
+            <div class="logo logo_pes"></div>
+        {% endif %}
+
         <div class="header">
-            <a href="{{ base_url }}{{ e.pk }}"><h3 class="coop_agenda_title">{{ e.title }}</h3></a>
+            <h3 class="coop_agenda_title">{{ e.title }}</h3>
+            <br/>
             {% if e.occurrence_set.count %}
             <ul class="coop_agenda_date">
                 {% for o in e.occurrence_set.all %}
