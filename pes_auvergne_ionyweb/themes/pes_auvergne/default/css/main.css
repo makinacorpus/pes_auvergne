@@ -2809,3 +2809,17 @@ h3.account_link {
     color: #d40000;
     background: url('../images/star_red.png') repeat-x;
 }
+
+
+/* Comments */
+
+#id_comment {
+    width: 98%;
+}
+
+.exchange_content_infos .comment {
+    background: #e6f2f3;
+    border-radius: 3px;
+    padding: 5px;
+    margin-bottom: 3px;
+}

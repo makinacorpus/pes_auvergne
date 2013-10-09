@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load comments %}
 
 {% block extra_head %}
     <link rel="stylesheet" href="{{ STATIC_URL }}themes/pes_auvergne/default/js/leaflet/leaflet.css" />
@@ -48,12 +49,14 @@
 
                     var map = new L.Map('leaflet_map');
 
-
-                    var centre = new L.LatLng({{ e.location.point.y|safe }}, {{ e.location.point.x|safe }});
-                    L.marker([{{ e.location.point.y|safe }}, {{ e.location.point.x|safe }}]).addTo(map)
-                            .bindPopup('{{ e.title|safe }}')
-                            .openPopup();
-                    
+                    {% if e.location.point %}
+                        var centre = new L.LatLng({{ e.location.point.y|safe }}, {{ e.location.point.x|safe }});
+                        L.marker([{{ e.location.point.y|safe }}, {{ e.location.point.x|safe }}]).addTo(map)
+                                .bindPopup('{{ e.title|safe }}')
+                                .openPopup();
+                    {% else %}
+                        var centre = new L.LatLng({{ default_center.y|safe }}, {{ default_center.x|safe }});
+                    {% endif %}
                     map.setView(centre, 8).addLayer(cloudmade);
 
                 </script>
@@ -202,7 +205,15 @@
                 <h3 class="exchange_link">{% trans "Solidarity" %}</h3>
             </div>
         {% endif %}
-    
+
+
+        <div class="exchange_content_infos">
+            {% comment %}
+                {% include "related_events.html" %}
+            {% endcomment %}
+
+            {% include "comments/comments.html" with object=e %}
+        </div>
     </div>
 
 
