@@ -2066,6 +2066,7 @@ span.date_to {
 #coop_exchange .bloc_content_borderless,
 .bloc_content_borderless {
   border-bottom: none;
+  position: relative;
 }
 .bloc_content .event_image {
   float: left;
