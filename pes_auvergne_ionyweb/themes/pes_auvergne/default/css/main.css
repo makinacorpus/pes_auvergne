@@ -1219,6 +1219,7 @@ h3.coop_agenda {
 }
 ul.coop_agenda_date {
   margin: 0;
+  clear:both;
 }
 h4.coop_agenda {
   background-color: #fad722 !important;
@@ -1737,11 +1738,9 @@ span.date_to {
 #articles .article_title {
   margin-top: 5px;
 }
-#articles h3 {
-  margin-top: 25px;
-}
 #members h3,
-.coop_agenda h3 {
+.coop_agenda h3,
+#articles h3 {
   color: #505050;
   font-weight: bold;
   font-size: 15px;
@@ -1829,7 +1828,8 @@ span.date_to {
   border: none !important;
 }
 .member_title,
-.header .coop_agenda_title {
+.header .coop_agenda_title,
+#articles .article_title {
   margin-top: 0;
   margin-left: 0px!important;
   float: left;
