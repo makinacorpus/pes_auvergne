@@ -2825,3 +2825,13 @@ h3.account_link {
     padding: 5px;
     margin-bottom: 3px;
 }
+
+/* Event calendars */
+
+.ui-datepicker {
+    width: auto !important;
+}
+
+.ui-timepicker-div dl dd {
+    margin: 0 10px 10px 135px  !important;
+}
