@@ -214,6 +214,10 @@
                 {% for p in e.organizations.all %}
                         {{ p.label }}<br/>
                 {% endfor %}
+                {% if e.other_organizations %}
+                    <h3>{% trans "Other partners" %}</h3>
+                    {{ e.other_organizations }}
+                {% endif %}
             </div>
 
         </div>
