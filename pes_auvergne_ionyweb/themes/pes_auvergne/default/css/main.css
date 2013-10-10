@@ -2835,3 +2835,11 @@ h3.account_link {
 .ui-timepicker-div dl dd {
     margin: 0 10px 10px 135px  !important;
 }
+
+/* Hightlight */
+.highlight_gen {
+    background: #ffefad;
+    border-radius: 3px;
+    padding: 5px;
+    margin-bottom: 3px;
+}
