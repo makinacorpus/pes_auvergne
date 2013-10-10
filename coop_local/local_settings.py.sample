@@ -70,6 +70,7 @@ INSTALLED_APPS = settings.INSTALLED_APPS + [
     'ionyweb_plugins.plugin_coop_searchglobal',
     'ionyweb_plugins.plugin_coop_tagcloud',
     'ionyweb_plugins.plugin_coop_zoomon',
+    'ionyweb_plugins.plugin_coop_contact',
     'api',
 ]
 
