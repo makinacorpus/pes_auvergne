@@ -1,0 +1,7 @@
+Un internaute  sur la plate-forme d'échanges solidaires Auvergne (PES Auvergne) vous propose de consulter le lien suivant :
+
+{% if url %}
+Message : {{ url }}
+{% endif %}
+
+La PES Auvergne a été financée par le Fonds Social Européen et le Conseil Régional Auvergne
