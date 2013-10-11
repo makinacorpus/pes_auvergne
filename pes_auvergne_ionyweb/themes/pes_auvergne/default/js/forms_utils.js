@@ -30,3 +30,31 @@ function delete_object(msg, url) {
         $(location).attr('href',url)
     }
 }
+
+
+function send_to_friend(url, id_mail, id_infos) {
+    mail = document.getElementById(id_mail).value;
+    infos_obj = document.getElementById(id_infos);
+    if(!mail) {
+        alert(gettext("You have to write a destination mail"));
+        return;
+    }
+    
+    url = "/mailto/?url=" + url + "&dest=" + mail;
+    var jqxhr = $.ajax(url)
+        .done(function(response) {
+            infos_obj.innerHTML = response.msg;
+        })
+        .fail(function(response) {
+            infos_obj.innerHTML = response.msg;
+        });
+}
+
+function open_popup_link(id) {
+    $(function() {
+        $( id ).dialog({
+            height: 200,
+            modal: true
+        });
+    });
+}

@@ -932,6 +932,11 @@ figure.left {
 .social a[href*='linkedin.com'] {
   background-image: url('../images/icons/linkedin.png');
 }
+
+#send_to_content {
+  margin-top: 5px;
+}
+
 /*
 	About
 *****************/

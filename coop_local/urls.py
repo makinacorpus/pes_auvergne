@@ -6,6 +6,8 @@ from django.conf.urls.defaults import (
 )
 from django.contrib import admin
 
+from . import utils
+
 # # https://code.djangoproject.com/ticket/10405#comment:11
 # from django.db.models.loading import cache as model_cache
 # if not model_cache.loaded:
@@ -17,7 +19,10 @@ admin.autodiscover()
 urlpatterns = patterns(
     '',
     url(r'^api/', include('api.urls')),
+    url(r'^mailto/', utils.mail_to_friend, name='mail_to_friend'),
 )
 
 from coop.default_project_urls import urlpatterns as default_project_urls
 urlpatterns += default_project_urls
+
+
