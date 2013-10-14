@@ -2372,6 +2372,7 @@ span.date_to {
 /* Form errors */
 .errorlist {
   color: red;
+  margin: 1px;
 }
 /* Pagination */
 .pagination_top,
@@ -2842,6 +2843,7 @@ h3.account_link {
 }
 
 /* Hightlight */
+.errorlist,
 .highlight_gen {
     background: #ffefad;
     border-radius: 3px;
