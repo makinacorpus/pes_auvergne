@@ -1,0 +1,14 @@
+{% load i18n %}
+
+<div class="plugin_coop_searchglobal">
+    <form action="{{ search_results_url }}" method="get" class="plugin_form" enctype="multipart/form-data">{% csrf_token %}
+
+        <div id="label_search">{% trans "Search" %}</div>{{ form.search_string }}
+
+        <div class="new_block" id="search_button_pes">
+            <input type="submit" value="" />                
+        </div>
+
+    </form>
+</div>
+

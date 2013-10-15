@@ -422,6 +422,55 @@ figure.left {
 #menu-top ul li a:hover {
   color: #f8b133;
 }
+
+
+#menu-search {
+  width: 940px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 999;
+  font-weight: bold;
+}
+
+#menu-search #layout-menu-search {
+  right: 0px;
+  top: 0px;
+  position: absolute;
+  width: 260px;
+}
+
+
+.plugin_coop_searchglobal #id_search_string {
+    border: 1px solid #AAAAAA;
+    background: none !important;
+    float: left;
+    padding: 4px 4px 4px 4px !important;
+    border-right: none;
+}
+
+.plugin_coop_searchglobal #label_search {
+    background: none repeat scroll 0 0 #666666;
+    border-radius: 3px 0 0 3px;
+    color: #FFFFFF;
+    float: left;
+    opacity: 0.7;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #444444;
+    border-right: none;
+}
+
+.plugin_coop_searchglobal #search_button_pes input[type="submit"] {
+    float: left;
+    background: url("../images/search.png") no-repeat scroll right 4px rgba(0, 0, 0, 0) !important;
+    width: auto;
+    height: 25px;
+    border-radius: 0 3px 3px 0;   
+    border: 1px solid #aaa;
+    border-left: none;
+}
+
 /*
 	Header
 *****************/

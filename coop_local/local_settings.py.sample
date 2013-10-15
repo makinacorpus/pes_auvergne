@@ -115,6 +115,9 @@ COOP_AGENDA_URL = "/agenda/"
 
 COOP_MEMBER_EVALUATE_FORM_ENABLED = False
 
+COOP_SEARCHRESULTS_URL = "/search_results/"
+COOP_SEARCHGLOBAL_THEMES = ['organizations', 'agenda', 'articles']
+
 EMAIL_HOST = "localhost"
 EMAIL_PORT = "25"
 EMAIL_HOST_USER = ""
