@@ -463,7 +463,7 @@ figure.left {
 
 .plugin_coop_searchglobal #search_button_pes input[type="submit"] {
     float: left;
-    background: url("../images/search.png") no-repeat scroll right 4px rgba(0, 0, 0, 0) !important;
+    background: url("../images/search.png") no-repeat scroll center 4px rgba(0, 0, 0, 0) !important;
     width: auto;
     height: 25px;
     border-radius: 0 3px 3px 0;   
@@ -1731,6 +1731,9 @@ a.account_link {
 a.account_link:hover {
   color: #be7c07;
 }
+a.searchglobal_link {
+  color: #f8b133;   
+}
 .content-services a.service_link {
   color: #8b3e74;
 }
@@ -2505,6 +2508,11 @@ span.date_to {
 .pagination .step-links a {
   text-decoration: none;
 }
+
+#result_searchglobal .pagination .page-link {
+  background: #f8b133;
+}
+
 #main-content .pagination select {
   width: 130px;
 }

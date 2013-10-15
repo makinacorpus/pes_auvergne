@@ -1,0 +1,146 @@
+{% load i18n %}
+
+<div id="searchglobal_top"></div>
+<div id="result_searchglobal">
+
+<div class="searchglobal_pagination_top pagination_top pagination">
+    {% include "page_coop_searchglobal/pagination.html" %}
+</div>
+
+
+{% for item in items %}
+
+    {% if item.type == 'exchange' %}
+        <div class="coop_searchglobal">
+            <div class="bloc_title">
+                {% if item.obj.img  %}
+                    <div class="logo"><a class="searchglobal_link" href="{{ base_url }}p/{{ item.obj.pk }}"><img src="{{ media_path }}{{ item.obj.img }}" alt="{{ item.obj.title }}"></a></div>
+                {% endif %}
+
+                <div class="resume">
+                    {% if item.obj.location == None %} {% else %} <span class="location">{{ item.obj.location|truncatechars:20 }}</span> {% endif %}
+                    <div class="exchange_type">{% trans "Type" %} : {{ item.obj.get_eway_display }}</div>
+                    <a href="{{ exchanges_url }}p/{{ item.obj.pk }}"><h3 class="exchange_title resume_title">{{ item.obj.title }}</h3></a>
+                    <div class="exchange_desc">{{ item.obj.description|safe|truncatechars:150 }}</div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if item.type == 'occ' %}
+        <div class="coop_agenda coop_searchglobal">
+            <div class="bloc_title">
+                {% if item.obj.event.image != '' %}
+                    <div class="logo"><a class="searchglobal_link" href="{{ agenda_url }}p/{{ item.obj.event.pk }}"><img src="{{ media_path }}{{ item.obj.event.image }}" alt=""></a></div>
+                {% endif %}
+
+                <div class="resume">
+                    <a class="searchglobal_link" href="{{ agenda_url }}p/{{ item.obj.event.pk }}"><h3 class="coop_agenda_title resume_title">{{ item.obj.event.title }}</h3></a>
+                    <span class="date_from">{{ item.obj.start_time|date:"j" }} {{ item.obj.start_time|date:"M"|lower }} {{ item.obj.start_time|date:"Y"|lower }}</span>
+                    {% if  item.obj.start_time.date != item.obj.end_time.date %}
+                        <span class="date_to">{% trans "to" %}</span>
+                    <span class="date_from">{{ item.obj.end_time|date:"j" }} {{ item.obj.end_time|date:"M"|lower }} {{ item.obj.end_time|date:"Y"|lower }}</span>
+                    {% endif %}
+
+
+                    <div class="description">
+                        {{ item.obj.event.description|truncatechars:150|safe }}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+
+    {% if item.type == 'service' %}
+        <div class="coop_service coop_searchglobal">
+            <div class="bloc_title">
+                <div class="logo logo_pes"></div>
+                <div class="resume">
+                    <a href="{{ organizations_url }}p/{{ item.obj.provider.pk }}"><h3 class="service_title resume_title">{{ item.obj.title }}</h3></a>
+                    <div class="service_desc">{{ item.obj.description|safe|truncatechars:150 }}</div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if item.type == 'organization' %}
+        <div class="bloc_title coop_searchglobal">
+
+            {% if item.obj.logo != '' %}
+                <div class="logo"><a class="searchglobal_link" href="{{ organizations_url }}p/{{ item.obj.pk }}"><img src="{{ media_path }}{{ item.obj.logo }}" alt=""></a></div>
+            {% endif %}
+
+            <div class="resume">
+                <a href="{{ organizations_url }}p/{{ item.obj.pk }}"><h3 class="member_title resume_title">{{ item.obj.title }}</h3></a>
+                {% if item.obj.short_description %}
+                    <span class="">{{ item.obj.short_description }}</span>
+                {% endif %}
+
+            </div>
+        </div>
+    {% endif %}
+    {% if item.type == 'project' %}
+        <div class="bloc_title coop_searchglobal">
+
+            {% if item.obj.logo != '' %}
+                <div class="logo"><a class="searchglobal_link" href="{{ organizations_url }}p/{{ item.obj.pk }}"><img src="{{ media_path }}{{ item.obj.logo }}" alt=""></a></div>
+            {% endif %}
+
+            <div class="resume">
+                {% if item.obj.located == None %}{% else %} 
+                    <span class="location">
+                        {{ item.obj.main_location_label }}
+                    </span> 
+                {% endif %}
+
+                {% if direct_link %}
+                    <a href="{{ item.obj.web|safe }}"><h3 class="member_title resume_title">{{ item.obj.title }}</h3></a>
+                {% else %}
+                    <a href="{{ organizations_url }}p/{{ item.obj.pk }}"><h3 class="member_title resume_title">{{ item.obj.title }}</h3></a>
+                {% endif %}
+
+                <div class="member_subtitle">{% if item.obj.activity %} {{ item.obj.activity }} {% endif %}</div>
+
+                <span class="">{{ item.obj.short_description }}</span>
+
+            </div>
+        </div>
+    {% endif %}
+    {% if item.type == 'entrie' %}
+        <div class="bloc_title coop_searchglobal">
+            {% if item.obj.image != '' %}
+                <div class="logo"><img src="{{ media_path }}{{ item.obj.image }}" alt=""></div>
+            {% endif %}
+            <div class="resume">
+                <h3><a class="searchglobal_link" href="{{ item.obj.get_absolute_url }}">{{ item.obj.title }}</a></h3>
+                <div class="author searchglobal_link">{{ item.obj.author }}</div>
+                <p class="entry-meta">
+                    {{ item.obj.publication_date|date:"d/m/Y @ H:i" }}
+                </p>
+                <div class="entry-body">
+                    {{ item.obj.resume|truncatechars:150|safe }}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+
+{% endfor %}
+
+
+<div class="searchglobal_pagination_bottom pagination_bottom pagination">
+    {% include "page_coop_searchglobal/pagination.html" %}
+</div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+    });
+
+</script>
+
+
+
