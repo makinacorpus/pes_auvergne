@@ -1,0 +1,34 @@
+[
+    {
+        "pk": 1, 
+        "model": "coop_local.personpreferencescontenttypes", 
+        "fields": {
+            "name": "organizations",
+            "label": "Structures"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "coop_local.personpreferencescontenttypes", 
+        "fields": {
+            "name": "exchanges",
+            "label": "Annonces"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "coop_local.personpreferencescontenttypes", 
+        "fields": {
+            "name": "entries",
+            "label": "Actualités"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "coop_local.personpreferencescontenttypes", 
+        "fields": {
+            "name": "events",
+            "label": "Agenda"
+        }
+    }
+]

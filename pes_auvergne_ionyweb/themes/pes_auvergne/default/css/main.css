@@ -2787,6 +2787,8 @@ body .ui-tooltip {
 /* Account */
 .account_disconnect {
   text-align: right;
+  height: 20px;
+  padding-top: 5px;
 }
 h3.account_link {
   border-bottom: 1px solid #F8B133;
@@ -2798,6 +2800,14 @@ h3.account_link {
 #tabs-infos {
   margin-top: 20px;
 }
+#coop_account h3 {
+    border-bottom: 1px solid #ccc;
+}
+
+#coop_account .preferences {
+    margin-left: 155px;
+}
+
 /* Form sort */
 .sort {
   margin-left: 10px;
@@ -2907,3 +2917,4 @@ h3.account_link {
     padding: 5px;
     margin-bottom: 3px;
 }
+
