@@ -1,0 +1,40 @@
+
+Bonjour,
+
+Vous vous êtes abonnés à un certain nombre de critère sur la plateforme PES Auvergne.
+Voici changement effectué sur la plateforme depuis {{ nb_days }} jours :
+
+Articles:
+
+{% for item in items %}
+    {% if item.type == 'entry' %}
+        <li><a class="articles_link" href="{{ blog_url }}p/{{ item.obj.pk }}">{{ item.obj.title }}</a></li>
+    {% endif %}
+{% endfor %}
+
+Annonces:
+
+{% for item in items %}
+    {% if item.type == 'exchange' %}
+        <li><a class="territory_link" href="{{ exchanges_url }}p/{{ item.obj.pk }}">{{ item.obj.title }}</a></li>
+    {% endif %}
+{% endfor %}
+
+Agenda:
+
+{% for item in items %}
+    {% if item.type == 'occ' %}
+        <li><a class="agenda_link" href="{{ agenda_url }}p/{{ item.obj.event.pk }}">{{ item.obj.event.title }}</a></li>
+    {% endif %}
+{% endfor %}
+
+Organisations:
+
+{% for item in items %}
+    {% if item.type == 'organization' %}
+        <li><a class="member_link" href="{{ organizations_url }}p/{{ item.obj.pk }}">{{ item.obj.title }}</a></li>
+    {% endif %}
+{% endfor %}
+
+
+Merci.
