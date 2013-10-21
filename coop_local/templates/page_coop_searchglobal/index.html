@@ -74,9 +74,12 @@
 
             <div class="resume">
                 <a href="{{ organizations_url }}p/{{ item.obj.pk }}"><h3 class="member_title resume_title">{{ item.obj.title }}</h3></a>
+
+                <div class="member_subtitle">{% if item.obj.activity %} {{ item.obj.activity }} {% endif %}</div>
                 {% if item.obj.short_description %}
                     <span class="">{{ item.obj.short_description }}</span>
                 {% endif %}
+
 
             </div>
         </div>
