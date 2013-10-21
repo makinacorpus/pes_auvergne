@@ -5,6 +5,10 @@
     <link rel="stylesheet" href="{{ STATIC_URL }}themes/pes_auvergne/default/js/leaflet/leaflet.css" />
     <link rel="stylesheet" href="{{ STATIC_URL }}admintools_bootstrap/css/custom-theme/jquery-ui-1.8.16.custom.css" />
 
+{% if print_css == 1 %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}themes/pes_auvergne/default/css/print.css" />
+{% endif %}
+
     <script type="text/javascript" src="{{ STATIC_URL }}themes/pes_auvergne/default/js/forms_utils.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}themes/pes_auvergne/default/js/jquery.carouFredSel-6.2.1-packed.js"></script>
 
@@ -122,7 +126,7 @@
                         <input type="button" onclick="javascript:send_to_friend('{{ request.build_absolute_uri }}','mail_to_friend','send_to_content');" value="{% trans 'Send' %}">
                         <div id="send_to_content" class="highlight_gen"></div>
                     </div>
-                    <a class="print" target="_blank" href=""></a>
+                    <a class="print" target="_blank" href="{{ base_url }}p/{{ member.pk }}?mode=print"></a>
                 </div>
                 
                 {% if docs %}
@@ -305,10 +309,14 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#description_full').addClass("detail_form_hide");
-
-        hide_complement();
-        keywords_hide_complement();
+        
+        {% if print_css != 1 %}
+            $('#description_full').addClass("detail_form_hide");
+            hide_complement();
+            keywords_hide_complement();
+        {% else %}
+            $('#description_short').addClass("detail_form_hide");
+        {% endif %}
 
         $('#carousel').carouFredSel({
             items: 2,
@@ -325,15 +333,21 @@
 
         $('#carousel a').fancybox({ 'hideOnContentClick': false,'zoomSpeedIn': 300, 'zoomSpeedOut': 300, 'overlayShow': true });
 
-        show_infos('relationship');
+        {% if print_css != 1 %}        
+            show_infos('relationship');
+        {% endif %}
 
-
-        // Check if we have to hide read more or not
-        if($('#description_short') && $('#description_full')) {
-            if($.trim($('#description_short').text()) == $.trim($('#description_full').text())) {
-                $('#read_more').addClass("detail_form_hide");  
+        {% if print_css != 1 %}
+            // Check if we have to hide read more or not
+            if($('#description_short') && $('#description_full')) {
+                if($.trim($('#description_short').text()) == $.trim($('#description_full').text())) {
+                    $('#read_more').addClass("detail_form_hide");  
+                }
             }
-        }
+        {% else %}
+            $('#read_more').addClass("detail_form_hide");
+
+        {% endif %}
 
     });
 

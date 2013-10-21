@@ -1,0 +1,31 @@
+#banner,
+#menu-top,
+#menu-search,
+#ionyweb_admin,
+#uvTab,
+.gradient-header,
+.gradient-footer,
+#before-footer,
+footer,
+#column2 {
+    display: none;
+}
+
+.body {
+    margin: 0;
+}
+
+body {
+ background: none;
+}
+
+.wa_placeholder_widget,
+.wa_placeholder_structure,
+.wa_plugin_widget,
+.edit_inline {
+   display: none;    
+}
+
+.bloc_content_col1 {
+   display: none;        
+}
