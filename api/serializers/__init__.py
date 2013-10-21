@@ -55,6 +55,7 @@ def serialize_person(person):
 def serialize_role(role):
     return serialize(role, include=(
         'uuid',
+        'slug',
         'label',
     ))
 
