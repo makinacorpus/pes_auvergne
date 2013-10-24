@@ -12,6 +12,7 @@ from .views import (
     PersonListView,
     RoleListView,
     TransverseThemeListView,
+    LegalStatusListView,
     help_view,
 )
 
@@ -26,4 +27,5 @@ urlpatterns = patterns(
         csrf_exempt(PersonDetailView.as_view())),
     url(r'^roles/$', RoleListView.as_view()),
     url(r'^transverse_themes/$', TransverseThemeListView.as_view()),
+    url(r'^legal_statuses/$', LegalStatusListView.as_view()),
 )

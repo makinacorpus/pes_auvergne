@@ -67,6 +67,13 @@ def serialize_transverse_theme(transverse_theme):
     ))
 
 
+def serialize_legal_status(legal_status):
+    return serialize(legal_status, include=(
+        'slug',
+        'label',
+    ))
+
+
 def deserialize_contact(content_object, contact, data):
     deserialize(contact, data, include=(
         'uuid',

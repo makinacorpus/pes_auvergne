@@ -21,6 +21,7 @@ from coop_local.models import (
     Person,
     Role,
     TransverseTheme,
+    LegalStatus,
 )
 
 from .serializers import (
@@ -31,6 +32,7 @@ from .serializers import (
     serialize_person,
     serialize_role,
     serialize_transverse_theme,
+    serialize_legal_status,
 )
 
 from .models import (
@@ -303,3 +305,8 @@ class RoleListView(BaseListView):
 class TransverseThemeListView(BaseListView):
     model = TransverseTheme
     serialize = staticmethod(serialize_transverse_theme)
+
+
+class LegalStatusListView(BaseListView):
+    model = LegalStatus
+    serialize = staticmethod(serialize_legal_status)
