@@ -1964,7 +1964,7 @@ span.date_to {
   float: left;
 }
 .coop_agenda #links {
-  margin-top: 5px;
+  margin-top: -25px;
 }
 #links a.facebook,
 #links a.twitter,
@@ -2146,7 +2146,7 @@ span.date_to {
   float: left;
   width: 450px;
   padding: 5px;
-  margin-top: -50px;
+  margin-top: -20px;
 }
 .bloc_content .event_content .description,
 .bloc_content .event_content .readmore,
