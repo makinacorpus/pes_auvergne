@@ -5,6 +5,10 @@
     <link rel="stylesheet" href="{{ STATIC_URL }}themes/pes_auvergne/default/js/leaflet/leaflet.css" />
     <link rel="stylesheet" href="{{ STATIC_URL }}admintools_bootstrap/css/custom-theme/jquery-ui-1.8.16.custom.css" />
 
+{% if print_css == 1 %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}themes/pes_auvergne/default/css/print.css" />
+{% endif %}
+
     <script type="text/javascript" src="{{ STATIC_URL }}themes/pes_auvergne/default/js/jquery.carouFredSel-6.2.1-packed.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}themes/pes_auvergne/default/js/forms_utils.js"></script>
 
@@ -96,7 +100,7 @@
                         <input type="button" onclick="javascript:send_to_friend('{{ request.build_absolute_uri }}','mail_to_friend','send_to_content');" value="{% trans 'Send' %}">
                         <div id="send_to_content" class="highlight_gen"></div>
                     </div>
-                    <a class="print" href=""></a>
+                    <a class="print" target="_blank" href="{{ base_url }}{{ e.pk }}?mode=print"></a>
                 </div>
 
                 <h3>{% trans "Contact" %}</h3>

@@ -750,6 +750,7 @@ figure.left {
 }
 #articles #column1 {
   width: 240px;
+  float: left;
 }
 #articles #column2 {
   width: 260px;
@@ -1893,6 +1894,7 @@ span.date_to {
   font-size: 16px!important;
   color: #505050!important;
   font-weight: bold;
+  width: 100%;
 }
 #members .header p {
   clear: both;
@@ -2102,6 +2104,7 @@ span.date_to {
 #articles .bloc_content {
   float: left;
   padding-bottom: 10px;
+  position: relative;
 }
 #members .bloc_content {
   border-bottom: 1px solid #eee;

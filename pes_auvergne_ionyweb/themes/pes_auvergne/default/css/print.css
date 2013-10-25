@@ -7,6 +7,7 @@
 .gradient-header,
 .gradient-footer,
 #before-footer,
+#read_more,
 footer,
 #column2 {
     display: none;
@@ -30,5 +31,9 @@ body {
 
 .bloc_content_col1 {
    display: none;        
+}
+
+.header #column2 {
+    display: block;
 }
 
