@@ -61,6 +61,7 @@ INSTALLED_APPS = settings.INSTALLED_APPS + [
     'ionyweb_plugins.page_coop_territory',
     'ionyweb_plugins.page_coop_service',
     'ionyweb_plugins.page_coop_searchglobal',
+    'ionyweb_plugins.page_coop_newsletter',
     'ionyweb_plugins.plugin_coop_members',
     'ionyweb_plugins.plugin_coop_agenda',
     'ionyweb_plugins.plugin_coop_promote',
@@ -125,6 +126,10 @@ EMAIL_HOST_USER = ""
 EMAIL_HOST_PASSWORD = ""
 
 MAX_UPLOAD_SIZE = 5242880
+
+MAILJET_API_KEY='907a7bacd580de7316d6d650d743009d'
+MAILJET_SECRET_KEY='18be5216f8a64b44a19791e6b6e4f6dd'
+MAILJET_MAILINGLIST_NAME='PES Auvergne'
 
 NOTIFICATION_MY_ACCOUNT_DELTA = 15
 NOTIFICATION_MAIL_DELTA = 7
