@@ -98,7 +98,9 @@ install_app() {
     echo_red "# Install App #"
     echo_red "###############"
 
-	make install
+    cp coop_local/local_settings.py.sample coop_local/local_settings.py
+    sed "s/DB_NAME/${DB_NAME}/;s/DB_USER/${DB_USER}/;s/DB_PASS/${DB_PASS}/" coop_local/db_settings.py.sample > coop_local/db_settings.py
+    make install
 
     ### ??? ###
     $PSQL -d ${DB_NAME} -c "UPDATE django_site SET name='localhost', domain='${DOMAIN}' WHERE id=1;"
