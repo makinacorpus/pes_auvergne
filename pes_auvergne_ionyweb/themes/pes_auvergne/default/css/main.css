@@ -2967,6 +2967,13 @@ h3.account_link {
     border-radius: 3px;
 }
 
+.evaluation_preview {
+    padding: 20px;
+}
+
+.evaluate_points_nb {
+    font-size: 0px;
+}
 
 /* Comments */
 

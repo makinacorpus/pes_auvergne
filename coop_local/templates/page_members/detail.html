@@ -290,8 +290,8 @@
             <div id="evaluation">
                 {% for t in evaluate %}
                     <div class='title_eval'>{{ t.theme }}</div>
-                    <div class="{{t.cssclass}} stars{{t.points}}"><span>{{ t.points }}</span></div>
-                    <div class="{{t.cssclass}} stars{{t.to_max_points}} to_max_points"><span>{{ t.to_max_points }}</span></div>
+                    <div class="{{t.cssclass}} stars{{t.points}}"><span class="evaluate_points_nb">{{ t.points }}</span></div>
+                    <div class="{{t.cssclass}} stars{{t.to_max_points}} to_max_points"><span class="evaluate_points_nb">{{ t.to_max_points }}</span></div>
                     <div class="detail_link"><a href="javascript:show_evaluation('evaluation_details', '{{ t.cssclass }}');">{% trans "See details" %}</a></div>
                 {% endfor %}
             </div>
