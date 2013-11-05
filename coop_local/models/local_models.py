@@ -83,6 +83,8 @@ class Organization(BaseOrganization):
 
     evaluation = models.ForeignKey('coop_local.Evaluation', verbose_name=_(u'answer'), blank=True, null=True)
     
+    evaluation_status = models.BooleanField(_('Publish evaluation'), default=False)
+    
     class Meta:
         verbose_name = 'Initiative'
         verbose_name_plural = 'Initiatives'

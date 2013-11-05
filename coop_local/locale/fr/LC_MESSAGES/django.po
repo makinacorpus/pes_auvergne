@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-05 15:26+0100\n"
+"POT-Creation-Date: 2013-11-05 16:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -99,6 +99,10 @@ msgstr "Réponse"
 #: models/local_models.py:66 models/local_models.py:67
 msgid "evaluation answer"
 msgstr "Réponse"
+
+#: models/local_models.py:86
+msgid "Publish evaluation"
+msgstr "Publier l'évaluation"
 
 #: templates/page_blog/entry_archive.html:14
 #: templates/page_coop_exchange/search_form_exchange.html:12
@@ -246,7 +250,7 @@ msgstr ""
 #: templates/page_coop_agenda/index.html:120
 #: templates/page_coop_exchange/detail.html:231
 #: templates/page_coop_exchange/index.html:44
-#: templates/page_members/detail.html:311 templates/page_members/index.html:61
+#: templates/page_members/detail.html:333 templates/page_members/index.html:61
 msgid "Edit"
 msgstr "Editer"
 
@@ -425,6 +429,10 @@ msgstr "Plus-value solidaire"
 #: templates/page_members/detail.html:295
 msgid "See details"
 msgstr "Voir le détail"
+
+#: templates/page_members/detail.html:315
+msgid "Experiences"
+msgstr "Expériences"
 
 #: templates/page_members/index.html:25
 msgid "Sort by"
