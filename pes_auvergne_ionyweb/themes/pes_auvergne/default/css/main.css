@@ -2868,24 +2868,52 @@ h3.account_link {
     width: 192px;
 }
 
+
+#members .evaluate .emploi, 
 #evaluation .emploi {
     color: #468b92;
+}
+
+#members .evaluate .ecologie,
+#evaluation .ecologie {
+    color: #70be46;    
+}
+
+#members .evaluate .gouvernance,
+#evaluation .gouvernance {
+    color: #ffcc00;    
+}
+
+#members .evaluate .social,
+#evaluation .social {
+    color: #d40000;
+}
+
+#evaluation .emploi {
     background: url('../images/star_blue.png') repeat-x;
 }
 
 #evaluation .ecologie {
-    color: #70be46;    
     background: url('../images/star_green.png') repeat-x;
 }
 
 #evaluation .gouvernance {
-    color: #ffcc00;    
     background: url('../images/star_yellow.png') repeat-x;
 }
 
 #evaluation .social {
-    color: #d40000;
     background: url('../images/star_red.png') repeat-x;
+}
+
+.evaluate .answer {
+    border-bottom: 1px solid #ccc;
+}
+
+.evaluate .question {
+    padding: 20px;
+    margin-left: 15px;
+    text-shadow: 0.1em 0.1em 0.2em #ccc;
+    background: url('../images/question.png') no-repeat left center;
 }
 
 
