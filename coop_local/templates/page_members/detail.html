@@ -280,7 +280,7 @@
             <div id="references">
                 {% for r in member.reference_set.all %}
                     <p>
-                        {{ r.customer }}<br/>
+                        {{ r.customer }}<br/>detail
                         {{ r.from_year }} - {{ r.to_year }}<br/>
                         {{ r.services }}
                     </p>
@@ -289,14 +289,42 @@
 
             <div id="evaluation">
                 {% for t in evaluate %}
-                    {{ t.theme }}
-                    <div class="{{t.cssclass}} stars{{t.points}}"><span>{{t.points}}</span></div>
-
+                    <div class='title_eval'>{{ t.theme }}</div>
+                    <div class="{{t.cssclass}} stars{{t.points}}"><span>{{ t.points }}</span></div>
+                    <div class="{{t.cssclass}} stars{{t.to_max_points}} to_max_points"><span>{{ t.to_max_points }}</span></div>
+                    <div class="detail_link"><a href="javascript:show_evaluation('evaluation_details', '{{ t.cssclass }}');">{% trans "See details" %}</a></div>
                 {% endfor %}
             </div>
         </div>
         
     </div>
+
+
+    {% if evaluation %}
+        {% for t in evaluate %}
+            <div id="evaluation_details{{ t.cssclass }}" class="bloc_content bloc_content_borderless evaluation_details" >
+                <div class='title_eval'><h3>{{ t.theme }}</h3></div>
+                <div class='evaluate'>
+                    {% for ev in evaluation %}
+                        {% if ev.answer and ev.answer_index != 0 %}
+                            {% if ev.cssclass == t.cssclass %}
+                                <div class="question">{{ ev.question }}</div>
+                                <div class="answer_view">{{ ev.answer }}</div>
+                                {% if ev.experience %}
+                                    <div class="experience">
+                                        <h3>{% trans "Experiences" %}: </h3>
+                                        {{ ev.experience|safe }}
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+
     {% endif %}
 
 
@@ -370,6 +398,7 @@
         $('#references').addClass("detail_form_hide");
         $('#evaluation').addClass("detail_form_hide");
         $('#dialog-link').addClass("detail_form_hide");
+        $('.evaluation_details').addClass("detail_form_hide");
 
         $('#menu_garanties').removeClass("menu_selected");
         $('#menu_relationship').removeClass("menu_selected");
@@ -388,7 +417,10 @@
         $("#" + id_div).removeClass("detail_form_hide");
         $("#menu_" + id_div).addClass("menu_selected");
    }
-
+   function show_evaluation(id_div, theme) {
+        $('.evaluation_details').addClass("detail_form_hide");
+        $("#" + id_div + theme).removeClass("detail_form_hide");
+   }
    function download_docs() {
     $(function() {
         $( "#dialog-docs" ).dialog({

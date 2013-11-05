@@ -17,8 +17,8 @@ SECTEURS_FSE = Choices(
 )
 
 EVALUATE_ANSWERS = Choices(
-    ('NONE', 1, _(u'None')),
-    ('INTERESTED', 2, _(u'No action but interest')),
+    ('NONE', 0, _(u'None')),
+    ('INTERESTED', 1, _(u'No action but interest')),
     ('REGULAR', 3, _('Regular actions')),
     ('SPECIALIST', 4, _('Specialist')),
 )

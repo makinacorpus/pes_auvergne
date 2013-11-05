@@ -2867,7 +2867,41 @@ h3.account_link {
 .stars12 {
     width: 192px;
 }
+.stars13 {
+    width: 208px;
+}
+.stars14 {
+    width: 224px;
+}
+.stars15 {
+    width: 240px;
+}
+.stars16 {
+    width: 256px;
+}
 
+.to_max_points {
+    opacity: .2;
+}
+
+.to_max_points,
+#evaluation .emploi,
+#evaluation .ecologie,
+#evaluation .gouvernance,
+#evaluation .social {
+    float: left;
+    margin-bottom: 10px;
+    margin-top: 3px;
+}
+
+#evaluation .detail_link {
+    margin-left: 5px;
+    float: left;
+}
+
+#evaluation .title_eval {
+    clear: left;
+}
 
 #members .evaluate .emploi, 
 #evaluation .emploi {
@@ -2910,10 +2944,27 @@ h3.account_link {
 }
 
 .evaluate .question {
-    padding: 20px;
+    padding: 5px 20px 0;
     margin-left: 15px;
+    margin-top: 5px;
     text-shadow: 0.1em 0.1em 0.2em #ccc;
     background: url('../images/question.png') no-repeat left center;
+    line-height: 16px;
+}
+
+.evaluate .answer_view {
+    padding: 5px 20px 0;
+    margin-left: 15px;    
+    font-weight: bold;
+    color: #444444; 
+}
+
+.evaluate .experience {
+    padding: 5px 20px 0;
+    margin-left: 15px;
+    border: 1px solid #ddd;
+    background: #eee;
+    border-radius: 3px;
 }
 
 
