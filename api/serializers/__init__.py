@@ -75,6 +75,46 @@ def serialize_legal_status(legal_status):
     ))
 
 
+def serialize_activity_nomenclature(activity_nomenclature):
+    return serialize(activity_nomenclature, include=(
+        'id',
+        'label',
+    ))
+
+
+def serialize_calendar(calendar):
+    return serialize(calendar, include=(
+        'uuid',
+        'title',
+        'description',
+    ))
+
+
+def serialize_event_category(event_category):
+    return serialize(event_category, include=(
+        'id',
+        'slug',
+        'label',
+    ))
+
+
+def serialize_event(event):
+    return serialize(event, include=(
+        'uuid',
+        'title',
+        'description',
+        'category',
+        'calendar',
+        'organization',
+        'organizations',
+        'other_organizations',
+        'activity',
+        'transverse_themes',
+        'source_info',
+        'zoom_on',
+    ))
+
+
 def deserialize_contact(content_object, contact, data):
     deserialize(contact, data, include=(
         'uuid',

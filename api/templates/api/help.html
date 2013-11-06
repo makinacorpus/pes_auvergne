@@ -207,5 +207,91 @@
         }
         </pre>
     </section>
+    <section>
+        <h2>Activity Nomenclatures</h2>
+        <h3>End Points</h3>
+        <dl>
+            <dt><b>GET /api/activity_nomenclatures/</b><dt>
+            <dd>
+                <p>List all activity nomenclatures.</p>
+            </dd>
+        </dl>
+        <h3>Activity Nomenclature structure</h3>
+        <pre>
+        {
+            "id": 42,
+            "label": "Activity nomenclature label",
+        }
+        </pre>
+    </section>
+    <section>
+        <h2>Calendar</h2>
+        <h3>End Points</h3>
+        <dl>
+            <dt><b>GET /api/calendars/</b><dt>
+            <dd>
+                <p>List all calendars.</p>
+            </dd>
+        </dl>
+        <h3>Calendar structure</h3>
+        <pre>
+        {
+            "uuid": "n4kuNHT94u4tUMcnXpPY2",
+            "title": "Calendar title",
+            "description": "Calendar description",
+        }
+        </pre>
+    </section>
+    <section>
+        <h2>Event Categories</h2>
+        <h3>End Points</h3>
+        <dl>
+            <dt><b>GET /api/event_categories/</b><dt>
+            <dd>
+                <p>List all event categories.</p>
+            </dd>
+        </dl>
+        <h3>Event category structure</h3>
+        <pre>
+        {
+            "id": 42,
+            "slug": "event-category-label",
+            "label": "Event category label",
+        }
+        </pre>
+    </section>
+    <section>
+        <h2>Events</h2>
+        <h3>End Points</h3>
+        <dl>
+            <dt><b>GET /api/events/</b><dt>
+            <dd>
+                <p>List all events.</p>
+            </dd>
+        </dl>
+        <h3>Event structure</h3>
+        <pre>
+        {
+            "activity": 42,
+            "calendar": "v29JAFRgurmahR9yfb49dd",
+            "category": [
+                "category-slug"
+            ],
+            "description": "description",
+            "organization": "dRLgY2P9BNxvKybV7rdnCm",
+            "organizations": [
+                "4tUucuNHMnpP9X4kY2Tn4", …
+            ],
+            "other_organizations": "Other organizations",
+            "source_info": "Source info",
+            "title": "Title",
+            "transverse_themes": [
+                3, …
+            ],
+            "uuid": "uNHMn4kY2TucpP9n44tUX",
+            "zoom_on": false
+        }
+        </pre>
+    </section>
 </body>
 </html>

@@ -15,24 +15,32 @@ from django.views.generic import (
 )
 
 from coop_local.models import (
+    ActivityNomenclature,
+    Calendar,
     Contact,
     Engagement,
+    Event,
+    EventCategory,
+    LegalStatus,
     Organization,
     Person,
     Role,
     TransverseTheme,
-    LegalStatus,
 )
 
 from .serializers import (
     deserialize_contact,
     deserialize_organization,
     deserialize_person,
+    serialize_activity_nomenclature,
+    serialize_calendar,
+    serialize_event,
+    serialize_event_category,
+    serialize_legal_status,
     serialize_organization,
     serialize_person,
     serialize_role,
     serialize_transverse_theme,
-    serialize_legal_status,
 )
 
 from .models import (
@@ -310,3 +318,23 @@ class TransverseThemeListView(BaseListView):
 class LegalStatusListView(BaseListView):
     model = LegalStatus
     serialize = staticmethod(serialize_legal_status)
+
+
+class ActivityNomenclatureListView(BaseListView):
+    model = ActivityNomenclature
+    serialize = staticmethod(serialize_activity_nomenclature)
+
+
+class CalendarListView(BaseListView):
+    model = Calendar
+    serialize = staticmethod(serialize_calendar)
+
+
+class EventCategoryListView(BaseListView):
+    model = EventCategory
+    serialize = staticmethod(serialize_event_category)
+
+
+class EventListView(BaseListView):
+    model = Event
+    serialize = staticmethod(serialize_event)
