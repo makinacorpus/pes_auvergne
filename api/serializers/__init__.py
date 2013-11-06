@@ -10,6 +10,7 @@ def serialize_contact(contact):
     return {
         'uuid': contact.uuid,
         'content': contact.content,
+        'details': contact.details,
     }
 
 
