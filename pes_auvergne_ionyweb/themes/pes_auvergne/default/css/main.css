@@ -2617,7 +2617,7 @@ span.date_to {
   background: url('../images/icon-next-territory.png') no-repeat center right;
 }
 .formset {
-  border: 10px solid #eee;
+  border: 10px solid #ddd;
   margin-top: 0;
   border-radius: 0 0 15px 15px;
   -webkit-box-shadow: 0 3px 3px #bbb;
@@ -2633,8 +2633,9 @@ span.date_to {
   margin-left: 160px;
 }
 .title_formset {
-  background: none repeat scroll 0 0 #EEEEEE;
+  background: none repeat scroll 0 0 #ddd;
   color: #AAAAAA;
+  text-shadow: 0.1em 0.1em 0.2em #AAAAAA;
   margin-bottom: 0;
   margin-left: 10px;
   margin-right: 10px;
