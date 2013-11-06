@@ -239,7 +239,7 @@
         {% endif %}
     </div>
 
-    {% if member.relations.exists or member.guaranties.exists or member.projects.exists or evaluation %}
+    {% if member.relations.exists or member.guaranties.exists or member.projects.exists or evaluate %}
     <div class="bloc_content bloc_content_borderless">
         <div class="bloc_content_col1">
             {% if member.relations.exists %}
@@ -289,10 +289,12 @@
 
             <div id="evaluation">
                 {% for t in evaluate %}
-                    <div class='title_eval'>{{ t.theme }}</div>
-                    <div class="{{t.cssclass}} stars{{t.points}}"><span class="evaluate_points_nb">{{ t.points }}</span></div>
-                    <div class="{{t.cssclass}} stars{{t.to_max_points}} to_max_points"><span class="evaluate_points_nb">{{ t.to_max_points }}</span></div>
-                    <div class="detail_link"><a href="javascript:show_evaluation('evaluation_details', '{{ t.cssclass }}');">{% trans "See details" %}</a></div>
+                    {% if t.points != 0 and t.to_max_point != 0 %}
+                        <div class='title_eval'>{{ t.theme }}</div>
+                        <div class="{{t.cssclass}} stars{{t.points}}"><span class="evaluate_points_nb">{{ t.points }}</span></div>
+                        <div class="{{t.cssclass}} stars{{t.to_max_points}} to_max_points"><span class="evaluate_points_nb">{{ t.to_max_points }}</span></div>
+                        <div class="detail_link"><a href="javascript:show_evaluation('evaluation_details', '{{ t.cssclass }}');">{% trans "See details" %}</a></div>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
@@ -362,7 +364,18 @@
         $('#carousel a').fancybox({ 'hideOnContentClick': false,'zoomSpeedIn': 300, 'zoomSpeedOut': 300, 'overlayShow': true });
 
         {% if print_css != 1 %}        
-            show_infos('relationship');
+            {% if member.relations.exists %}
+                show_infos('relationship');
+            {% elif member.guaranties.exists %}
+                show_infos('garanties');
+            {% elif member.projects.exists %}
+                show_infos('projects');
+            {% elif member.reference_set.exists %}
+                show_infos('references');
+            {% elif evaluate %}
+                show_infos('evaluation');
+            {% endif %}
+
         {% endif %}
 
         {% if print_css != 1 %}
@@ -429,7 +442,6 @@
         });
     });
    }
-
    function view_offer_details(pk) {
     $(function() {
         $( "#dialog-offer-"+pk ).dialog({
