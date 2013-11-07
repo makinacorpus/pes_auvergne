@@ -460,6 +460,7 @@ figure.left {
     padding-right: 10px;
     border: 1px solid #444444;
     border-right: none;
+    height: 19px;
 }
 
 .plugin_coop_searchglobal #search_button_pes input[type="submit"] {
