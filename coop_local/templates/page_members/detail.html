@@ -314,8 +314,8 @@
                                 <div class="answer_view">{{ ev.answer }}</div>
                                 {% if ev.experience %}
                                     <div class="experience">
-                                        <h3>{% trans "Experiences" %}: </h3>
-                                        {{ ev.experience|safe }}
+                                        <div class="experience_title">{% trans "Experiences" %}: </div>
+                                        <p>{{ ev.experience|safe }}</p>
                                     </div>
                                 {% endif %}
                             {% endif %}

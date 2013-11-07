@@ -2968,6 +2968,10 @@ h3.account_link {
     border-radius: 3px;
 }
 
+.evaluate .experience .experience_title {
+    font-weight: bold;
+}
+
 .evaluation_preview {
     padding: 20px;
 }
