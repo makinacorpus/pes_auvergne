@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-05 16:47+0100\n"
+"POT-Creation-Date: 2013-11-07 15:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -250,7 +250,7 @@ msgstr ""
 #: templates/page_coop_agenda/index.html:120
 #: templates/page_coop_exchange/detail.html:231
 #: templates/page_coop_exchange/index.html:44
-#: templates/page_members/detail.html:333 templates/page_members/index.html:61
+#: templates/page_members/detail.html:335 templates/page_members/index.html:61
 msgid "Edit"
 msgstr "Editer"
 
@@ -426,11 +426,11 @@ msgstr "Références"
 msgid "Solidarity capital"
 msgstr "Plus-value solidaire"
 
-#: templates/page_members/detail.html:295
+#: templates/page_members/detail.html:296
 msgid "See details"
 msgstr "Voir le détail"
 
-#: templates/page_members/detail.html:315
+#: templates/page_members/detail.html:317
 msgid "Experiences"
 msgstr "Expériences"
 
@@ -453,6 +453,34 @@ msgstr "Annuaire"
 #: templates/plugin_coop_members/index.html:15
 msgid "See all members..."
 msgstr "Voir tous les membres"
+
+#: templates/registration/activate.html:3
+msgid "Account not validated"
+msgstr "Compte non validé"
+
+#: templates/registration/activate.html:4
+msgid ""
+"An error has occured while validating your account. Please contact an "
+"administrator and give him your activation key. Thank you."
+msgstr "Un erreur s'est produite pendant la validation de votre compte. Merci de contacter un administrateur."
+
+#: templates/registration/activate.html:5
+msgid "Activation key"
+msgstr "Clef d'activation"
+
+#: templates/registration/activation_complete.html:33
+msgid "Account validated"
+msgstr "Compte validé"
+
+#: templates/registration/activation_complete.html:34
+msgid ""
+"Your account is now activated. You may login and start using the site. Thank "
+"you."
+msgstr "Votre compte est maintenant activé. Vous pouvez vous logger et commencer à publier sur le site. Merci."
+
+#: templates/registration/activation_complete.html:36
+msgid "Go to website"
+msgstr "Retourner sur le site"
 
 #~ msgid "Start date"
 #~ msgstr "Date début"
