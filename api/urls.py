@@ -13,6 +13,10 @@ from .views import (
     RoleListView,
     TransverseThemeListView,
     LegalStatusListView,
+    ActivityNomenclatureListView,
+    EventCategoryListView,
+    EventListView,
+    CalendarListView,
     help_view,
 )
 
@@ -28,4 +32,8 @@ urlpatterns = patterns(
     url(r'^roles/$', RoleListView.as_view()),
     url(r'^transverse_themes/$', TransverseThemeListView.as_view()),
     url(r'^legal_statuses/$', LegalStatusListView.as_view()),
+    url(r'^activity_nomenclatures/$', ActivityNomenclatureListView.as_view()),
+    url(r'^event_categories/$', EventCategoryListView.as_view()),
+    url(r'^events/$', EventListView.as_view()),
+    url(r'^calendars/$', CalendarListView.as_view()),
 )

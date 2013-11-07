@@ -10,6 +10,7 @@ def serialize_contact(contact):
     return {
         'uuid': contact.uuid,
         'content': contact.content,
+        'details': contact.details,
     }
 
 
@@ -71,6 +72,46 @@ def serialize_legal_status(legal_status):
     return serialize(legal_status, include=(
         'slug',
         'label',
+    ))
+
+
+def serialize_activity_nomenclature(activity_nomenclature):
+    return serialize(activity_nomenclature, include=(
+        'id',
+        'label',
+    ))
+
+
+def serialize_calendar(calendar):
+    return serialize(calendar, include=(
+        'uuid',
+        'title',
+        'description',
+    ))
+
+
+def serialize_event_category(event_category):
+    return serialize(event_category, include=(
+        'id',
+        'slug',
+        'label',
+    ))
+
+
+def serialize_event(event):
+    return serialize(event, include=(
+        'uuid',
+        'title',
+        'description',
+        'category',
+        'calendar',
+        'organization',
+        'organizations',
+        'other_organizations',
+        'activity',
+        'transverse_themes',
+        'source_info',
+        'zoom_on',
     ))
 
 
