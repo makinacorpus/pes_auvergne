@@ -1,0 +1,7 @@
+Un internaute  sur la plate-forme d'échanges solidaires Auvergne (PES Auvergne) a créé le contenu suivant :
+
+{% if url %}
+Message : {{ url }}
+{% endif %}
+
+Merci de procéder à la modération de ce contenu.

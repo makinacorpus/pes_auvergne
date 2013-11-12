@@ -1,5 +1,5 @@
 {% load i18n %}
-
+{% load rights_exchange %}
 
 
 <script type="text/javascript">
@@ -40,7 +40,7 @@
                 <a href="{{ base_url }}p/{{ e.pk }}"><h3 class="exchange_title resume_title">{{ e.title }}</h3></a>
                 <div class="exchange_desc">{{ e.description|safe|truncatechars:150 }}</div>
                 <span class="readmore"><a class="exchange_link" href="{{ base_url }}p/{{ e.pk }}">{% trans "Read more" %}</a></span>
-                {% if request.user.is_superuser %}
+                {% if request.user.is_superuser or e|tag_rights_exchange:request %}
                     <span class="edit"><a class="" href="{{ base_url }}p/exchange_edit/{{ e.pk }}">{% trans "Edit" %}</a></span>
                 {% endif %}
             </div>
