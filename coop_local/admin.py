@@ -90,7 +90,6 @@ def objects_to_validate(request):
     occ_list = []
     projects_list = []
     entries_list = []
-    
 
     # List all organizations
     organizations = Organization.objects.filter(is_project=False).exclude(status='V').order_by("-modified")
