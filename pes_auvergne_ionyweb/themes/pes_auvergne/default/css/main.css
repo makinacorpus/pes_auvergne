@@ -1763,7 +1763,8 @@ span.date_to {
   color: #53c97f !important;
 }
 #members .location,
-.coop_zoomon .members .location {
+.coop_zoomon .members .location,
+.location_member {
   color: #a03225 !important;
   background: url(../images/icons/member_location.png) no-repeat left center;
 }
