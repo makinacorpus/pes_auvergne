@@ -20,6 +20,10 @@ urlpatterns = patterns(
     '',
     url(r'^api/', include('api.urls')),
     url(r'^mailto/', utils.mail_to_friend, name='mail_to_friend'),
+    
+    #url(r'^accounts/', include('registration.auth_urls')),
+    url(r'^accounts/', include('registration.backends.default.urls')),
+    
 )
 
 from coop.default_project_urls import urlpatterns as default_project_urls

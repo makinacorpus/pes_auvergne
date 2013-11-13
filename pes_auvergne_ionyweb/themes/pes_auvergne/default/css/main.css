@@ -444,8 +444,9 @@ figure.left {
     border: 1px solid #AAAAAA;
     background: none !important;
     float: left;
-    padding: 4px 4px 4px 4px !important;
+    padding: 4px 4px 3px 4px !important;
     border-right: none;
+    height: 16px;
 }
 
 .plugin_coop_searchglobal #label_search {
@@ -459,6 +460,7 @@ figure.left {
     padding-right: 10px;
     border: 1px solid #444444;
     border-right: none;
+    height: 19px;
 }
 
 .plugin_coop_searchglobal #search_button_pes input[type="submit"] {
@@ -1690,6 +1692,7 @@ a.account_link,
 a.exchange_link,
 a.service_link,
 a.articles_link,
+a.projects_link,
 a.territory_link,
 .articles_link {
   font-weight: bold;
@@ -1738,7 +1741,8 @@ a.searchglobal_link {
 .content-services a.service_link {
   color: #8b3e74;
 }
-.content-projects a.member_link {
+.content-projects a.member_link,
+a.projects_link {
   color: #A0866A;
 }
 span.date_from {
@@ -1761,11 +1765,13 @@ span.date_to {
   color: #53c97f !important;
 }
 #members .location,
-.coop_zoomon .members .location {
+.coop_zoomon .members .location,
+.location_member {
   color: #a03225 !important;
   background: url(../images/icons/member_location.png) no-repeat left center;
 }
-.content-projects #members .location {
+.content-projects #members .location,
+.location_project {
   color: #A0866A !important;
   background: url(../images/icons/project_location.png) no-repeat left center;
 }
@@ -1871,7 +1877,8 @@ span.date_to {
 .coop_zoomon .entry .block_img {
   background: url(../images/logo_pes_auvergne_green_light.png) no-repeat center center !important;
 }
-.content-projects .bloc_title .logo_pes {
+.content-projects .bloc_title .logo_pes,
+.logo_pes_project {
   background: url(../images/logo_pes_auvergne_brown.png) no-repeat center center !important;
 }
 .coop_exchange .block_desc {
@@ -2617,7 +2624,7 @@ span.date_to {
   background: url('../images/icon-next-territory.png') no-repeat center right;
 }
 .formset {
-  border: 10px solid #eee;
+  border: 10px solid #ddd;
   margin-top: 0;
   border-radius: 0 0 15px 15px;
   -webkit-box-shadow: 0 3px 3px #bbb;
@@ -2633,8 +2640,9 @@ span.date_to {
   margin-left: 160px;
 }
 .title_formset {
-  background: none repeat scroll 0 0 #EEEEEE;
+  background: none repeat scroll 0 0 #ddd;
   color: #AAAAAA;
+  text-shadow: 0.1em 0.1em 0.2em #AAAAAA;
   margin-bottom: 0;
   margin-left: 10px;
   margin-right: 10px;
@@ -2867,27 +2875,117 @@ h3.account_link {
 .stars12 {
     width: 192px;
 }
+.stars13 {
+    width: 208px;
+}
+.stars14 {
+    width: 224px;
+}
+.stars15 {
+    width: 240px;
+}
+.stars16 {
+    width: 256px;
+}
 
+.to_max_points {
+    opacity: .2;
+}
+
+.to_max_points,
+#evaluation .emploi,
+#evaluation .ecologie,
+#evaluation .gouvernance,
+#evaluation .social {
+    float: left;
+    margin-bottom: 10px;
+    margin-top: 3px;
+}
+
+#evaluation .detail_link {
+    margin-left: 5px;
+    float: left;
+}
+
+#evaluation .title_eval {
+    clear: left;
+}
+
+#members .evaluate .emploi, 
 #evaluation .emploi {
     color: #468b92;
+}
+
+#members .evaluate .ecologie,
+#evaluation .ecologie {
+    color: #70be46;    
+}
+
+#members .evaluate .gouvernance,
+#evaluation .gouvernance {
+    color: #ffcc00;    
+}
+
+#members .evaluate .social,
+#evaluation .social {
+    color: #d40000;
+}
+
+#evaluation .emploi {
     background: url('../images/star_blue.png') repeat-x;
 }
 
 #evaluation .ecologie {
-    color: #70be46;    
     background: url('../images/star_green.png') repeat-x;
 }
 
 #evaluation .gouvernance {
-    color: #ffcc00;    
     background: url('../images/star_yellow.png') repeat-x;
 }
 
 #evaluation .social {
-    color: #d40000;
     background: url('../images/star_red.png') repeat-x;
 }
 
+.evaluate .answer {
+    border-bottom: 1px solid #ccc;
+}
+
+.evaluate .question {
+    padding: 5px 20px 0;
+    margin-left: 15px;
+    margin-top: 5px;
+    text-shadow: 0.1em 0.1em 0.2em #ccc;
+    background: url('../images/question.png') no-repeat left center;
+    line-height: 16px;
+}
+
+.evaluate .answer_view {
+    padding: 5px 20px 0;
+    margin-left: 15px;    
+    font-weight: bold;
+    color: #444444; 
+}
+
+.evaluate .experience {
+    padding: 5px 20px 0;
+    margin-left: 15px;
+    border: 1px solid #ddd;
+    background: #eee;
+    border-radius: 3px;
+}
+
+.evaluate .experience .experience_title {
+    font-weight: bold;
+}
+
+.evaluation_preview {
+    padding: 20px;
+}
+
+.evaluate_points_nb {
+    font-size: 0px;
+}
 
 /* Comments */
 

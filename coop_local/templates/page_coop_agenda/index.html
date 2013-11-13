@@ -1,6 +1,5 @@
 {% load i18n thumbnail %}
-
-
+{% load rights_event %}
 
 {% if search_form %}
 <div class="row">
@@ -116,7 +115,7 @@
                                 {{ o.event.description|truncatechars:150|safe }}
                             </div>
                             <span class="readmore"><a class="agenda_link" href="{{ base_url }}p/{{ o.event.pk }}">{% trans "Read more" %}</a></span>
-                            {% if request.user.is_superuser %}
+                            {% if request.user.is_superuser or o.event|tag_rights_event:request %}
                                 <span class="edit"><a class="" href="{{ base_url }}p/event_edit/{{ o.event.pk }}">{% trans "Edit" %}</a></span>
                             {% endif %}
 

@@ -73,6 +73,7 @@ INSTALLED_APPS = settings.INSTALLED_APPS + [
     'ionyweb_plugins.plugin_coop_zoomon',
     'ionyweb_plugins.plugin_coop_contact',
     'api',
+    'registration',
 ]
 
 SYMPA_SOAP = {
@@ -133,3 +134,10 @@ MAILJET_MAILINGLIST_NAME='PES Auvergne'
 
 NOTIFICATION_MY_ACCOUNT_DELTA = 15
 NOTIFICATION_MAIL_DELTA = 7
+
+ACCOUNT_ACTIVATION_DAYS = 7
+
+MAIN_EMAIL = "contact@echanges-solidaires-auvergne.fr"
+MAILING_MODERATION = "contact@echanges-solidaires-auvergne.fr"
+
+MODERATION_VALIDATION_DAYS = 3

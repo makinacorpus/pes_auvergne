@@ -71,3 +71,6 @@ FirePython
 
 # multi-site
 django-multisite
+
+# registration
+django-registration

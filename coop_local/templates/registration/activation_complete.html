@@ -1,0 +1,46 @@
+{% extends "themes/html5.html" %}
+{% load i18n %}
+
+
+{% block theme-design-css %}
+        <link rel="stylesheet" href="{{ STATIC_URL }}themes/pes_auvergne/default/css/main.css" type="text/css" />
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="{{ STATIC_URL }}themes/{{ theme_path }}/default/css/ie.css"/><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="{{ STATIC_URL }}themes/{{ theme_path }}/default/css/ie6.css"/><![endif]-->
+{% endblock %}
+
+{% block body-tag %}
+  <body id="index" class="index">
+{% endblock %}
+
+{% block header %}
+  <div class="gradient-header"></div>
+  <header id="banner" class="body">
+    <a href="/"><div class="site_logo"></div></a>
+    <nav class="index">
+    </nav>
+  </header>
+{% endblock %}
+
+{% block content %}
+
+ <div id="main-content" class="content-index">
+    <section id="content" class="body">
+        <div id="column1_top" class="standard"></div>
+        <div id="column1" class="standard">{% block page %}
+            <h3>{% trans "Account validated" %}</h3>
+            <p>{% trans "Your account is now activated. You may login and start using the site. Thank you." %}
+            <br/><br/>
+            <a href="/mon-compte">{% trans "Go to website" %}</a>
+            </p>
+            
+
+            {% endblock %}</div>
+
+    </section>
+ </div>
+
+{% endblock %}
+  

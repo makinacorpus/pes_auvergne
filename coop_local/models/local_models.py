@@ -17,8 +17,8 @@ SECTEURS_FSE = Choices(
 )
 
 EVALUATE_ANSWERS = Choices(
-    ('NONE', 1, _(u'None')),
-    ('INTERESTED', 2, _(u'No action but interest')),
+    ('NONE', 0, _(u'None')),
+    ('INTERESTED', 1, _(u'No action but interest')),
     ('REGULAR', 3, _('Regular actions')),
     ('SPECIALIST', 4, _('Specialist')),
 )
@@ -59,7 +59,8 @@ class EvaluationQuestion(models.Model):
 class EvaluationAnswer(models.Model):
     evaluation = models.ForeignKey(Evaluation)
     question = models.ForeignKey(EvaluationQuestion)
-    answer = models.SmallIntegerField(verbose_name=_(u'answer'),choices=EVALUATE_ANSWERS, blank=True, null=True)        
+    answer = models.SmallIntegerField(verbose_name=_(u'answer'),choices=EVALUATE_ANSWERS, blank=True, null=True)
+    experience = models.TextField(blank=True, null=True)
 
     class Meta:
         verbose_name = _(u'evaluation answer')
@@ -81,6 +82,8 @@ class Organization(BaseOrganization):
     description2 = models.TextField(u'en savoir plus', blank=True, null=True)
 
     evaluation = models.ForeignKey('coop_local.Evaluation', verbose_name=_(u'answer'), blank=True, null=True)
+    
+    evaluation_status = models.BooleanField(_('Publish evaluation'), default=False)
     
     class Meta:
         verbose_name = 'Initiative'

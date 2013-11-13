@@ -1,4 +1,5 @@
 {% load i18n thumbnail %}
+{% load rights_event %}
 
 {% block extra_head %}
     <link rel="stylesheet" href="{{ STATIC_URL }}themes/pes_auvergne/default/js/leaflet/leaflet.css" />
@@ -231,7 +232,7 @@
     </div>
 
 
-    {% if request.user.is_superuser %}
+    {% if request.user.is_superuser or e|tag_rights_event:request %}
         <span class="edit edit_inline"><a class="" href="{{ base_url }}event_edit/{{ e.pk }}">{% trans "Edit" %}</a></span>
     {% endif %}
 
