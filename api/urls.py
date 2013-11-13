@@ -17,6 +17,7 @@ from .views import (
     EventCategoryListView,
     EventListView,
     CalendarListView,
+    ContactMediumListView,
     help_view,
 )
 
@@ -36,4 +37,5 @@ urlpatterns = patterns(
     url(r'^event_categories/$', EventCategoryListView.as_view()),
     url(r'^events/$', EventListView.as_view()),
     url(r'^calendars/$', CalendarListView.as_view()),
+    url(r'^contact_medium/$', ContactMediumListView.as_view()),
 )
