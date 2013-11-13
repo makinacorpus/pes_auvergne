@@ -70,6 +70,7 @@ Configure::
 Edit db_settings.py to fill the database credentials.
 
     $ cp ./pes_cron.sh.sample ./pes_cron.sh
+    $ chmod a+x pes_cron.sh
 
 Edit pes_cron.sh to adapt path, then add 2 crontab :
     
