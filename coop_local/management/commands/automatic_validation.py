@@ -26,33 +26,33 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         # For each objects not validated (status = P), validate if date creation > settings.MODERATION_VALIDATION_DAYS
 
-        today = datetime.datetime.today()
+        today = datetime.date.today()
 
         organizations = Organization.objects.filter(status='P')
         for o in organizations:
             limit_validation = o.creation + relativedelta(days=+settings.MODERATION_VALIDATION_DAYS)
-            if today > limit_validation:
+            if today > limit_validation.date():
                 o.status = 'V'
                 o.save()
 
         exchanges = Exchange.objects.filter(status='P')
         for e in exchanges:
             limit_validation = e.created + relativedelta(days=+settings.MODERATION_VALIDATION_DAYS)
-            if today > limit_validation:
+            if today > limit_validation.date():
                 e.status = 'V'
                 e.save()
         
         occ = Occurrence.objects.filter(event__status='P')
         for o in occ:
             limit_validation = o.event.created + relativedelta(days=+settings.MODERATION_VALIDATION_DAYS)
-            if today > limit_validation:
+            if today > limit_validation.date():
                 o.event.status = 'V'
                 o.event.save()
         
         entries = CoopEntry.objects.filter(status_moderation='P')
         for e in entries:
             limit_validation = e.creation_date + relativedelta(days=+settings.MODERATION_VALIDATION_DAYS)
-            if today > limit_validation:
+            if today > limit_validation.date():
                 e.status_moderation = 'V'
                 e.save()
         
