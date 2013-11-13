@@ -31,28 +31,36 @@ class Command(BaseCommand):
         organizations = Organization.objects.filter(status='P')
         for o in organizations:
             limit_validation = o.creation + relativedelta(days=+settings.MODERATION_VALIDATION_DAYS)
-            if today > limit_validation.date():
+            if type(limit_validation) is datetime.datetime:
+                limit_validation = limit_validation.date()
+            if today > limit_validation:
                 o.status = 'V'
                 o.save()
 
         exchanges = Exchange.objects.filter(status='P')
         for e in exchanges:
             limit_validation = e.created + relativedelta(days=+settings.MODERATION_VALIDATION_DAYS)
-            if today > limit_validation.date():
+            if type(limit_validation) is datetime.datetime:
+                limit_validation = limit_validation.date()
+            if today > limit_validation:
                 e.status = 'V'
                 e.save()
         
         occ = Occurrence.objects.filter(event__status='P')
         for o in occ:
             limit_validation = o.event.created + relativedelta(days=+settings.MODERATION_VALIDATION_DAYS)
-            if today > limit_validation.date():
+            if type(limit_validation) is datetime.datetime:
+                limit_validation = limit_validation.date()
+            if today > limit_validation:
                 o.event.status = 'V'
                 o.event.save()
         
         entries = CoopEntry.objects.filter(status_moderation='P')
         for e in entries:
             limit_validation = e.creation_date + relativedelta(days=+settings.MODERATION_VALIDATION_DAYS)
-            if today > limit_validation.date():
+            if type(limit_validation) is datetime.datetime:
+                limit_validation = limit_validation.date()
+            if today > limit_validation:
                 e.status_moderation = 'V'
                 e.save()
         
