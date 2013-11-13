@@ -1692,6 +1692,7 @@ a.account_link,
 a.exchange_link,
 a.service_link,
 a.articles_link,
+a.projects_link,
 a.territory_link,
 .articles_link {
   font-weight: bold;
@@ -1740,7 +1741,8 @@ a.searchglobal_link {
 .content-services a.service_link {
   color: #8b3e74;
 }
-.content-projects a.member_link {
+.content-projects a.member_link,
+a.projects_link {
   color: #A0866A;
 }
 span.date_from {
@@ -1768,7 +1770,8 @@ span.date_to {
   color: #a03225 !important;
   background: url(../images/icons/member_location.png) no-repeat left center;
 }
-.content-projects #members .location {
+.content-projects #members .location,
+.location_project {
   color: #A0866A !important;
   background: url(../images/icons/project_location.png) no-repeat left center;
 }
@@ -1874,7 +1877,8 @@ span.date_to {
 .coop_zoomon .entry .block_img {
   background: url(../images/logo_pes_auvergne_green_light.png) no-repeat center center !important;
 }
-.content-projects .bloc_title .logo_pes {
+.content-projects .bloc_title .logo_pes,
+.logo_pes_project {
   background: url(../images/logo_pes_auvergne_brown.png) no-repeat center center !important;
 }
 .coop_exchange .block_desc {
