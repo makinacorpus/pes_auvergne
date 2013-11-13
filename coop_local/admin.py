@@ -105,7 +105,7 @@ def objects_to_validate(request):
                 last_name = person.last_name
                 email = person.email
         url = "%sp/member_edit/%s" % (settings.COOP_MEMBER_ORGANIZATIONS_URL, o.pk)
-        organizations_list.append({'title': o.title, 'first_name': first_name, 'last_name': last_name, 'email': email, 'url': url})
+        organizations_list.append({'title': o.title, 'first_name': first_name, 'last_name': last_name, 'email': email, 'url': url, 'status': o.get_status_display})
     
     # Exchanges
     exchanges = Exchange.objects.exclude(status='V').order_by("-modified")
@@ -117,7 +117,7 @@ def objects_to_validate(request):
         first_name = e.person.first_name
         last_name = e.person.last_name
         email = e.person.email
-        exchanges_list.append({'title': e.title, 'first_name': first_name, 'last_name': last_name, 'email': email, 'url': url})
+        exchanges_list.append({'title': e.title, 'first_name': first_name, 'last_name': last_name, 'email': email, 'url': url, 'status': e.get_status_display})
     
     # List all events
     occ = Occurrence.objects.exclude(event__status='V').order_by("start_time")
@@ -130,7 +130,7 @@ def objects_to_validate(request):
             first_name = o.event.person.first_name
             last_name = o.event.person.last_name
             email = o.event.person.email
-        occ_list.append({'title': o.title, 'first_name': first_name, 'last_name': last_name, 'email': email, 'url': url})
+        occ_list.append({'title': o.title, 'first_name': first_name, 'last_name': last_name, 'email': email, 'url': url, 'status': o.event.get_status_display})
 
     
     # List all projects
@@ -147,7 +147,7 @@ def objects_to_validate(request):
                 last_name = person.last_name
                 email = person.email
         url = "%sp/project_edit/%s" % (settings.COOP_MEMBER_PROJECTS_URL, p.pk)
-        projects_list.append({'title': p.title, 'first_name': first_name, 'last_name': last_name, 'email': email, 'url': url})
+        projects_list.append({'title': p.title, 'first_name': first_name, 'last_name': last_name, 'email': email, 'url': url, 'status': p.get_status_display})
 
     # List all entries
     entries = CoopEntry.objects.exclude(status_moderation='V').order_by('-modification_date')
@@ -159,7 +159,7 @@ def objects_to_validate(request):
         first_name = e.author.first_name
         last_name = e.author.last_name
         email = e.author.email
-        entries_list.append({'title': e.title, 'first_name': first_name, 'last_name': last_name, 'email': email, 'url': url})
+        entries_list.append({'title': e.title, 'first_name': first_name, 'last_name': last_name, 'email': email, 'url': url, 'status': e.get_status_moderation_display})
 
     context = {'exchanges': exchanges_list, 'occ': occ_list, 'organizations': organizations_list, 'projects': projects_list, 'entries': entries_list}
     return render_to_response('admin/moderation.html', context, RequestContext(request))                       
