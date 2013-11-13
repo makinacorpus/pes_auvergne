@@ -10,6 +10,7 @@
         <th>{% trans "Last name" %}</th>
         <th>{% trans "Email" %}</th>
         <th>{% trans "Title" %}</th>
+        <th>{% trans "Status" %}</th>
         <th>{% trans "Link to edit" %}</th>
     </tr>
 {% for o in organizations %}
@@ -18,6 +19,7 @@
         <td>{{ o.last_name }}</td>
         <td>{{ o.email }}</td>
         <td>{{ o.title }}</td>
+        <td>{{ o.status }}</td>
         <td><a href="{{ o.url }}">{% trans "See details" %}</a></td>
     </tr>
 {% endfor %}
@@ -30,6 +32,7 @@
         <th>{% trans "Last name" %}</th>
         <th>{% trans "Email" %}</th>
         <th>{% trans "Title" %}</th>
+        <th>{% trans "Status" %}</th>
         <th>{% trans "Link to edit" %}</th>
     </tr>
 {% for e in exchanges %}
@@ -38,6 +41,7 @@
         <td>{{ e.last_name }}</td>
         <td>{{ e.email }}</td>
         <td>{{ e.title }}</td>
+        <td>{{ e.status }}</td>
         <td><a href="{{ e.url }}">{% trans "See details" %}</a></td>
     </tr>
 {% endfor %}
@@ -50,6 +54,7 @@
         <th>{% trans "Last name" %}</th>
         <th>{% trans "Email" %}</th>
         <th>{% trans "Title" %}</th>
+        <th>{% trans "Status" %}</th>
         <th>{% trans "Link to edit" %}</th>
     </tr>
 {% for o in occ %}
@@ -58,6 +63,7 @@
         <td>{{ o.last_name }}</td>
         <td>{{ o.email }}</td>
         <td>{{ o.title }}</td>
+        <td>{{ o.status }}</td>
         <td><a href="{{ o.url }}">{% trans "See details" %}</a></td>
     </tr>
 {% endfor %}
@@ -70,6 +76,7 @@
         <th>{% trans "Last name" %}</th>
         <th>{% trans "Email" %}</th>
         <th>{% trans "Title" %}</th>
+        <th>{% trans "Status" %}</th>
         <th>{% trans "Link to edit" %}</th>
     </tr>
 {% for e in entries %}
@@ -78,6 +85,7 @@
         <td>{{ e.last_name }}</td>
         <td>{{ e.email }}</td>
         <td>{{ e.title }}</td>
+        <td>{{ e.status }}</td>
         <td><a href="{{ e.url }}">{% trans "See details" %}</a></td>
     </tr>
 {% endfor %}
@@ -90,6 +98,7 @@
         <th>{% trans "Last name" %}</th>
         <th>{% trans "Email" %}</th>
         <th>{% trans "Title" %}</th>
+        <th>{% trans "Status" %}</th>
         <th>{% trans "Link to edit" %}</th>
     </tr>
 {% for p in projects %}
@@ -98,6 +107,7 @@
         <td>{{ p.last_name }}</td>
         <td>{{ p.email }}</td>
         <td>{{ p.title }}</td>
+        <td>{{ p.status }}</td>
         <td><a href="{{ p.url }}">{% trans "See details" %}</a></td>
     </tr>
 {% endfor %}
