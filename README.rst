@@ -69,6 +69,15 @@ Configure::
 
 Edit db_settings.py to fill the database credentials.
 
+    $ cp ./pes_cron.sh.sample ./pes_cron.sh
+
+Edit pes_cron.sh to adapt path, then add 2 crontab :
+    
+    $ crontab -e
+    > 5 0 * * * PATH_TO_CRON/pes_cron.sh automatic_validation
+    > 5 0 * * * PATH_TO_CRON/pes_cron.sh user_notifications
+
+
 Install::
 
     $ make install

@@ -26,11 +26,13 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         # For each objects not validated (status = P), validate if date creation > settings.MODERATION_VALIDATION_DAYS
 
-        today = datetime.datetime.today()
+        today = datetime.date.today()
 
         organizations = Organization.objects.filter(status='P')
         for o in organizations:
             limit_validation = o.creation + relativedelta(days=+settings.MODERATION_VALIDATION_DAYS)
+            if type(limit_validation) is datetime.datetime:
+                limit_validation = limit_validation.date()
             if today > limit_validation:
                 o.status = 'V'
                 o.save()
@@ -38,6 +40,8 @@ class Command(BaseCommand):
         exchanges = Exchange.objects.filter(status='P')
         for e in exchanges:
             limit_validation = e.created + relativedelta(days=+settings.MODERATION_VALIDATION_DAYS)
+            if type(limit_validation) is datetime.datetime:
+                limit_validation = limit_validation.date()
             if today > limit_validation:
                 e.status = 'V'
                 e.save()
@@ -45,6 +49,8 @@ class Command(BaseCommand):
         occ = Occurrence.objects.filter(event__status='P')
         for o in occ:
             limit_validation = o.event.created + relativedelta(days=+settings.MODERATION_VALIDATION_DAYS)
+            if type(limit_validation) is datetime.datetime:
+                limit_validation = limit_validation.date()
             if today > limit_validation:
                 o.event.status = 'V'
                 o.event.save()
@@ -52,6 +58,8 @@ class Command(BaseCommand):
         entries = CoopEntry.objects.filter(status_moderation='P')
         for e in entries:
             limit_validation = e.creation_date + relativedelta(days=+settings.MODERATION_VALIDATION_DAYS)
+            if type(limit_validation) is datetime.datetime:
+                limit_validation = limit_validation.date()
             if today > limit_validation:
                 e.status_moderation = 'V'
                 e.save()

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# CRON for launchng commands :
+# ./pes_cron.sh automatic_validation
+# ./pes_cron.sh user_notifications
+# crontab -e
+# 5 0 * * * ~/projects/pes_auvergne/pes_auvergne/pes_cron.sh automatic_validation
+
+cd ~/projects/pes_auvergne
+export DJANGO_COOP_IONYWEB_PROJECT=`pwd`
+source $DJANGO_COOP_IONYWEB_PROJECT/bin/activate
+cd pes_auvergne
+./manage.py ${*}
+
