@@ -8,9 +8,17 @@ from coop_local.models import (
 
 def serialize_contact(contact):
     return {
+        'contact_medium': contact.contact_medium_id,
         'uuid': contact.uuid,
         'content': contact.content,
         'details': contact.details,
+    }
+
+
+def serialize_contact_medium(contact_medium):
+    return {
+        'id': contact_medium.id,
+        'label': contact_medium.label,
     }
 
 
@@ -122,6 +130,14 @@ def deserialize_contact(content_object, contact, data):
     ))
 
     contact.content_object = content_object
+
+
+def serialize_calendar(calendar):
+    return serialize(calendar, include=(
+        'uuid',
+        'title',
+        'description',
+    ))
 
 
 def deserialize_organization(organization, data):

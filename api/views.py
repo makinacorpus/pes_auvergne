@@ -18,6 +18,7 @@ from coop_local.models import (
     ActivityNomenclature,
     Calendar,
     Contact,
+    ContactMedium,
     Engagement,
     Event,
     EventCategory,
@@ -34,6 +35,7 @@ from .serializers import (
     deserialize_person,
     serialize_activity_nomenclature,
     serialize_calendar,
+    serialize_contact_medium,
     serialize_event,
     serialize_event_category,
     serialize_legal_status,
@@ -338,3 +340,8 @@ class EventCategoryListView(BaseListView):
 class EventListView(BaseListView):
     model = Event
     serialize = staticmethod(serialize_event)
+
+
+class ContactMediumListView(BaseListView):
+    model = ContactMedium
+    serialize = staticmethod(serialize_contact_medium)
