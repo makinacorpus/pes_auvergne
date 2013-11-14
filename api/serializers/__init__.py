@@ -46,6 +46,7 @@ def serialize_organization(organization):
         serialized['members'].append({
             'person': engagement.person.uuid,
             'role': getattr(engagement.role, 'uuid', None),
+            'role_detail': engagement.role_detail,
         })
     return serialized
 
