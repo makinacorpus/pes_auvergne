@@ -207,7 +207,8 @@ class OrganizationDetailView(OrganizationView, BaseDetailView):
 
         engagement = Engagement(organization=organization,
                                 person=person,
-                                role=role)
+                                role=role,
+                                role_detail=data.get('role_detail', ''))
         engagement.save()
 
     def update_members(self, organization, data):
