@@ -71,18 +71,6 @@ class MyOrganizationAdmin(OrganizationAdmin):
 admin.site.register(Organization, MyOrganizationAdmin)
 
 
-# Obect validation view
-def get_admin_urls(urls):
-    def get_urls():
-        my_urls = patterns('',
-            (r'^objects_to_validate/$', admin.site.admin_view(objects_to_validate))
-        )
-        return my_urls + urls
-    return get_urls
-
-admin_urls = get_admin_urls(admin.site.get_urls())
-admin.site.get_urls = admin_urls
-
 def objects_to_validate(request):
     # list all objects that are waiting for a validation
     organizations_list = []
@@ -163,4 +151,16 @@ def objects_to_validate(request):
 
     context = {'exchanges': exchanges_list, 'occ': occ_list, 'organizations': organizations_list, 'projects': projects_list, 'entries': entries_list}
     return render_to_response('admin/moderation.html', context, RequestContext(request))                       
+
+# Object validation view
+def get_admin_urls(urls):
+    def get_urls():
+        my_urls = patterns('',
+            (r'^objects_to_validate/$', admin.site.admin_view(objects_to_validate))
+        )
+        return my_urls + urls
+    return get_urls
+
+admin_urls = get_admin_urls(admin.site.get_urls())
+admin.site.get_urls = admin_urls
 
