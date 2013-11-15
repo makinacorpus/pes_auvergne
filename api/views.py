@@ -18,6 +18,7 @@ from coop_local.models import (
     ActivityNomenclature,
     Calendar,
     Contact,
+    ContactMedium,
     Engagement,
     Event,
     EventCategory,
@@ -34,6 +35,7 @@ from .serializers import (
     deserialize_person,
     serialize_activity_nomenclature,
     serialize_calendar,
+    serialize_contact_medium,
     serialize_event,
     serialize_event_category,
     serialize_legal_status,
@@ -73,9 +75,10 @@ def require_api_key(method):
 
         try:
             ApiKey.objects.get(key=api_key)
-            return method(view, request, *args, **kwargs)
         except ObjectDoesNotExist:
             return json_401_response('Unknow api_key %s' % api_key)
+
+        return method(view, request, *args, **kwargs)
 
     return wrapper
 
@@ -130,12 +133,6 @@ class BaseListView(ListView):
 class BaseDetailView(DetailView):
     def update_contact(self, content_object, data):
         contact = get_or_create_object(Contact, uuid=data['uuid'])
-
-        if contact.content_object and contact.content_object != content_object:
-            raise Exception('Contact %s do not belong to %s %s' % (
-                contact.uuid, type(content_object), content_object.uuid
-            ))
-
         deserialize_contact(content_object, contact, data)
         contact.save()
         return contact
@@ -210,7 +207,8 @@ class OrganizationDetailView(OrganizationView, BaseDetailView):
 
         engagement = Engagement(organization=organization,
                                 person=person,
-                                role=role)
+                                role=role,
+                                role_detail=data.get('role_detail', ''))
         engagement.save()
 
     def update_members(self, organization, data):
@@ -338,3 +336,8 @@ class EventCategoryListView(BaseListView):
 class EventListView(BaseListView):
     model = Event
     serialize = staticmethod(serialize_event)
+
+
+class ContactMediumListView(BaseListView):
+    model = ContactMedium
+    serialize = staticmethod(serialize_contact_medium)
