@@ -199,6 +199,7 @@
                     </div>
             </div>
             <span class="readmore_detail"><a class="member_link" href="javascript:read_more();" id="read_more">{% trans "Read more" %}</a></span>
+            <span class="readmore_detail"><a class="member_link" href="javascript:read_less();" id="read_less">{% trans "Read less" %}</a></span>
         </div>    
     {% endif %}
     
@@ -357,6 +358,7 @@
         
         {% if print_css != 1 %}
             $('#description_full').addClass("detail_form_hide");
+            $('#read_less').addClass("detail_form_hide");        
             hide_complement();
             keywords_hide_complement();
         {% else %}
@@ -402,6 +404,7 @@
             }
         {% else %}
             $('#read_more').addClass("detail_form_hide");
+            $('#read_less').addClass("detail_form_hide");        
 
         {% endif %}
 
@@ -438,7 +441,15 @@
     function read_more() {
         $('#description_full').removeClass("detail_form_hide");
         $('#description_short').addClass("detail_form_hide");
-        $('#read_more').addClass("detail_form_hide");        
+        $('#read_more').addClass("detail_form_hide");
+        $('#read_less').removeClass("detail_form_hide");        
+   }
+
+    function read_less() {
+        $('#description_full').addClass("detail_form_hide");
+        $('#description_short').removeClass("detail_form_hide");
+        $('#read_less').addClass("detail_form_hide");        
+        $('#read_more').removeClass("detail_form_hide");
    }
    function show_infos(id_div) {
         hide_complement();
