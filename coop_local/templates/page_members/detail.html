@@ -37,7 +37,7 @@
             <p>
                 {% if member.legal_status %}{% trans "Statut" %} : {{ member.legal_status|default:"" }}</br>{% endif %}
                 {% if member.birth %} {% trans "Creation" %} : {{ member.birth.year }}<br/>{% endif %}
-                {% if member.category.all %}{% trans "Category" %} : {{ member.category.all|join:", "  }}{% endif %}
+                {% if member.category.all %}{% trans "Category ESS" %} : {{ member.category.all|join:", "  }}{% endif %}
             </p>
 
             

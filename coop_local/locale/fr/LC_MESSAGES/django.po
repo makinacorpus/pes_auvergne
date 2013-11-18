@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-18 11:49+0100\n"
+"POT-Creation-Date: 2013-11-18 15:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -450,9 +450,8 @@ msgid "Creation"
 msgstr "Année de création"
 
 #: templates/page_members/detail.html:40
-#: templates/page_members/search_form_organization.html:31
-msgid "Category"
-msgstr ""
+msgid "Category ESS"
+msgstr "Catégorie ESS"
 
 #: templates/page_members/detail.html:45
 msgid "Mailto member"
@@ -509,6 +508,10 @@ msgstr "Expériences"
 #: templates/page_members/index.html:25
 msgid "Sort by"
 msgstr "Trier par"
+
+#: templates/page_members/search_form_organization.html:31
+msgid "Category"
+msgstr ""
 
 #: templates/plugin_coop_agenda/index.html:28
 msgid "See all events..."
