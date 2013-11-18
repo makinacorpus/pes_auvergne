@@ -16,6 +16,7 @@ from .views import (
     ActivityNomenclatureListView,
     EventCategoryListView,
     EventListView,
+    EventDetailView,
     CalendarListView,
     ContactMediumListView,
     help_view,
@@ -36,6 +37,8 @@ urlpatterns = patterns(
     url(r'^activity_nomenclatures/$', ActivityNomenclatureListView.as_view()),
     url(r'^event_categories/$', EventCategoryListView.as_view()),
     url(r'^events/$', EventListView.as_view()),
+    url(r'^events/(?P<uuid>\w+)/',
+        csrf_exempt(EventDetailView.as_view())),
     url(r'^calendars/$', CalendarListView.as_view()),
     url(r'^contact_medium/$', ContactMediumListView.as_view()),
 )

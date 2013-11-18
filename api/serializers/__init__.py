@@ -161,3 +161,14 @@ def deserialize_person(person, data):
         'first_name',
         'last_name',
     ))
+
+
+def deserialize_event(event, data):
+    return deserialize(event, data, include=(
+        'uuid',
+        'title',
+        'description',
+        'other_organizations',
+        'source_info',
+        'zoom_on',
+    ))

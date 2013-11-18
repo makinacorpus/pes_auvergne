@@ -99,7 +99,7 @@
             <dd>
                 <p>Get an organization by its uuid.</p>
             </dd>
-            <dt><b>DELETE /api/organizations/:uuid</b></dt>
+            <dt><b>DELETE /api/organizations/:uuid?api_key=:api_key</b></dt>
             <dd>
                 <p>Delete an organization by its uuid.</p>
             </dd>
@@ -145,7 +145,7 @@
             <dd>
                 <p>Get a person by its uuid.</p>
             </dd>
-            <dt><b>DELETE /api/persons/:uuid</b></dt>
+            <dt><b>DELETE /api/persons/:uuid?api_key=:api_key</b></dt>
             <dd>
                 <p>Delete an person by its uuid.</p>
             </dd>
@@ -267,6 +267,18 @@
             <dt><b>GET /api/events/</b><dt>
             <dd>
                 <p>List all events.</p>
+            </dd>
+            <dt><b>GET /api/events/:uuid</b></dt>
+            <dd>
+                <p>Get an event by its uuid.</p>
+            </dd>
+            <dt><b>DELETE /api/events/:uuid?api_key=:api_key</b></dt>
+            <dd>
+                <p>Delete an event by its uuid.</p>
+            </dd>
+            <dt><b>PUT /api/events/:uuid?api_key=:api_key</b></dt>
+            <dd>
+                <p>Create or update an event.</p>
             </dd>
         </dl>
         <h3>Event structure</h3>
