@@ -181,6 +181,21 @@
                                 <br/>
                                 {{ member.description2|safe }}
                             {% endif %}
+
+                            {% if member.annual_revenue %}
+                                <br/>
+                                {% trans "annual revenue" %} : {{ member.annual_revenue }}
+                            {% endif %}
+
+                            {% if member.workforce %}
+                                <br/>
+                                {% trans "workforce" %} : {{ member.workforce }}
+                            {% endif %}
+
+                            {% if member.siret %}
+                                <br/>
+                                {% trans "Siret" %} : {{ member.siret }}
+                            {% endif %}
                     </div>
             </div>
             <span class="readmore_detail"><a class="member_link" href="javascript:read_more();" id="read_more">{% trans "Read more" %}</a></span>
