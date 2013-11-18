@@ -31,6 +31,7 @@ from coop_local.models import (
 
 from .serializers import (
     deserialize_contact,
+    deserialize_event,
     deserialize_organization,
     deserialize_person,
     serialize_activity_nomenclature,
@@ -130,7 +131,7 @@ class BaseListView(ListView):
         return json_response(content)
 
 
-class BaseDetailView(DetailView):
+class HasContactsView(object):
     def update_contact(self, content_object, data):
         contact = get_or_create_object(Contact, uuid=data['uuid'])
         deserialize_contact(content_object, contact, data)
@@ -147,6 +148,10 @@ class BaseDetailView(DetailView):
             contact.uuid not in contact_uuids
             and contact.content_object == content_object
         )
+
+    def delete_all_contacts(self, content_object):
+        for contact in self.object.contacts.all():
+            contact.delete()
 
     def delete_old_contacts(self, content_object, data):
         contact_uuids = [
@@ -167,6 +172,9 @@ class BaseDetailView(DetailView):
                 contact = None
             setattr(content_object, name, contact)
 
+
+class BaseDetailView(DetailView):
+
     def get_object(self):
         uuid = self.kwargs.get('uuid', None)
         return get_object_or_404(self.model, uuid=uuid)
@@ -179,8 +187,40 @@ class BaseDetailView(DetailView):
         content = self.serialize(context['object'])
         return json_response(content)
 
+    def update_transverse_themes(self, instance, data):
+        if 'transverse_themes' in data:
+            transverse_themes = TransverseTheme.objects.filter(
+                id__in=data['transverse_themes']
+            )
+            instance.transverse_themes = transverse_themes.all()
 
-class OrganizationView(object):
+    @require_api_key
+    def put(self, request, *args, **kwargs):
+        self.object = self.get_or_create_object()
+        data = json.loads(self.request.body)
+        if self.object.pk:
+            self.update(self.object, data)
+        else:
+            self.create(self.object, data)
+        context = self.get_context_data(object=self.object)
+        return self.render_to_response(context)
+
+    @create_api_permission
+    def create(self, instance, data):
+        self._create(instance, data)
+
+    @require_api_permission
+    def update(self, instance, data):
+        self._update(instance, data)
+
+    @require_api_key
+    @require_api_permission
+    def delete(self, request, *args, **kwargs):
+        self._delete(self.get_object())
+        return json_response({})
+
+
+class OrganizationView(HasContactsView):
     model = Organization
     serialize = staticmethod(serialize_organization)
 
@@ -190,13 +230,6 @@ class OrganizationListView(OrganizationView, BaseListView):
 
 
 class OrganizationDetailView(OrganizationView, BaseDetailView):
-
-    def update_transverse_themes(self, organization, data):
-        if 'transverse_themes' in data:
-            transverse_themes = TransverseTheme.objects.filter(
-                id__in=data['transverse_themes']
-            )
-            organization.transverse_themes = transverse_themes.all()
 
     def delete_old_engagements(self, organization):
         Engagement.objects.filter(organization=organization).delete()
@@ -218,7 +251,7 @@ class OrganizationDetailView(OrganizationView, BaseDetailView):
             for engagement_data in data['members']:
                 self.create_engagement(organization, engagement_data)
 
-    def update_organization(self, organization, data):
+    def _save(self, organization, data):
         deserialize_organization(organization, data)
         organization.save()
         self.update_contacts(organization, data)
@@ -228,35 +261,19 @@ class OrganizationDetailView(OrganizationView, BaseDetailView):
         self.update_members(organization, data)
         organization.save()
 
-    @create_api_permission
-    def create(self, organization, data):
-        self.update_organization(organization, data)
+    def _create(self, organization, data):
+        self._save(organization, data)
 
-    @require_api_permission
-    def update(self, organization, data):
-        self.update_organization(organization, data)
+    def _update(self, organization, data):
+        self._save(organization, data)
         self.delete_old_contacts(organization, data.get('contacts', []))
 
-    @require_api_key
-    def put(self, request, *args, **kwargs):
-        self.object = self.get_or_create_object()
-        data = json.loads(self.request.body)
-        if self.object.pk:
-            self.update(self.object, data)
-        else:
-            self.create(self.object, data)
-        context = self.get_context_data(object=self.object)
-        return self.render_to_response(context)
-
-    def delete(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        for contact in self.object.contacts.all():
-            contact.delete()
-        self.object.delete()
-        return json_response({})
+    def _delete(self, organization):
+        self.delete_all_contacts(organization)
+        organization.delete()
 
 
-class PersonView(object):
+class PersonView(HasContactsView):
     model = Person
     serialize = staticmethod(serialize_person)
 
@@ -267,40 +284,23 @@ class PersonListView(PersonView, BaseListView):
 
 class PersonDetailView(PersonView, BaseDetailView):
 
-    def update_person(self, person, data):
+    def _save(self, person, data):
         deserialize_person(person, data)
         person.save()
         self.update_contacts(person, data)
         self.update_pref(person, 'pref_email', data)
-
         person.save()
 
-    @create_api_permission
-    def create(self, person, data):
-        self.update_person(person, data)
+    def _create(self, person, data):
+        self._save(person, data)
 
-    @require_api_permission
-    def update(self, person, data):
-        self.update_person(person, data)
+    def _update(self, person, data):
+        self._save(person, data)
         self.delete_old_contacts(person, data.get('contacts', []))
 
-    @require_api_key
-    def put(self, request, *args, **kwargs):
-        self.object = self.get_or_create_object()
-        data = json.loads(self.request.body)
-        if self.object.pk:
-            self.update(self.object, data)
-        else:
-            self.create(self.object, data)
-        context = self.get_context_data(object=self.object)
-        return self.render_to_response(context)
-
-    def delete(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        for contact in self.object.contacts.all():
-            contact.delete()
-        self.object.delete()
-        return json_response({})
+    def _delete(self, person):
+        self.delete_all_contacts(person)
+        person.delete()
 
 
 class RoleListView(BaseListView):
@@ -333,9 +333,53 @@ class EventCategoryListView(BaseListView):
     serialize = staticmethod(serialize_event_category)
 
 
-class EventListView(BaseListView):
+class EventView(object):
     model = Event
     serialize = staticmethod(serialize_event)
+
+
+class EventListView(EventView, BaseListView):
+    pass
+
+
+class EventDetailView(EventView, BaseDetailView):
+
+    def _save(self, event, data):
+        deserialize_event(event, data)
+
+        if 'calendar' in data:
+            event.calendar = Calendar.objects\
+                .get(uuid=data['calendar'])
+
+        event.save()
+
+        if 'category' in data:
+            event.category = EventCategory.objects\
+                .filter(slug__in=data['category']).all()
+
+        if 'activity' in data:
+            event.activity = ActivityNomenclature.objects\
+                .get(id=data['activity'])
+
+        if 'organization' in data:
+            event.organization = Organization.objects\
+                .get(uuid=data['organization'])
+
+        if 'organizations' in data:
+            event.organizations = Organization.objects\
+                .filter(uuid__in=data['organizations']).all()
+
+        self.update_transverse_themes(event, data)
+        event.save()
+
+    def _create(self, event, data):
+        self._save(event, data)
+
+    def _update(self, event, data):
+        self._save(event, data)
+
+    def _delete(self, event, data):
+        event.delete()
 
 
 class ContactMediumListView(BaseListView):
