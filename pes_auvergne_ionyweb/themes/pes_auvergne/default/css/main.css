@@ -3026,3 +3026,12 @@ h3.account_link {
     margin-bottom: 3px;
 }
 
+.ui-icon-closethick {
+    background: url('../images/ui-icon-closethick.png') no-repeat left top !important;
+    height: 19px !important;
+    width: 19px !important;
+}
+
+.iu-state-hover .ui-icon-closethick {
+    background: url('../images/ui-icon-closethick-hover.png') no-repeat left top !important;
+}
