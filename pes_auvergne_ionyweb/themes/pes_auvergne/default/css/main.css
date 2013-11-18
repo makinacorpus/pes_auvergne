@@ -1523,24 +1523,24 @@ h4.coop_agenda {
 .content-services #service_top {
   /* Anciens navigateurs */
 
-  background: #8b3e74 url("gradient-bg.png") repeat-y left;
+  background: #815B9D url("gradient-bg.png") repeat-y left;
   -o-background-size: 100% 100%;
   -moz-background-size: 100% 100%;
   -webkit-background-size: 100% 100%;
   background-size: 100% 100%;
   /* Internet Explorer */
 
-  /**background: #8b3e74;
-    background: #8b3e74\0/;
+  /**background: #815B9D;
+    background: #815B9D\0/;
     filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr=#FF9a7d8f, endColorstr=#FF8b3e74);*/
 
   /* Navigateurs récents */
 
-  background-image: -webkit-gradient(linear, left top, right top, from(#9a7d8f), to(#8b3e74));
-  background-image: -webkit-linear-gradient(left, #9a7d8f, #8b3e74);
-  background-image: -moz-linear-gradient(left, #9a7d8f, #8b3e74);
-  background-image: -o-linear-gradient(left, #9a7d8f, #8b3e74);
-  background-image: linear-gradient(left, #9a7d8f, #8b3e74);
+  background-image: -webkit-gradient(linear, left top, right top, from(#9a7d8f), to(#815B9D));
+  background-image: -webkit-linear-gradient(left, #9a7d8f, #815B9D);
+  background-image: -moz-linear-gradient(left, #9a7d8f, #815B9D);
+  background-image: -o-linear-gradient(left, #9a7d8f, #815B9D);
+  background-image: linear-gradient(left, #9a7d8f, #815B9D);
 }
 #search_form,
 #result_exchanges,
@@ -1739,7 +1739,7 @@ a.searchglobal_link {
   color: #f8b133;   
 }
 .content-services a.service_link {
-  color: #8b3e74;
+  color: #815B9D;
 }
 .content-projects a.member_link,
 a.projects_link {
@@ -2492,7 +2492,7 @@ span.date_to {
   background: #2e4f1c;
 }
 .content-services .service_pagination_top .carto {
-  background: #8b3e74;
+  background: #815B9D;
 }
 .content-services .service_pagination_top .carto:hover {
   background: #210f1c;
@@ -2602,7 +2602,7 @@ span.date_to {
 }
 #result_service .pagination .page-link:hover,
 #result_service .pagination .page-link.current {
-  background: #8b3e74;
+  background: #815B9D;
 }
 #result_service .pagination .prev-link {
   background: url('../images/icon-prev-service.png') no-repeat 2px left;
