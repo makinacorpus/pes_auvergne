@@ -184,17 +184,17 @@
 
                             {% if member.annual_revenue %}
                                 <br/>
-                                {% trans "annual revenue" %} : {{ member.annual_revenue }}
+                                <label>{% trans "annual revenue" %}</label> : {{ member.annual_revenue }}
                             {% endif %}
 
                             {% if member.workforce %}
                                 <br/>
-                                {% trans "workforce" %} : {{ member.workforce }}
+                                <label>{% trans "workforce" %}</label> : {{ member.workforce }}
                             {% endif %}
 
                             {% if member.siret %}
                                 <br/>
-                                {% trans "Siret" %} : {{ member.siret }}
+                                <label>{% trans "Siret" %}</label> : {{ member.siret }}
                             {% endif %}
                     </div>
             </div>
