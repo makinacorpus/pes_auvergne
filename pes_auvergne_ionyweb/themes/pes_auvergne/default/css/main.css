@@ -2182,6 +2182,12 @@ span.date_to {
 .member_desc #description_full div {
   max-width: 570px;
 }
+
+#description_full,
+#description_short {
+  overflow: hidden;
+}
+
 .bloc_content .event_content .description {
   min-height: 130px;
   width: 450px;
