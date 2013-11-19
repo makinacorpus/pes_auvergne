@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-18 15:30+0100\n"
+"POT-Creation-Date: 2013-11-19 09:29+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -178,7 +178,6 @@ msgid "Projects"
 msgstr "Projets de la structure"
 
 #: templates/page_blog/entry_archive.html:14
-#: templates/page_coop_exchange/search_form_exchange.html:12
 msgid "I'm looking for"
 msgstr "Je recherche"
 
@@ -353,7 +352,7 @@ msgstr "Posté par"
 
 #: templates/page_coop_exchange/detail.html:43
 msgid "Contact organization"
-msgstr "Contacter l'annonceur"
+msgstr "Voir la fiche structure de l'annonceur"
 
 #: templates/page_coop_exchange/detail.html:80
 #: templates/page_coop_exchange/index.html:39
