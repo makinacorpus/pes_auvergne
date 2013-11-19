@@ -38,7 +38,7 @@
                 <span class="exchange_dateexp">{%  trans "Date end" %} : {{ e.expiration }}</span><br/>
             {% endif %}
 
-            <h3 class="exchange_title">{% trans "Posted by" %} : {{ e.organization.title }}</h3>
+            {% trans "Posted by" %} : <b>{{ e.organization.title }}</b>
             <br/>
             <a href="/annuaire/p/{{ e.organization.pk }}"  class="exchange_link">{% trans "Contact organization" %}</a>
             <br/>
