@@ -1789,6 +1789,13 @@ span.date_to {
 .bloc_title {
   position: relative;
 }
+
+.coop_exchange .exchange_complement {
+    border-top: 1px solid #EEEEEE;
+    float: left;
+    width: 100%;
+}
+
 .bloc_title,
 #articles .entry {
   float: left;

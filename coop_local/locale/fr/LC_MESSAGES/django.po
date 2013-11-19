@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-19 09:29+0100\n"
+"POT-Creation-Date: 2013-11-19 09:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -198,7 +198,7 @@ msgstr "Résultats"
 #: templates/page_coop_agenda/detail.html:105
 #: templates/page_coop_agenda/detail.html:116
 #: templates/page_coop_agenda/index.html:117
-#: templates/page_coop_exchange/detail.html:159
+#: templates/page_coop_exchange/detail.html:166
 #: templates/page_coop_exchange/index.html:42
 #: templates/page_members/detail.html:201 templates/page_members/index.html:58
 msgid "Read more"
@@ -226,13 +226,13 @@ msgid "Register for the event"
 msgstr "S'incrire à l'évènement"
 
 #: templates/page_coop_agenda/detail.html:91
-#: templates/page_coop_exchange/detail.html:99
+#: templates/page_coop_exchange/detail.html:110
 #: templates/page_members/detail.html:124
 msgid "Send to friend"
 msgstr "Envoyer à un ami"
 
 #: templates/page_coop_agenda/detail.html:93
-#: templates/page_coop_exchange/detail.html:101
+#: templates/page_coop_exchange/detail.html:112
 #: templates/page_members/detail.html:126
 msgid "Send"
 msgstr "Envoyer"
@@ -247,13 +247,13 @@ msgid "Use car pool"
 msgstr "Pensez à covoiturer"
 
 #: templates/page_coop_agenda/detail.html:129
-#: templates/page_coop_exchange/detail.html:165
+#: templates/page_coop_exchange/detail.html:172
 #: templates/page_members/detail.html:209
 msgid "Galery"
 msgstr "Galerie"
 
 #: templates/page_coop_agenda/detail.html:153
-#: templates/page_coop_exchange/detail.html:190
+#: templates/page_coop_exchange/detail.html:197
 #: templates/page_coop_exchange/search_form_exchange.html:22
 #: templates/page_coop_exchange/search_form_service.html:6
 #: templates/page_members/detail.html:234
@@ -263,7 +263,7 @@ msgid "Activity"
 msgstr "Secteurs d'activités"
 
 #: templates/page_coop_agenda/detail.html:158
-#: templates/page_coop_exchange/detail.html:197
+#: templates/page_coop_exchange/detail.html:204
 #: templates/page_coop_exchange/search_form_exchange.html:45
 #: templates/page_coop_exchange/search_form_service.html:33
 #: templates/page_members/detail.html:242
@@ -273,7 +273,7 @@ msgid "Thematic"
 msgstr "Thématiques"
 
 #: templates/page_coop_agenda/detail.html:165
-#: templates/page_coop_exchange/detail.html:206
+#: templates/page_coop_exchange/detail.html:213
 #: templates/page_members/detail.html:251
 msgid "Keywords"
 msgstr "Mots-clés"
@@ -287,7 +287,7 @@ msgid "Articles"
 msgstr ""
 
 #: templates/page_coop_agenda/detail.html:186
-#: templates/page_coop_exchange/detail.html:138
+#: templates/page_coop_exchange/detail.html:125
 #: templates/page_members/detail.html:136
 msgid "Documents"
 msgstr ""
@@ -315,7 +315,7 @@ msgstr ""
 
 #: templates/page_coop_agenda/detail.html:236
 #: templates/page_coop_agenda/index.html:119
-#: templates/page_coop_exchange/detail.html:231
+#: templates/page_coop_exchange/detail.html:238
 #: templates/page_coop_exchange/index.html:44
 #: templates/page_members/detail.html:351 templates/page_members/index.html:61
 msgid "Edit"
@@ -354,36 +354,48 @@ msgstr "Posté par"
 msgid "Contact organization"
 msgstr "Voir la fiche structure de l'annonceur"
 
-#: templates/page_coop_exchange/detail.html:80
+#: templates/page_coop_exchange/detail.html:45
+msgid "Answer exchange"
+msgstr "Répondre à l'annonce"
+
+#: templates/page_coop_exchange/detail.html:119
+#: templates/page_members/detail.html:133
+msgid "Downloadable docs"
+msgstr "Documents téléchargeables"
+
+#: templates/page_coop_exchange/detail.html:137
+msgid "Exchange title"
+msgstr "Titre de l'annonce"
+
+#: templates/page_coop_exchange/detail.html:138
+msgid "Exchange way"
+msgstr "Sens de l'échange"
+
+#: templates/page_coop_exchange/detail.html:139
+msgid "Exchange modalities"
+msgstr "Modalités"
+
+#: templates/page_coop_exchange/detail.html:140
+msgid "Exchange mutualisation type"
+msgstr "Type"
+
+#: templates/page_coop_exchange/detail.html:143
 #: templates/page_coop_exchange/index.html:39
 #: templates/page_coop_exchange/search_form_exchange.html:16
 #: templates/page_coop_searchglobal/index.html:22
 msgid "Type"
 msgstr ""
 
-#: templates/page_coop_exchange/detail.html:85
+#: templates/page_coop_exchange/detail.html:148
 msgid "Modalities"
 msgstr "Modalités"
 
-#: templates/page_coop_exchange/detail.html:91
-msgid "Answer exchange"
-msgstr "Répondre à l'annonce"
-
-#: templates/page_coop_exchange/detail.html:107
-msgid "Contact"
-msgstr ""
-
-#: templates/page_coop_exchange/detail.html:135
-#: templates/page_members/detail.html:133
-msgid "Downloadable docs"
-msgstr "Documents téléchargeables"
-
-#: templates/page_coop_exchange/detail.html:152
+#: templates/page_coop_exchange/detail.html:159
 #: templates/page_members/detail.html:175
 msgid "Presentation"
 msgstr "Présentation"
 
-#: templates/page_coop_exchange/detail.html:215
+#: templates/page_coop_exchange/detail.html:222
 msgid "Solidarity"
 msgstr "Solidarité"
 

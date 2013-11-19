@@ -74,49 +74,8 @@
 
 
     <div class="bloc_content">
-        <div class="exchange_content_infos">
+        <div class="member_content_infos">
             <div class="column1">
-                <h3>{{ e.get_eway_display }}</h3>
-
-                {% if e.etype %}
-                    <h3>{% trans "Type" %}:</h3>
-                    {{ e.get_etype_display }}
-                {% endif %}
-
-                {% if e.methods.all %}
-                    <h3>{% trans "Modalities" %}:</h3>
-                    {% for m in e.methods.all %}                
-                        {{ m }}<br/>
-                    {% endfor %}
-                {% endif %}
-                
-                
-            </div>
-            <div class="column2">
-                <div id="links">
-                    <a class="facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=#{{ request.build_absolute_uri }}"></a>
-                    <a class="twitter" href="https://twitter.com/share?url={{ request.build_absolute_uri }}" target="_blank"></a>
-                    <a class="google_plus"  target="_blank" href="https://plus.google.com/share?url={{ request.build_absolute_uri }}"></a>
-                    <a class="links" href="javascript:open_popup_link('#dialog-link');"></a>
-                    <div id="dialog-link" title="{% trans 'Send to friend' %}">
-                        <input type="text" id="mail_to_friend" value="">
-                        <input type="button" onclick="javascript:send_to_friend('{{ request.build_absolute_uri }}','mail_to_friend','send_to_content');" value="{% trans 'Send' %}">
-                        <div id="send_to_content" class="highlight_gen"></div>
-                    </div>
-                    <a class="print" target="_blank" href="{{ base_url }}{{ e.pk }}?mode=print"></a>
-                </div>
-
-                <h3>{% trans "Contact" %}</h3>
-
-                {% for c in e.contacts.all %}                
-                    {{ c }}<br/>
-                {% endfor %}
-
-                {% if e.phone %}
-                    {{ e.phone }}<br/>
-                {% endif %}
-
-
                 {% if e.location %}
                     {% if e.location.adr1 %}
                         {{ e.location.adr1 }}<br/>
@@ -131,11 +90,37 @@
                         {{ e.location.city }}<br/>
                     {% endif %}
                 {% endif %}
+            </div>
+            <div class="column2">
+                {% for c in e.contacts.all %}                
+                    {{ c }}<br/>
+                {% endfor %}
 
+                {% if e.phone %}
+                    {{ e.phone }}<br/>
+                {% endif %}
+            </div>
+
+            <div class="column3">
+                <div id="links">
+                    <a class="facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=#{{ request.build_absolute_uri }}"></a>
+                    <a class="twitter" href="https://twitter.com/share?url={{ request.build_absolute_uri }}" target="_blank"></a>
+                    <a class="google_plus"  target="_blank" href="https://plus.google.com/share?url={{ request.build_absolute_uri }}"></a>
+                    <a class="links" href="javascript:open_popup_link('#dialog-link');"></a>
+                    <div id="dialog-link" title="{% trans 'Send to friend' %}">
+                        <input type="text" id="mail_to_friend" value="">
+                        <input type="button" onclick="javascript:send_to_friend('{{ request.build_absolute_uri }}','mail_to_friend','send_to_content');" value="{% trans 'Send' %}">
+                        <div id="send_to_content" class="highlight_gen"></div>
+                    </div>
+                    <a class="print" target="_blank" href="{{ base_url }}{{ e.pk }}?mode=print"></a>
+                </div>
 
                 {% if docs %}
                     <a href="javascript:download_docs()" class="exchange_link">{% trans "Downloadable docs" %}</a>
                 {% endif %}
+
+
+
 
                 <div id="dialog-docs" title="{% trans "Documents" %}">
                     <ul>
@@ -144,14 +129,19 @@
                     {% endfor %}
                     </ul>
                 </div>
-
-
             </div>
-
         </div>
-        <div class="exchange_complement">
 
-            <h3>{% trans "Presentation" %}</h3>
+
+        <div class="exchange_complement">
+            <h3>{% trans "Exchange title" %}: {{ e.title }}</h3>
+            <b>{% trans "Exchange way" %}</b> : {{ e.get_eway_display }} 
+            <br/>
+            <b>{% trans "Exchange modalities" %}</b> : {% for m in e.methods.all %} {{ m }} {% endfor %}
+            <br/>
+            <b>{% trans "Exchange mutualisation type" %}</b> : {{ e.get_etype_display }}
+            <br/>
+            <b>{% trans "Presentation" %}</b> :
             <div class="exchange_desc" id="animate_desc" >
                 <div id="description_short">{{ e.description|safe|truncatewords_html:90 }}</div>
                 <div id="description_full">
