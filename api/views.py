@@ -14,6 +14,11 @@ from django.views.generic import (
     DetailView
 )
 
+from coop.exchange.models import (
+    EWAY,
+    ETYPE,
+)
+
 from coop_local.models import (
     ActivityNomenclature,
     Calendar,
@@ -22,9 +27,12 @@ from coop_local.models import (
     Engagement,
     Event,
     EventCategory,
+    Exchange,
+    ExchangeMethod,
     LegalStatus,
     Organization,
     Person,
+    Product,
     Role,
     TransverseTheme,
 )
@@ -32,16 +40,21 @@ from coop_local.models import (
 from .serializers import (
     deserialize_contact,
     deserialize_event,
+    deserialize_exchange,
     deserialize_organization,
     deserialize_person,
+    deserialize_product,
     serialize_activity_nomenclature,
     serialize_calendar,
     serialize_contact_medium,
     serialize_event,
     serialize_event_category,
+    serialize_exchange,
+    serialize_exchange_method,
     serialize_legal_status,
     serialize_organization,
     serialize_person,
+    serialize_product,
     serialize_role,
     serialize_transverse_theme,
 )
@@ -117,8 +130,24 @@ def get_or_create_object(model, **kwargs):
         return model(**kwargs)
 
 
+def update_transverse_themes(instance, data):
+    if 'transverse_themes' in data:
+        ids = data['transverse_themes']
+        manager = TransverseTheme.objects
+        instance.transverse_themes = manager.filter(id__in=ids).all()
+
+
 def help_view(request):
-    return render(request, 'api/help.html')
+    return render(request, 'api/help.html', {
+        'exchange_ways': [
+            (eway_const, EWAY.CHOICES_DICT[eway_id])
+            for eway_const, eway_id in EWAY.CHOICES_CONST_DICT.items()
+        ],
+        'exchange_types': [
+            (etype_const, ETYPE.CHOICES_DICT[etype_id])
+            for etype_const, etype_id in ETYPE.CHOICES_CONST_DICT.items()
+        ],
+    })
 
 
 class BaseListView(ListView):
@@ -187,13 +216,6 @@ class BaseDetailView(DetailView):
         content = self.serialize(context['object'])
         return json_response(content)
 
-    def update_transverse_themes(self, instance, data):
-        if 'transverse_themes' in data:
-            transverse_themes = TransverseTheme.objects.filter(
-                id__in=data['transverse_themes']
-            )
-            instance.transverse_themes = transverse_themes.all()
-
     @require_api_key
     def put(self, request, *args, **kwargs):
         self.object = self.get_or_create_object()
@@ -257,7 +279,7 @@ class OrganizationDetailView(OrganizationView, BaseDetailView):
         self.update_contacts(organization, data)
         self.update_pref(organization, 'pref_email', data)
         self.update_pref(organization, 'pref_phone', data)
-        self.update_transverse_themes(organization, data)
+        update_transverse_themes(organization, data)
         self.update_members(organization, data)
         organization.save()
 
@@ -369,7 +391,7 @@ class EventDetailView(EventView, BaseDetailView):
             event.organizations = Organization.objects\
                 .filter(uuid__in=data['organizations']).all()
 
-        self.update_transverse_themes(event, data)
+        update_transverse_themes(event, data)
         event.save()
 
     def _create(self, event, data):
@@ -385,3 +407,86 @@ class EventDetailView(EventView, BaseDetailView):
 class ContactMediumListView(BaseListView):
     model = ContactMedium
     serialize = staticmethod(serialize_contact_medium)
+
+
+class ExchangeMethodListView(BaseListView):
+    model = ExchangeMethod
+    serialize = staticmethod(serialize_exchange_method)
+
+
+class ExchangeView(object):
+    model = Exchange
+    serialize = staticmethod(serialize_exchange)
+
+
+class ExchangeListView(ExchangeView, BaseListView):
+    pass
+
+
+class ExchangeDetailView(ExchangeView, BaseDetailView):
+
+    def _save(self, exchange, data):
+        deserialize_exchange(exchange, data)
+
+        exchange.save()
+
+        if 'products' in data:
+            exchange.products = Product.objects\
+                .filter(uuid__in=data['products']).all()
+
+        if 'methods' in data:
+            exchange.methods = ExchangeMethod.objects\
+                .filter(id__in=data['methods']).all()
+
+        if 'activity' in data:
+            exchange.activity = ActivityNomenclature.objects\
+                .get(id=data['activity'])
+
+        if 'organization' in data:
+            exchange.organization = Organization.objects\
+                .get(uuid=data['organization'])
+
+        if 'person' in data:
+            exchange.person = Person.objects\
+                .get(uuid=data['person'])
+
+        exchange.save()
+
+    def _create(self, exchange, data):
+        self._save(exchange, data)
+
+    def _update(self, exchange, data):
+        self._save(exchange, data)
+
+    def _delete(self, exchange, data):
+        exchange.delete()
+
+
+class ProductView(object):
+    model = Product
+    serialize = staticmethod(serialize_product)
+
+
+class ProductListView(ProductView, BaseListView):
+    pass
+
+
+class ProductDetailView(ProductView, BaseDetailView):
+
+    def _save(self, product, data):
+        deserialize_product(product, data)
+
+        if 'organization' in data:
+            product.organization = Organization.objects\
+                .get(uuid=data['organization'])
+
+        product.save()
+
+    def _create(self, product, data):
+        self._save(product, data)
+
+    def _update(self, product, data):
+        self._save(product, data)
+
+    def _delete(self, product, data):
+        product.delete()
