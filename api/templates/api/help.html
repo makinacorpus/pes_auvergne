@@ -91,7 +91,7 @@
         </p>
         <h3>End Points</h3>
         <dl>
-            <dt><b>GET /api/organizations/</b></dt>
+            <dt><b>GET <a href="./organizations/">/api/organizations/</a></b></dt>
             <dd>
                 <p>List all organizations.</p>
             </dd>
@@ -137,7 +137,7 @@
         </p>
         <h3>End Points</h3>
         <dl>
-            <dt><b>GET /api/persons/</b><dt>
+            <dt><b>GET <a href="./persons/">/api/persons/</a></b><dt>
             <dd>
                 <p>List all persons.</p>
             </dd>
@@ -159,7 +159,7 @@
         <h2>Transverse Themes</h2>
         <h3>End Points</h3>
         <dl>
-            <dt><b>GET /api/transverse_themes/</b><dt>
+            <dt><b>GET <a href="./transverse_themes/">/api/transverse_themes/</a></b><dt>
             <dd>
                 <p>List all transverse themes.</p>
             </dd>
@@ -176,7 +176,7 @@
         <h2>Roles</h2>
         <h3>End Points</h3>
         <dl>
-            <dt><b>GET /api/roles/</b><dt>
+            <dt><b>GET <a href="./roles/">/api/roles/</a></b><dt>
             <dd>
                 <p>List all roles.</p>
             </dd>
@@ -194,7 +194,7 @@
         <h2>Legal Statuses</h2>
         <h3>End Points</h3>
         <dl>
-            <dt><b>GET /api/legal_statuses/</b><dt>
+            <dt><b>GET <a href="./legal_statuses/">/api/legal_statuses/</a></b><dt>
             <dd>
                 <p>List all legal statuses.</p>
             </dd>
@@ -211,7 +211,7 @@
         <h2>Activity Nomenclatures</h2>
         <h3>End Points</h3>
         <dl>
-            <dt><b>GET /api/activity_nomenclatures/</b><dt>
+            <dt><b>GET <a href="./activity_nomenclatures/">/api/activity_nomenclatures/</a></b><dt>
             <dd>
                 <p>List all activity nomenclatures.</p>
             </dd>
@@ -228,7 +228,7 @@
         <h2>Calendar</h2>
         <h3>End Points</h3>
         <dl>
-            <dt><b>GET /api/calendars/</b><dt>
+            <dt><b>GET <a href="./calendars/">/api/calendars/</a></b><dt>
             <dd>
                 <p>List all calendars.</p>
             </dd>
@@ -246,7 +246,7 @@
         <h2>Event Categories</h2>
         <h3>End Points</h3>
         <dl>
-            <dt><b>GET /api/event_categories/</b><dt>
+            <dt><b>GET <a href="./event_categories/">/api/event_categories/</a></b><dt>
             <dd>
                 <p>List all event categories.</p>
             </dd>
@@ -264,7 +264,7 @@
         <h2>Events</h2>
         <h3>End Points</h3>
         <dl>
-            <dt><b>GET /api/events/</b><dt>
+            <dt><b>GET <a href="./events/">/api/events/</a></b><dt>
             <dd>
                 <p>List all events.</p>
             </dd>
@@ -309,7 +309,7 @@
         <h2>Contact Medium</h2>
         <h3>End Points</h3>
         <dl>
-            <dt><b>GET /api/contact_medium/</b><dt>
+            <dt><b>GET <a href="./contact_medium/">/api/contact_medium/</a></b><dt>
             <dd>
                 <p>List all contact medium.</p>
             </dd>
@@ -321,6 +321,116 @@
             "label": "Contact Medium Label",
         }
         </pre>
+    </section>
+    <section>
+        <h2>Products</h2>
+        <h3>End Points</h3>
+        <dl>
+            <dt><b>GET <a href="./products/">/api/products/</a></b><dt>
+            <dd>
+                <p>List all products.</p>
+            </dd>
+            <dt><b>GET /api/products/:uuid</b></dt>
+            <dd>
+                <p>Get an product by its uuid.</p>
+            </dd>
+            <dt><b>DELETE /api/products/:uuid?api_key=:api_key</b></dt>
+            <dd>
+                <p>Delete an product by its uuid.</p>
+            </dd>
+            <dt><b>PUT /api/products/:uuid?api_key=:api_key</b></dt>
+            <dd>
+                <p>Create or update a product.</p>
+            </dd>
+        </dl>
+        <h3>Product structure</h3>
+        <pre>
+        {
+            "description": "Product description",
+            "organization": "b6873hbE2RGmLvTxdecExZ",
+            "title": "Product Title",
+            "uuid": "gHgofDZAgCgWqYDTz84cPa"
+        }
+        </pre>
+    </section>
+    <section>
+        <h2 id=exchange-methods>Exchange Methods</h2>
+        <h3>End Points</h3>
+        <dl>
+            <dt><b>GET <a href="./exchange_methods/">/api/exchange_methods/</a></b><dt>
+            <dd>
+                <p>List all exchange methods.</p>
+            </dd>
+        </dl>
+        <h3>Exchange Methods structure</h3>
+        <pre>
+        {
+            etypes: [
+                "PROD",
+                "SERVE"
+            ],
+            id: 1,
+            label: "Euros"
+        }
+        </pre>
+        etype: See <a href="#exchange-types">Exchange Types</a>
+    </section>
+    <section>
+        <h2>Exchanges</h2>
+        <h3>End Points</h3>
+        <dl>
+            <dt><b>GET <a href="./exchanges/">/api/exchanges/</a></b><dt>
+            <dd>
+                <p>List all exchanges.</p>
+            </dd>
+            <dt><b>GET /api/exchanges/:uuid</b></dt>
+            <dd>
+                <p>Get an exchange by its uuid.</p>
+            </dd>
+            <dt><b>DELETE /api/exchanges/:uuid?api_key=:api_key</b></dt>
+            <dd>
+                <p>Delete an exchange by its uuid.</p>
+            </dd>
+            <dt><b>PUT /api/exchanges/:uuid?api_key=:api_key</b></dt>
+            <dd>
+                <p>Create or update an exchange.</p>
+            </dd>
+        </dl>
+        <h3>Exchange structure</h3>
+        <pre>
+        {
+            "activity": 42,
+            "description": "Exchange description",
+            "etype": "COOP",
+            "eway": "NEED",
+            "expiration": "2013-11-30",
+            "methods": [
+                4,
+                2,
+            ],
+            "organization": "73hbecE2RGmLvdb68TxExZ",
+            "permanent": false,
+            "person": "yc8UQRsFsuSR45aidXX2ka",
+            "products": ["CgHTzfDgoZAggWqYD84cPa"],
+            "title": "Exchanges title",
+            "uuid": "ZAgDTzfD84cPagWqCgHgoY"
+        }
+        </pre>
+        methods: See <a href=#exchange-methods>Exchange Methods</a><br>
+        eway: See <a href=#exchange-ways>Exchange Ways</a><br>
+        etype: See <a href=#exchange-types>Exchange TYPES</a>
+        <h3 id=exchange-ways>Exchange Ways</h3>
+        <dl>
+        {% for eway_const, eway_label in exchange_ways %}
+            <dt>{{ eway_const }}</dt><dd>{{ eway_label }}</dd>
+        {% endfor %}
+        </dl>
+        <h3 id=exchange-types>Exchange Types</h3>
+        <dl>
+        {% for etype_const, etype_label in exchange_types %}
+            <dt>{{ etype_const }}</dt><dd>{{ etype_label }}</dd>
+        {% endfor %}
+        </dl>
     </section>
 </body>
 </html>

@@ -6,20 +6,25 @@ from django.conf.urls.defaults import (
 from django.views.decorators.csrf import csrf_exempt
 
 from .views import (
+    ActivityNomenclatureListView,
+    CalendarListView,
+    ContactMediumListView,
+    EventCategoryListView,
+    EventDetailView,
+    EventListView,
+    ExchangeDetailView,
+    ExchangeListView,
+    ExchangeMethodListView,
+    help_view,
+    LegalStatusListView,
     OrganizationDetailView,
     OrganizationListView,
     PersonDetailView,
     PersonListView,
+    ProductDetailView,
+    ProductListView,
     RoleListView,
     TransverseThemeListView,
-    LegalStatusListView,
-    ActivityNomenclatureListView,
-    EventCategoryListView,
-    EventListView,
-    EventDetailView,
-    CalendarListView,
-    ContactMediumListView,
-    help_view,
 )
 
 urlpatterns = patterns(
@@ -41,4 +46,11 @@ urlpatterns = patterns(
         csrf_exempt(EventDetailView.as_view())),
     url(r'^calendars/$', CalendarListView.as_view()),
     url(r'^contact_medium/$', ContactMediumListView.as_view()),
+    url(r'^exchange_methods/$', ExchangeMethodListView.as_view()),
+    url(r'^exchanges/$', ExchangeListView.as_view()),
+    url(r'^exchanges/(?P<uuid>\w+)/',
+        csrf_exempt(ExchangeDetailView.as_view())),
+    url(r'^products/$', ProductListView.as_view()),
+    url(r'^products/(?P<uuid>\w+)/',
+        csrf_exempt(ProductDetailView.as_view())),
 )
