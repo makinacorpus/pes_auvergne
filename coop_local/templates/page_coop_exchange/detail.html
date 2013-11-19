@@ -55,9 +55,9 @@
 
                     var map = new L.Map('leaflet_map');
 
-                    {% if e.location.point %}
-                        var centre = new L.LatLng({{ e.location.point.y|safe }}, {{ e.location.point.x|safe }});
-                        L.marker([{{ e.location.point.y|safe }}, {{ e.location.point.x|safe }}]).addTo(map)
+                    {% if point %}
+                        var centre = new L.LatLng({{ point.y|safe }}, {{ point.x|safe }});
+                        L.marker([{{ point.y|safe }}, {{ point.x|safe }}]).addTo(map)
                                 .bindPopup('{{ e.title|safe }}')
                                 .openPopup();
                     {% else %}
