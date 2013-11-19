@@ -1789,6 +1789,13 @@ span.date_to {
 .bloc_title {
   position: relative;
 }
+
+.coop_exchange .exchange_complement {
+    border-top: 1px solid #EEEEEE;
+    float: left;
+    width: 100%;
+}
+
 .bloc_title,
 #articles .entry {
   float: left;
@@ -1831,6 +1838,7 @@ span.date_to {
   height: 150px;
   float: left;
   text-align: center;
+  margin-right: 3px;
 }
 .bloc_title .logo img,
 .entry .block_img_off img {
@@ -1938,7 +1946,7 @@ span.date_to {
   overflow: hidden;
 }
 #articles .bloc_title .header {
-  width: 530px;
+  width: 525px;
 }
 .bloc_title .resume {
   float: left;
@@ -2181,6 +2189,12 @@ span.date_to {
 .member_desc #description_full div {
   max-width: 570px;
 }
+
+#description_full,
+#description_short {
+  overflow: hidden;
+}
+
 .bloc_content .event_content .description {
   min-height: 130px;
   width: 450px;
@@ -2669,6 +2683,12 @@ span.date_to {
 .ui-tabs .ui-tabs-nav li a {
   color: #888 !important;
 }
+
+#tabs ul li a {
+    font-weight: bold;
+}
+
+
 .help_text {
   color: #AAAAAA;
   /*     margin-left: 160px; */
@@ -3019,3 +3039,12 @@ h3.account_link {
     margin-bottom: 3px;
 }
 
+.ui-icon-closethick {
+    background: url('../images/ui-icon-closethick.png') no-repeat left top !important;
+    height: 19px !important;
+    width: 19px !important;
+}
+
+.iu-state-hover .ui-icon-closethick {
+    background: url('../images/ui-icon-closethick-hover.png') no-repeat left top !important;
+}

@@ -87,11 +87,11 @@ def objects_to_validate(request):
         last_name = ''
         email = ''
         engagement = Engagement.objects.filter(organization=o)
-        if engagement:
-            if engagement.person:
-                first_name = person.first_name
-                last_name = person.last_name
-                email = person.email
+        for e in engagement:
+            if e.person:
+                first_name = e.person.first_name
+                last_name = e.person.last_name
+                email = e.person.email
         url = "%sp/member_edit/%s" % (settings.COOP_MEMBER_ORGANIZATIONS_URL, o.pk)
         organizations_list.append({'title': o.title, 'first_name': first_name, 'last_name': last_name, 'email': email, 'url': url, 'status': o.get_status_display})
     
