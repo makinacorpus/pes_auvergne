@@ -60,7 +60,7 @@ class EvaluationAnswer(models.Model):
     evaluation = models.ForeignKey(Evaluation)
     question = models.ForeignKey(EvaluationQuestion)
     answer = models.SmallIntegerField(verbose_name=_(u'answer'),choices=EVALUATE_ANSWERS, blank=True, null=True)
-    experience = models.TextField(blank=True, null=True)
+    experience = models.TextField(verbose_name=_(u'experiences'),blank=True, null=True)
 
     class Meta:
         verbose_name = _(u'evaluation answer')

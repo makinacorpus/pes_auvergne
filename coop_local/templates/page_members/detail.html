@@ -37,7 +37,7 @@
             <p>
                 {% if member.legal_status %}{% trans "Statut" %} : {{ member.legal_status|default:"" }}</br>{% endif %}
                 {% if member.birth %} {% trans "Creation" %} : {{ member.birth.year }}<br/>{% endif %}
-                {% if member.category.all %}{% trans "Category" %} : {{ member.category.all|join:", "  }}{% endif %}
+                {% if member.category.all %}{% trans "Category ESS" %} : {{ member.category.all|join:", "  }}{% endif %}
             </p>
 
             
@@ -181,9 +181,25 @@
                                 <br/>
                                 {{ member.description2|safe }}
                             {% endif %}
+
+                            {% if member.annual_revenue %}
+                                <br/>
+                                <label>{% trans "annual revenue" %}</label> : {{ member.annual_revenue }}
+                            {% endif %}
+
+                            {% if member.workforce %}
+                                <br/>
+                                <label>{% trans "workforce" %}</label> : {{ member.workforce }}
+                            {% endif %}
+
+                            {% if member.siret %}
+                                <br/>
+                                <label>{% trans "Siret" %}</label> : {{ member.siret }}
+                            {% endif %}
                     </div>
             </div>
             <span class="readmore_detail"><a class="member_link" href="javascript:read_more();" id="read_more">{% trans "Read more" %}</a></span>
+            <span class="readmore_detail"><a class="member_link" href="javascript:read_less();" id="read_less">{% trans "Read less" %}</a></span>
         </div>    
     {% endif %}
     
@@ -342,6 +358,7 @@
         
         {% if print_css != 1 %}
             $('#description_full').addClass("detail_form_hide");
+            $('#read_less').addClass("detail_form_hide");        
             hide_complement();
             keywords_hide_complement();
         {% else %}
@@ -387,6 +404,7 @@
             }
         {% else %}
             $('#read_more').addClass("detail_form_hide");
+            $('#read_less').addClass("detail_form_hide");        
 
         {% endif %}
 
@@ -423,7 +441,15 @@
     function read_more() {
         $('#description_full').removeClass("detail_form_hide");
         $('#description_short').addClass("detail_form_hide");
-        $('#read_more').addClass("detail_form_hide");        
+        $('#read_more').addClass("detail_form_hide");
+        $('#read_less').removeClass("detail_form_hide");        
+   }
+
+    function read_less() {
+        $('#description_full').addClass("detail_form_hide");
+        $('#description_short').removeClass("detail_form_hide");
+        $('#read_less').addClass("detail_form_hide");        
+        $('#read_more').removeClass("detail_form_hide");
    }
    function show_infos(id_div) {
         hide_complement();
