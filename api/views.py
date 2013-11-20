@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 import json
 
 from django.core.exceptions import (
@@ -102,7 +104,9 @@ def create_api_permission(method):
     def wrapper(view, instance, data):
         method(view, instance, data)
         api_key = ApiKey.objects.get(key=view.request.REQUEST['api_key'])
-        permission = ApiPermissions(resource_key=instance.pk, api_key=api_key)
+        permission = ApiPermissions(object_type=str(type(instance)),
+                                    object_id=instance.id,
+                                    api_key=api_key)
         permission.save()
 
     return wrapper
@@ -114,7 +118,8 @@ def require_api_permission(method):
         api_key = view.request.REQUEST['api_key']
         if instance.pk:
             try:
-                ApiPermissions.objects.get(resource_key=instance.pk,
+                ApiPermissions.objects.get(object_type=str(type(instance)),
+                                           object_id=instance.id,
                                            api_key__key=api_key)
             except ObjectDoesNotExist:
                 raise PermissionDenied()
