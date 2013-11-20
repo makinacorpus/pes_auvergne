@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 from django.db import models
 
 
@@ -7,5 +9,6 @@ class ApiKey(models.Model):
 
 
 class ApiPermissions(models.Model):
-    resource_key = models.CharField(max_length=255)
+    object_type = models.CharField(max_length=255)
+    object_id = models.PositiveIntegerField()
     api_key = models.ForeignKey(ApiKey)
