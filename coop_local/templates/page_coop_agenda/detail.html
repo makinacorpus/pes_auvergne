@@ -161,10 +161,13 @@
             {% endfor %}
         </div>
 
-        <div class="coop_agenda_content_keywords content_border_grey">
-            <h3 class="coop_agenda_link">{% trans "Keywords" %}</h3>
-            <div id="keywords_long">{{ member.tags.all|join:", " }}</div>
-        </div>
+        {% if e.tags.all %}
+            <div class="coop_agenda_content_keywords content_border_grey">
+                <h3 class="coop_agenda_link">{% trans "Keywords" %}<a href="javascript:keywords_show_complement()" class="coop_agenda_link">+</a></h3>
+                <div id="keywords_short">{{ e.tags.all|join:", "|truncatechars:100 }}</div>
+                <div id="keywords_long">{{ e.tags.all|join:", " }}</div>
+            </div>
+        {% endif %}
 
         <div class="coop_agenda_content_keywords content_border_grey">
             <h3 class="coop_agenda_link">{% trans "Type event" %}</h3>
