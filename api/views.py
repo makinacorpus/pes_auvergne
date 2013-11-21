@@ -11,6 +11,7 @@ from django.shortcuts import (
     get_object_or_404,
     render
 )
+from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import (
     ListView,
     DetailView
@@ -22,6 +23,7 @@ from coop.exchange.models import (
 )
 
 from coop_local.models import (
+    DeletedURI,
     ActivityNomenclature,
     Calendar,
     Contact,
@@ -40,6 +42,7 @@ from coop_local.models import (
 )
 
 from .serializers import (
+    deserialize_calendar,
     deserialize_contact,
     deserialize_event,
     deserialize_exchange,
@@ -112,17 +115,22 @@ def create_api_permission(method):
     return wrapper
 
 
+def get_permision_or_deny(api_key, instance):
+    try:
+        return ApiPermissions.objects.get(
+            object_type=str(type(instance)),
+            object_id=instance.id,
+            api_key__key=api_key
+        )
+    except ObjectDoesNotExist:
+        raise PermissionDenied()
+
+
 def require_api_permission(method):
 
     def wrapper(view, instance, data):
-        api_key = view.request.REQUEST['api_key']
         if instance.pk:
-            try:
-                ApiPermissions.objects.get(object_type=str(type(instance)),
-                                           object_id=instance.id,
-                                           api_key__key=api_key)
-            except ObjectDoesNotExist:
-                raise PermissionDenied()
+            get_permision_or_deny(view.request.REQUEST['api_key'], instance)
         method(view, instance, data)
 
     return wrapper
@@ -177,24 +185,25 @@ class HasContactsView(object):
             for contact_data in data['contacts']:
                 self.update_contact(content_object, contact_data)
 
-    def is_old_contact(self, content_object, contact, contact_uuids):
+    def is_old_contact(self, content_object, contact, current_contacts_uuid):
         return (
-            contact.uuid not in contact_uuids
+            contact.uuid not in current_contacts_uuid
             and contact.content_object == content_object
         )
 
     def delete_all_contacts(self, content_object):
-        for contact in self.object.contacts.all():
-            contact.delete()
+        self.object.contacts.filter().delete()
 
     def delete_old_contacts(self, content_object, data):
-        contact_uuids = [
-            contact_data['uuid']
-            for contact_data in data
+        current_contacts_uuid = [
+            contact['uuid']
+            for contact in data.get('contacts', [])
         ]
 
         for contact in content_object.contacts.all():
-            if self.is_old_contact(content_object, contact, contact_uuids):
+            if self.is_old_contact(content_object,
+                                   contact,
+                                   current_contacts_uuid):
                 contact.delete()
 
     def update_pref(self, content_object, name, data):
@@ -208,6 +217,10 @@ class HasContactsView(object):
 
 
 class BaseDetailView(DetailView):
+
+    @classmethod
+    def as_view(cls, **initkwargs):
+        return csrf_exempt(super(BaseDetailView, cls).as_view(**initkwargs))
 
     def get_object(self):
         uuid = self.kwargs.get('uuid', None)
@@ -234,22 +247,41 @@ class BaseDetailView(DetailView):
 
     @create_api_permission
     def create(self, instance, data):
-        self._create(instance, data)
+        self._save(instance, data)
 
     @require_api_permission
     def update(self, instance, data):
-        self._update(instance, data)
+        self._save(instance, data)
+        self.after_update(instance, data)
+
+    def after_update(self, instance, data):
+        pass
+
+    def before_delete(self, instance):
+        pass
 
     @require_api_key
-    @require_api_permission
     def delete(self, request, *args, **kwargs):
-        self._delete(self.get_object())
+        instance = self.get_object()
+        permission = get_permision_or_deny(request.REQUEST['api_key'],
+                                           instance)
+
+        self.before_delete(instance)
+        DeletedURI.objects.filter(uuid=instance.uuid).delete()
+        instance.delete()
+        permission.delete()
+
         return json_response({})
+
+    def _save(self, instance, data):
+        self.deserialize(instance, data)
+        instance.save()
 
 
 class OrganizationView(HasContactsView):
     model = Organization
     serialize = staticmethod(serialize_organization)
+    deserialize = staticmethod(deserialize_organization)
 
 
 class OrganizationListView(OrganizationView, BaseListView):
@@ -279,7 +311,7 @@ class OrganizationDetailView(OrganizationView, BaseDetailView):
                 self.create_engagement(organization, engagement_data)
 
     def _save(self, organization, data):
-        deserialize_organization(organization, data)
+        self.deserialize(organization, data)
         organization.save()
         self.update_contacts(organization, data)
         self.update_pref(organization, 'pref_email', data)
@@ -288,21 +320,17 @@ class OrganizationDetailView(OrganizationView, BaseDetailView):
         self.update_members(organization, data)
         organization.save()
 
-    def _create(self, organization, data):
-        self._save(organization, data)
+    def after_update(self, organization, data):
+        self.delete_old_contacts(organization, data)
 
-    def _update(self, organization, data):
-        self._save(organization, data)
-        self.delete_old_contacts(organization, data.get('contacts', []))
-
-    def _delete(self, organization):
+    def before_delete(self, organization):
         self.delete_all_contacts(organization)
-        organization.delete()
 
 
 class PersonView(HasContactsView):
     model = Person
     serialize = staticmethod(serialize_person)
+    deserialize = staticmethod(deserialize_person)
 
 
 class PersonListView(PersonView, BaseListView):
@@ -312,22 +340,17 @@ class PersonListView(PersonView, BaseListView):
 class PersonDetailView(PersonView, BaseDetailView):
 
     def _save(self, person, data):
-        deserialize_person(person, data)
+        self.deserialize(person, data)
         person.save()
         self.update_contacts(person, data)
         self.update_pref(person, 'pref_email', data)
         person.save()
 
-    def _create(self, person, data):
-        self._save(person, data)
+    def after_update(self, person, data):
+        self.delete_old_contacts(person, data)
 
-    def _update(self, person, data):
-        self._save(person, data)
-        self.delete_old_contacts(person, data.get('contacts', []))
-
-    def _delete(self, person):
+    def before_delete(self, person):
         self.delete_all_contacts(person)
-        person.delete()
 
 
 class RoleListView(BaseListView):
@@ -350,9 +373,18 @@ class ActivityNomenclatureListView(BaseListView):
     serialize = staticmethod(serialize_activity_nomenclature)
 
 
-class CalendarListView(BaseListView):
+class CalendarView(object):
     model = Calendar
     serialize = staticmethod(serialize_calendar)
+    deserialize = staticmethod(deserialize_calendar)
+
+
+class CalendarDetailView(CalendarView, BaseDetailView):
+    pass
+
+
+class CalendarListView(CalendarView, BaseListView):
+    pass
 
 
 class EventCategoryListView(BaseListView):
@@ -363,6 +395,7 @@ class EventCategoryListView(BaseListView):
 class EventView(object):
     model = Event
     serialize = staticmethod(serialize_event)
+    deserialize = staticmethod(deserialize_event)
 
 
 class EventListView(EventView, BaseListView):
@@ -371,42 +404,41 @@ class EventListView(EventView, BaseListView):
 
 class EventDetailView(EventView, BaseDetailView):
 
-    def _save(self, event, data):
-        deserialize_event(event, data)
-
+    def set_calendar(self, event, data):
         if 'calendar' in data:
             event.calendar = Calendar.objects\
                 .get(uuid=data['calendar'])
 
-        event.save()
-
+    def set_category(self, event, data):
         if 'category' in data:
             event.category = EventCategory.objects\
                 .filter(slug__in=data['category']).all()
 
+    def set_activity(self, event, data):
         if 'activity' in data:
             event.activity = ActivityNomenclature.objects\
                 .get(id=data['activity'])
 
+    def set_organization(self, event, data):
         if 'organization' in data:
             event.organization = Organization.objects\
                 .get(uuid=data['organization'])
 
+    def set_organizations(self, event, data):
         if 'organizations' in data:
             event.organizations = Organization.objects\
                 .filter(uuid__in=data['organizations']).all()
 
+    def _save(self, event, data):
+        self.deserialize(event, data)
+        self.set_calendar(event, data)
+        event.save()
+        self.set_category(event, data)
+        self.set_activity(event, data)
+        self.set_organization(event, data)
+        self.set_organizations(event, data)
         update_transverse_themes(event, data)
         event.save()
-
-    def _create(self, event, data):
-        self._save(event, data)
-
-    def _update(self, event, data):
-        self._save(event, data)
-
-    def _delete(self, event, data):
-        event.delete()
 
 
 class ContactMediumListView(BaseListView):
@@ -422,6 +454,7 @@ class ExchangeMethodListView(BaseListView):
 class ExchangeView(object):
     model = Exchange
     serialize = staticmethod(serialize_exchange)
+    deserialize = staticmethod(deserialize_exchange)
 
 
 class ExchangeListView(ExchangeView, BaseListView):
@@ -431,8 +464,7 @@ class ExchangeListView(ExchangeView, BaseListView):
 class ExchangeDetailView(ExchangeView, BaseDetailView):
 
     def _save(self, exchange, data):
-        deserialize_exchange(exchange, data)
-
+        self.deserialize(exchange, data)
         exchange.save()
 
         if 'products' in data:
@@ -457,19 +489,11 @@ class ExchangeDetailView(ExchangeView, BaseDetailView):
 
         exchange.save()
 
-    def _create(self, exchange, data):
-        self._save(exchange, data)
-
-    def _update(self, exchange, data):
-        self._save(exchange, data)
-
-    def _delete(self, exchange, data):
-        exchange.delete()
-
 
 class ProductView(object):
     model = Product
     serialize = staticmethod(serialize_product)
+    deserialize = staticmethod(deserialize_product)
 
 
 class ProductListView(ProductView, BaseListView):
@@ -479,19 +503,10 @@ class ProductListView(ProductView, BaseListView):
 class ProductDetailView(ProductView, BaseDetailView):
 
     def _save(self, product, data):
-        deserialize_product(product, data)
+        self.deserialize(product, data)
 
         if 'organization' in data:
             product.organization = Organization.objects\
                 .get(uuid=data['organization'])
 
         product.save()
-
-    def _create(self, product, data):
-        self._save(product, data)
-
-    def _update(self, product, data):
-        self._save(product, data)
-
-    def _delete(self, product, data):
-        product.delete()

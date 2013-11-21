@@ -104,6 +104,14 @@ def serialize_calendar(calendar):
     ))
 
 
+def deserialize_calendar(calendar, data):
+    deserialize(calendar, data, include=(
+        'uuid',
+        'title',
+        'description',
+    ))
+
+
 def serialize_event_category(event_category):
     return serialize(event_category, include=(
         'id',
@@ -139,7 +147,7 @@ def deserialize_contact(content_object, contact, data):
 
 
 def deserialize_organization(organization, data):
-    return deserialize(organization, data, include=(
+    deserialize(organization, data, include=(
         'uuid',
         'title',
         'acronym',
@@ -153,7 +161,7 @@ def deserialize_organization(organization, data):
 
 
 def deserialize_person(person, data):
-    return deserialize(person, data, include=(
+    deserialize(person, data, include=(
         'uuid',
         'first_name',
         'last_name',
@@ -161,7 +169,7 @@ def deserialize_person(person, data):
 
 
 def deserialize_event(event, data):
-    return deserialize(event, data, include=(
+    deserialize(event, data, include=(
         'uuid',
         'title',
         'description',
