@@ -266,8 +266,12 @@ class BaseDetailView(DetailView):
         permission = get_permision_or_deny(request.REQUEST['api_key'],
                                            instance)
 
-        self.before_delete(instance)
-        DeletedURI.objects.filter(uuid=instance.uuid).delete()
+        try:  # This is crap but riquired for now
+            self.before_delete(instance)
+            DeletedURI.objects.filter(uuid=instance.uuid).delete()
+        except Exception:
+            pass
+
         instance.delete()
         permission.delete()
 
@@ -309,6 +313,11 @@ class OrganizationDetailView(OrganizationView, BaseDetailView):
 
             for engagement_data in data['members']:
                 self.create_engagement(organization, engagement_data)
+
+    @create_api_permission
+    def create(self, instance, data):
+        instance.status = 'V'
+        self._save(instance, data)
 
     def _save(self, organization, data):
         self.deserialize(organization, data)
