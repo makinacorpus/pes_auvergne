@@ -266,8 +266,12 @@ class BaseDetailView(DetailView):
         permission = get_permision_or_deny(request.REQUEST['api_key'],
                                            instance)
 
-        self.before_delete(instance)
-        DeletedURI.objects.filter(uuid=instance.uuid).delete()
+        try:  # This is crap but riquired for now
+            self.before_delete(instance)
+            DeletedURI.objects.filter(uuid=instance.uuid).delete()
+        except Exception:
+            pass
+
         instance.delete()
         permission.delete()
 
