@@ -314,6 +314,11 @@ class OrganizationDetailView(OrganizationView, BaseDetailView):
             for engagement_data in data['members']:
                 self.create_engagement(organization, engagement_data)
 
+    @create_api_permission
+    def create(self, instance, data):
+        instance.status = 'V'
+        self._save(instance, data)
+
     def _save(self, organization, data):
         self.deserialize(organization, data)
         organization.save()
