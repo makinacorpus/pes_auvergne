@@ -216,8 +216,6 @@ def deserialize_exchange(exchange, data):
         'uuid',
         'title',
         'description',
-        'eway',
-        'etype',
         'permanent',
         'expiration',
     ))
