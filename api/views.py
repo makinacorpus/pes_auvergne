@@ -477,8 +477,12 @@ class ExchangeDetailView(ExchangeView, BaseDetailView):
         exchange.save()
 
         if 'products' in data:
-            exchange.products = Product.objects\
-                .filter(uuid__in=data['products']).all()
+            product_uuids = data['products']
+            if product_uuids:
+                exchange.products = Product.objects\
+                    .filter(uuid__in=product_uuids).all()
+            else:
+                exchange.products = []
 
         if 'methods' in data:
             exchange.methods = ExchangeMethod.objects\
@@ -489,12 +493,20 @@ class ExchangeDetailView(ExchangeView, BaseDetailView):
                 .get(id=data['activity'])
 
         if 'organization' in data:
-            exchange.organization = Organization.objects\
-                .get(uuid=data['organization'])
+            organization_uuid = data['organization']
+            if organization_uuid:
+                exchange.organization = Organization.objects\
+                    .get(uuid=organization_uuid)
+            else:
+                exchange.organization = None
 
         if 'person' in data:
-            exchange.person = Person.objects\
-                .get(uuid=data['person'])
+            person_uuid = data['person']
+            if person_uuid:
+                exchange.person = Person.objects\
+                    .get(uuid=person_uuid)
+            else:
+                exchange.person = None
 
         exchange.save()
 
