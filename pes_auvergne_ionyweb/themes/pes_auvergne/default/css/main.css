@@ -262,7 +262,7 @@ figure {
 #main-content input[type='password'],
 #main-content input[type='email'],
 #main-content select {
-  border: 1px solid #eee;
+  border: 1px solid #ddd;
   border-radius: 2px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
