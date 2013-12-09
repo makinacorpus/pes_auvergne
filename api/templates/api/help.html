@@ -45,8 +45,10 @@
             "birth": "2013-01-01",
             "contacts": [
                 {
+                    "contact_medium": 42,
                     "content": "00.00.00.00.00",
                     "uuid": "33746d9321fd4d6db5449950878510ed" 
+                    "details": "Lorem ipsum details",
                 },
                 …
             ],
@@ -90,6 +92,7 @@
                 </dd>
             </dl>
         </p>
+        contact_medium: See <a href=#contact-medium>Contact Medium</a><br>
         <h3>End Points</h3>
         <dl>
             <dt><b>GET <a href="./organizations/">/api/organizations/</a></b></dt>
@@ -119,8 +122,10 @@
             "last_name": "Last Name",
             "contacts": [
                 {
+                    "contact_medium": 42,
                     "content": "00.00.00.00.00",
                     "uuid": "33746d9321fd4d6db5449950878510ed" 
+                    "details": "Lorem ipsum details",
                 },
                 …
             ],
@@ -136,6 +141,7 @@
                 </dd>
             </dl>
         </p>
+        contact_medium: See <a href=#contact-medium>Contact Medium</a><br>
         <h3>End Points</h3>
         <dl>
             <dt><b>GET <a href="./persons/">/api/persons/</a></b><dt>
@@ -155,6 +161,29 @@
                 <p>Create or update a person.</p>
             </dd>
         </dl>
+    </section>
+    <section>
+        <h2>Contacts</h2>
+        <h3>End Points</h3>
+        <dl>
+            <dt><b>GET <a href="./contacts/">/api/contacts/</a></b><dt>
+            <dd>
+                <p>List all transverse themes.</p>
+            </dd>
+        </dl>
+        <h3>Contact structure</h3>
+        <pre>
+        {
+            "contact_medium": 42,
+            "content": "00.00.00.00.00",
+            "uuid": "33746d9321fd4d6db5449950878510ed" 
+            "content_object": {
+                "type": "Organization/Person",
+                "uuid": "HdBkYztf9b8vxPLoDNmaFC"
+            },
+            "details": "Lorem ipsum details",
+        }
+        </pre>
     </section>
     <section>
         <h2>Transverse Themes</h2>

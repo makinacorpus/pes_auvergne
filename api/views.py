@@ -51,6 +51,7 @@ from .serializers import (
     deserialize_product,
     serialize_activity_nomenclature,
     serialize_calendar,
+    serialize_contact,
     serialize_contact_medium,
     serialize_event,
     serialize_event_category,
@@ -531,3 +532,17 @@ class ProductDetailView(ProductView, BaseDetailView):
                 .get(uuid=data['organization'])
 
         product.save()
+
+
+class ContactListView(BaseListView):
+    model = Contact
+
+    @staticmethod
+    def serialize(contact):
+        serialized = serialize_contact(contact)
+        content_object = contact.content_object
+        serialized['content_object'] = {
+            'type': type(content_object).__name__,
+            'uuid': content_object.uuid
+        }
+        return serialized
