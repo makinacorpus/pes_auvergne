@@ -262,7 +262,7 @@ figure {
 #main-content input[type='password'],
 #main-content input[type='email'],
 #main-content select {
-  border: 1px solid #eee;
+  border: 1px solid #bbb;
   border-radius: 2px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -278,7 +278,7 @@ figure {
 #main-content input[type='number']:focus,
 #main-content input[type='password']:focus,
 #main-content select:focus {
-  border-color: #AAA;
+  border-color: #bbb;
 }
 #main-content #login_form input[type='text'],
 #main-content #login_form input[type='password'],
@@ -286,7 +286,7 @@ figure {
 #main-content #search_form input[type='date'],
 #main-content #search_form input[type='number'],
 #main-content #search_form input[type='password'] {
-  border: 1px solid #EAEAEA;
+  border: 1px solid #bbb;
   border-radius: 3px 3px 3px 3px;
   margin: 0;
   margin-top: 4px;
@@ -305,7 +305,7 @@ figure {
 #main-content #search_form input[type='date']:focus,
 #main-content #search_form input[type='number']:focus,
 #main-content #search_form input[type='password']:focus {
-  border-color: #AAA;
+  border-color: #bbb;
 }
 #main-content .date_select select,
 #sort-form select {
@@ -325,7 +325,7 @@ figure {
 }
 #main-content #search_form select {
   background: none repeat scroll 0 0 #FFFFFF;
-  border: 1px solid #EAEAEA;
+  border: 1px solid #bbb;
   border-radius: 3px 3px 3px 3px;
   margin-top: 4px;
   padding: 3px;

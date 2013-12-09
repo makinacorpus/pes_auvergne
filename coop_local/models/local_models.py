@@ -3,6 +3,12 @@ from django.db import models
 from extended_choices import Choices
 from coop.org.models import BaseOrganization
 from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
+
+from api.models import (
+    ApiKey,
+    ApiPermissions
+)
 
 SECTEURS_FSE = Choices(
     ('TOUS',        0,  'Tous secteurs d’activité'),
@@ -84,6 +90,16 @@ class Organization(BaseOrganization):
     evaluation = models.ForeignKey('coop_local.Evaluation', verbose_name=_(u'answer'), blank=True, null=True)
     
     evaluation_status = models.BooleanField(_('Publish evaluation'), default=False)
+    
+    def get_apikey(self):
+        if "api" in settings.INSTALLED_APPS:
+            obj = ApiPermissions.objects.get(object_type=str(type(self)), object_id=self.id)
+            if obj:
+                return obj.api_key.name
+            else:
+                return ''
+        else:
+            return ''
     
     class Meta:
         verbose_name = 'Initiative'
