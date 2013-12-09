@@ -30,7 +30,7 @@ class MyOrganizationAdminForm(OrganizationAdminForm):
 admin.site.unregister(Organization)
 class MyOrganizationAdmin(OrganizationAdmin):
     form = MyOrganizationAdminForm
-    list_display = ('logo_list_display', 'label', 'id', 'active', 'has_description', 'has_location')
+    list_display = ('logo_list_display', 'label', 'id', 'active', 'has_description', 'has_location', 'modified', 'validation')
     fieldsets = (
         ('Identité', {
             'fields': ('is_project', 'logo', 'title', ('acronym', 'pref_label'), 'birth', 'active',
