@@ -122,7 +122,7 @@ def serialize_event_category(event_category):
 
 
 def serialize_event(event):
-    return serialize(event, include=(
+    serialized = serialize(event, include=(
         'uuid',
         'title',
         'description',
@@ -136,6 +136,11 @@ def serialize_event(event):
         'source_info',
         'zoom_on',
     ))
+    serialized['occurrences'] = [
+        serialize(occurrence, include=('start_time', 'end_time'))
+        for occurrence in event.occurrence_set.all()
+    ]
+    return serialized
 
 
 def deserialize_contact(content_object, contact, data):

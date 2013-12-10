@@ -144,6 +144,13 @@ def get_or_create_object(model, **kwargs):
         return model(**kwargs)
 
 
+def get_object_or_none(model, **kwargs):
+    try:
+        return model.objects.get(**kwargs)
+    except ObjectDoesNotExist:
+        return None
+
+
 def update_transverse_themes(instance, data):
     if 'transverse_themes' in data:
         ids = data['transverse_themes']
@@ -426,18 +433,32 @@ class EventDetailView(EventView, BaseDetailView):
 
     def set_activity(self, event, data):
         if 'activity' in data:
-            event.activity = ActivityNomenclature.objects\
-                .get(id=data['activity'])
+            event.activity = get_object_or_none(ActivityNomenclature,
+                                                id=data['activity'])
 
     def set_organization(self, event, data):
         if 'organization' in data:
-            event.organization = Organization.objects\
-                .get(uuid=data['organization'])
+            event.organization = get_object_or_none(Organization,
+                                                    uuid=data['organization'])
 
     def set_organizations(self, event, data):
         if 'organizations' in data:
             event.organizations = Organization.objects\
                 .filter(uuid__in=data['organizations']).all()
+
+    def is_valid_occurrence_data(self, occurrence_data):
+        return occurrence_data.get('start_time') \
+            and occurrence_data.get('end_time')
+
+    def set_occurrences(self, event, data):
+        if 'occurrences' in data:
+            event.occurrence_set.filter().delete()
+            for occurrence_data in data.get('occurrences', []):
+                if self.is_valid_occurrence_data(occurrence_data):
+                    event.add_occurrences(
+                        start_time=occurrence_data['start_time'],
+                        end_time=occurrence_data['end_time']
+                    )
 
     def _save(self, event, data):
         self.deserialize(event, data)
@@ -447,6 +468,7 @@ class EventDetailView(EventView, BaseDetailView):
         self.set_activity(event, data)
         self.set_organization(event, data)
         self.set_organizations(event, data)
+        self.set_occurrences(event, data)
         update_transverse_themes(event, data)
         event.save()
 
