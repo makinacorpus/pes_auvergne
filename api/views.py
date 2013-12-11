@@ -453,12 +453,13 @@ class EventDetailView(EventView, BaseDetailView):
     def set_occurrences(self, event, data):
         if 'occurrences' in data:
             event.occurrence_set.filter().delete()
-            for occurrence_data in data.get('occurrences', []):
-                if self.is_valid_occurrence_data(occurrence_data):
-                    event.add_occurrences(
-                        start_time=occurrence_data['start_time'],
-                        end_time=occurrence_data['end_time']
-                    )
+            if data['occurrences']:
+                for occurrence_data in data['occurrences']:
+                    if self.is_valid_occurrence_data(occurrence_data):
+                        event.add_occurrences(
+                            start_time=occurrence_data['start_time'],
+                            end_time=occurrence_data['end_time']
+                        )
 
     def _save(self, event, data):
         self.deserialize(event, data)
