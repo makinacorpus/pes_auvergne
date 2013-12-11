@@ -27,6 +27,19 @@ def serialize_contact_medium(contact_medium):
     }
 
 
+def serialize_location(location):
+    serialized = serialize(location, include=(
+        'uuid',
+        'label',
+        'adr1',
+        'adr2',
+        'zipcode',
+        'city',
+        'country',
+    ))
+    return serialized
+
+
 def serialize_organization(organization):
     serialized = serialize(organization, include=(
         'uuid',
@@ -150,6 +163,18 @@ def deserialize_contact(content_object, contact, data):
     ))
 
     contact.content_object = content_object
+
+
+def deserialize_location(location, data):
+    deserialize(location, data, include=(
+        'uuid',
+        'label',
+        'adr1',
+        'adr2',
+        'zipcode',
+        'city',
+        'country',
+    ))
 
 
 def deserialize_organization(organization, data):

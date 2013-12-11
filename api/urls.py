@@ -18,6 +18,8 @@ from .views import (
     ExchangeMethodListView,
     help_view,
     LegalStatusListView,
+    LocationDetailView,
+    LocationListView,
     OrganizationDetailView,
     OrganizationListView,
     PersonDetailView,
@@ -51,4 +53,6 @@ urlpatterns = patterns(
     url(r'^exchanges/(?P<uuid>\w+)/', ExchangeDetailView.as_view()),
     url(r'^products/$', ProductListView.as_view()),
     url(r'^products/(?P<uuid>\w+)/', ProductDetailView.as_view()),
+    url(r'^locations/$', LocationListView.as_view()),
+    url(r'^locations/(?P<uuid>\w+)/', LocationDetailView.as_view()),
 )

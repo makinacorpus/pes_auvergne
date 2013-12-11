@@ -23,17 +23,18 @@ from coop.exchange.models import (
 )
 
 from coop_local.models import (
-    DeletedURI,
     ActivityNomenclature,
     Calendar,
     Contact,
     ContactMedium,
+    DeletedURI,
     Engagement,
     Event,
     EventCategory,
     Exchange,
     ExchangeMethod,
     LegalStatus,
+    Location,
     Organization,
     Person,
     Product,
@@ -46,6 +47,7 @@ from .serializers import (
     deserialize_contact,
     deserialize_event,
     deserialize_exchange,
+    deserialize_location,
     deserialize_organization,
     deserialize_person,
     deserialize_product,
@@ -58,6 +60,7 @@ from .serializers import (
     serialize_exchange,
     serialize_exchange_method,
     serialize_legal_status,
+    serialize_location,
     serialize_organization,
     serialize_person,
     serialize_product,
@@ -569,3 +572,17 @@ class ContactListView(BaseListView):
             'uuid': content_object.uuid
         }
         return serialized
+
+
+class LocationView(object):
+    model = Location
+    serialize = staticmethod(serialize_location)
+    deserialize = staticmethod(deserialize_location)
+
+
+class LocationDetailView(LocationView, BaseDetailView):
+    pass
+
+
+class LocationListView(LocationView, BaseListView):
+    pass
