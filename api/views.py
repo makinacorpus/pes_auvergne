@@ -6,6 +6,7 @@ from django.core.exceptions import (
     ObjectDoesNotExist,
     PermissionDenied
 )
+from django.db import transaction
 from django.http import HttpResponse
 from django.shortcuts import (
     get_object_or_404,
@@ -109,12 +110,13 @@ def require_api_key(method):
 def create_api_permission(method):
 
     def wrapper(view, instance, data):
-        method(view, instance, data)
-        api_key = ApiKey.objects.get(key=view.request.REQUEST['api_key'])
-        permission = ApiPermissions(object_type=str(type(instance)),
-                                    object_id=instance.id,
-                                    api_key=api_key)
-        permission.save()
+        with transaction.commit_on_success():
+            method(view, instance, data)
+            api_key = ApiKey.objects.get(key=view.request.REQUEST['api_key'])
+            permission = ApiPermissions(object_type=str(type(instance)),
+                                        object_id=instance.id,
+                                        api_key=api_key)
+            permission.save()
 
     return wrapper
 
@@ -271,18 +273,22 @@ class BaseDetailView(DetailView):
     def before_delete(self, instance):
         pass
 
+    def delete_deleted_uris(self, uuid):
+        try:
+            DeletedURI.objects.filter(uuid=uuid).delete()
+        except Exception:
+            pass
+
     @require_api_key
     def delete(self, request, *args, **kwargs):
         instance = self.get_object()
         permission = get_permision_or_deny(request.REQUEST['api_key'],
                                            instance)
-
-        try:  # This is crap but riquired for now
+        try:
             self.before_delete(instance)
-            DeletedURI.objects.filter(uuid=instance.uuid).delete()
         except Exception:
             pass
-
+        self.delete_deleted_uris(instance.uuid)
         instance.delete()
         permission.delete()
 

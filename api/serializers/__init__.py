@@ -4,6 +4,7 @@ from coop.exchange.models import (
 )
 
 from coop_local.models import (
+    ContactMedium,
     Engagement,
 )
 
@@ -163,6 +164,9 @@ def deserialize_contact(content_object, contact, data):
     ))
 
     contact.content_object = content_object
+    if 'contact_medium' in data:
+        contact_medium = ContactMedium.objects.get(id=data['contact_medium'])
+        contact.contact_medium = contact_medium
 
 
 def deserialize_location(location, data):
