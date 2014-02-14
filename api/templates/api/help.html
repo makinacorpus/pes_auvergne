@@ -82,7 +82,7 @@
                     A list of existing person/role pairs.
                     They must exist when the organization is created.
                 </dd>
-                <dt><b>pref_address</b></dt>
+                <dt><b>pref_phone</b></dt>
                 <dd>
                     An existing person/organization contact or an owned contact.
                 </dd>
@@ -90,9 +90,17 @@
                 <dd>
                     An existing person/organization contact or an owned contact.
                 </dd>
+                <dt><b>pref_address</b></dt>
+                <dd>
+                    An existing location.
+                    See <a href=#locations>Locations</a><br>
+                </dd>
+                <dt><b>contact_medium</b></dt>
+                <dd>
+                    See <a href=#contact-medium>Contact Medium</a><br>
+                </dd>
             </dl>
         </p>
-        contact_medium: See <a href=#contact-medium>Contact Medium</a><br>
         <h3>End Points</h3>
         <dl>
             <dt><b>GET <a href="./organizations/">/api/organizations/</a></b></dt>
@@ -139,9 +147,12 @@
                 <dd>
                     An existing person/organization contact or an owned contact.
                 </dd>
+                <dt><b>contact_medium</b></dt>
+                <dd>
+                    See <a href=#contact-medium>Contact Medium</a><br>
+                </dd>
             </dl>
         </p>
-        contact_medium: See <a href=#contact-medium>Contact Medium</a><br>
         <h3>End Points</h3>
         <dl>
             <dt><b>GET <a href="./persons/">/api/persons/</a></b><dt>
@@ -186,7 +197,7 @@
         </pre>
     </section>
     <section>
-        <h2>Locations</h2>
+        <h2 id=locations>Locations</h2>
         <h3>End Points</h3>
         <dl>
             <dt><b>GET <a href="./locations/">/api/locations/</a></b><dt>
@@ -388,7 +399,7 @@
         </pre>
     </section>
     <section>
-        <h2>Contact Medium</h2>
+        <h2 id=contact-medium>Contact Medium</h2>
         <h3>End Points</h3>
         <dl>
             <dt><b>GET <a href="./contact_medium/">/api/contact_medium/</a></b><dt>
