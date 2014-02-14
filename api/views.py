@@ -219,14 +219,14 @@ class HasContactsView(object):
                                    current_contacts_uuid):
                 contact.delete()
 
-    def update_pref(self, content_object, name, data):
+    def update_pref(self, content_object, model, name, data):
         if name in data:
             uuid = data[name]
             if uuid:
-                contact = Contact.objects.get(uuid=uuid)
+                item = model.objects.get(uuid=uuid)
             else:
-                contact = None
-            setattr(content_object, name, contact)
+                item = None
+            setattr(content_object, name, item)
 
 
 class BaseDetailView(DetailView):
@@ -340,8 +340,9 @@ class OrganizationDetailView(OrganizationView, BaseDetailView):
         self.deserialize(organization, data)
         organization.save()
         self.update_contacts(organization, data)
-        self.update_pref(organization, 'pref_email', data)
-        self.update_pref(organization, 'pref_phone', data)
+        self.update_pref(organization, Contact, 'pref_email', data)
+        self.update_pref(organization, Contact, 'pref_phone', data)
+        self.update_pref(organization, Location, 'pref_address', data)
         update_transverse_themes(organization, data)
         self.update_members(organization, data)
         organization.save()
@@ -369,7 +370,7 @@ class PersonDetailView(PersonView, BaseDetailView):
         self.deserialize(person, data)
         person.save()
         self.update_contacts(person, data)
-        self.update_pref(person, 'pref_email', data)
+        self.update_pref(person, Contact, 'pref_email', data)
         person.save()
 
     def after_update(self, person, data):
